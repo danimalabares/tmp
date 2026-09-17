@@ -1,0 +1,314 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{appendixnumberbeamer}
+
+% A plain mathematical Beamer layout. All formulas remain editable.
+\definecolor{Ink}{HTML}{183447}
+\definecolor{Teal}{HTML}{087D82}
+\definecolor{Ochre}{HTML}{A25B12}
+\definecolor{Muted}{HTML}{596974}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Ink,bg=white}
+\setbeamercolor{title}{fg=Ink}
+\setbeamercolor{structure}{fg=Teal}
+\setbeamercolor{alerted text}{fg=Teal}
+\setbeamercolor{footline}{fg=Muted,bg=white}
+\setbeamerfont{title}{size=\fontsize{28}{33}\selectfont,series=\bfseries}
+\setbeamerfont{frametitle}{size=\fontsize{20}{24}\selectfont,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamersize{text margin left=11mm,text margin right=11mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\small\raisebox{0.15ex}{\(\bullet\)}}
+\setbeamertemplate{frametitle}{\vspace{4mm}\insertframetitle\par\vspace{2mm}}
+\setbeamertemplate{footline}{%
+  \hspace*{11mm}\usebeamerfont{footline}Hodge theory\hfill
+  \insertframenumber\hspace*{11mm}\vspace*{3mm}\par}
+\setlength{\parskip}{0.5em}
+
+\newcommand{\db}{\bar\partial}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Lie}{\mathcal L}
+\newcommand{\fouriermode}{e_{n,m}}
+\newcommand{\zero}[1]{{\color{Ochre}#1}}
+\newcommand{\aside}[1]{\par{\small\color{Muted}#1\par}}
+\pdfstringdefDisableCommands{\def\translate#1{#1}}
+
+\title{The \texorpdfstring{$\bar\partial$}{dbar}-Poincar\'e lemma}
+\subtitle{One complex dimension}
+\author{Daniel Gonz\'alez Casanova Azuela}
+\date{}
+\hypersetup{pdfauthor={Daniel Gonzalez Casanova Azuela},
+  pdftitle={Lecture 12: The dbar-Poincare lemma in one complex dimension}}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \vspace{7mm}
+  {\small\color{Teal}HODGE THEORY\par}
+  \vspace{5mm}
+  {\usebeamerfont{title}\inserttitle\par}
+  \vspace{3mm}
+  {\large\insertsubtitle\par}
+  \vspace{6mm}
+  {\normalsize\insertauthor\par}
+  \vfill
+  \aside{Based on Misha Verbitsky's lecture 12, IMPA, 2025.}
+  \vspace{3mm}
+\end{frame}
+
+\begin{frame}{The equation we want to solve}
+  Let $D\subset\C$ be a disk, with coordinate $z=x+iy$.
+
+  Given a smooth $(0,1)$-form
+  \[
+    \eta=g(z,\bar z)\,d\bar z
+  \]
+  extending smoothly to a neighbourhood of $\overline D$, we want
+  \[
+    \alert{\db u=\eta},\qquad u\in C^\infty(D).
+  \]
+  In coordinates this is just
+  \[
+    \db u=\frac12(u_x+i u_y)\,d\bar z.
+  \]
+  \aside{We first solve the equation on a torus up to a constant term.}
+\end{frame}
+
+\begin{frame}{Functions on the square torus}
+  We start with the elliptic curve
+  \[
+    E=\C/(2\pi\Z+2\pi i\Z).
+  \]
+  Think of $(0,2\pi]\times(0,2\pi]$ with opposite edges identified.
+
+  A function on $E$ is a function on $\C$ satisfying
+  \[
+    f(x+2\pi,y)=f(x,y),\qquad
+    f(x,y+2\pi)=f(x,y).
+  \]
+  \alert{There are two real coordinates, so there will be two frequencies.}
+\end{frame}
+
+% Sources: HP, functional-analysis.tex, example-fourier-orthonormal-system
+% (use integer indices); Verbitsky, lecture 12, pp. 4--5.
+\begin{frame}{The Fourier basis}
+  The functions
+  \[
+    \fouriermode(x,y)=e^{i(nx+my)}=e^{inx}e^{imy},
+    \qquad (n,m)\in\Z^2,
+  \]
+  form an orthonormal basis of $L^2(E)$ for the measure
+  $dx\,dy/(2\pi)^2$.
+
+  Therefore every $f\in L^2(E)$ has a basis expansion
+  \[
+    \alert{f=\sum_{n,m\in\Z}a_{n,m}\fouriermode},
+    \qquad a_{n,m}=\langle f,\fouriermode\rangle.
+  \]
+  \aside{The equality means convergence in $L^2$. We use the Fourier basis theorem without proving it here.}
+\end{frame}
+
+\begin{frame}{Fourier modes of a form}
+  Expand the coefficient of a smooth $(0,1)$-form:
+  \[
+    \eta=g\,d\bar z
+      =\sum_{n,m\in\Z}\underbrace{a_{n,m}\fouriermode\,d\bar z}_{\eta_{n,m}}.
+  \]
+  The summand $\eta_{n,m}$ is its \alert{$(n,m)$-Fourier mode}.
+
+  \[
+    \eta=\zero{a_{0,0}\,d\bar z}
+      +\sum_{(n,m)\ne(0,0)}\eta_{n,m}.
+  \]
+  \aside{The zero mode has constant coefficients. A nonzero frequency means $(n,m)\ne(0,0)$.}
+\end{frame}
+
+\begin{frame}{Differentiation preserves the frequency}
+  Differentiate one basis function:
+  \[
+    d\fouriermode=\fouriermode(in\,dx+im\,dy),
+  \]
+  \[
+    \db\fouriermode=\frac{in-m}{2}\,\fouriermode\,d\bar z.
+  \]
+  Every coefficient is a constant multiple of \alert{the same $\fouriermode$}.
+
+  Thus $d$ and $\db$ preserve the pair $(n,m)$.
+  We can solve the equation \alert{one frequency at a time}.
+\end{frame}
+
+\begin{frame}{Closed forms and exact forms}
+  A form $\eta$ is \alert{$\db$-closed} if $\db\eta=0$.
+
+  It is \alert{$\db$-exact} if $\eta=\db u$ for some $u$.
+
+  In complex dimension one, every $(0,1)$-form is closed:
+  \[
+    \db(g\,d\bar z)
+      =\frac{\partial g}{\partial\bar z}\,
+        \underbrace{d\bar z\wedge d\bar z}_{0}=0.
+  \]
+  \aside{Our task is to find primitives. Closedness is already automatic in this degree.}
+\end{frame}
+
+% Source: Verbitsky, lecture 12, pp. 13--14.
+% Conventions throughout this deck: z=x+iy, I(partial_x)=partial_y,
+% dbar f=1/2(f_x+i f_y) dbar z. These fix the plus sign below.
+% The formula is used here for constant translation fields on a flat torus.
+\begin{frame}{The complex Cartan formula}
+  Put $X=\partial_x$, so $IX=\partial_y$.
+
+  For these constant vector fields,
+  \[
+    \alert{\db\iota_X+\iota_X\db
+      =\frac12\bigl(\Lie_X+i\Lie_{IX}\bigr)}.
+  \]
+  Here $\iota_X$ is contraction. On a one-form, $\iota_X\eta=\eta(X)$.
+  In particular,
+  \[
+    \iota_X(g\,d\bar z)=g.
+  \]
+  \aside{Here $\Lie_X$ and $\Lie_{IX}$ simply differentiate the coefficients in the $x$- and $y$-directions.}
+\end{frame}
+
+\begin{frame}{Primitives of nonzero modes}
+  For $\eta_{n,m}=a_{n,m}\fouriermode\,d\bar z$, we have
+  \[
+    \Lie_X\eta_{n,m}=in\eta_{n,m},\qquad
+    \Lie_{IX}\eta_{n,m}=im\eta_{n,m}.
+  \]
+  Since $\db\eta_{n,m}=0$, Cartan's formula gives
+  \[
+    \db(\iota_X\eta_{n,m})=\frac{in-m}{2}\,\eta_{n,m}.
+  \]
+  If $(n,m)\ne(0,0)$, then $in-m\ne0$, hence
+  \[
+    \alert{\eta_{n,m}
+      =\db\left(\frac{2a_{n,m}}{in-m}\fouriermode\right)}.
+  \]
+\end{frame}
+
+\begin{frame}{Adding the primitives}
+  Define a function on the torus by
+  \[
+    f=\sum_{(n,m)\ne(0,0)}
+       \frac{2a_{n,m}}{in-m}\fouriermode.
+  \]
+  Differentiating term by term gives
+  \[
+    \db f=\eta-\zero{a_{0,0}\,d\bar z}.
+  \]
+  Therefore
+  \[
+    \alert{\eta=\zero{c\,d\bar z}+\db f},\qquad c=a_{0,0}.
+  \]
+  \aside{Fourier fact used here: for smooth $g$, this series and all its derivatives converge uniformly, so $f$ is smooth.}
+\end{frame}
+
+\begin{frame}{The constant part in cohomology}
+  Dolbeault cohomology identifies closed forms that differ by an exact form:
+  \[
+    H^{0,1}_{\db}(E)
+      =\frac{\{\text{smooth closed $(0,1)$-forms}\}}
+             {\{\db f:f\in C^\infty(E)\}}.
+  \]
+  Since $\eta=c\,d\bar z+\db f$,
+  \[
+    [\eta]=c[d\bar z],\qquad
+    \alert{H^{0,1}_{\db}(E)\cong\C}.
+  \]
+  \aside{$\db f$ always has zero constant part: differentiation preserves frequencies and kills the constant term. Thus $c\,d\bar z$ is exact only when $c=0$.}
+\end{frame}
+
+\begin{frame}{The disk inside an elliptic curve}
+  Choose $L>0$ so large that $\overline D$ lies in the interior
+  of a fundamental square for
+  \[
+    E_L=\C/(L\Z+iL\Z).
+  \]
+  The quotient map embeds a neighbourhood of $\overline D$ into $E_L$.
+
+  The same Fourier calculation works for any period $L$.
+  \aside{Rescaling the coordinate by $w=2\pi z/L$ reduces it to the square torus we just used.}
+
+  \alert{On this neighbourhood, $z$ and $\bar z$ are well-defined functions.}
+\end{frame}
+
+% Source: Verbitsky, lecture 12, p. 15. Multiplication by a cutoff is safe
+% here because every (0,1)-form on a complex curve is dbar-closed.
+\begin{frame}{Extending the form to the torus}
+  Let $U$ be a neighbourhood of $\overline D$ inside that square,
+  where $\eta$ is defined.
+
+  Choose a smooth function $\chi$ that is $1$ near $\overline D$
+  and has support contained in $U$.
+  \[
+    \widetilde\eta=
+      \begin{cases}
+        \chi\eta & \text{on }U,\\[1mm]
+        0 & \text{outside }U.
+      \end{cases}
+  \]
+  This is a smooth $(0,1)$-form on $E_L$, equal to $\eta$ on $D$.
+
+  \aside{It is automatically $\db$-closed, just like every $(0,1)$-form on a complex curve.}
+\end{frame}
+
+\begin{frame}{The primitive on the disk}
+  On the elliptic curve, our calculation gives
+  \[
+    \widetilde\eta=c\,d\bar z+\db f.
+  \]
+  On the disk, $\bar z$ is a function and $\db\bar z=d\bar z$.
+  Restricting to $D$ therefore gives
+  \[
+    \alert{\eta=\db\bigl(c\bar z+f|_D\bigr)}.
+  \]
+  \vspace{2mm}
+  This is the required primitive.
+
+  \aside{On the whole torus, $\bar z$ is not periodic, so it cannot serve as a global primitive.}
+\end{frame}
+
+\appendix
+
+\begin{frame}{Supplement: the $(1,1)$ case}
+  A $(1,1)$-form on the disk is $\eta=g\,dz\wedge d\bar z$.
+
+  By the $(0,1)$ case, choose $u$ with
+  \[
+    \db u=g\,d\bar z.
+  \]
+  Then
+  \[
+    \db(-u\,dz)=-\db u\wedge dz
+      =g\,dz\wedge d\bar z=\eta.
+  \]
+  \aside{These are the two possible types with positive antiholomorphic degree in complex dimension one: $(0,1)$ and $(1,1)$.}
+\end{frame}
+
+\begin{frame}{Supplement: the constant representatives}
+  The same calculation for each type gives
+  \begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \begin{tabular}{ccc}
+    \toprule
+    Type & Constant representative & Cohomology on $E$ \\
+    \midrule
+    $(0,0)$ & $1$ & $H^{0,0}_{\db}(E)\cong\C$ \\
+    $(1,0)$ & $dz$ & $H^{1,0}_{\db}(E)\cong\C$ \\
+    $(0,1)$ & $d\bar z$ & $H^{0,1}_{\db}(E)\cong\C$ \\
+    $(1,1)$ & $dz\wedge d\bar z$ & $H^{1,1}_{\db}(E)\cong\C$ \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \aside{Here $(p,q)$ records the number of $dz$ and $d\bar z$ factors. Each cohomology class has a unique constant representative.}
+\end{frame}
+
+\end{document}
