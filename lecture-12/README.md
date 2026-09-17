@@ -1,15 +1,20 @@
 # Lecture 12: the dbar-Poincare lemma in one variable
 
-A plain, black-and-white Beamer presentation with 31 slides and proofs.
+A plain, black-and-white Beamer presentation with 31 slides. The introduction
+recalls statements and references; the Fourier and one-variable arguments
+include proofs.
 
 - [Slides (PDF)](lecture-12.pdf)
 - [Beamer source](lecture-12.tex)
 
 ## Contents
 
-1. Lecture 11: Dolbeault's theorem via an acyclic resolution. Local exactness
-   comes from the dbar-Poincare lemma; acyclicity comes from partitions of unity.
-   Today's theorem and the next lecture's multivariable and Hartogs plan.
+1. Introduction based on the `de-rham-dolbeault` notes, with statements and
+   references to Voisin instead of proofs. Proposition 4.32 is the central tool:
+   it requires an exact resolution whose terms are acyclic. Definitions 4.31
+   and 4.35, Proposition 4.36, and Corollary 4.37 supply the supporting references.
+   The dbar-Poincare lemma gives exactness; fineness gives acyclicity. Today's
+   theorem and the next lecture's multivariable and Hartogs plan follow.
 2. Hilbert spaces and orthonormal expansions. The Fourier examples from
    `functional-analysis/functional-analysis.tex` are reproduced verbatim,
    including their proof. Completeness, normalized measures, the torus basis,
@@ -38,6 +43,10 @@ Intermediate files go in `build/`. `make clean` removes them and keeps the
 PDF in this directory.
 
 ## Sources and conventions
+
+- Claire Voisin, *Hodge Theory and Complex Algebraic Geometry I*, Chapter 4:
+  Definitions 4.31 and 4.35, Propositions 4.32 and 4.36, and Corollary 4.37.
+  The numbering and statements follow the `de-rham-dolbeault` notes.
 
 - Misha Verbitsky, Hodge theory, IMPA 2025:
   [Lecture 11](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf),

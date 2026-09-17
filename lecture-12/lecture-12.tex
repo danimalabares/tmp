@@ -37,86 +37,93 @@
 \end{frame}
 
 \section{Reminder and plan}
-\begin{frame}{Lecture 11: Dolbeault's theorem}
-Let $M$ be a complex manifold, $\Omega^p_M$ the sheaf of holomorphic
-$p$-forms, and $\A^{p,q}_M$ the sheaf of smooth $(p,q)$-forms.
+\begin{frame}{From de Rham to Dolbeault}
+The \texttt{de-rham-dolbeault} notes use the same method for both theorems:
+compute sheaf cohomology using an \textbf{acyclic resolution}.
 
-\textbf{Theorem.}
+\textbf{de Rham (Voisin, Corollary 4.37).}
 \[
- H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M)
- =\frac{\ker(\db:\A^{p,q}(M)\to\A^{p,q+1}(M))}
- {\operatorname{im}(\db:\A^{p,q-1}(M)\to\A^{p,q}(M))}.
+ H^q(M,\R_M)\cong H^q_{\mathrm{dR}}(M).
 \]
-\textbf{Method.} Use the acyclic resolution
+The resolution is the complex of smooth differential forms with $d$.
+
+\textbf{Dolbeault.} On a complex manifold $M$,
 \[
-0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
+ H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).
+\]
+Here $\Omega^p_M$ is the sheaf of holomorphic $p$-forms.
+We use smooth $(p,q)$-forms with $\db$ instead.
+
+The common tool is \textbf{Voisin's Proposition 4.32}.
+\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4;\newline
+\texttt{de-rham-dolbeault} notes, de Rham's theorem and Dolbeault's theorem.}
+\end{frame}
+
+\begin{frame}{The key tool: Voisin, Proposition 4.32}
+\textbf{Acyclicity (Definition 4.31).}
+An object $B$ is acyclic for a left-exact functor $F$ if
+\[
+ R^rF(B)=0\qquad\text{for all }r>0.
+\]
+\textbf{Proposition 4.32.}
+Let $0\to A\to B^0\to B^1\to\cdots$ be a resolution of $A$.
+If \textbf{every $B^j$ is acyclic for $F$}, then
+\[
+ \boxed{R^qF(A)\cong H^q\bigl(F(B^\bullet)\bigr).}
+\]
+For sheaves, take $F=\Gamma(M,-)$, so $R^qF(A)=H^q(M,A)$.
+
+We need \textbf{both} an exact resolution and acyclic terms to compute
+sheaf cohomology from its complex of global sections.
+\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},\newline
+Definition 4.31 and Proposition 4.32; $\S$4.3 for sheaf cohomology.}
+\end{frame}
+
+\begin{frame}{The acyclicity hypothesis}
+Write $\A^{p,q}_M$ for the sheaf of smooth $(p,q)$-forms.
+
+\textbf{Fine sheaves (Voisin, Definition 4.35).}
+Sheaves of $C^\infty_M$-modules are fine: multiplication by a smooth
+partition of unity supplies a partition of unity on the sheaf.
+In particular, each $\A^{p,q}_M$ is fine.
+
+\textbf{Voisin, Proposition 4.36.}
+A fine sheaf $\mathcal B$ is acyclic for global sections:
+\[
+ H^r(M,\mathcal B)=0\qquad(r>0).
+\]
+Thus all the terms $\A^{p,q}_M$ satisfy the \textbf{acyclicity hypothesis}
+of Proposition 4.32.
+
+We still need the Dolbeault complex to be a \emph{resolution}.
+\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},\newline
+Definition 4.35 and Proposition 4.36, as in the \texttt{de-rham-dolbeault} notes.}
+\end{frame}
+
+\begin{frame}{Why we need the $\bar\partial$-Poincar\'e lemma}
+Consider the sheaf complex
+\[
+ 0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
  \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots.
 \]
-Exactness comes from the $\db$-Poincar\'e lemma.
-Acyclicity comes from partitions of unity.
-\src{Verbitsky, Lecture 11, pp. 20, 28; \texttt{de-rham-dolbeault} notes, Dolbeault's theorem.}
-\end{frame}
-
-\begin{frame}{Why an acyclic resolution computes cohomology}
-\textbf{Recall.} A sheaf $\mathcal B$ is acyclic if
-$H^r(M,\mathcal B)=0$ for $r>0$.
-
-\textbf{Theorem.} If $0\to\F\to\mathcal B^0\to\mathcal B^1\to\cdots$
-is exact and each $\mathcal B^j$ is acyclic, then
+At degree zero, the kernel consists of holomorphic $p$-forms.
+At positive degree, the $\db$-Poincar\'e lemma supplies local primitives:
 \[
- H^q(M,\F)\cong H^q\bigl(\Gamma(M,\mathcal B^\bullet)\bigr).
+ q>0,\quad\db\eta=0\quad\Longrightarrow\quad\eta=\db\beta
+ \quad\text{locally}.
 \]
-\textbf{Proof.} Put $Z^0=\F$ and
-$Z^j=\ker(\mathcal B^j\to\mathcal B^{j+1})$.
-The sequences $0\to Z^j\to\mathcal B^j\to Z^{j+1}\to0$ give
+This makes the sheaf complex \textbf{exact}.
+Its terms are \textbf{acyclic} by Proposition 4.36.
+
+We can therefore apply \textbf{Proposition 4.32}:
 \[
- \frac{\Gamma(Z^q)}{\operatorname{im}\Gamma(\mathcal B^{q-1})}
- \cong H^1(M,Z^{q-1})\cong\cdots\cong H^q(M,\F)
- \qquad(q\geq1).
+ H^q(M,\Omega^p_M)
+ \cong H^q\bigl(\A^{p,\bullet}(M),\db\bigr)
+ =H^{p,q}_{\db}(M).
 \]
-These are the long exact cohomology sequences, using acyclicity.
-For $q=0$, the kernel is $\Gamma(M,\F)$.\hfill$\square$
-\src{Verbitsky, Lecture 11, pp. 18, 20, 27; \texttt{de-rham-dolbeault}, Proposition 4.32.}
-\end{frame}
-
-\begin{frame}{The Dolbeault resolution: exactness}
-\textbf{At degree zero.} In holomorphic coordinates,
-\[
- \alpha=\sum_{|J|=p} f_J\,dz_J,
- \qquad \db\alpha=0
- \quad\Longleftrightarrow\quad
- \frac{\partial f_J}{\partial\bar z_k}=0\quad\text{for all }J,k.
-\]
-Thus $\ker(\db:\A^{p,0}_M\to\A^{p,1}_M)=\Omega^p_M$.
-
-\textbf{At positive degree.} The $\db$-Poincar\'e lemma says that
-if $q>0$ and $\db\alpha=0$, then locally $\alpha=\db\beta$.
-
-Exactness of sheaves is exactness on stalks, so local primitives suffice.
-
-This is the input we begin proving today.
-\src{Verbitsky, Lecture 11, pp. 8, 28; \texttt{de-rham-dolbeault}, Dolbeault proof, steps 1--2.}
-\end{frame}
-
-\begin{frame}{The Dolbeault resolution: acyclicity}
-Each $\A^{p,q}_M$ is a sheaf of $C^\infty_M$-modules, hence fine.
-Here is why partitions of unity kill its higher cohomology.
-
-Let $(\rho_j)$ be a subordinate partition of unity, and let
-$c=(c_{i_0\ldots i_r})$ be an alternating \v{C}ech cocycle, $r>0$.
-Define
-\[
- b_{i_0\ldots i_{r-1}}=\sum_j\rho_j c_{j i_0\ldots i_{r-1}}.
-\]
-Products extend by zero, and the sum is locally finite. Since $\delta c=0$,
-\[
- (\delta b)_{i_0\ldots i_r}
- =\sum_j\rho_j\sum_{k=0}^r(-1)^k c_{j i_0\ldots\widehat{i_k}\ldots i_r}
- =\sum_j\rho_j c_{i_0\ldots i_r}=c_{i_0\ldots i_r}.
-\]
-Thus $H^r(M,\A^{p,q}_M)=0$ for $r>0$.
-The acyclic resolution theorem now gives Dolbeault's theorem.\hfill$\square$
-\src{Verbitsky, Lecture 11, pp. 11--18; \texttt{de-rham-dolbeault}, Propositions 4.36 and 4.32.}
+Today's task is to establish the local exactness in one variable.
+\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4,\newline
+Propositions 4.32 and 4.36; \texttt{de-rham-dolbeault}, Dolbeault's theorem.}
 \end{frame}
 
 \begin{frame}{Today's theorem: one complex variable}
@@ -588,6 +595,9 @@ is exact. This is the one-dimensional input to the Dolbeault resolution.
 
 \begin{frame}{Sources}
 \begin{itemize}
+\item Claire Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},
+Chapter 4: Definitions 4.31, 4.35; Propositions 4.32, 4.36;
+Corollary 4.37.
 \item Misha Verbitsky, \emph{Hodge theory}, IMPA, 2025:
 \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf}{Lecture 11},
 \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf}{Lecture 12},
