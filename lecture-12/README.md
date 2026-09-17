@@ -1,50 +1,59 @@
-# Lecture 12: the dbar-Poincare lemma in one complex dimension
+# Lecture 12: the dbar-Poincare lemma in one variable
 
-An English Beamer presentation of the argument discussed in preparation for
-Misha Verbitsky's Hodge theory lecture. The main presentation has 14 slides,
-including the title. Two supplementary slides give the `(1,1)` case and the
-four Dolbeault cohomology groups of an elliptic curve.
+A plain, black-and-white Beamer presentation with 31 slides and proofs.
 
-- [Compiled slides](lecture-12.pdf)
-- [Editable Beamer source](lecture-12.tex)
+- [Slides (PDF)](lecture-12.pdf)
+- [Beamer source](lecture-12.tex)
 
-The argument follows the Fourier basis expansion on a square torus, explains
-why differentiation preserves each frequency, applies the complex Cartan
-formula to integrate each nonzero frequency, and identifies the remaining
-constant part. A large lattice and a smooth cutoff extend a form from a disk
-to an elliptic curve. Restriction to the disk supplies the primitive of the
-constant part as well.
+## Contents
 
-The stated disk theorem assumes the form extends smoothly to a neighbourhood
-of the closed disk. The presentation uses the Fourier basis theorem and the
-smooth convergence of the series of primitives without proving them.
-No representation theory or higher-dimensional argument is needed.
+1. Lecture 11: Dolbeault's theorem via an acyclic resolution. Local exactness
+   comes from the dbar-Poincare lemma; acyclicity comes from partitions of unity.
+   Today's theorem and the next lecture's multivariable and Hartogs plan.
+2. Hilbert spaces and orthonormal expansions. The Fourier examples from
+   `functional-analysis/functional-analysis.tex` are reproduced verbatim,
+   including their proof. Completeness, normalized measures, the torus basis,
+   and Fourier modes of forms follow separately.
+3. Proof that `d` and `dbar` preserve frequencies.
+4. Complex Cartan's formula, its eigenvalues on modes, primitives of nonzero
+   modes, smooth convergence of the series, and constant cohomology representatives.
+5. Embedding a disk in a large elliptic curve, extending its form with a cutoff,
+   and removing the constant term with `dbar(bar z) = dbar z`.
+
+The theorem is local: the disk proof assumes the form is smooth near its
+closure. This suffices for exactness on stalks. Both `(0,1)` and `(1,1)` forms
+are covered. The proofs use Stone-Weierstrass and the density of continuous
+functions in `L^2` as standard background results.
 
 ## Build
 
-With a LaTeX installation containing Beamer, Latin Modern and
-`appendixnumberbeamer`, plus `latexmk`:
+With Beamer, Latin Modern, and `latexmk` installed:
 
 ```sh
 cd lecture-12
 make
 ```
 
-The Makefile puts intermediate files in `build/` and copies the final PDF
-to this directory. `make clean` removes the intermediate build files and
-keeps the delivered PDF.
+Intermediate files go in `build/`. `make clean` removes them and keeps the
+PDF in this directory.
 
 ## Sources and conventions
 
-- Misha Verbitsky, [Hodge theory, IMPA 2025](http://verbit.ru/IMPA/Kahler-2025/),
-  lecture 12, especially pp. 4–5 and 13–15 of the supplied lecture PDF.
-- [HP, functional-analysis.tex](https://github.com/danimalabares/heap-project/blob/main/functional-analysis.tex),
-  `example-fourier-orthonormal-system` and `theorem-parseval`.
-  The complete exponential system uses integer indices.
+- Misha Verbitsky, Hodge theory, IMPA 2025:
+  [Lecture 11](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf),
+  [Lecture 12](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf),
+  [Lecture 13](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf).
+- [de-rham-dolbeault notes](../de-rham-dolbeault/de-rham-dolbeault.tex),
+  as present in commit `610db25` of this repository.
+- [Functional Analysis](https://github.com/danimalabares/functional-analysis/blob/main/functional-analysis/functional-analysis.tex),
+  “Orthogonal projections,” lines 1031–1045 in the version read
+  (Git blob `7fbf692c4d59594856090ef4e0bbea68eeb27022`). Slides 10–12 retain
+  the examples' wording and formulas, including “the collection (or any subset
+  thereof).” Frame breaks and formatting are added; the observation `m != n`
+  is outside the quotation.
 
-Throughout the slides, `z=x+iy`, `I(partial_x)=partial_y`, and
-`dbar f = (f_x+i f_y)/2 dbar z`. Thus the complex Cartan formula for the
-constant translation field `X=partial_x` uses `L_X+i L_IX`, and its scalar
-on frequency `(n,m)` is `(in-m)/2` for period `2pi`. For period `L` it is
-`pi(in-m)/L`. The zero mode is the pair `(0,0)`, independently of the
-Dolbeault type `(p,q)` of a form.
+With `z = x + iy` and `I(partial_x) = partial_y`, the complex Cartan identity
+for `dbar` uses `L_X + i L_IX`; the minus combination belongs to `partial`.
+Both identities and their mode eigenvalues are displayed. The plus
+combination has eigenvalue `in-m`, so the primitive coefficient is
+`2 a_(n,m)/(in-m)`. Hartogs' theorem is stated with connected complement.

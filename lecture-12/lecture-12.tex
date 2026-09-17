@@ -1,314 +1,605 @@
-\documentclass[aspectratio=169,12pt]{beamer}
-
+\documentclass[aspectratio=169,11pt]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage{amsmath,amssymb,booktabs}
-\usepackage{appendixnumberbeamer}
-
-% A plain mathematical Beamer layout. All formulas remain editable.
-\definecolor{Ink}{HTML}{183447}
-\definecolor{Teal}{HTML}{087D82}
-\definecolor{Ochre}{HTML}{A25B12}
-\definecolor{Muted}{HTML}{596974}
-\setbeamercolor{normal text}{fg=Ink,bg=white}
-\setbeamercolor{frametitle}{fg=Ink,bg=white}
-\setbeamercolor{title}{fg=Ink}
-\setbeamercolor{structure}{fg=Teal}
-\setbeamercolor{alerted text}{fg=Teal}
-\setbeamercolor{footline}{fg=Muted,bg=white}
-\setbeamerfont{title}{size=\fontsize{28}{33}\selectfont,series=\bfseries}
-\setbeamerfont{frametitle}{size=\fontsize{20}{24}\selectfont,series=\bfseries}
-\setbeamerfont{subtitle}{size=\large}
-\setbeamerfont{footline}{size=\scriptsize}
-\setbeamersize{text margin left=11mm,text margin right=11mm}
+\usepackage{lmodern,amsmath,amssymb}
+\DeclareUnicodeCharacter{2013}{\ensuremath{-}}
+\usetheme{default}
+\usefonttheme{serif}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{title}{fg=black}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{itemize item}{\small\raisebox{0.15ex}{\(\bullet\)}}
-\setbeamertemplate{frametitle}{\vspace{4mm}\insertframetitle\par\vspace{2mm}}
-\setbeamertemplate{footline}{%
-  \hspace*{11mm}\usebeamerfont{footline}Hodge theory\hfill
-  \insertframenumber\hspace*{11mm}\vspace*{3mm}\par}
-\setlength{\parskip}{0.5em}
-
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\setlength{\parskip}{5pt}
 \newcommand{\db}{\bar\partial}
 \newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
 \newcommand{\Z}{\mathbb Z}
+\newcommand{\A}{\mathcal A}
+\newcommand{\F}{\mathcal F}
 \newcommand{\Lie}{\mathcal L}
-\newcommand{\fouriermode}{e_{n,m}}
-\newcommand{\zero}[1]{{\color{Ochre}#1}}
-\newcommand{\aside}[1]{\par{\small\color{Muted}#1\par}}
-\pdfstringdefDisableCommands{\def\translate#1{#1}}
-
-\title{The \texorpdfstring{$\bar\partial$}{dbar}-Poincar\'e lemma}
-\subtitle{One complex dimension}
+\newcommand{\ee}{e_{n,m}}
+\newcommand{\Dbar}{D_{\bar z}}
+\newcommand{\src}[1]{\par\vfill{\scriptsize #1\par}}
+\title{Lecture 12}
+\subtitle{The \texorpdfstring{$\bar\partial$}{dbar}-Poincar\'e lemma in one variable}
 \author{Daniel Gonz\'alez Casanova Azuela}
 \date{}
 \hypersetup{pdfauthor={Daniel Gonzalez Casanova Azuela},
-  pdftitle={Lecture 12: The dbar-Poincare lemma in one complex dimension}}
+ pdftitle={Lecture 12: The dbar-Poincare lemma in one variable}}
 
 \begin{document}
-
-\begin{frame}[plain]
-  \vspace{7mm}
-  {\small\color{Teal}HODGE THEORY\par}
-  \vspace{5mm}
-  {\usebeamerfont{title}\inserttitle\par}
-  \vspace{3mm}
-  {\large\insertsubtitle\par}
-  \vspace{6mm}
-  {\normalsize\insertauthor\par}
-  \vfill
-  \aside{Based on Misha Verbitsky's lecture 12, IMPA, 2025.}
-  \vspace{3mm}
+\begin{frame}
+\titlepage
 \end{frame}
 
-\begin{frame}{The equation we want to solve}
-  Let $D\subset\C$ be a disk, with coordinate $z=x+iy$.
+\section{Reminder and plan}
+\begin{frame}{Lecture 11: Dolbeault's theorem}
+Let $M$ be a complex manifold, $\Omega^p_M$ the sheaf of holomorphic
+$p$-forms, and $\A^{p,q}_M$ the sheaf of smooth $(p,q)$-forms.
 
-  Given a smooth $(0,1)$-form
-  \[
-    \eta=g(z,\bar z)\,d\bar z
-  \]
-  extending smoothly to a neighbourhood of $\overline D$, we want
-  \[
-    \alert{\db u=\eta},\qquad u\in C^\infty(D).
-  \]
-  In coordinates this is just
-  \[
-    \db u=\frac12(u_x+i u_y)\,d\bar z.
-  \]
-  \aside{We first solve the equation on a torus up to a constant term.}
+\textbf{Theorem.}
+\[
+ H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M)
+ =\frac{\ker(\db:\A^{p,q}(M)\to\A^{p,q+1}(M))}
+ {\operatorname{im}(\db:\A^{p,q-1}(M)\to\A^{p,q}(M))}.
+\]
+\textbf{Method.} Use the acyclic resolution
+\[
+0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
+ \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots.
+\]
+Exactness comes from the $\db$-Poincar\'e lemma.
+Acyclicity comes from partitions of unity.
+\src{Verbitsky, Lecture 11, pp. 20, 28; \texttt{de-rham-dolbeault} notes, Dolbeault's theorem.}
 \end{frame}
 
-\begin{frame}{Functions on the square torus}
-  We start with the elliptic curve
-  \[
-    E=\C/(2\pi\Z+2\pi i\Z).
-  \]
-  Think of $(0,2\pi]\times(0,2\pi]$ with opposite edges identified.
+\begin{frame}{Why an acyclic resolution computes cohomology}
+\textbf{Recall.} A sheaf $\mathcal B$ is acyclic if
+$H^r(M,\mathcal B)=0$ for $r>0$.
 
-  A function on $E$ is a function on $\C$ satisfying
-  \[
-    f(x+2\pi,y)=f(x,y),\qquad
-    f(x,y+2\pi)=f(x,y).
-  \]
-  \alert{There are two real coordinates, so there will be two frequencies.}
+\textbf{Theorem.} If $0\to\F\to\mathcal B^0\to\mathcal B^1\to\cdots$
+is exact and each $\mathcal B^j$ is acyclic, then
+\[
+ H^q(M,\F)\cong H^q\bigl(\Gamma(M,\mathcal B^\bullet)\bigr).
+\]
+\textbf{Proof.} Put $Z^0=\F$ and
+$Z^j=\ker(\mathcal B^j\to\mathcal B^{j+1})$.
+The sequences $0\to Z^j\to\mathcal B^j\to Z^{j+1}\to0$ give
+\[
+ \frac{\Gamma(Z^q)}{\operatorname{im}\Gamma(\mathcal B^{q-1})}
+ \cong H^1(M,Z^{q-1})\cong\cdots\cong H^q(M,\F)
+ \qquad(q\geq1).
+\]
+These are the long exact cohomology sequences, using acyclicity.
+For $q=0$, the kernel is $\Gamma(M,\F)$.\hfill$\square$
+\src{Verbitsky, Lecture 11, pp. 18, 20, 27; \texttt{de-rham-dolbeault}, Proposition 4.32.}
 \end{frame}
 
-% Sources: HP, functional-analysis.tex, example-fourier-orthonormal-system
-% (use integer indices); Verbitsky, lecture 12, pp. 4--5.
-\begin{frame}{The Fourier basis}
-  The functions
-  \[
-    \fouriermode(x,y)=e^{i(nx+my)}=e^{inx}e^{imy},
-    \qquad (n,m)\in\Z^2,
-  \]
-  form an orthonormal basis of $L^2(E)$ for the measure
-  $dx\,dy/(2\pi)^2$.
+\begin{frame}{The Dolbeault resolution: exactness}
+\textbf{At degree zero.} In holomorphic coordinates,
+\[
+ \alpha=\sum_{|J|=p} f_J\,dz_J,
+ \qquad \db\alpha=0
+ \quad\Longleftrightarrow\quad
+ \frac{\partial f_J}{\partial\bar z_k}=0\quad\text{for all }J,k.
+\]
+Thus $\ker(\db:\A^{p,0}_M\to\A^{p,1}_M)=\Omega^p_M$.
 
-  Therefore every $f\in L^2(E)$ has a basis expansion
-  \[
-    \alert{f=\sum_{n,m\in\Z}a_{n,m}\fouriermode},
-    \qquad a_{n,m}=\langle f,\fouriermode\rangle.
-  \]
-  \aside{The equality means convergence in $L^2$. We use the Fourier basis theorem without proving it here.}
+\textbf{At positive degree.} The $\db$-Poincar\'e lemma says that
+if $q>0$ and $\db\alpha=0$, then locally $\alpha=\db\beta$.
+
+Exactness of sheaves is exactness on stalks, so local primitives suffice.
+
+This is the input we begin proving today.
+\src{Verbitsky, Lecture 11, pp. 8, 28; \texttt{de-rham-dolbeault}, Dolbeault proof, steps 1--2.}
 \end{frame}
 
-\begin{frame}{Fourier modes of a form}
-  Expand the coefficient of a smooth $(0,1)$-form:
-  \[
-    \eta=g\,d\bar z
-      =\sum_{n,m\in\Z}\underbrace{a_{n,m}\fouriermode\,d\bar z}_{\eta_{n,m}}.
-  \]
-  The summand $\eta_{n,m}$ is its \alert{$(n,m)$-Fourier mode}.
+\begin{frame}{The Dolbeault resolution: acyclicity}
+Each $\A^{p,q}_M$ is a sheaf of $C^\infty_M$-modules, hence fine.
+Here is why partitions of unity kill its higher cohomology.
 
-  \[
-    \eta=\zero{a_{0,0}\,d\bar z}
-      +\sum_{(n,m)\ne(0,0)}\eta_{n,m}.
-  \]
-  \aside{The zero mode has constant coefficients. A nonzero frequency means $(n,m)\ne(0,0)$.}
+Let $(\rho_j)$ be a subordinate partition of unity, and let
+$c=(c_{i_0\ldots i_r})$ be an alternating \v{C}ech cocycle, $r>0$.
+Define
+\[
+ b_{i_0\ldots i_{r-1}}=\sum_j\rho_j c_{j i_0\ldots i_{r-1}}.
+\]
+Products extend by zero, and the sum is locally finite. Since $\delta c=0$,
+\[
+ (\delta b)_{i_0\ldots i_r}
+ =\sum_j\rho_j\sum_{k=0}^r(-1)^k c_{j i_0\ldots\widehat{i_k}\ldots i_r}
+ =\sum_j\rho_j c_{i_0\ldots i_r}=c_{i_0\ldots i_r}.
+\]
+Thus $H^r(M,\A^{p,q}_M)=0$ for $r>0$.
+The acyclic resolution theorem now gives Dolbeault's theorem.\hfill$\square$
+\src{Verbitsky, Lecture 11, pp. 11--18; \texttt{de-rham-dolbeault}, Propositions 4.36 and 4.32.}
 \end{frame}
 
-\begin{frame}{Differentiation preserves the frequency}
-  Differentiate one basis function:
-  \[
-    d\fouriermode=\fouriermode(in\,dx+im\,dy),
-  \]
-  \[
-    \db\fouriermode=\frac{in-m}{2}\,\fouriermode\,d\bar z.
-  \]
-  Every coefficient is a constant multiple of \alert{the same $\fouriermode$}.
+\begin{frame}{Today's theorem: one complex variable}
+\textbf{The $\db$-Poincar\'e lemma (local form).}
+If $\eta$ is a smooth $(0,1)$-form near a point of $\C$, then
+on a smaller disk there is a smooth function $u$ such that
+\[
+ \db u=\eta.
+\]
+More precisely, if $\eta$ is smooth on a neighbourhood of a closed disk
+$\overline D$, we will construct $u$ on $D$.
 
-  Thus $d$ and $\db$ preserve the pair $(n,m)$.
-  We can solve the equation \alert{one frequency at a time}.
+For $z=x+iy$,
+\[
+ \eta=g\,d\bar z,\qquad
+ \db u=\frac12(u_x+i u_y)\,d\bar z.
+\]
+Every $(0,1)$-form is $\db$-closed: $d\bar z\wedge d\bar z=0$.
+The $(1,1)$ case follows from the same scalar equation.
 \end{frame}
 
-\begin{frame}{Closed forms and exact forms}
-  A form $\eta$ is \alert{$\db$-closed} if $\db\eta=0$.
+\begin{frame}{Next lecture}
+\textbf{Several-variable $\db$-Poincar\'e lemma.}
+For a smooth $(p,q)$-form $\eta$ on a complex manifold,
+\[
+ q>0,\quad\db\eta=0
+ \quad\Longrightarrow\quad
+ \eta=\db\beta\ \text{locally},
+ \qquad \beta\text{ of type }(p,q-1).
+\]
+This completes the local exactness needed for Dolbeault's theorem.
 
-  It is \alert{$\db$-exact} if $\eta=\db u$ for some $u$.
-
-  In complex dimension one, every $(0,1)$-form is closed:
-  \[
-    \db(g\,d\bar z)
-      =\frac{\partial g}{\partial\bar z}\,
-        \underbrace{d\bar z\wedge d\bar z}_{0}=0.
-  \]
-  \aside{Our task is to find primitives. Closedness is already automatic in this degree.}
+\textbf{Hartogs extension.}
+Let $n\geq2$ and $K\subset\C^n$ be compact with $\C^n\setminus K$
+connected. Every holomorphic function on $\C^n\setminus K$
+extends uniquely to a holomorphic function on $\C^n$.
+\src{Verbitsky, Lecture 13: Poincar\'e--Dolbeault--Grothendieck lemma and Hartogs' theorem.}
 \end{frame}
 
-% Source: Verbitsky, lecture 12, pp. 13--14.
-% Conventions throughout this deck: z=x+iy, I(partial_x)=partial_y,
-% dbar f=1/2(f_x+i f_y) dbar z. These fix the plus sign below.
-% The formula is used here for constant translation fields on a flat torus.
-\begin{frame}{The complex Cartan formula}
-  Put $X=\partial_x$, so $IX=\partial_y$.
+\section{Hilbert spaces and Fourier modes}
+\begin{frame}{Hilbert spaces: what we need}
+A complex \textbf{Hilbert space} is a vector space with an inner product,
+complete for the norm $\|v\|=\sqrt{\langle v,v\rangle}$.
+We take the inner product linear in its first argument.
 
-  For these constant vector fields,
-  \[
-    \alert{\db\iota_X+\iota_X\db
-      =\frac12\bigl(\Lie_X+i\Lie_{IX}\bigr)}.
-  \]
-  Here $\iota_X$ is contraction. On a one-form, $\iota_X\eta=\eta(X)$.
-  In particular,
-  \[
-    \iota_X(g\,d\bar z)=g.
-  \]
-  \aside{Here $\Lie_X$ and $\Lie_{IX}$ simply differentiate the coefficients in the $x$- and $y$-directions.}
+Our example is $L^2(0,2\pi]$: square-integrable complex functions,
+identified when equal almost everywhere, with
+\[
+ \langle f,g\rangle=\int_0^{2\pi}f(t)\overline{g(t)}\,dt,
+ \qquad \|f\|_2^2=\int_0^{2\pi}|f(t)|^2\,dt.
+\]
+An \textbf{orthonormal system} $(e_j)$ satisfies
+$\langle e_j,e_k\rangle=\delta_{jk}$.
+It is an \textbf{orthonormal basis} if its finite linear combinations
+are dense in the Hilbert space.
+
+Here ``basis'' allows convergent infinite sums.
 \end{frame}
 
-\begin{frame}{Primitives of nonzero modes}
-  For $\eta_{n,m}=a_{n,m}\fouriermode\,d\bar z$, we have
-  \[
-    \Lie_X\eta_{n,m}=in\eta_{n,m},\qquad
-    \Lie_{IX}\eta_{n,m}=im\eta_{n,m}.
-  \]
-  Since $\db\eta_{n,m}=0$, Cartan's formula gives
-  \[
-    \db(\iota_X\eta_{n,m})=\frac{in-m}{2}\,\eta_{n,m}.
-  \]
-  If $(n,m)\ne(0,0)$, then $in-m\ne0$, hence
-  \[
-    \alert{\eta_{n,m}
-      =\db\left(\frac{2a_{n,m}}{in-m}\fouriermode\right)}.
-  \]
+\begin{frame}{Why an orthonormal basis gives a series}
+\textbf{Theorem.} For a countable orthonormal basis $(e_j)$,
+\[
+ v=\sum_j\langle v,e_j\rangle e_j,
+ \qquad \|v\|^2=\sum_j|\langle v,e_j\rangle|^2.
+\]
+\textbf{Proof.} Write $S_N=\sum_{j=1}^N\langle v,e_j\rangle e_j$.
+Orthogonality gives
+\[
+ \|v-S_N\|^2=\|v\|^2-\sum_{j=1}^N|\langle v,e_j\rangle|^2\geq0.
+\]
+The numerical sum converges, so $(S_N)$ is Cauchy and has a limit $s$.
+For every $j$, $\langle v-s,e_j\rangle=0$.
+Density then gives $v=s$. The norm identity follows.\hfill$\square$
+
+For $L^2$, this is convergence in norm; pointwise convergence is a
+separate question.
+\end{frame}
+
+% Verbatim excerpts of functional-analysis/functional-analysis.tex,
+% blob 7fbf692c4d59594856090ef4e0bbea68eeb27022, lines 1031--1045.
+% No wording or formulas in the excerpts have been corrected.
+\begin{frame}{The Fourier example}
+\textbf{Example (verbatim).}
+In $L_2(–\pi,\pi)$, the collection (or any subset thereof)
+			\[x_n=\frac{1}{\sqrt{2\pi}}e^{int},\qquad n=0,\pm1,\ldots\]
+			is an orthonormal set of vectors.
+\textbf{Proof.}
+For any $n\in\Z$,
+				\[\int_{-\pi}^\pi x_n\overline{x}_ndt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{int}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi \Vert e^{int}\Vert^2dt=1,\]
+\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
+\end{frame}
+
+\begin{frame}{The Fourier example: proof continued}
+\textbf{Proof (continued, verbatim).}
+\begingroup\small
+and if $m$ is another integer,
+				\[\int_{-\pi}^\pi x_n\overline{x}_mdt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{imt}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{(n-m)it}dt=\frac{1}{2\pi}\left[\frac{e^{(n-m)it}}{(n-m)i}\right]_{-\pi}^\pi=0.\]
+\endgroup
+\medskip
+In this last calculation, ``another integer'' means $m\ne n$.
+
+This proves orthonormality. To obtain a basis, we must also prove density.
+\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
+\end{frame}
+
+\begin{frame}{The real-valued version}
+\textbf{Example (verbatim).}
+If we restric out attention to only real-valued functions that are square-integrable on the interval $[-\pi,\pi]$, then the collection (or any subset thereof)
+			\begin{align*}
+				\frac{1}{\sqrt{2\pi}},&\frac{1}{\sqrt{\pi}}\cos t,\frac{1}{\sqrt{\pi}}\cos 2t,\ldots\\
+				&\frac{1}{\sqrt{\pi}}\sin t,\frac{1}{\sqrt{\pi}}\sin 2t,\ldots
+			\end{align*}
+			is an orthonormal set.
+\medskip
+We use the complex exponential version in the rest of the lecture.
+\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
+\end{frame}
+
+\begin{frame}{From an orthonormal system to a basis}
+The same integral over $(0,2\pi]$ shows that
+\[
+ \phi_n(t)=\frac{e^{int}}{\sqrt{2\pi}},\qquad n\in\Z,
+\]
+is orthonormal in $L^2(0,2\pi]$.
+
+\textbf{Completeness.} Finite sums of $e^{int}$ are trigonometric
+polynomials. They form a subalgebra of $C(S^1,\C)$, contain constants,
+separate points, and are closed under complex conjugation.
+
+The complex Stone--Weierstrass theorem therefore makes them uniformly
+dense in $C(S^1,\C)$. Continuous functions are dense in $L^2(S^1)$,
+and $\|h\|_2\leq\sqrt{2\pi}\|h\|_\infty$.
+Thus their span is dense in $L^2$.\hfill$\square$
+\src{This is the completeness argument in Verbitsky, Lecture 12, pp. 2--4.}
+\end{frame}
+
+\begin{frame}{The Fourier expansion on the circle}
+By the Hilbert-space expansion theorem,
+\[
+ f(t)=\sum_{n\in\Z}a_n e^{int},\qquad
+ a_n=\frac1{2\pi}\int_0^{2\pi}f(t)e^{-int}\,dt.
+\]
+The sum converges in $L^2$.
+
+From now on we use the normalized measure $dt/(2\pi)$.
+Then $e^{int}$ itself has norm one, and the coefficients are simply
+its inner products with $f$.
+
+An $L^2$ function on the interval defines a function on the circle
+up to a set of measure zero. Smooth functions on the circle correspond
+to smooth periodic functions on $\R$.
+\end{frame}
+
+\begin{frame}{The Fourier basis on the torus}
+Let
+\[
+ E=\C/(2\pi\Z+2\pi i\Z),\qquad z=x+iy.
+\]
+Functions on $E$ are periodic in both $x$ and $y$.
+For the measure $dx\,dy/(2\pi)^2$, put
+\[
+ \ee(x,y)=e^{inx+imy},\qquad(n,m)\in\Z^2.
+\]
+\textbf{Proof that this is a basis.} Orthogonality follows by multiplying
+the two one-variable integrals:
+\[
+ \langle e_{n,m},e_{r,s}\rangle=\delta_{nr}\delta_{ms}.
+\]
+Their span is again a conjugation-closed algebra containing constants
+and separating points of $E$. Stone--Weierstrass and the density of
+$C(E)$ in $L^2(E)$ prove completeness.\hfill$\square$
+\end{frame}
+
+\begin{frame}{Fourier modes of functions and forms}
+Every $f\in L^2(E)$ has the expansion
+\[
+ f=\sum_{n,m\in\Z}a_{n,m}\ee,\qquad
+ a_{n,m}=\frac1{(2\pi)^2}\int_E f(x,y)e^{-inx-imy}\,dx\,dy.
+\]
+The term $a_{n,m}\ee$ is its $(n,m)$-\textbf{Fourier mode}.
+There are two integer indices because there are two real coordinates.
+
+Expand the coefficients of a differential form in the same way:
+\[
+ \eta=g\,d\bar z=\sum_{n,m}a_{n,m}\ee\,d\bar z.
+\]
+More generally, a mode is $\ee\alpha$ with $\alpha$ a constant form.
+The \textbf{zero mode} is $(n,m)=(0,0)$: its coefficients are constant.
+The frequency $(n,m)$ and the form type $(p,q)$ are different indices.
+\end{frame}
+
+\section{Differentiation preserves modes}
+\begin{frame}{The exterior derivative preserves modes}
+\textbf{Claim.} Differentiating a mode keeps the same frequency.
+
+\textbf{Proof.} Direct differentiation gives
+\[
+ d\ee=\ee(in\,dx+im\,dy).
+\]
+If $\alpha$ is a constant form, then $d\alpha=0$, so
+\[
+ d(\ee\alpha)=\ee(in\,dx+im\,dy)\wedge\alpha.
+\]
+Every coefficient is a multiple of the same basis function $\ee$.\hfill$\square$
+
+The form degree changes; the pair $(n,m)$ does not.
+\end{frame}
+
+\begin{frame}{The Dolbeault operator preserves modes}
+Our conventions are
+\[
+ z=x+iy,\qquad I\partial_x=\partial_y,\qquad
+ \Dbar=\frac12(\partial_x+i\partial_y),\qquad
+ \db=d\bar z\wedge\Dbar.
+\]
+\textbf{Proof.} Since $\partial_x\ee=in\ee$ and
+$\partial_y\ee=im\ee$,
+\[
+ \db(\ee\alpha)=\frac{in-m}{2}\ee\,d\bar z\wedge\alpha
+ \qquad(\alpha\text{ constant}).
+\]
+Thus $\db$ also preserves each frequency.\hfill$\square$
+
+By uniqueness of Fourier coefficients, if $\db\eta=0$,
+each mode of $\eta$ is $\db$-closed. We can seek primitives mode by mode.
+For smooth forms, termwise differentiation is justified below.
+\end{frame}
+
+\section{Cartan's formula and cohomology}
+\begin{frame}{Complex Cartan's formula}
+Let $X=\partial_x$ and $IX=\partial_y$ be translation fields on $E$.
+Contraction is denoted by $\iota_X$; on a one-form,
+$\iota_X\eta=\eta(X)$. Lie derivatives differentiate coefficients.
+
+The real Cartan formula is $d\iota_X+\iota_Xd=\Lie_X$.
+Its complex versions are
+\[
+ \db\iota_X+\iota_X\db
+ =\frac12(\Lie_X+i\Lie_{IX}),
+\]
+\[
+ \partial\iota_X+\iota_X\partial
+ =\frac12(\Lie_X-i\Lie_{IX}).
+\]
+With $z=x+iy$ and $IX=\partial_y$, the plus sign belongs to $\db$.
+\src{Compare Verbitsky, Lecture 12, p. 13; signs here follow the displayed coordinate conventions.}
+\end{frame}
+
+\begin{frame}{Proof of complex Cartan for translations}
+For every form $\omega$, the contraction rule gives
+\[
+ \iota_X(d\bar z\wedge\omega)
+ =\underbrace{d\bar z(X)}_{1}\omega-d\bar z\wedge\iota_X\omega.
+\]
+Also $\Dbar$ commutes with $\iota_X$, since $X$ is constant. Therefore
+\begin{align*}
+ (\db\iota_X+\iota_X\db)\omega
+ &=d\bar z\wedge\iota_X\Dbar\omega
+   +\iota_X(d\bar z\wedge\Dbar\omega)\\
+ &=\Dbar\omega
+ =\tfrac12(\Lie_X+i\Lie_{IX})\omega.
+\end{align*}
+Replacing $d\bar z,\Dbar$ by $dz,\tfrac12(\partial_x-i\partial_y)$
+proves the formula for $\partial$.
+Adding the two identities recovers real Cartan.\hfill$\square$
+\end{frame}
+
+\begin{frame}{A mode is an eigenvector}
+Let $\eta_{n,m}=\ee\alpha$, with $\alpha$ constant.
+Since translations leave $\alpha$ fixed,
+\[
+ \Lie_X\eta_{n,m}=in\eta_{n,m},\qquad
+ \Lie_{IX}\eta_{n,m}=im\eta_{n,m}.
+\]
+For the combination with a minus sign,
+\[
+ (\Lie_X-i\Lie_{IX})\eta_{n,m}=(in+m)\eta_{n,m}.
+\]
+The combination used for $\db$ is
+\[
+ (\Lie_X+i\Lie_{IX})\eta_{n,m}
+ =\lambda_{n,m}\eta_{n,m},\qquad\lambda_{n,m}=in-m.
+\]
+For integer $n,m$, $\lambda_{n,m}=0$ exactly when $(n,m)=(0,0)$.
+\end{frame}
+
+\begin{frame}{A closed nonzero mode is exact}
+Let $\eta_{n,m}=a_{n,m}\ee\,d\bar z$ and $(n,m)\ne(0,0)$.
+Suppose $\db\eta_{n,m}=0$ (automatic for $(0,1)$-forms).
+
+\textbf{Proof.} Complex Cartan gives
+\[
+ \frac{\lambda_{n,m}}2\eta_{n,m}
+ =\db\iota_X\eta_{n,m}+\iota_X\db\eta_{n,m}
+ =\db\iota_X\eta_{n,m}.
+\]
+Since $\lambda_{n,m}\ne0$,
+\[
+ \eta_{n,m}=\db f_{n,m},\qquad
+ f_{n,m}=\frac{2}{\lambda_{n,m}}\iota_X\eta_{n,m}
+ =\frac{2a_{n,m}}{in-m}\ee.\qquad\square
+\]
+The conclusion is that the mode is \emph{exact}, not that it is constant.
 \end{frame}
 
 \begin{frame}{Adding the primitives}
-  Define a function on the torus by
-  \[
-    f=\sum_{(n,m)\ne(0,0)}
-       \frac{2a_{n,m}}{in-m}\fouriermode.
-  \]
-  Differentiating term by term gives
-  \[
-    \db f=\eta-\zero{a_{0,0}\,d\bar z}.
-  \]
-  Therefore
-  \[
-    \alert{\eta=\zero{c\,d\bar z}+\db f},\qquad c=a_{0,0}.
-  \]
-  \aside{Fourier fact used here: for smooth $g$, this series and all its derivatives converge uniformly, so $f$ is smooth.}
+Let $\eta=g\,d\bar z$ be a smooth $(0,1)$-form on $E$, with
+\[
+ g=\sum_{n,m}a_{n,m}\ee.
+\]
+Separate its constant coefficient and define
+\[
+ c=a_{0,0}=\frac1{(2\pi)^2}\int_E g\,dx\,dy,\qquad
+ f=\sum_{(n,m)\ne(0,0)}\frac{2a_{n,m}}{in-m}\ee.
+\]
+We will justify that $f$ is smooth and can be differentiated term by term.
+Then
+\[
+ \db f=(g-c)\,d\bar z,
+ \qquad\boxed{\eta=c\,d\bar z+\db f.}
+\]
+Only the zero mode was excluded when dividing by $in-m$.
 \end{frame}
 
-\begin{frame}{The constant part in cohomology}
-  Dolbeault cohomology identifies closed forms that differ by an exact form:
-  \[
-    H^{0,1}_{\db}(E)
-      =\frac{\{\text{smooth closed $(0,1)$-forms}\}}
-             {\{\db f:f\in C^\infty(E)\}}.
-  \]
-  Since $\eta=c\,d\bar z+\db f$,
-  \[
-    [\eta]=c[d\bar z],\qquad
-    \alert{H^{0,1}_{\db}(E)\cong\C}.
-  \]
-  \aside{$\db f$ always has zero constant part: differentiation preserves frequencies and kills the constant term. Thus $c\,d\bar z$ is exact only when $c=0$.}
+\begin{frame}{Why the sums and their derivatives converge}
+Put $\Delta=\partial_x^2+\partial_y^2$ and $r^2=n^2+m^2$.
+Repeated integration by parts on the torus gives, for every $N\geq0$,
+\[
+ (1+r^2)^N a_{n,m}=\widehat{(1-\Delta)^N g}(n,m),
+ \qquad |a_{n,m}|\leq C_N(1+r^2)^{-N}.
+\]
+There are no boundary terms because $g$ is periodic.
+For $r\geq1$, $|in-m|=r$, so the coefficients
+$b_{n,m}=2a_{n,m}/(in-m)$ have the same rapid decay.
+
+A derivative of order $k$ multiplies a mode by a number of modulus at most
+$r^k$. Choose $N>(k+2)/2$; then
+\[
+ \sum_{(n,m)\ne(0,0)} r^k(1+r^2)^{-N}<\infty.
+\]
+Thus all derivative series converge uniformly, for both $g$ and $f$.
+Their $L^2$ expansions identify the limits, and $\db f=(g-c)d\bar z$.\hfill$\square$
 \end{frame}
 
-\begin{frame}{The disk inside an elliptic curve}
-  Choose $L>0$ so large that $\overline D$ lies in the interior
-  of a fundamental square for
-  \[
-    E_L=\C/(L\Z+iL\Z).
-  \]
-  The quotient map embeds a neighbourhood of $\overline D$ into $E_L$.
-
-  The same Fourier calculation works for any period $L$.
-  \aside{Rescaling the coordinate by $w=2\pi z/L$ reduces it to the square torus we just used.}
-
-  \alert{On this neighbourhood, $z$ and $\bar z$ are well-defined functions.}
+\begin{frame}{The constant part is exactly the cohomology}
+We have proved
+\[
+ \eta=c\,d\bar z+\db f
+ \quad\Longrightarrow\quad [\eta]=c[d\bar z].
+\]
+\textbf{Why does a nonzero constant survive?}
+For every smooth periodic $h$,
+\[
+ \frac1{(2\pi)^2}\int_E\frac{\partial h}{\partial\bar z}\,dx\,dy
+ =\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy=0.
+\]
+Thus $c\,d\bar z=\db h$ forces $c=0$.
+The coefficient $c$ is uniquely determined by the cohomology class.
+Consequently
+\[
+ H^{0,1}_{\db}(E)=\C[d\bar z].\qquad\square
+\]
 \end{frame}
 
-% Source: Verbitsky, lecture 12, p. 15. Multiplication by a cutoff is safe
-% here because every (0,1)-form on a complex curve is dbar-closed.
-\begin{frame}{Extending the form to the torus}
-  Let $U$ be a neighbourhood of $\overline D$ inside that square,
-  where $\eta$ is defined.
+\begin{frame}{All Dolbeault groups of the elliptic curve}
+\[
+\begin{array}{c|c|c}
+ (p,q)&\text{constant representative}&H^{p,q}_{\db}(E)\\\hline
+ (0,0)&1&\C\\
+ (1,0)&dz&\C\\
+ (0,1)&d\bar z&\C\\
+ (1,1)&dz\wedge d\bar z&\C
+\end{array}
+\]
+\textbf{Proof of the remaining cases.}
+If $\db h=0$, every nonzero Fourier coefficient is zero, since
+$\db\ee=(in-m)\ee\,d\bar z/2$. Thus $h$ is constant;
+the same applies to a closed form $h\,dz$.
 
-  Choose a smooth function $\chi$ that is $1$ near $\overline D$
-  and has support contained in $U$.
-  \[
-    \widetilde\eta=
-      \begin{cases}
-        \chi\eta & \text{on }U,\\[1mm]
-        0 & \text{outside }U.
-      \end{cases}
-  \]
-  This is a smooth $(0,1)$-form on $E_L$, equal to $\eta$ on $D$.
-
-  \aside{It is automatically $\db$-closed, just like every $(0,1)$-form on a complex curve.}
+For $g\,dz\wedge d\bar z$, write $g=c+\Dbar f$. Then
+\[
+ g\,dz\wedge d\bar z
+ =c\,dz\wedge d\bar z+\db(-f\,dz).
+\]
+The averaging argument again shows that a nonzero constant is not exact.
+Hence constant forms represent cohomology uniquely.\hfill$\square$
 \end{frame}
 
-\begin{frame}{The primitive on the disk}
-  On the elliptic curve, our calculation gives
-  \[
-    \widetilde\eta=c\,d\bar z+\db f.
-  \]
-  On the disk, $\bar z$ is a function and $\db\bar z=d\bar z$.
-  Restricting to $D$ therefore gives
-  \[
-    \alert{\eta=\db\bigl(c\bar z+f|_D\bigr)}.
-  \]
-  \vspace{2mm}
-  This is the required primitive.
+\section{From the elliptic curve to a disk}
+\begin{frame}{Put the disk inside a large fundamental domain}
+Let $\eta=g\,d\bar z$ be smooth on an open neighbourhood $U$ of
+$\overline D$. Choose $L$ large enough that
+\[
+ \overline D\subset Q^\circ,\qquad
+ Q=[-L/2,L/2]\times[-L/2,L/2],\qquad
+ E_L=\C/(L\Z+iL\Z).
+\]
+The quotient map embeds $Q^\circ$ into $E_L$.
+Thus the disk fits inside the elliptic curve without identifying its points.
 
-  \aside{On the whole torus, $\bar z$ is not periodic, so it cannot serve as a global primitive.}
+The Fourier calculation works with period $L$:
+\[
+ e^L_{n,m}=e^{2\pi i(nx+my)/L},\qquad
+ \db e^L_{n,m}=\frac{\pi}{L}(in-m)e^L_{n,m}\,d\bar z.
+\]
+The same nonzero eigenvalues are invertible, so the same decomposition holds.
 \end{frame}
 
-\appendix
+\begin{frame}{Extend the form using a cutoff}
+Choose $\chi\in C_c^\infty(U\cap Q^\circ)$ with
+$\chi=1$ near $\overline D$.
+Define on $Q$
+\[
+ \widetilde\eta=\chi\eta,
+\]
+extending by zero outside $U$. It vanishes near the edges of $Q$, so
+periodic extension defines a smooth $(0,1)$-form on $E_L$.
 
-\begin{frame}{Supplement: the $(1,1)$ case}
-  A $(1,1)$-form on the disk is $\eta=g\,dz\wedge d\bar z$.
-
-  By the $(0,1)$ case, choose $u$ with
-  \[
-    \db u=g\,d\bar z.
-  \]
-  Then
-  \[
-    \db(-u\,dz)=-\db u\wedge dz
-      =g\,dz\wedge d\bar z=\eta.
-  \]
-  \aside{These are the two possible types with positive antiholomorphic degree in complex dimension one: $(0,1)$ and $(1,1)$.}
+It agrees with $\eta$ on $D$. It is also $\db$-closed:
+\[
+ \db\widetilde\eta
+ =\frac{\partial(\chi g)}{\partial\bar z}\,
+ d\bar z\wedge d\bar z=0.
+\]
+This automatic closedness is where complex dimension one is used.
 \end{frame}
 
-\begin{frame}{Supplement: the constant representatives}
-  The same calculation for each type gives
-  \begin{center}
-  \renewcommand{\arraystretch}{1.45}
-  \begin{tabular}{ccc}
-    \toprule
-    Type & Constant representative & Cohomology on $E$ \\
-    \midrule
-    $(0,0)$ & $1$ & $H^{0,0}_{\db}(E)\cong\C$ \\
-    $(1,0)$ & $dz$ & $H^{1,0}_{\db}(E)\cong\C$ \\
-    $(0,1)$ & $d\bar z$ & $H^{0,1}_{\db}(E)\cong\C$ \\
-    $(1,1)$ & $dz\wedge d\bar z$ & $H^{1,1}_{\db}(E)\cong\C$ \\
-    \bottomrule
-  \end{tabular}
-  \end{center}
-  \aside{Here $(p,q)$ records the number of $dz$ and $d\bar z$ factors. Each cohomology class has a unique constant representative.}
+\begin{frame}{The last step: the constant form is exact on the disk}
+On the elliptic curve, the preceding argument gives
+\[
+ \widetilde\eta=c\,d\bar z+\db f
+ \qquad(c\in\C,\ f\in C^\infty(E_L)).
+\]
+Restrict to the disk. There $\bar z$ is a well-defined function and
+\[
+ d\bar z=\db\bar z.
+\]
+Consequently
+\[
+ \eta=\db\bigl(c\bar z+f|_D\bigr).
+\]
+Thus $u=c\bar z+f|_D$ is the required smooth primitive.\hfill$\square$
+
+On the torus, $\bar z$ is not a function: it changes under lattice
+translations. On the disk it is available, and removes the constant term.
 \end{frame}
 
+\begin{frame}{The one-variable lemma in every positive degree}
+For type $(0,1)$, we have just proved local solvability of
+$\db u=g\,d\bar z$.
+
+For type $(1,1)$, write $\eta=g\,dz\wedge d\bar z$ and use the same $u$:
+\[
+ \db(-u\,dz)
+ =-\db u\wedge dz
+ =g\,dz\wedge d\bar z=\eta.
+\]
+There are no forms with $q>1$ in one complex dimension.
+Every germ has a representative near a closed smaller disk, so the proof
+establishes the local statement for all smooth forms.
+
+Hence, for $p=0,1$, the sequence of sheaves
+\[
+ 0\longrightarrow\Omega^p\longrightarrow\A^{p,0}
+ \xrightarrow{\db}\A^{p,1}\longrightarrow0
+\]
+is exact. This is the one-dimensional input to the Dolbeault resolution.
+\end{frame}
+
+\begin{frame}{Sources}
+\begin{itemize}
+\item Misha Verbitsky, \emph{Hodge theory}, IMPA, 2025:
+\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf}{Lecture 11},
+\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf}{Lecture 12},
+and \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}{Lecture 13}.
+\item Daniel Gonz\'alez Casanova Azuela,
+\href{https://github.com/danimalabares/tmp/blob/main/de-rham-dolbeault/de-rham-dolbeault.tex}{\texttt{de-rham-dolbeault} notes}: acyclic resolutions,
+fine sheaves, and the proof of Dolbeault's theorem.
+\item Daniel Gonz\'alez Casanova Azuela,
+\href{https://github.com/danimalabares/functional-analysis/blob/main/functional-analysis/functional-analysis.tex}{\texttt{functional-analysis/functional-analysis.tex}}:
+``Orthogonal projections'', the examples beginning
+``the collection (or any subset thereof)''.
+The quoted text and formulas are reproduced verbatim.
+\end{itemize}
+\end{frame}
 \end{document}
