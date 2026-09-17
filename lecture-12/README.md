@@ -1,6 +1,6 @@
 # Lecture 12: the dbar-Poincare lemma in one variable
 
-A plain, black-and-white Beamer presentation with 31 slides. The introduction
+A plain, black-and-white Beamer presentation with 29 slides. The introduction
 recalls statements and references; the Fourier and one-variable arguments
 include proofs.
 
@@ -9,12 +9,13 @@ include proofs.
 
 ## Contents
 
-1. Introduction based on the `de-rham-dolbeault` notes, with statements and
-   references to Voisin instead of proofs. Proposition 4.32 is the central tool:
-   it requires an exact resolution whose terms are acyclic. Definitions 4.31
-   and 4.35, Proposition 4.36, and Corollary 4.37 supply the supporting references.
-   The dbar-Poincare lemma gives exactness; fineness gives acyclicity. Today's
-   theorem and the next lecture's multivariable and Hartogs plan follow.
+1. A one-slide reminder based on the `de-rham-dolbeault` notes: Dolbeault's
+   theorem, exactness from Poincare, acyclicity of fine sheaves (Voisin 4.36),
+   and the acyclic-resolution theorem (Voisin 4.32). Part 0 contains no proofs.
+   Today's theorem and the next lecture's plan follow. Immediately after
+   “Next lecture,” a slide compares Huybrechts 1.3.7, 1.3.8, and 1.3.9:
+   one variable, several variables, then removal of the boundary-extension
+   assumption for forms on an open polydisk.
 2. Hilbert spaces and orthonormal expansions. The Fourier examples from
    `functional-analysis/functional-analysis.tex` are reproduced verbatim,
    including their proof. Completeness, normalized measures, the torus basis,
@@ -45,9 +46,11 @@ PDF in this directory.
 ## Sources and conventions
 
 - Claire Voisin, *Hodge Theory and Complex Algebraic Geometry I*, Chapter 4:
-  Definitions 4.31 and 4.35, Propositions 4.32 and 4.36, and Corollary 4.37.
+  Definition 4.35 and Propositions 4.32 and 4.36.
   The numbering and statements follow the `de-rham-dolbeault` notes.
 
+- Daniel Huybrechts, *Complex Geometry: An Introduction*,
+  Propositions 1.3.7–1.3.8 and Corollary 1.3.9 (boundary-assumption comparison).
 - Misha Verbitsky, Hodge theory, IMPA 2025:
   [Lecture 11](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf),
   [Lecture 12](http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf),
@@ -56,7 +59,7 @@ PDF in this directory.
   as present in commit `610db25` of this repository.
 - [Functional Analysis](https://github.com/danimalabares/functional-analysis/blob/main/functional-analysis/functional-analysis.tex),
   “Orthogonal projections,” lines 1031–1045 in the version read
-  (Git blob `7fbf692c4d59594856090ef4e0bbea68eeb27022`). Slides 10–12 retain
+  (Git blob `7fbf692c4d59594856090ef4e0bbea68eeb27022`). Slides 8–10 retain
   the examples' wording and formulas, including “the collection (or any subset
   thereof).” Frame breaks and formatting are added; the observation `m != n`
   is outside the quotation.

@@ -37,93 +37,25 @@
 \end{frame}
 
 \section{Reminder and plan}
-\begin{frame}{From de Rham to Dolbeault}
-The \texttt{de-rham-dolbeault} notes use the same method for both theorems:
-compute sheaf cohomology using an \textbf{acyclic resolution}.
-
-\textbf{de Rham (Voisin, Corollary 4.37).}
-\[
- H^q(M,\R_M)\cong H^q_{\mathrm{dR}}(M).
-\]
-The resolution is the complex of smooth differential forms with $d$.
-
-\textbf{Dolbeault.} On a complex manifold $M$,
+\begin{frame}{Reminder: Dolbeault's theorem}
 \[
  H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).
 \]
-Here $\Omega^p_M$ is the sheaf of holomorphic $p$-forms.
-We use smooth $(p,q)$-forms with $\db$ instead.
-
-The common tool is \textbf{Voisin's Proposition 4.32}.
-\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4;\newline
-\texttt{de-rham-dolbeault} notes, de Rham's theorem and Dolbeault's theorem.}
-\end{frame}
-
-\begin{frame}{The key tool: Voisin, Proposition 4.32}
-\textbf{Acyclicity (Definition 4.31).}
-An object $B$ is acyclic for a left-exact functor $F$ if
-\[
- R^rF(B)=0\qquad\text{for all }r>0.
-\]
-\textbf{Proposition 4.32.}
-Let $0\to A\to B^0\to B^1\to\cdots$ be a resolution of $A$.
-If \textbf{every $B^j$ is acyclic for $F$}, then
-\[
- \boxed{R^qF(A)\cong H^q\bigl(F(B^\bullet)\bigr).}
-\]
-For sheaves, take $F=\Gamma(M,-)$, so $R^qF(A)=H^q(M,A)$.
-
-We need \textbf{both} an exact resolution and acyclic terms to compute
-sheaf cohomology from its complex of global sections.
-\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},\newline
-Definition 4.31 and Proposition 4.32; $\S$4.3 for sheaf cohomology.}
-\end{frame}
-
-\begin{frame}{The acyclicity hypothesis}
-Write $\A^{p,q}_M$ for the sheaf of smooth $(p,q)$-forms.
-
-\textbf{Fine sheaves (Voisin, Definition 4.35).}
-Sheaves of $C^\infty_M$-modules are fine: multiplication by a smooth
-partition of unity supplies a partition of unity on the sheaf.
-In particular, each $\A^{p,q}_M$ is fine.
-
-\textbf{Voisin, Proposition 4.36.}
-A fine sheaf $\mathcal B$ is acyclic for global sections:
-\[
- H^r(M,\mathcal B)=0\qquad(r>0).
-\]
-Thus all the terms $\A^{p,q}_M$ satisfy the \textbf{acyclicity hypothesis}
-of Proposition 4.32.
-
-We still need the Dolbeault complex to be a \emph{resolution}.
-\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},\newline
-Definition 4.35 and Proposition 4.36, as in the \texttt{de-rham-dolbeault} notes.}
-\end{frame}
-
-\begin{frame}{Why we need the $\bar\partial$-Poincar\'e lemma}
-Consider the sheaf complex
+As in the \texttt{de-rham-dolbeault} notes, use the resolution
 \[
  0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
  \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots.
 \]
-At degree zero, the kernel consists of holomorphic $p$-forms.
-At positive degree, the $\db$-Poincar\'e lemma supplies local primitives:
-\[
- q>0,\quad\db\eta=0\quad\Longrightarrow\quad\eta=\db\beta
- \quad\text{locally}.
-\]
-This makes the sheaf complex \textbf{exact}.
-Its terms are \textbf{acyclic} by Proposition 4.36.
-
-We can therefore apply \textbf{Proposition 4.32}:
-\[
- H^q(M,\Omega^p_M)
- \cong H^q\bigl(\A^{p,\bullet}(M),\db\bigr)
- =H^{p,q}_{\db}(M).
-\]
-Today's task is to establish the local exactness in one variable.
-\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4,\newline
-Propositions 4.32 and 4.36; \texttt{de-rham-dolbeault}, Dolbeault's theorem.}
+\begin{itemize}
+\item \textbf{Exactness:} the $\db$-Poincar\'e lemma gives local primitives.
+\item \textbf{Acyclicity:} the sheaves of smooth forms are fine
+(Voisin, Definition 4.35 and Proposition 4.36).
+\item \textbf{Voisin, Proposition 4.32:} an acyclic resolution computes
+sheaf cohomology from its global sections.
+\end{itemize}
+The missing input is the $\db$-Poincar\'e lemma.
+\src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4;\newline
+\texttt{de-rham-dolbeault} notes, Dolbeault's theorem.}
 \end{frame}
 
 \begin{frame}{Today's theorem: one complex variable}
@@ -141,7 +73,7 @@ For $z=x+iy$,
  \eta=g\,d\bar z,\qquad
  \db u=\frac12(u_x+i u_y)\,d\bar z.
 \]
-Every $(0,1)$-form is $\db$-closed: $d\bar z\wedge d\bar z=0$.
+Every $(0,1)$-form is $\db$-closed.
 The $(1,1)$ case follows from the same scalar equation.
 \end{frame}
 
@@ -161,6 +93,31 @@ Let $n\geq2$ and $K\subset\C^n$ be compact with $\C^n\setminus K$
 connected. Every holomorphic function on $\C^n\setminus K$
 extends uniquely to a holomorphic function on $\C^n$.
 \src{Verbitsky, Lecture 13: Poincar\'e--Dolbeault--Grothendieck lemma and Hartogs' theorem.}
+\end{frame}
+
+\begin{frame}{Huybrechts: the boundary assumption}
+All three statements solve $\db\beta=\alpha$ \textbf{throughout $B$}
+for $\db$-closed forms of positive antiholomorphic degree.
+
+\medskip
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{@{}p{2.5cm}p{9.8cm}@{}}
+\textbf{Statement}&\textbf{Where is the given form smooth?}\\\hline
+Prop. 1.3.7&Near the closed disk $\overline B\subset\C$.\\
+Prop. 1.3.8&Near the closed polydisk $\overline B\subset\C^n$.\\
+Corollary 1.3.9&Only on $B$; no extension across the boundary assumed.
+\end{tabular}
+\medskip
+
+Here the ``open disk'' in Corollary 1.3.9 is a \textbf{polydisk}:
+a product of disks in $\C^n$.
+
+One variable $\longrightarrow$ several variables
+$\longrightarrow$ remove the boundary-extension assumption.
+
+A smooth form on $B$ can be unbounded near its boundary.
+\src{Huybrechts, \emph{Complex Geometry: An Introduction},\newline
+Propositions 1.3.7--1.3.8 and Corollary 1.3.9.}
 \end{frame}
 
 \section{Hilbert spaces and Fourier modes}
@@ -596,8 +553,9 @@ is exact. This is the one-dimensional input to the Dolbeault resolution.
 \begin{frame}{Sources}
 \begin{itemize}
 \item Claire Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},
-Chapter 4: Definitions 4.31, 4.35; Propositions 4.32, 4.36;
-Corollary 4.37.
+Chapter 4: Definition 4.35 and Propositions 4.32, 4.36.
+\item Daniel Huybrechts, \emph{Complex Geometry: An Introduction}:
+Propositions 1.3.7--1.3.8 and Corollary 1.3.9.
 \item Misha Verbitsky, \emph{Hodge theory}, IMPA, 2025:
 \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf}{Lecture 11},
 \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf}{Lecture 12},
