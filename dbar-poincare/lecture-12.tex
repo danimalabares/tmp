@@ -226,18 +226,23 @@ Stone--Weierstrass.
 \src{Verbitsky, Lecture 12, pp. 2--4.}
 \end{frame}
 
-\begin{frame}{Completeness: Stone--Weierstrass}
-The Fourier polynomials $A$ satisfy the hypotheses:
+\begin{frame}{Stone--Weierstrass theorem}
+\textbf{Complex version.}
+Let $X$ be a compact Hausdorff space and $C(X,\C)$ the space of
+continuous complex-valued functions on $X$.
+
+Let $A\subset C(X,\C)$ be a complex subalgebra
+(closed under linear combinations and products). Suppose that
 \begin{itemize}
-\item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
-\item $1=e^{i0t}\in A$;
-\item $A$ is closed under conjugation, since
-      $\overline{e^{int}}=e^{-int}$;
-\item $A$ separates points of $S^1$: the function $e^{it}$ already does.
+\item $A$ contains the constant functions;
+\item $A$ is closed under complex conjugation;
+\item $A$ \textbf{separates points}: for $x\ne y$, some $a\in A$
+satisfies $a(x)\ne a(y)$.
 \end{itemize}
-Therefore Stone--Weierstrass gives
+Then $A$ is dense for the uniform norm:
 \[
- \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
+ \overline A^{\,\|\cdot\|_\infty}=C(X,\C),\qquad
+ \|f\|_\infty=\sup_{x\in X}|f(x)|.
 \]
 \end{frame}
 
@@ -256,6 +261,22 @@ Marshall H. Stone
 Karl Weierstrass
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Application to the Fourier basis}
+For $A=\operatorname{span}\{e^{int}:n\in\Z\}\subset C(S^1,\C)$,
+the hypotheses hold:
+\begin{itemize}
+\item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
+\item $1=e^{i0t}\in A$;
+\item $A$ is closed under conjugation, since
+      $\overline{e^{int}}=e^{-int}$;
+\item $A$ separates points of $S^1$: the function $e^{it}$ already does.
+\end{itemize}
+Therefore Stone--Weierstrass gives
+\[
+ \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
+\]
 \end{frame}
 
 \begin{frame}{From uniform density to $L^2$ density}
