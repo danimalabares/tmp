@@ -38,8 +38,6 @@
 
 \section{Reminder and plan}
 \begin{frame}{Reminder: Dolbeault's theorem}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{0.75\textwidth}
 \[
  H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).
 \]
@@ -56,15 +54,12 @@ Use the resolution
 sheaf cohomology from its global sections.
 \end{itemize}
 The missing input is the $\db$-Poincar\'e lemma.
-\end{column}
-\begin{column}{0.22\textwidth}
-\centering
-\includegraphics[width=\linewidth,height=4.2cm,keepaspectratio]{Pierre_Dolbeault.jpg}
-
-\scriptsize Pierre Dolbeault
-\end{column}
-\end{columns}
 \src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4.}
+\end{frame}
+
+\begin{frame}{Pierre Dolbeault}
+\centering
+\includegraphics[width=0.9\textwidth,height=6cm,keepaspectratio]{Pierre_Dolbeault.jpg}
 \end{frame}
 
 \begin{frame}{Today's theorem: one complex variable}
@@ -290,8 +285,6 @@ Stone--Weierstrass.
 \end{frame}
 
 \begin{frame}{Completeness: Stone--Weierstrass}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{0.66\textwidth}
 The Fourier polynomials $A$ satisfy the hypotheses:
 \begin{itemize}
 \item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
@@ -304,20 +297,21 @@ Therefore Stone--Weierstrass gives
 \[
  \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
 \]
+\end{frame}
+
+\begin{frame}{Stone--Weierstrass}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=5.7cm,keepaspectratio]{Stone.jpeg}
+
+Marshall H. Stone
 \end{column}
-\begin{column}{0.31\textwidth}
-\begin{minipage}[t]{0.48\linewidth}
+\begin{column}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=3.2cm,keepaspectratio]{Stone.jpeg}
+\includegraphics[width=\linewidth,height=5.7cm,keepaspectratio]{Karl_Weierstrass.jpg}
 
-\scriptsize Marshall H. Stone
-\end{minipage}\hfill
-\begin{minipage}[t]{0.48\linewidth}
-\centering
-\includegraphics[width=\linewidth,height=3.2cm,keepaspectratio]{Karl_Weierstrass.jpg}
-
-\scriptsize Karl Weierstrass
-\end{minipage}
+Karl Weierstrass
 \end{column}
 \end{columns}
 \end{frame}
@@ -621,8 +615,6 @@ Their $L^2$ expansions identify the limits, and $\db f=(g-c)d\bar z$.\hfill$\squ
 \end{frame}
 
 \begin{frame}{The constant part is exactly the cohomology}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{0.75\textwidth}
 We have proved
 \[
  \eta=c\,d\bar z+\db f
@@ -631,11 +623,8 @@ We have proved
 \textbf{Why does a nonzero constant survive?}
 For every smooth periodic $h$,
 \[
- \begin{aligned}
  \frac1{(2\pi)^2}\int_E\pbarz h\,dx\,dy
- &=\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy\\
- &=0.
- \end{aligned}
+ =\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy=0.
 \]
 Thus $c\,d\bar z=\db h$ forces $c=0$.
 The coefficient $c$ is uniquely determined by the cohomology class.
@@ -643,14 +632,11 @@ Consequently
 \[
  H^{0,1}_{\db}(E)=\C[d\bar z].\qquad\square
 \]
-\end{column}
-\begin{column}{0.22\textwidth}
-\centering
-\includegraphics[width=\linewidth,height=4.2cm,keepaspectratio]{De_Rham.jpeg}
+\end{frame}
 
-\scriptsize Georges de Rham
-\end{column}
-\end{columns}
+\begin{frame}{Georges de Rham}
+\centering
+\includegraphics[width=0.9\textwidth,height=6cm,keepaspectratio]{De_Rham.jpeg}
 \end{frame}
 
 \begin{frame}{All Dolbeault groups of the elliptic curve}
