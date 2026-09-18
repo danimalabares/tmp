@@ -580,20 +580,24 @@ The conclusion is that the mode is \emph{exact}, not that it is constant.
 \begin{frame}{Adding the primitives}
 Let $\eta=g\,d\bar z$ be a smooth $(0,1)$-form on $E$, with
 \[
- g=\sum_{n,m}a_{n,m}\ee.
+ g=c+\sum_{(n,m)\ne(0,0)}a_{n,m}\ee.
 \]
-Separate its constant coefficient and define
+Separate the constant coefficient $c$ and define $f$:
 \[
  c=a_{0,0}=\frac1{(2\pi)^2}\int_E g\,dx\,dy,\qquad
  f=\sum_{(n,m)\ne(0,0)}\frac{2a_{n,m}}{in-m}\ee.
 \]
-We will justify that $f$ is smooth and can be differentiated term by term.
-Then
+Since $\db\ee=\tfrac{in-m}{2}\ee\,d\bar z$,
+differentiation cancels the factor $2/(in-m)$ in each term:
 \[
- \db f=(g-c)\,d\bar z,
- \qquad\boxed{\eta=c\,d\bar z+\db f.}
+ \db f=\sum_{(n,m)\ne(0,0)}a_{n,m}\ee\,d\bar z
+ =(g-c)\,d\bar z.
 \]
-Only the zero mode was excluded when dividing by $in-m$.
+Only the constant term is missing, so
+\[
+ \boxed{\eta=c\,d\bar z+\db f.}
+\]
+The next slide justifies smoothness and termwise differentiation.
 \end{frame}
 
 \begin{frame}{Why the sums and their derivatives converge}
