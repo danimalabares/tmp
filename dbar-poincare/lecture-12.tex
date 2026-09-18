@@ -506,6 +506,29 @@ The combination used for $\db$ is
 For integer $n,m$, $\lambda_{n,m}=0$ exactly when $(n,m)=(0,0)$.
 \end{frame}
 
+\begin{frame}{Proof of the eigenvalue formula}
+Let
+\[
+ \eta_{n,m}=\ee\alpha,\qquad
+ \ee=e^{inx+imy},\qquad X=\partial_x,
+\]
+where $\alpha\ne0$ is a constant (translation-invariant) form.
+The product rule gives
+\[
+ \Lie_X(\ee\alpha)
+ =X(\ee)\alpha+\ee\Lie_X\alpha.
+\]
+Translation invariance gives $\Lie_X\alpha=0$, while
+\[
+ X(\ee)=\partial_x e^{inx+imy}=in\,\ee.
+\]
+Therefore
+\[
+ \Lie_X\eta_{n,m}=in\,\ee\alpha=in\,\eta_{n,m}.
+\]
+Each Fourier mode is an eigenvector of $\Lie_X$ with eigenvalue $in$.
+\end{frame}
+
 \begin{frame}{A closed nonzero mode is exact}
 Let $\eta_{n,m}=a_{n,m}\ee\,d\bar z$ and $(n,m)\ne(0,0)$.
 Suppose $\db\eta_{n,m}=0$ (automatic for $(0,1)$-forms).
