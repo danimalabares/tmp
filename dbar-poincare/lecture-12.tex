@@ -206,15 +206,64 @@ The same integral over $(0,2\pi]$ shows that
 \]
 is orthonormal in $L^2(0,2\pi]$.
 
-\textbf{Completeness.} Finite sums of $e^{int}$ are trigonometric
-polynomials. They form a subalgebra of $C(S^1,\C)$, contain constants,
-separate points, and are closed under complex conjugation.
+Let
+\[
+ A=\operatorname{span}\{e^{int}:n\in\Z\}\subset C(S^1,\C).
+\]
+To prove that $(\phi_n)$ is a Hilbert basis, it remains to prove
+\[
+ \overline A^{\,L^2}=L^2(S^1).
+\]
 
-The complex Stone--Weierstrass theorem therefore makes them uniformly
-dense in $C(S^1,\C)$. Continuous functions are dense in $L^2(S^1)$,
-and $\|h\|_2\leq\sqrt{2\pi}\|h\|_\infty$.
-Thus their span is dense in $L^2$.\hfill$\square$
-\src{This is the completeness argument in Verbitsky, Lecture 12, pp. 2--4.}
+This does \emph{not} follow from orthonormality. We use
+Stone--Weierstrass.
+\src{Verbitsky, Lecture 12, pp. 2--4; \texttt{functional-analysis} notes, Stone--Weierstrass theorem.}
+\end{frame}
+
+\begin{frame}{Completeness: Stone--Weierstrass}
+The Fourier polynomials $A$ satisfy the hypotheses:
+\begin{itemize}
+\item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
+\item $1=e^{i0t}\in A$;
+\item $A$ is closed under conjugation, since
+      $\overline{e^{int}}=e^{-int}$;
+\item $A$ separates points of $S^1$: the function $e^{it}$ already does.
+\end{itemize}
+Therefore the complex Stone--Weierstrass theorem gives
+\[
+ \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
+\]
+
+Thus every continuous function can be approximated uniformly by Fourier
+polynomials.
+\end{frame}
+
+\begin{frame}{From uniform density to $L^2$ density}
+On $(0,2\pi]$,
+\[
+ \|f-g\|_2^2
+ =\int_0^{2\pi}|f-g|^2dt
+ \leq 2\pi\|f-g\|_\infty^2,
+\]
+hence
+\[
+ \|f-g\|_2\leq\sqrt{2\pi}\|f-g\|_\infty.
+\]
+So uniform approximation implies $L^2$ approximation. Therefore
+\[
+ C(S^1,\C)\subset\overline A^{\,L^2}.
+\]
+
+Finally, continuous functions are dense in $L^2(S^1)$, hence
+\[
+ L^2(S^1)=\overline{C(S^1,\C)}^{\,L^2}
+ \subset\overline A^{\,L^2}.
+\]
+Thus
+\[
+ \boxed{\overline A^{\,L^2}=L^2(S^1),}
+\]
+so $(\phi_n)_{n\in\Z}$ is an orthonormal Hilbert basis.\hfill$\square$
 \end{frame}
 
 \begin{frame}{The Fourier expansion on the circle}
