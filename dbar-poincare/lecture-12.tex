@@ -1,7 +1,7 @@
 \documentclass[aspectratio=169,11pt]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern,amsmath,amssymb}
+\usepackage{lmodern,amsmath,amssymb,graphicx}
 \DeclareUnicodeCharacter{2013}{\ensuremath{-}}
 \usetheme{default}
 \usefonttheme{serif}
@@ -139,23 +139,60 @@ are dense in the Hilbert space.
 Here ``basis'' allows convergent infinite sums.
 \end{frame}
 
-\begin{frame}{Why an orthonormal basis gives a series}
-\textbf{Theorem.} For a countable orthonormal basis $(e_j)$,
+\begin{frame}{Parseval theorem}
+Let $H$ be a Hilbert space and $S\subset H$ orthonormal. The following
+are equivalent:
+\begin{enumerate}
+\item $S$ is maximal orthonormal;
+\item $\overline{\operatorname{span}(S)}=H$;
+\item for every $x\in H$,
 \[
- v=\sum_j\langle v,e_j\rangle e_j,
- \qquad \|v\|^2=\sum_j|\langle v,e_j\rangle|^2.
+ x=\sum_{s\in S}\langle x,s\rangle s;
 \]
-\textbf{Proof.} Write $S_N=\sum_{j=1}^N\langle v,e_j\rangle e_j$.
-Orthogonality gives
+\item for every $x\in H$,
 \[
- \|v-S_N\|^2=\|v\|^2-\sum_{j=1}^N|\langle v,e_j\rangle|^2\geq0.
+ \|x\|^2=\sum_{s\in S}|\langle x,s\rangle|^2.
 \]
-The numerical sum converges, so $(S_N)$ is Cauchy and has a limit $s$.
-For every $j$, $\langle v-s,e_j\rangle=0$.
-Density then gives $v=s$. The norm identity follows.\hfill$\square$
+\end{enumerate}
+Thus an orthonormal set is a Hilbert basis exactly when its finite
+linear combinations are dense.
+\end{frame}
 
-For $L^2$, this is convergence in norm; pointwise convergence is a
-separate question.
+\begin{frame}{Parseval: why the series converges}
+For $x\in H$, consider
+\[
+ \sum_{s\in S}\langle x,s\rangle s.
+\]
+For a finite $S_1\subset S$, Pythagoras gives
+\[
+ \left\|\sum_{s\in S_1}\langle x,s\rangle s\right\|^2
+ =\sum_{s\in S_1}|\langle x,s\rangle|^2.
+\]
+By Bessel's inequality,
+\[
+ \sum_{s\in S}|\langle x,s\rangle|^2\leq\|x\|^2.
+\]
+Hence the numerical sum converges, so the Cauchy criterion shows that
+the vector series converges in $H$.
+\end{frame}
+
+\begin{frame}{Parseval: maximality means generation}
+Let
+\[
+ y=x-\sum_{s\in S}\langle x,s\rangle s.
+\]
+Then $y\perp S$. If $S$ is maximal orthonormal, this forces $y=0$;
+otherwise $y/\|y\|$ could be added to $S$. Hence
+\[
+ x=\sum_{s\in S}\langle x,s\rangle s.
+\]
+Its partial sums lie in $\operatorname{span}(S)$, so
+\[
+ x\in\overline{\operatorname{span}(S)}.
+\]
+Conversely, if $S$ is not maximal, there is a unit vector
+$y_0\perp S$, hence $y_0\perp\overline{\operatorname{span}(S)}$,
+so the closed span cannot be all of $H$.\hfill$\square$
 \end{frame}
 
 % Verbatim excerpts of functional-analysis/functional-analysis.tex,
@@ -220,6 +257,8 @@ Stone--Weierstrass.
 \end{frame}
 
 \begin{frame}{Completeness: Stone--Weierstrass}
+\begin{columns}[T]
+\begin{column}{0.72\textwidth}
 The Fourier polynomials $A$ satisfy the hypotheses:
 \begin{itemize}
 \item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
@@ -228,13 +267,18 @@ The Fourier polynomials $A$ satisfy the hypotheses:
       $\overline{e^{int}}=e^{-int}$;
 \item $A$ separates points of $S^1$: the function $e^{it}$ already does.
 \end{itemize}
-Therefore the complex Stone--Weierstrass theorem gives
+Therefore Stone--Weierstrass gives
 \[
  \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
 \]
+\end{column}
+\begin{column}{0.25\textwidth}
+\centering
+\includegraphics[width=\linewidth]{Stone.jpeg}
 
-Thus every continuous function can be approximated uniformly by Fourier
-polynomials.
+\scriptsize Marshall H. Stone
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{From uniform density to $L^2$ density}
