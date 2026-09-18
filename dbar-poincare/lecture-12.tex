@@ -488,45 +488,51 @@ Adding the two identities recovers real Cartan.\hfill$\square$
 \end{frame}
 
 \begin{frame}{A mode is an eigenvector}
-Let $\eta_{n,m}=\ee\alpha$, with $\alpha$ constant.
-Since translations leave $\alpha$ fixed,
+Let $\eta_{n,m}=\ee\alpha$, where $\ee=e^{inx+imy}$ and
+$\alpha\ne0$ is a constant (translation-invariant) form.
+Set $X=\partial_x$ and $IX=\partial_y$.
+
+\textbf{Lemma.} The mode $\eta_{n,m}$ is an eigenvector of both operators:
 \[
  \Lie_X\eta_{n,m}=in\eta_{n,m},\qquad
  \Lie_{IX}\eta_{n,m}=im\eta_{n,m}.
 \]
-For the combination with a minus sign,
-\[
- (\Lie_X-i\Lie_{IX})\eta_{n,m}=(in+m)\eta_{n,m}.
-\]
-The combination used for $\db$ is
-\[
- (\Lie_X+i\Lie_{IX})\eta_{n,m}
- =\lambda_{n,m}\eta_{n,m},\qquad\lambda_{n,m}=in-m.
-\]
-For integer $n,m$, $\lambda_{n,m}=0$ exactly when $(n,m)=(0,0)$.
-\end{frame}
-
-\begin{frame}{Proof of the eigenvalue formula}
-Let
-\[
- \eta_{n,m}=\ee\alpha,\qquad
- \ee=e^{inx+imy},\qquad X=\partial_x,
-\]
-where $\alpha\ne0$ is a constant (translation-invariant) form.
-The product rule gives
+\textbf{Proof.} The product rule gives
 \[
  \Lie_X(\ee\alpha)
  =X(\ee)\alpha+\ee\Lie_X\alpha.
 \]
-Translation invariance gives $\Lie_X\alpha=0$, while
+Translation invariance gives $\Lie_X\alpha=\Lie_{IX}\alpha=0$. Hence
 \[
- X(\ee)=\partial_x e^{inx+imy}=in\,\ee.
+ \Lie_X\eta_{n,m}
+ =(\partial_x e^{inx+imy})\alpha
+ =in\,\ee\alpha=in\,\eta_{n,m}.
 \]
-Therefore
+Likewise,
 \[
- \Lie_X\eta_{n,m}=in\,\ee\alpha=in\,\eta_{n,m}.
+ \Lie_{IX}\eta_{n,m}
+ =(\partial_y e^{inx+imy})\alpha
+ =im\,\eta_{n,m}.\qquad\square
 \]
-Each Fourier mode is an eigenvector of $\Lie_X$ with eigenvalue $in$.
+\end{frame}
+
+\begin{frame}{Eigenvalues of the two combinations}
+Applying the lemma to the combination with a minus sign gives
+\[
+ (\Lie_X-i\Lie_{IX})\eta_{n,m}
+ =(in-i(im))\eta_{n,m}=(in+m)\eta_{n,m}.
+\]
+The combination used for $\db$ has a plus sign:
+\[
+ (\Lie_X+i\Lie_{IX})\eta_{n,m}
+ =(in+i(im))\eta_{n,m}=(in-m)\eta_{n,m}.
+\]
+Thus, writing $\lambda_{n,m}=in-m$, we have
+\[
+ (\Lie_X+i\Lie_{IX})\eta_{n,m}
+ =\lambda_{n,m}\eta_{n,m}.
+\]
+For integer $n,m$, $\lambda_{n,m}=0$ exactly when $(n,m)=(0,0)$.
 \end{frame}
 
 \begin{frame}{A closed nonzero mode is exact}
