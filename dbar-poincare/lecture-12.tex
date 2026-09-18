@@ -171,22 +171,18 @@ are dense in the Hilbert space.
 Here ``basis'' allows convergent infinite sums.
 \end{frame}
 
-% Verbatim excerpts of functional-analysis/functional-analysis.tex,
-% blob 7fbf692c4d59594856090ef4e0bbea68eeb27022, lines 1031--1045.
-% No wording or formulas in the excerpts have been corrected.
 \begin{frame}{The Fourier example}
-\textbf{Example (verbatim).}
+\textbf{Example.}
 In $L_2(–\pi,\pi)$, the collection (or any subset thereof)
 			\[x_n=\frac{1}{\sqrt{2\pi}}e^{int},\qquad n=0,\pm1,\ldots\]
 			is an orthonormal set of vectors.
 \textbf{Proof.}
 For any $n\in\Z$,
 				\[\int_{-\pi}^\pi x_n\overline{x}_ndt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{int}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi \Vert e^{int}\Vert^2dt=1,\]
-\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
 \end{frame}
 
 \begin{frame}{The Fourier example: proof continued}
-\textbf{Proof (continued, verbatim).}
+\textbf{Proof (continued).}
 \begingroup\small
 and if $m$ is another integer,
 				\[\int_{-\pi}^\pi x_n\overline{x}_mdt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{imt}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{(n-m)it}dt=\frac{1}{2\pi}\left[\frac{e^{(n-m)it}}{(n-m)i}\right]_{-\pi}^\pi=0.\]
@@ -195,11 +191,10 @@ and if $m$ is another integer,
 In this last calculation, ``another integer'' means $m\ne n$.
 
 This proves orthonormality. To obtain a basis, we must also prove density.
-\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
 \end{frame}
 
 \begin{frame}{The real-valued version}
-\textbf{Example (verbatim).}
+\textbf{Example.}
 If we restric out attention to only real-valued functions that are square-integrable on the interval $[-\pi,\pi]$, then the collection (or any subset thereof)
 			\begin{align*}
 				\frac{1}{\sqrt{2\pi}},&\frac{1}{\sqrt{\pi}}\cos t,\frac{1}{\sqrt{\pi}}\cos 2t,\ldots\\
@@ -208,7 +203,6 @@ If we restric out attention to only real-valued functions that are square-integr
 			is an orthonormal set.
 \medskip
 We use the complex exponential version in the rest of the lecture.
-\src{\texttt{functional-analysis/functional-analysis.tex}, ``Orthogonal projections''.}
 \end{frame}
 
 \begin{frame}{From an orthonormal system to a basis}
