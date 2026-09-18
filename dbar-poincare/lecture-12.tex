@@ -171,62 +171,6 @@ are dense in the Hilbert space.
 Here ``basis'' allows convergent infinite sums.
 \end{frame}
 
-\begin{frame}{Parseval theorem}
-Let $H$ be a Hilbert space and $S\subset H$ orthonormal. The following
-are equivalent:
-\begin{enumerate}
-\item $S$ is maximal orthonormal;
-\item $\overline{\operatorname{span}(S)}=H$;
-\item for every $x\in H$,
-\[
- x=\sum_{s\in S}\langle x,s\rangle s;
-\]
-\item for every $x\in H$,
-\[
- \|x\|^2=\sum_{s\in S}|\langle x,s\rangle|^2.
-\]
-\end{enumerate}
-Thus an orthonormal set is a Hilbert basis exactly when its finite
-linear combinations are dense.
-\end{frame}
-
-\begin{frame}{Parseval: why the series converges}
-For $x\in H$, consider
-\[
- \sum_{s\in S}\langle x,s\rangle s.
-\]
-For a finite $S_1\subset S$, Pythagoras gives
-\[
- \left\|\sum_{s\in S_1}\langle x,s\rangle s\right\|^2
- =\sum_{s\in S_1}|\langle x,s\rangle|^2.
-\]
-By Bessel's inequality,
-\[
- \sum_{s\in S}|\langle x,s\rangle|^2\leq\|x\|^2.
-\]
-Hence the numerical sum converges, so the Cauchy criterion shows that
-the vector series converges in $H$.
-\end{frame}
-
-\begin{frame}{Parseval: maximality means generation}
-Let
-\[
- y=x-\sum_{s\in S}\langle x,s\rangle s.
-\]
-Then $y\perp S$. If $S$ is maximal orthonormal, this forces $y=0$;
-otherwise $y/\|y\|$ could be added to $S$. Hence
-\[
- x=\sum_{s\in S}\langle x,s\rangle s.
-\]
-Its partial sums lie in $\operatorname{span}(S)$, so
-\[
- x\in\overline{\operatorname{span}(S)}.
-\]
-Conversely, if $S$ is not maximal, there is a unit vector
-$y_0\perp S$, hence $y_0\perp\overline{\operatorname{span}(S)}$,
-so the closed span cannot be all of $H$.\hfill$\square$
-\end{frame}
-
 % Verbatim excerpts of functional-analysis/functional-analysis.tex,
 % blob 7fbf692c4d59594856090ef4e0bbea68eeb27022, lines 1031--1045.
 % No wording or formulas in the excerpts have been corrected.
