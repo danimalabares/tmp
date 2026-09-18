@@ -382,6 +382,31 @@ The \textbf{zero mode} is $(n,m)=(0,0)$: its coefficients are constant.
 The frequency $(n,m)$ and the form type $(p,q)$ are different indices.
 \end{frame}
 
+\begin{frame}{Constant forms on the torus}
+A \textbf{constant form} has constant coefficients in $dx,dy$.
+It is not a coordinate function. For example,
+\[
+ dx_{(x,y)}(v_x,v_y)=v_x.
+\]
+Thus $dx_{(x,y)}$ is a covector (a linear functional on tangent vectors),
+not the number $x$.
+
+For $\tau_a(x,y)=(x+a,y)$, its differential preserves vector components.
+Writing $p=(x,y)$ and $v=(v_x,v_y)$,
+\[
+ (\tau_a^*dx)_p(v)
+ =dx_{\tau_a(p)}\bigl((d\tau_a)_p v\bigr)
+ =v_x=dx_p(v).
+\]
+Hence $\tau_a^*dx=dx$; the same argument applies to $dy$.
+Although $x,y,z$ are not global functions on the torus,
+$dx,dy,dz,d\bar z$ are global translation-invariant forms.
+
+In a Fourier mode $\ee\alpha$ of fixed type $(p,q)$,
+$\alpha$ is a constant scalar multiple of one of
+$1,\ dz,\ d\bar z,\ dz\wedge d\bar z$.
+\end{frame}
+
 \section{Differentiation preserves modes}
 \begin{frame}{The exterior derivative preserves modes}
 \textbf{Claim.} Differentiating a mode keeps the same frequency.
