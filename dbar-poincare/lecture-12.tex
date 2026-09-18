@@ -22,7 +22,7 @@
 \newcommand{\F}{\mathcal F}
 \newcommand{\Lie}{\mathcal L}
 \newcommand{\ee}{e_{n,m}}
-\newcommand{\Dbar}{D_{\bar z}}
+\newcommand{\pbarz}{\partial_{\bar z}}
 \newcommand{\src}[1]{\par\vfill{\scriptsize #1\par}}
 \title{Lecture 12}
 \subtitle{The \texorpdfstring{$\bar\partial$}{dbar}-Poincar\'e lemma in one variable}
@@ -38,6 +38,8 @@
 
 \section{Reminder and plan}
 \begin{frame}{Reminder: Dolbeault's theorem}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.75\textwidth}
 \[
  H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).
 \]
@@ -54,6 +56,14 @@ Use the resolution
 sheaf cohomology from its global sections.
 \end{itemize}
 The missing input is the $\db$-Poincar\'e lemma.
+\end{column}
+\begin{column}{0.22\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=4.2cm,keepaspectratio]{Pierre_Dolbeault.jpg}
+
+\scriptsize Pierre Dolbeault
+\end{column}
+\end{columns}
 \src{Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I}, Chapter 4.}
 \end{frame}
 
@@ -257,8 +267,8 @@ Stone--Weierstrass.
 \end{frame}
 
 \begin{frame}{Completeness: Stone--Weierstrass}
-\begin{columns}[T]
-\begin{column}{0.72\textwidth}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.66\textwidth}
 The Fourier polynomials $A$ satisfy the hypotheses:
 \begin{itemize}
 \item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
@@ -272,11 +282,19 @@ Therefore Stone--Weierstrass gives
  \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
 \]
 \end{column}
-\begin{column}{0.25\textwidth}
+\begin{column}{0.31\textwidth}
+\begin{minipage}[t]{0.48\linewidth}
 \centering
-\includegraphics[width=\linewidth]{Stone.jpeg}
+\includegraphics[width=\linewidth,height=3.2cm,keepaspectratio]{Stone.jpeg}
 
 \scriptsize Marshall H. Stone
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth,height=3.2cm,keepaspectratio]{Karl_Weierstrass.jpg}
+
+\scriptsize Karl Weierstrass
+\end{minipage}
 \end{column}
 \end{columns}
 \end{frame}
@@ -384,10 +402,14 @@ The form degree changes; the pair $(n,m)$ does not.
 \begin{frame}{The Dolbeault operator preserves modes}
 Our conventions are
 \[
- z=x+iy,\qquad I\partial_x=\partial_y,\qquad
- \Dbar=\frac12(\partial_x+i\partial_y),\qquad
- \db=d\bar z\wedge\Dbar.
+ z=x+iy,\qquad dz=dx+i\,dy,\qquad d\bar z=dx-i\,dy,
 \]
+\[
+ \pbarz=\frac12(\partial_x+i\partial_y),\qquad
+ \db f=\pbarz f\,d\bar z.
+\]
+On forms, $\pbarz$ acts on coefficients, so $\db=d\bar z\wedge\pbarz$.
+Also $I\partial_x=\partial_y$.
 \textbf{Proof.} Since $\partial_x\ee=in\ee$ and
 $\partial_y\ee=im\ee$,
 \[
@@ -427,15 +449,15 @@ For every form $\omega$, the contraction rule gives
  \iota_X(d\bar z\wedge\omega)
  =\underbrace{d\bar z(X)}_{1}\omega-d\bar z\wedge\iota_X\omega.
 \]
-Also $\Dbar$ commutes with $\iota_X$, since $X$ is constant. Therefore
+Also $\pbarz$ commutes with $\iota_X$, since $X$ is constant. Therefore
 \begin{align*}
  (\db\iota_X+\iota_X\db)\omega
- &=d\bar z\wedge\iota_X\Dbar\omega
-   +\iota_X(d\bar z\wedge\Dbar\omega)\\
- &=\Dbar\omega
+ &=d\bar z\wedge\iota_X\pbarz\omega
+   +\iota_X(d\bar z\wedge\pbarz\omega)\\
+ &=\pbarz\omega
  =\tfrac12(\Lie_X+i\Lie_{IX})\omega.
 \end{align*}
-Replacing $d\bar z,\Dbar$ by $dz,\tfrac12(\partial_x-i\partial_y)$
+Replacing $d\bar z,\pbarz$ by $dz,\tfrac12(\partial_x-i\partial_y)$
 proves the formula for $\partial$.
 Adding the two identities recovers real Cartan.\hfill$\square$
 \end{frame}
@@ -518,6 +540,8 @@ Their $L^2$ expansions identify the limits, and $\db f=(g-c)d\bar z$.\hfill$\squ
 \end{frame}
 
 \begin{frame}{The constant part is exactly the cohomology}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.75\textwidth}
 We have proved
 \[
  \eta=c\,d\bar z+\db f
@@ -526,8 +550,11 @@ We have proved
 \textbf{Why does a nonzero constant survive?}
 For every smooth periodic $h$,
 \[
- \frac1{(2\pi)^2}\int_E\frac{\partial h}{\partial\bar z}\,dx\,dy
- =\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy=0.
+ \begin{aligned}
+ \frac1{(2\pi)^2}\int_E\pbarz h\,dx\,dy
+ &=\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy\\
+ &=0.
+ \end{aligned}
 \]
 Thus $c\,d\bar z=\db h$ forces $c=0$.
 The coefficient $c$ is uniquely determined by the cohomology class.
@@ -535,6 +562,14 @@ Consequently
 \[
  H^{0,1}_{\db}(E)=\C[d\bar z].\qquad\square
 \]
+\end{column}
+\begin{column}{0.22\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=4.2cm,keepaspectratio]{De_Rham.jpeg}
+
+\scriptsize Georges de Rham
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{All Dolbeault groups of the elliptic curve}
@@ -552,7 +587,7 @@ If $\db h=0$, every nonzero Fourier coefficient is zero, since
 $\db\ee=(in-m)\ee\,d\bar z/2$. Thus $h$ is constant;
 the same applies to a closed form $h\,dz$.
 
-For $g\,dz\wedge d\bar z$, write $g=c+\Dbar f$. Then
+For $g\,dz\wedge d\bar z$, write $g=c+\pbarz f$. Then
 \[
  g\,dz\wedge d\bar z
  =c\,dz\wedge d\bar z+\db(-f\,dz).
