@@ -577,23 +577,31 @@ Thus all derivative series converge uniformly, for both $g$ and $f$.
 Their $L^2$ expansions identify the limits, and $\db f=(g-c)d\bar z$.\hfill$\square$
 \end{frame}
 
-\begin{frame}{The constant part is exactly the cohomology}
-We have proved
+\begin{frame}{Different constants give different classes}
+Two $\db$-closed forms represent the same cohomology class when their
+difference is $\db$-exact.
+
+\begin{enumerate}
+\item \textbf{Every class has a constant representative.}
+We proved
 \[
  \eta=c\,d\bar z+\db f
  \quad\Longrightarrow\quad [\eta]=c[d\bar z].
 \]
-\textbf{Why does a nonzero constant survive?}
-For every smooth periodic $h$,
+The exact term disappears in cohomology.
+
+\item \textbf{Different constants give different classes.}
+If $c\,d\bar z=\db h$, then
 \[
- \frac1{(2\pi)^2}\int_E\pbarz h\,dx\,dy
- =\frac1{2(2\pi)^2}\int_E(h_x+i h_y)\,dx\,dy=0.
+ c=\pbarz h=\tfrac12(h_x+i h_y).
 \]
-Thus $c\,d\bar z=\db h$ forces $c=0$.
-The coefficient $c$ is uniquely determined by the cohomology class.
-Consequently
+Integrate over the torus: derivatives of periodic functions have
+integral zero, so $c=0$. Apply this to the difference of two constants.
+\end{enumerate}
+
+Thus each class is determined by a unique constant:
 \[
- H^{0,1}_{\db}(E)=\C[d\bar z].\qquad\square
+ H^{0,1}_{\db}(E)=\C[d\bar z]\cong\C.
 \]
 \end{frame}
 
