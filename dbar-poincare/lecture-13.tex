@@ -76,8 +76,32 @@ A complex of sheaves is \textbf{exact at $\mathcal G$} precisely when
 Thus a section of $\ker b$ must lift through $a$ \textbf{locally near
 each point}. Different neighbourhoods may have different lifts.
 
-The image \emph{sheaf} consists of sections that are locally images.
-A single lift on the original open set is an additional requirement.
+A \textbf{lift} of $s$ on $V$ means a section $t\in\F(V)$ satisfying
+$a(t)=s|_V$.
+\end{frame}
+
+\begin{frame}{Sheafification and global sections}
+For a sheaf map $\varphi:\F\to\mathcal G$, the image presheaf
+\[
+ U\longmapsto\operatorname{im}\bigl(\F(U)\xrightarrow{\varphi_U}
+ \mathcal G(U)\bigr)
+\]
+may fail the gluing axiom. Its \textbf{sheafification} is the
+\textbf{image sheaf} $\operatorname{im}\varphi$.
+
+A section $s\in\mathcal G(U)$ belongs to this image sheaf precisely
+when some open cover $U=\bigcup_i U_i$ admits local lifts:
+\[
+ t_i\in\F(U_i),\qquad\varphi(t_i)=s|_{U_i}.
+\]
+The images $s|_{U_i}$ agree on overlaps, but the lifts $t_i$ need not glue.
+
+Thus a \textbf{surjective sheaf map} guarantees local lifts.
+The global-sections functor $\Gamma(M,-)$ asks for a lift on all of $M$,
+which may not exist. This is why it can fail to be right exact.
+
+\textbf{Sheafification includes sections with local lifts.
+It does not guarantee a global lift.}
 \end{frame}
 
 \begin{frame}{The $\db$-Poincar\'e lemma on stalks}
