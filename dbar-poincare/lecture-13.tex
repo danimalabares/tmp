@@ -80,29 +80,6 @@ A \textbf{lift} of $s$ on $V$ means a section $t\in\F(V)$ satisfying
 $a(t)=s|_V$.
 \end{frame}
 
-\begin{frame}{The $\db$-Poincar\'e lemma on stalks}
-Fix $x\in M$ and $q>0$. Take
-$[\alpha]_x\in\ker(\db:\A^{p,q}_{M,x}\to\A^{p,q+1}_{M,x})$.
-\begin{enumerate}
-\item Choose a representative $\alpha$ on a neighbourhood $U$ of $x$.
-The equation $[\db\alpha]_x=0$ lets us shrink to $V\subset U$ with
-$\db\alpha|_V=0$.
-\item The local $\db$-Poincar\'e lemma gives a smaller
-$W\subset V$ and a $(p,q-1)$-form $\beta$ with
-$\alpha|_W=\db\beta$.
-\item Therefore $[\alpha]_x=\db[\beta]_x$.
-The reverse inclusion follows from $\db^2=0$.
-\end{enumerate}
-In degree $0$, $\db\alpha=0$ means that the coefficients of the
-$(p,0)$-form $\alpha$ are holomorphic. Hence the sheaf sequence
-\[
- 0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
- \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots
-\]
-is exact: it is a \textbf{resolution of $\Omega^p_M$}.
-For $\dim_{\C}M>1$, this uses the several-variable local lemma.
-\end{frame}
-
 \begin{frame}{Sheafification and global sections}
 For a sheaf map $\varphi:\F\to\mathcal G$, the image presheaf
 \[
@@ -125,6 +102,29 @@ which may not exist. This is why it can fail to be right exact.
 
 \textbf{Sheafification includes sections with local lifts.
 It does not guarantee a global lift.}
+\end{frame}
+
+\begin{frame}{The $\db$-Poincar\'e lemma on stalks}
+Fix $x\in M$ and $q>0$. Take
+$[\alpha]_x\in\ker(\db:\A^{p,q}_{M,x}\to\A^{p,q+1}_{M,x})$.
+\begin{enumerate}
+\item Choose a representative $\alpha$ on a neighbourhood $U$ of $x$.
+The equation $[\db\alpha]_x=0$ lets us shrink to $V\subset U$ with
+$\db\alpha|_V=0$.
+\item The local $\db$-Poincar\'e lemma gives a smaller
+$W\subset V$ and a $(p,q-1)$-form $\beta$ with
+$\alpha|_W=\db\beta$.
+\item Therefore $[\alpha]_x=\db[\beta]_x$.
+The reverse inclusion follows from $\db^2=0$.
+\end{enumerate}
+In degree $0$, $\db\alpha=0$ means that the coefficients of the
+$(p,0)$-form $\alpha$ are holomorphic. Hence the sheaf sequence
+\[
+ 0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
+ \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots
+\]
+is exact: it is a \textbf{resolution of $\Omega^p_M$}.
+For $\dim_{\C}M>1$, this uses the several-variable local lemma.
 \end{frame}
 
 \begin{frame}{Global sections can lose exactness}
