@@ -1,10 +1,12 @@
 .PHONY: all clean
 
-all: lecture-12.pdf
+LECTURES := lecture-12 lecture-13
 
-lecture-12.pdf: lecture-12.tex
-	latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build lecture-12.tex
-	cp build/lecture-12.pdf lecture-12.pdf
+all: $(addsuffix .pdf,$(LECTURES))
+
+%.pdf: %.tex
+	latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build $<
+	cp build/$@ $@
 
 clean:
-	latexmk -C -outdir=build lecture-12.tex
+	latexmk -C -outdir=build $(addsuffix .tex,$(LECTURES))

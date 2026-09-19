@@ -25,11 +25,11 @@
 \newcommand{\pbarz}{\partial_{\bar z}}
 \newcommand{\src}[1]{\par\vfill{\scriptsize #1\par}}
 \title{Lecture 13}
-\subtitle{The \texorpdfstring{$\bar\partial$}{dbar}-Poincar\'e lemma and Dolbeault's theorem}
+\subtitle{Local Dolbeault exactness and Hartogs extension}
 \author{Daniel Gonz\'alez Casanova Azuela}
 \date{}
 \hypersetup{pdfauthor={Daniel Gonzalez Casanova Azuela},
- pdftitle={Lecture 13: The dbar-Poincare lemma and Dolbeault's theorem}}
+ pdftitle={Lecture 13: Local Dolbeault exactness and Hartogs extension}}
 
 \begin{document}
 \begin{frame}
@@ -281,663 +281,612 @@ kernel sheaves proves the comparison in higher degrees.
 \includegraphics[width=0.9\textwidth,height=6cm,keepaspectratio]{Pierre_Dolbeault.jpg}
 \end{frame}
 
-\begin{frame}{Lecture 12 recap: one complex variable}
-\textbf{The $\db$-Poincar\'e lemma (local form).}
-If $\eta$ is a smooth $(0,1)$-form near a point of $\C$, then
-on a smaller disk there is a smooth function $u$ such that
-\[
- \db u=\eta.
-\]
-More precisely, if $\eta$ is smooth on a neighbourhood of a closed disk
-$\overline D$, we will construct $u$ on $D$.
+\section{The local lemma in several variables}
 
-For $z=x+iy$,
+\begin{frame}{The Poincar\'e--Dolbeault--Grothendieck lemma}
+A \textbf{polydisk} is a product of disks
 \[
- \eta=g\,d\bar z,\qquad
- \db u=\frac12(u_x+i u_y)\,d\bar z.
+ D=D_1\times\cdots\times D_n\subset\C^n.
 \]
-Every $(0,1)$-form is $\db$-closed.
-The $(1,1)$ case follows from the same scalar equation.
+\textbf{Theorem.}
+Let $\eta$ be a smooth $\db$-closed $(p,q)$-form on a neighbourhood
+of $\overline D$, with $q>0$. Then there is a smooth $(p,q-1)$-form
+$\beta$ on $D$ such that
+\[
+ \boxed{\eta|_D=\db\beta.}
+\]
+In particular, every $\db$-closed form of positive antiholomorphic
+degree has a primitive \textbf{near each point}.
+
+We will work inside a larger polydisk where $\eta$ is defined and
+closed, and shrink finitely many times. This is enough for the
+exactness on stalks used in the opening slides.
+\src{Verbitsky, Lecture 13, pp.\ 5--10.}
 \end{frame}
 
-\begin{frame}{Lecture 12 recap: proof outline}
+\begin{frame}{Proof outline}
 \begin{enumerate}
-\item \textbf{Fourier expansion.}
-Hilbert basis on the circle $\longrightarrow$ Hilbert basis on the torus
-$\longrightarrow$ Fourier modes of forms on the torus.
+\item \textbf{One variable.}
+Use Fourier modes on an elliptic curve to construct a linear
+operator solving $\partial_{\bar z}u=g$ on a disk.
 
-\medskip
-\item \textbf{Complex Cartan.}
-Modes are eigenvectors; closed nonzero modes are $\db$-exact.
-Thus a $\db$-closed $(0,1)$-form on the torus decomposes as
-\[
- \eta=c\,d\bar z+\db f.
-\]
+\item \textbf{Several variables.}
+Apply these operators one coordinate at a time.
+Misha's spaces $R_i$ and $W_k$ record which antiholomorphic directions
+have been removed. After $n$ steps, every positive-degree closed
+form becomes exact.
 
-\item \textbf{Disk to elliptic curve.}
-Extend the form using a bump function and apply the torus decomposition.
-Restrict back to the disk, where $d\bar z=\db\bar z$, to obtain
-\[
- \eta=\db\bigl(c\bar z+f|_D\bigr).
-\]
+\item \textbf{Hartogs extension.}
+Turn the failure of a smooth extension to be holomorphic into
+a compactly supported $\db$-closed form. Solve on $\mathbb P^n$
+and use complex lines to make the correction compactly supported.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Huybrechts: the boundary assumption}
-All three statements solve $\db\beta=\alpha$ \textbf{throughout $B$}
-for $\db$-closed forms of positive antiholomorphic degree.
-
-\medskip
-\renewcommand{\arraystretch}{1.45}
-\begin{tabular}{@{}p{2.5cm}p{9.8cm}@{}}
-\textbf{Statement}&\textbf{Where is the given form smooth?}\\\hline
-Prop. 1.3.7&Near the closed disk $\overline B\subset\C$.\\
-Prop. 1.3.8&Near the closed polydisk $\overline B\subset\C^n$.\\
-Corollary 1.3.9&Only on $B$; no extension across the boundary assumed.
-\end{tabular}
-\medskip
-
-Here the ``open disk'' in Corollary 1.3.9 is a \textbf{polydisk}:
-a product of disks in $\C^n$.
-
-One variable $\longrightarrow$ several variables
-$\longrightarrow$ remove the boundary-extension assumption.
-
-A smooth form on $B$ can be unbounded near its boundary.
-\src{Huybrechts, \emph{Complex Geometry: An Introduction},\newline
-Propositions 1.3.7--1.3.8 and Corollary 1.3.9.}
-\end{frame}
-
-\begin{frame}{Lecture 13: local exactness and Hartogs extension}
-\textbf{Several-variable $\db$-Poincar\'e lemma.}
-For a smooth $(p,q)$-form $\eta$ on a complex manifold,
-\[
- q>0,\quad\db\eta=0
- \quad\Longrightarrow\quad
- \eta=\db\beta\ \text{locally},
- \qquad \beta\text{ of type }(p,q-1).
-\]
-This completes the local exactness needed for Dolbeault's theorem.
-
-\textbf{Hartogs extension.}
-Let $n\geq2$ and $K\subset\C^n$ be compact with $\C^n\setminus K$
-connected. Every holomorphic function on $\C^n\setminus K$
-extends uniquely to a holomorphic function on $\C^n$.
-\src{Verbitsky, Lecture 13: Poincar\'e--Dolbeault--Grothendieck lemma and Hartogs' theorem.}
-\end{frame}
-
-\section{Hilbert spaces and Fourier modes}
-\begin{frame}{Hilbert spaces: what we need}
-A complex \textbf{Hilbert space} is a vector space with an inner product,
-complete for the norm $\|v\|=\sqrt{\langle v,v\rangle}$.
-We take the inner product linear in its first argument.
-
-Our example is $L^2(0,2\pi]$: square-integrable complex functions,
-identified when equal almost everywhere, with
-\[
- \langle f,g\rangle=\int_0^{2\pi}f(t)\overline{g(t)}\,dt,
- \qquad \|f\|_2^2=\int_0^{2\pi}|f(t)|^2\,dt.
-\]
-An \textbf{orthonormal system} $(e_j)$ satisfies
-$\langle e_j,e_k\rangle=\delta_{jk}$.
-It is an \textbf{orthonormal basis} if its finite linear combinations
-are dense in the Hilbert space.
-
-Here ``basis'' allows convergent infinite sums.
-\end{frame}
-
-\begin{frame}{The Fourier example}
-\textbf{Example.}
-In $L_2(–\pi,\pi)$, the collection (or any subset thereof)
-			\[x_n=\frac{1}{\sqrt{2\pi}}e^{int},\qquad n=0,\pm1,\ldots\]
-			is an orthonormal set of vectors.
-\textbf{Proof.}
-For any $n\in\Z$,
-				\[\int_{-\pi}^\pi x_n\overline{x}_ndt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{int}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi \Vert e^{int}\Vert^2dt=1,\]
-\end{frame}
-
-\begin{frame}{The Fourier example: proof continued}
-\textbf{Proof (continued).}
-\begingroup\small
-and if $m$ is another integer,
-				\[\int_{-\pi}^\pi x_n\overline{x}_mdt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{int}\overline{e^{imt}}dt=\frac{1}{2\pi}\int_{-\pi}^\pi e^{(n-m)it}dt=\frac{1}{2\pi}\left[\frac{e^{(n-m)it}}{(n-m)i}\right]_{-\pi}^\pi=0.\]
-\endgroup
-\medskip
-In this last calculation, ``another integer'' means $m\ne n$.
-
-This proves orthonormality. To obtain a basis, we must also prove density.
-\end{frame}
-
-\begin{frame}{The real-valued version}
-\textbf{Example.}
-If we restric out attention to only real-valued functions that are square-integrable on the interval $[-\pi,\pi]$, then the collection (or any subset thereof)
-			\begin{align*}
-				\frac{1}{\sqrt{2\pi}},&\frac{1}{\sqrt{\pi}}\cos t,\frac{1}{\sqrt{\pi}}\cos 2t,\ldots\\
-				&\frac{1}{\sqrt{\pi}}\sin t,\frac{1}{\sqrt{\pi}}\sin 2t,\ldots
-			\end{align*}
-			is an orthonormal set.
-\medskip
-We use the complex exponential version in the rest of the lecture.
-\end{frame}
-
-\begin{frame}{From an orthonormal system to a basis}
-The same integral over $(0,2\pi]$ shows that
-\[
- \phi_n(t)=\frac{e^{int}}{\sqrt{2\pi}},\qquad n\in\Z,
-\]
-is orthonormal in $L^2(0,2\pi]$.
-
-Let
-\[
- A=\operatorname{span}\{e^{int}:n\in\Z\}\subset C(S^1,\C).
-\]
-To prove that $(\phi_n)$ is a Hilbert basis, it remains to prove
-\[
- \overline A^{\,L^2}=L^2(S^1).
-\]
-
-This does \emph{not} follow from orthonormality. We use
-Stone--Weierstrass.
-\src{Verbitsky, Lecture 12, pp. 2--4.}
-\end{frame}
-
-\begin{frame}{Stone--Weierstrass theorem}
-\textbf{Complex version.}
-Let $X$ be a compact Hausdorff space and $C(X,\C)$ the space of
-continuous complex-valued functions on $X$.
-
-Let $A\subset C(X,\C)$ be a complex subalgebra
-(closed under linear combinations and products). Suppose that
-\begin{itemize}
-\item $A$ contains the constant functions;
-\item $A$ is closed under complex conjugation;
-\item $A$ \textbf{separates points}: for $x\ne y$, some $a\in A$
-satisfies $a(x)\ne a(y)$.
-\end{itemize}
-Then $A$ is dense for the uniform norm:
-\[
- \overline A^{\,\|\cdot\|_\infty}=C(X,\C),\qquad
- \|f\|_\infty=\sup_{x\in X}|f(x)|.
-\]
-\end{frame}
-
-\begin{frame}{Stone--Weierstrass}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth,height=5.7cm,keepaspectratio]{Stone.jpeg}
-
-Marshall H. Stone
-\end{column}
-\begin{column}{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth,height=5.7cm,keepaspectratio]{Karl_Weierstrass.jpg}
-
-Karl Weierstrass
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Application to the Fourier basis}
-For $A=\operatorname{span}\{e^{int}:n\in\Z\}\subset C(S^1,\C)$,
-the hypotheses hold:
-\begin{itemize}
-\item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
-\item $1=e^{i0t}\in A$;
-\item $A$ is closed under conjugation, since
-      $\overline{e^{int}}=e^{-int}$;
-\item $A$ separates points of $S^1$: the function $e^{it}$ already does.
-\end{itemize}
-Therefore Stone--Weierstrass gives
-\[
- \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
-\]
-\end{frame}
-
-\begin{frame}{From uniform density to $L^2$ density}
-On $(0,2\pi]$,
-\[
- \|f-g\|_2^2
- =\int_0^{2\pi}|f-g|^2dt
- \leq 2\pi\|f-g\|_\infty^2,
-\]
-hence
-\[
- \|f-g\|_2\leq\sqrt{2\pi}\|f-g\|_\infty.
-\]
-So uniform approximation implies $L^2$ approximation. Therefore
-\[
- C(S^1,\C)\subset\overline A^{\,L^2}.
-\]
-
-Finally, continuous functions are dense in $L^2(S^1)$, hence
-\[
- L^2(S^1)=\overline{C(S^1,\C)}^{\,L^2}
- \subset\overline A^{\,L^2}.
-\]
-Thus
-\[
- \boxed{\overline A^{\,L^2}=L^2(S^1),}
-\]
-so $(\phi_n)_{n\in\Z}$ is an orthonormal Hilbert basis.\hfill$\square$
-\end{frame}
-
-\begin{frame}{The Fourier expansion on the circle}
-By the Hilbert-space expansion theorem,
-\[
- f(t)=\sum_{n\in\Z}a_n e^{int},\qquad
- a_n=\frac1{2\pi}\int_0^{2\pi}f(t)e^{-int}\,dt.
-\]
-The sum converges in $L^2$.
-
-From now on we use the normalized measure $dt/(2\pi)$.
-Then $e^{int}$ itself has norm one, and the coefficients are simply
-its inner products with $f$.
-
-An $L^2$ function on the interval defines a function on the circle
-up to a set of measure zero. Smooth functions on the circle correspond
-to smooth periodic functions on $\R$.
-\end{frame}
-
-\begin{frame}{The Fourier basis on the torus}
-Let
-\[
- E=\C/(2\pi\Z+2\pi i\Z),\qquad z=x+iy.
-\]
-Functions on $E$ are periodic in both $x$ and $y$.
-For the measure $dx\,dy/(2\pi)^2$, put
-\[
- \ee(x,y)=e^{inx+imy},\qquad(n,m)\in\Z^2.
-\]
-\textbf{Proof that this is a basis.} Orthogonality follows by multiplying
-the two one-variable integrals:
-\[
- \langle e_{n,m},e_{r,s}\rangle=\delta_{nr}\delta_{ms}.
-\]
-Their span is again a conjugation-closed algebra containing constants
-and separating points of $E$. Stone--Weierstrass and the density of
-$C(E)$ in $L^2(E)$ prove completeness.\hfill$\square$
-\end{frame}
-
-\begin{frame}{Fourier modes of functions and forms}
-Every $f\in L^2(E)$ has the expansion
-\[
- f=\sum_{n,m\in\Z}a_{n,m}\ee,\qquad
- a_{n,m}=\frac1{(2\pi)^2}\int_E f(x,y)e^{-inx-imy}\,dx\,dy.
-\]
-The term $a_{n,m}\ee$ is its $(n,m)$-\textbf{Fourier mode}.
-There are two integer indices because there are two real coordinates.
-
-Expand the coefficients of a differential form in the same way:
-\[
- \eta=g\,d\bar z=\sum_{n,m}a_{n,m}\ee\,d\bar z.
-\]
-More generally, a mode is $\ee\alpha$ with $\alpha$ a constant form.
-The \textbf{zero mode} is $(n,m)=(0,0)$: its coefficients are constant.
-The frequency $(n,m)$ and the form type $(p,q)$ are different indices.
-
-{\small Misha proved this Fourier decomposition using representation theory;
-see the Peter--Weyl theorem.}
-\end{frame}
-
-\begin{frame}{Constant forms on the torus}
-A \textbf{constant form} has constant coefficients in $dx,dy$.
-It is not a coordinate function. For example,
-\[
- dx_{(x,y)}(v_x,v_y)=v_x.
-\]
-Thus $dx_{(x,y)}$ is a covector (a linear functional on tangent vectors),
-not the number $x$.
-
-For $\tau_a(x,y)=(x+a,y)$, its differential preserves vector components.
-Writing $p=(x,y)$ and $v=(v_x,v_y)$,
-\[
- (\tau_a^*dx)_p(v)
- =dx_{\tau_a(p)}\bigl((d\tau_a)_p v\bigr)
- =v_x=dx_p(v).
-\]
-Hence $\tau_a^*dx=dx$; the same argument applies to $dy$.
-Although $x,y,z$ are not global functions on the torus,
-$dx,dy,dz,d\bar z$ are global translation-invariant forms.
-
-In a Fourier mode $\ee\alpha$ of fixed type $(p,q)$,
-$\alpha$ is a constant scalar multiple of one of
-$1,\ dz,\ d\bar z,\ dz\wedge d\bar z$.
-\end{frame}
-
-\section{Differentiation preserves modes}
-\begin{frame}{The exterior derivative preserves modes}
-\textbf{Claim.} Differentiating a mode keeps the same frequency.
-
-\textbf{Proof.} Direct differentiation gives
-\[
- d\ee=\ee(in\,dx+im\,dy).
-\]
-If $\alpha$ is a constant form, then $d\alpha=0$, so
-\[
- d(\ee\alpha)=\ee(in\,dx+im\,dy)\wedge\alpha.
-\]
-Every coefficient is a multiple of the same basis function $\ee$.\hfill$\square$
-
-The form degree changes; the pair $(n,m)$ does not.
-\end{frame}
-
-\begin{frame}{The Dolbeault operator preserves modes}
+\begin{frame}{Coordinates and the two operators}
 Our conventions are
 \[
  z=x+iy,\qquad dz=dx+i\,dy,\qquad d\bar z=dx-i\,dy,
+ \qquad \partial_{\bar z}=\frac12(\partial_x+i\partial_y).
 \]
+For a function,
 \[
- \pbarz=\frac12(\partial_x+i\partial_y),\qquad
- \db f=\pbarz f\,d\bar z.
+ \db f=\partial_{\bar z}f\,d\bar z.
 \]
-On forms, $\pbarz$ acts on coefficients, so $\db=d\bar z\wedge\pbarz$.
-Also $I\partial_x=\partial_y$.
-\textbf{Proof.} Since $\partial_x\ee=in\ee$ and
-$\partial_y\ee=im\ee$,
-\[
- \db(\ee\alpha)=\frac{in-m}{2}\ee\,d\bar z\wedge\alpha
- \qquad(\alpha\text{ constant}).
-\]
-Thus $\db$ also preserves each frequency.\hfill$\square$
+Thus $\partial_{\bar z}$ differentiates a coefficient, while
+$\db$ also wedges with $d\bar z$.
 
-By uniqueness of Fourier coefficients, if $\db\eta=0$,
-each mode of $\eta$ is $\db$-closed. We can seek primitives mode by mode.
-For smooth forms, termwise differentiation is justified below.
-\end{frame}
-
-\section{Cartan's formula and cohomology}
-\begin{frame}{Complex Cartan's formula}
-Let $X=\partial_x$ and $IX=\partial_y$ be translation fields on $E$.
-Contraction is denoted by $\iota_X$; on a one-form,
-$\iota_X\eta=\eta(X)$. Lie derivatives differentiate coefficients.
-
-The real Cartan formula is $d\iota_X+\iota_Xd=\Lie_X$.
-Its complex versions are
+For $z_1,\ldots,z_n$, write
 \[
- \db\iota_X+\iota_X\db
- =\frac12(\Lie_X+i\Lie_{IX}),
+ \db_i\alpha=d\bar z_i\wedge\partial_{\bar z_i}\alpha,\qquad
+ \db=\sum_{i=1}^n\db_i.
 \]
+Here $\partial_{\bar z_i}$ differentiates every coefficient in the coordinate-form basis.
+The coordinate derivatives commute, but wedge products give
 \[
- \partial\iota_X+\iota_X\partial
- =\frac12(\Lie_X-i\Lie_{IX}).
-\]
-With $z=x+iy$ and $IX=\partial_y$, the plus sign belongs to $\db$.
-\src{Compare Verbitsky, Lecture 12, p. 13; signs here follow the displayed coordinate conventions.}
-\end{frame}
-
-\begin{frame}{Proof of complex Cartan for translations}
-For every form $\omega$, the contraction rule gives
-\[
- \iota_X(d\bar z\wedge\omega)
- =\underbrace{d\bar z(X)}_{1}\omega-d\bar z\wedge\iota_X\omega.
-\]
-Also $\pbarz$ commutes with $\iota_X$, since $X$ is constant. Therefore
-\begin{align*}
- (\db\iota_X+\iota_X\db)\omega
- &=d\bar z\wedge\iota_X\pbarz\omega
-   +\iota_X(d\bar z\wedge\pbarz\omega)\\
- &=\pbarz\omega
- =\tfrac12(\Lie_X+i\Lie_{IX})\omega.
-\end{align*}
-Replacing $d\bar z,\pbarz$ by $dz,\tfrac12(\partial_x-i\partial_y)$
-proves the formula for $\partial$.
-Adding the two identities recovers real Cartan.\hfill$\square$
-\end{frame}
-
-\begin{frame}{A mode is an eigenvector}
-Let $\eta_{n,m}=\ee\alpha$, where $\ee=e^{inx+imy}$ and
-$\alpha\ne0$ is a constant (translation-invariant) form.
-Set $X=\partial_x$ and $IX=\partial_y$.
-
-\textbf{Lemma.} The mode $\eta_{n,m}$ is an eigenvector of both operators:
-\[
- \Lie_X\eta_{n,m}=in\eta_{n,m},\qquad
- \Lie_{IX}\eta_{n,m}=im\eta_{n,m}.
-\]
-\textbf{Proof.} The product rule gives
-\[
- \Lie_X(\ee\alpha)
- =X(\ee)\alpha+\ee\Lie_X\alpha.
-\]
-Translation invariance gives $\Lie_X\alpha=\Lie_{IX}\alpha=0$. Hence
-\[
- \Lie_X\eta_{n,m}
- =(\partial_x e^{inx+imy})\alpha
- =in\,\ee\alpha=in\,\eta_{n,m}.
-\]
-Likewise,
-\[
- \Lie_{IX}\eta_{n,m}
- =(\partial_y e^{inx+imy})\alpha
- =im\,\eta_{n,m}.\qquad\square
+ \db_i^2=0,\qquad \db_i\db_j+\db_j\db_i=0.
 \]
 \end{frame}
 
-\begin{frame}{Eigenvalues of the two combinations}
-Applying the lemma to the combination with a minus sign gives
+\begin{frame}{Reminder: translation fields and complex Cartan}
+A real vector field is \textbf{holomorphic} if its local flow preserves
+the complex structure. For
 \[
- (\Lie_X-i\Lie_{IX})\eta_{n,m}
- =(in-i(im))\eta_{n,m}=(in+m)\eta_{n,m}.
+ X=\partial_x,\qquad IX=\partial_y,
 \]
-The combination used for $\db$ has a plus sign:
+the flows are translations $z\mapsto z+t$ and $z\mapsto z+it$.
+
+With the conventions just fixed, complex Cartan gives
 \[
- (\Lie_X+i\Lie_{IX})\eta_{n,m}
- =(in+i(im))\eta_{n,m}=(in-m)\eta_{n,m}.
+ \db\iota_X+\iota_X\db=\frac12(\Lie_X+i\Lie_{IX}).
 \]
-Thus, writing $\lambda_{n,m}=in-m$, we have
+On the torus $E=\C/(2\pi\Z+2\pi i\Z)$, a Fourier mode is
 \[
- (\Lie_X+i\Lie_{IX})\eta_{n,m}
- =\lambda_{n,m}\eta_{n,m}.
+ e_{n,m}\alpha=e^{inx+imy}\alpha,
 \]
-For integer $n,m$, $\lambda_{n,m}=0$ exactly when $(n,m)=(0,0)$.
+where $\alpha$ is a constant form. Translation invariance of $\alpha$ gives
+\[
+ \Lie_X(e_{n,m}\alpha)=in\,e_{n,m}\alpha,\qquad
+ \Lie_{IX}(e_{n,m}\alpha)=im\,e_{n,m}\alpha.
+\]
+The $\db$ combination therefore has eigenvalue $(in-m)/2$.
+\src{Lecture 12 recap; Verbitsky, Lecture 13, pp.\ 2--3.}
 \end{frame}
 
-\begin{frame}{A closed nonzero mode is exact}
-Let $\eta_{n,m}=a_{n,m}\ee\,d\bar z$ and $(n,m)\ne(0,0)$.
-Suppose $\db\eta_{n,m}=0$ (automatic for $(0,1)$-forms).
-
-\textbf{Proof.} Complex Cartan gives
+\begin{frame}{A homotopy operator on the elliptic curve}
+Write $\mu=\sum_{n,m}\mu_{n,m}$ and let $\Pi_0\mu=\mu_{0,0}$
+be its constant Fourier part. Define
 \[
- \frac{\lambda_{n,m}}2\eta_{n,m}
- =\db\iota_X\eta_{n,m}+\iota_X\db\eta_{n,m}
- =\db\iota_X\eta_{n,m}.
+ P\mu=\sum_{(n,m)\ne(0,0)}\frac{2}{in-m}\,\mu_{n,m}.
 \]
-Since $\lambda_{n,m}\ne0$,
+To lower only the antiholomorphic degree, use
 \[
- \eta_{n,m}=\db f_{n,m},\qquad
- f_{n,m}=\frac{2}{\lambda_{n,m}}\iota_X\eta_{n,m}
- =\frac{2a_{n,m}}{in-m}\ee.\qquad\square
+ Y=\partial_{\bar z}=\frac12(X+iIX),\qquad h=P\iota_Y.
 \]
-The conclusion is that the mode is \emph{exact}, not that it is constant.
+Contraction means inserting $Y$ into a form. In particular,
+\[
+ \iota_Y(d\bar z)=1,\qquad \iota_Y(dz)=0.
+\]
+We will prove the \textbf{homotopy identity}
+\[
+ \boxed{\db h+h\db=\operatorname{Id}-\Pi_0.}
+\]
+Here a homotopy operator is a degree-lowering map satisfying this identity:
+it removes every nonconstant closed mode by an exact correction.
+\src{Verbitsky, Lecture 13, p.\ 6, in our $\partial_{\bar z}$ convention.}
 \end{frame}
 
-\begin{frame}{Adding the primitives}
-Let $\eta=g\,d\bar z$ be a smooth $(0,1)$-form on $E$, with
+\begin{frame}{Proof of the torus homotopy identity}
+In the constant coordinate-form basis, contraction satisfies
 \[
- g=c+\sum_{(n,m)\ne(0,0)}a_{n,m}\ee.
+ \db\iota_Y+\iota_Y\db=\partial_{\bar z}.
 \]
-Separate the constant coefficient $c$ and define $f$:
+Indeed, writing a form as $\beta+d\bar z\wedge\gamma$, with neither
+$\beta$ nor $\gamma$ containing $d\bar z$, verifies the identity directly.
+
+On a Fourier mode,
 \[
- c=a_{0,0}=\frac1{(2\pi)^2}\int_E g\,dx\,dy,\qquad
- f=\sum_{(n,m)\ne(0,0)}\frac{2a_{n,m}}{in-m}\ee.
+ \partial_{\bar z}\mu_{n,m}=\frac{in-m}{2}\mu_{n,m}.
 \]
-Since $\db\ee=\tfrac{in-m}{2}\ee\,d\bar z$,
-differentiation cancels the factor $2/(in-m)$ in each term:
+The operator $P$ commutes with $\db$ and $\iota_Y$, so
 \[
- \db f=\sum_{(n,m)\ne(0,0)}a_{n,m}\ee\,d\bar z
- =(g-c)\,d\bar z.
+ (\db h+h\db)\mu
+ =P\,\partial_{\bar z}\mu
+ =\mu-\Pi_0\mu.
 \]
-Only the constant term is missing, so
-\[
- \boxed{\eta=c\,d\bar z+\db f.}
-\]
-The next slide justifies smoothness and termwise differentiation.
+For a closed form this reads $\mu=\Pi_0\mu+\db(h\mu)$.
+
+Smooth Fourier coefficients decay faster than every power.
+Division by $in-m$ preserves this decay, so these operators and
+the differentiated series are well-defined on smooth forms.
 \end{frame}
 
-\begin{frame}{Why the sums and their derivatives converge}
-Put $\Delta=\partial_x^2+\partial_y^2$ and $r^2=n^2+m^2$.
-Repeated integration by parts on the torus gives, for every $N\geq0$,
-\[
- (1+r^2)^N a_{n,m}=\widehat{(1-\Delta)^N g}(n,m),
- \qquad |a_{n,m}|\leq C_N(1+r^2)^{-N}.
-\]
-There are no boundary terms because $g$ is periodic.
-For $r\geq1$, $|in-m|=r$, so the coefficients
-$b_{n,m}=2a_{n,m}/(in-m)$ have the same rapid decay.
+\begin{frame}{A linear solution operator on a disk}
+Choose disks $\overline D\subset D^+$ inside a fundamental square of $E$.
+We can arrange this by rescaling the coordinate.
+Fix a \textbf{bump function} $\chi$ supported in $D^+$ and equal to $1$
+near $\overline D$.
 
-A derivative of order $k$ multiplies a mode by a number of modulus at most
-$r^k$. Choose $N>(k+2)/2$; then
+For $g\in C^\infty(D^+)$, extend $\widetilde g=\chi g$ by zero to $E$ and set
 \[
- \sum_{(n,m)\ne(0,0)} r^k(1+r^2)^{-N}<\infty.
+ c=\frac1{(2\pi)^2}\int_E\widetilde g\,dx\,dy,\qquad
+ Tg=(P\widetilde g)|_D+c\bar z.
 \]
-Thus all derivative series converge uniformly, for both $g$ and $f$.
-Their $L^2$ expansions identify the limits, and $\db f=(g-c)d\bar z$.\hfill$\square$
+The Fourier formula gives $\partial_{\bar z}P\widetilde g=\widetilde g-c$.
+Consequently,
+\[
+ \boxed{\partial_{\bar z}Tg=g\quad\hbox{on }D.}
+\]
+The operator $T$ is linear because the bump function is fixed.
+
+\textbf{On the torus, $\bar z$ is not a global function.
+On the disk it is available and removes the constant term.}
+\src{Verbitsky, Lecture 13, pp.\ 4, 6--7.}
 \end{frame}
 
-\begin{frame}{Different constants give different classes}
-Two $\db$-closed forms represent the same cohomology class when their
-difference is $\db$-exact.
+\begin{frame}{Why the solution operator works with parameters}
+Suppose $g=g(z,w)$ is smooth, where $w$ denotes the other coordinates.
+Apply $T$ only in $z$, with the same bump function for every $w$.
 
-\begin{enumerate}
-\item \textbf{Every class has a constant representative.}
-We proved
+Multiplication by $\chi$, Fourier coefficients, and the average
+all operate only in $z$. Hence
 \[
- \eta=c\,d\bar z+\db f
- \quad\Longrightarrow\quad [\eta]=c[d\bar z].
+ \partial_{\bar w_j}(Tg)=T(\partial_{\bar w_j}g),
+ \qquad
+ \partial_{w_j}(Tg)=T(\partial_{w_j}g).
 \]
-The exact term disappears in cohomology.
+These identities hold for all parameter derivatives. Smoothness follows
+from rapid Fourier decay, uniformly on compact sets of parameters.
 
-\item \textbf{Different constants give different classes.}
-If $c\,d\bar z=\db h$, then
+In particular,
 \[
- c=\pbarz h=\tfrac12(h_x+i h_y).
+ \partial_{\bar w_j}g=0
+ \quad\Longrightarrow\quad
+ \partial_{\bar w_j}(Tg)=0.
 \]
-Integrate over the torus: derivatives of periodic functions have
-integral zero, so $c=0$. Apply this to the difference of two constants.
-\end{enumerate}
-
-Thus each class is determined by a unique constant:
-\[
- H^{0,1}_{\db}(E)=\C[d\bar z]\cong\C.
-\]
+\textbf{Solving in one variable preserves holomorphic dependence
+on the other variables.}
 \end{frame}
 
-\begin{frame}{All Dolbeault groups of the elliptic curve}
+\begin{frame}{Domains for the several-variable operators}
+Choose product disks
 \[
-\begin{array}{c|c|c}
- (p,q)&\text{constant representative}&H^{p,q}_{\db}(E)\\\hline
- (0,0)&1&\C\\
- (1,0)&dz&\C\\
- (0,1)&d\bar z&\C\\
- (1,1)&dz\wedge d\bar z&\C
-\end{array}
+ P=D_1^+\times\cdots\times D_n^+,\qquad
+ P'=D_1\times\cdots\times D_n,\qquad
+ \overline{D_i}\subset D_i^+.
 \]
-\textbf{Proof of the remaining cases.}
-If $\db h=0$, every nonzero Fourier coefficient is zero, since
-$\db\ee=(in-m)\ee\,d\bar z/2$. Thus $h$ is constant;
-the same applies to a closed form $h\,dz$.
+For each $i$, construct $T_i$ in the $z_i$ variable, treating all
+other coordinates as parameters, and restrict the output to $P'$.
 
-For $g\,dz\wedge d\bar z$, write $g=c+\pbarz f$. Then
+Define
 \[
- g\,dz\wedge d\bar z
- =c\,dz\wedge d\bar z+\db(-f\,dz).
+ \kappa_i=\iota_{\partial_{\bar z_i}},\qquad
+ \gamma_i=T_i\kappa_i:
+ \A^{p,q}(P)\longrightarrow\A^{p,q-1}(P').
 \]
-The averaging argument again shows that a nonzero constant is not exact.
-Hence constant forms represent cohomology uniquely.\hfill$\square$
+Contraction removes $d\bar z_i$, with the usual wedge sign:
+\[
+ \kappa_i(d\bar z_i\wedge\beta)=\beta
+ \quad\hbox{if }\beta\hbox{ contains no }d\bar z_i.
+\]
+All identities below hold on the \textbf{smaller polydisk}.
+When an operator is applied again, we use another nested pair.
+The finite shrinking keeps every input inside the domain where
+its required identities hold.
 \end{frame}
 
-\section{From the elliptic curve to a disk}
-\begin{frame}{Put the disk inside a large fundamental domain}
-Let $\eta=g\,d\bar z$ be smooth on an open neighbourhood $U$ of
-$\overline D$. Choose $L$ large enough that
-\[
- \overline D\subset Q^\circ,\qquad
- Q=[-L/2,L/2]\times[-L/2,L/2],\qquad
- E_L=\C/(L\Z+iL\Z).
-\]
-The quotient map embeds $Q^\circ$ into $E_L$.
-Thus the disk fits inside the elliptic curve without identifying its points.
-
-The Fourier calculation works with period $L$:
-\[
- e^L_{n,m}=e^{2\pi i(nx+my)/L},\qquad
- \db e^L_{n,m}=\frac{\pi}{L}(in-m)e^L_{n,m}\,d\bar z.
-\]
-The same nonzero eigenvalues are invertible, so the same decomposition holds.
-\end{frame}
-
-\begin{frame}{Extend the form using a bump function}
-Choose $\chi\in C_c^\infty(U\cap Q^\circ)$ with
-$\chi=1$ near $\overline D$.
-Define on $Q$
-\[
- \widetilde\eta=\chi\eta,
-\]
-extending by zero outside $U$. It vanishes near the edges of $Q$, so
-periodic extension defines a smooth $(0,1)$-form on $E_L$.
-
-It agrees with $\eta$ on $D$. It is also $\db$-closed:
-\[
- \db\widetilde\eta
- =\frac{\partial(\chi g)}{\partial\bar z}\,
- d\bar z\wedge d\bar z=0.
-\]
-This automatic closedness is where complex dimension one is used.
-\end{frame}
-
-\begin{frame}{The last step: the constant form is exact on the disk}
-On the elliptic curve, the preceding argument gives
-\[
- \widetilde\eta=c\,d\bar z+\db f
- \qquad(c\in\C,\ f\in C^\infty(E_L)).
-\]
-Restrict to the disk. There $\bar z$ is a well-defined function and
-\[
- d\bar z=\db\bar z.
-\]
-Consequently
-\[
- \eta=\db\bigl(c\bar z+f|_D\bigr).
-\]
-Thus $u=c\bar z+f|_D$ is the required smooth primitive.\hfill$\square$
-
-\textbf{On the torus, $\bar z$ is not a function: it changes under lattice
-translations. On the disk it is available, and removes the constant term.}
-\end{frame}
-
-\begin{frame}{The one-variable lemma in every positive degree}
-For type $(0,1)$, we have just proved local solvability of
-$\db u=g\,d\bar z$.
-
-For type $(1,1)$, write $\eta=g\,dz\wedge d\bar z$ and use the same $u$:
-\[
- \db(-u\,dz)
- =-\db u\wedge dz
- =g\,dz\wedge d\bar z=\eta.
-\]
-There are no forms with $q>1$ in one complex dimension.
-Every germ has a representative near a closed smaller disk, so the proof
-establishes the local statement for all smooth forms.
-
-Hence, for $p=0,1$, the sequence of sheaves
-\[
- 0\longrightarrow\Omega^p\longrightarrow\A^{p,0}
- \xrightarrow{\db}\A^{p,1}\longrightarrow0
-\]
-is exact. This is the one-dimensional input to the Dolbeault resolution.
-\end{frame}
-
-\begin{frame}{Sources}
+\begin{frame}{The space $R_i$: one direction already removed}
+Define $R_i(P)$ to consist of forms satisfying both conditions:
 \begin{itemize}
+\item no monomial contains $d\bar z_i$;
+\item every coefficient is holomorphic in $z_i$, that is,
+$\partial_{\bar z_i}\alpha=0$.
+\end{itemize}
+For example, on a bidisk,
+\[
+ \alpha=f(z_1,z_2,\bar z_2)\,d\bar z_2,\qquad
+ \partial_{\bar z_1}f=0,
+\]
+belongs to $R_1$. The coefficients may still depend on $\bar z_2$.
+
+Set
+\[
+ K_i=\db_i\gamma_i+\gamma_i\db_i.
+\]
+We will show
+\[
+ \alpha-K_i\alpha\in R_i(P'),\qquad
+ K_i\alpha=0\quad\hbox{if }\alpha\in R_i(P).
+\]
+Thus $K_i$ extracts the part that still needs a correction in direction $i$.
+\src{Verbitsky, Lecture 13, pp.\ 8--9.}
+\end{frame}
+
+\begin{frame}{Proof of the identity in one coordinate}
+Write
+\[
+ \alpha=d\bar z_i\wedge\beta+\delta,
+\]
+where neither $\beta$ nor $\delta$ contains $d\bar z_i$.
+Since $\partial_{\bar z_i}T_i=\operatorname{Id}$ on the smaller disk,
+\[
+ \begin{aligned}
+ \gamma_i\alpha&=T_i\beta,\\
+ \db_i\gamma_i\alpha&=d\bar z_i\wedge\beta,\\
+ \gamma_i\db_i\alpha&=T_i\partial_{\bar z_i}\delta.
+ \end{aligned}
+\]
+It follows that
+\[
+ \alpha-K_i\alpha=\delta-T_i\partial_{\bar z_i}\delta.
+\]
+This contains no $d\bar z_i$, and its $\partial_{\bar z_i}$ derivative is zero.
+Therefore it belongs to $R_i(P')$.
+
+If $\alpha\in R_i(P)$, then $\beta=0$ and
+$\partial_{\bar z_i}\delta=0$, so $K_i\alpha=0$.
+\end{frame}
+
+\begin{frame}{Operators in different coordinates}
+For $i\ne j$, the scalar operator $T_i$ commutes with $\partial_{\bar z_j}$.
+Contraction and exterior multiplication satisfy
+\[
+ \kappa_i(d\bar z_j\wedge\alpha)
+ =-d\bar z_j\wedge\kappa_i\alpha.
+\]
+Consequently,
+\[
+ \boxed{\db_j\gamma_i+\gamma_i\db_j=0\qquad(i\ne j).}
+\]
+The same parameter property shows that $\gamma_i$ and $\db_i$
+preserve the conditions defining $R_j$ when $i\ne j$.
+
+Summing the operators and cancelling the mixed terms gives
+\[
+ \gamma=\sum_{i=1}^n\gamma_i,\qquad
+ K=\db\gamma+\gamma\db=\sum_{i=1}^n K_i.
+\]
+\end{frame}
+
+\begin{frame}{Misha's filtration $W_k$}
+A \textbf{filtration} here means a nested sequence of vector spaces.
+For fixed type $(p,q)$, let
+\[
+ W_0(P)=\A^{p,q}(P),\qquad
+ W_k(P)=
+ \sum_{1\le i_1<\cdots<i_k\le n}
+ R_{i_1}(P)\cap\cdots\cap R_{i_k}(P).
+\]
+The sum means \textbf{finite sums of forms}, each of which has
+at least $k$ directions removed. It need not be the same $k$
+directions for every summand.
+\[
+ W_0(P)\supset W_1(P)\supset\cdots\supset W_n(P).
+\]
+For example, when $n=2$,
+\[
+ W_1=R_1+R_2,\qquad W_2=R_1\cap R_2.
+\]
+A form in $W_n$ contains no $d\bar z_i$ at all. Thus
+\[
+ \boxed{W_n(P)=0\quad\hbox{in every type }(p,q)\hbox{ with }q>0.}
+\]
+\src{Verbitsky, Lecture 13, pp.\ 9--10.}
+\end{frame}
+
+\begin{frame}{The homotopy acts by $n-k$ modulo $W_{k+1}$}
+Take $\alpha\in R_{i_1}(P)\cap\cdots\cap R_{i_k}(P)$.
+\begin{itemize}
+\item For $i\in\{i_1,\ldots,i_k\}$, we have $K_i\alpha=0$.
+\item For every other $i$, the difference $\alpha-K_i\alpha$
+belongs to $R_i(P')$ and keeps all the previous $R_{i_j}$ conditions.
+\end{itemize}
+There are $n-k$ remaining indices. Adding their contributions yields
+\[
+ (n-k)\alpha-K\alpha\in W_{k+1}(P').
+\]
+By linearity the same holds for every $\alpha\in W_k(P)$.
+
+If $\db\alpha=0$ on $P$, then $K\alpha=\db\gamma\alpha$. Hence
+\[
+ \boxed{\alpha-\db\!\left(\frac{\gamma\alpha}{n-k}\right)
+ \in W_{k+1}(P')\qquad(k<n).}
+\]
+The corrected form is still closed, since $\db^2=0$.
+\end{frame}
+
+\begin{frame}{Finishing the proof in $n$ steps}
+Choose nested polydisks
+\[
+ \overline{P_{k+1}}\subset P_k\quad(0\le k<n),\qquad P_n=D,
+\]
+inside the neighbourhood where $\eta$ is smooth and closed.
+Start with $\eta_0=\eta|_{P_0}\in W_0(P_0)$.
+
+At step $k$, use the operator $\gamma^{(k)}$ for $P_k$ and $P_{k+1}$,
+and put
+\[
+ \beta_k=\frac{\gamma^{(k)}\eta_k}{n-k},\qquad
+ \eta_{k+1}=\eta_k|_{P_{k+1}}-\db\beta_k.
+\]
+The previous slide gives a closed form
+$\eta_{k+1}\in W_{k+1}(P_{k+1})$.
+Since $q>0$, we reach $\eta_n=0$.
+
+Restrict all primitives to $D$ and add them:
+\[
+ \boxed{\eta|_D=\db\beta,\qquad
+ \beta=\sum_{k=0}^{n-1}\beta_k|_D.}
+\]
+\end{frame}
+
+\begin{frame}{Two steps when $n=2$}
+For a closed form $\eta$ of positive antiholomorphic degree, the first
+correction removes the part outside $W_1$:
+\[
+ r=\eta-\db\!\left(\frac{\gamma^{(0)}\eta}{2}\right)
+ \in W_1.
+\]
+The residual $r$ is closed. On $W_1$, the next coefficient is
+$n-k=1$, so
+\[
+ r-\db(\gamma^{(1)}r)\in W_2=0.
+\]
+Therefore, on the final smaller bidisk,
+\[
+ \boxed{\eta=
+ \db\!\left(\frac{\gamma^{(0)}\eta}{2}+\gamma^{(1)}r\right).}
+\]
+The coefficient $2$ counts the two directions before any have been removed.
+In $W_1$, only one direction remains in each summand.
+
+The notation $\gamma^{(0)}$ and $\gamma^{(1)}$ records the two
+successive pairs of polydisks.
+\end{frame}
+
+\begin{frame}{The local input for Dolbeault's theorem is now proved}
+Given a $\db$-closed form near a point of a complex manifold,
+choose a coordinate chart and a polydisk whose closure lies in that chart.
+The theorem supplies a primitive on this polydisk.
+
+Thus, in positive degrees, the complex of sheaves
+\[
+ 0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
+ \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots
+\]
+is exact on every stalk.
+
+The sheaves $\A^{p,q}_M$ are fine, hence acyclic for global sections.
+The homological algebra from the opening now applies:
+\[
+ \boxed{H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).}
+\]
+Dolbeault's theorem holds for noncompact complex manifolds as well.
+\end{frame}
+
+\begin{frame}{Why the stronger open-polydisk statement is separate}
+The proof used a larger domain where the form is smooth and closed.
+This is sufficient for \textbf{local exactness}: around each point
+we may choose a smaller polydisk with closure inside the given domain.
+
+The stronger open-polydisk theorem assumes only
+$\eta\in\A^{p,q}(D)$ and $\db\eta=0$, with $q>0$, and gives
+\[
+ \eta=\db\beta\quad\hbox{on all of }D,
+\]
+without any extension assumption at the boundary.
+It implies the global vanishing
+\[
+ H^{p,q}_{\db}(D)=0\qquad(q>0).
+\]
+That stronger theorem is unnecessary for the fine-resolution proof
+of Dolbeault's theorem. The distinction is \textbf{local primitives}
+versus \textbf{one primitive on the whole original domain}.
+\src{Huybrechts, Propositions 1.3.7--1.3.8 and Corollary 1.3.9.}
+\end{frame}
+
+\section{Hartogs extension}
+
+\begin{frame}{Hartogs extension}
+\textbf{Theorem.}
+Let $n\ge2$, and let $K\subset\C^n$ be compact with
+$\C^n\setminus K$ connected. Every holomorphic function
+\[
+ f:\C^n\setminus K\longrightarrow\C
+\]
+has a unique holomorphic extension to $\C^n$.
+
+In particular, an isolated singularity is removable in dimension
+at least two. In one variable, $f(z)=1/z$ on $\C\setminus\{0\}$
+shows that this conclusion fails.
+
+\textbf{Misha's proof strategy.}
+Construct a smooth function $\widetilde f$ that equals $f$ outside
+a compact set. Then find a compactly supported function $\psi$ with
+\[
+ \db\psi=\db\widetilde f.
+\]
+The difference $F=\widetilde f-\psi$ will be holomorphic.
+\src{Verbitsky, Lecture 13, p.\ 11; connectedness is needed for agreement everywhere.}
+\end{frame}
+
+\begin{frame}{A smooth extension and its error}
+Choose $R$ with $K\subset B_R$, and a smooth bump function $\chi$
+equal to $1$ near $K$ and supported in $B_R$.
+Define
+\[
+ \widetilde f=(1-\chi)f\quad\hbox{on }\C^n\setminus K,
+\]
+and set $\widetilde f=0$ near $K$.
+The definitions agree because $1-\chi=0$ on a neighbourhood of $K$.
+
+Thus $\widetilde f$ is smooth on $\C^n$ and equals $f$ outside $B_R$.
+Its failure to be holomorphic is the form
+\[
+ \alpha=\db\widetilde f=-f\,\db\chi.
+\]
+This is a smooth $(0,1)$-form with
+\[
+ \db\alpha=0,\qquad \operatorname{supp}\alpha\subset\overline{B_R}.
+\]
+The \textbf{support} is the closure of the set where the form is nonzero.
+\end{frame}
+
+\begin{frame}{Putting the error on projective space}
+The standard affine chart identifies
+\[
+ \C^n\longrightarrow\mathbb P^n,\qquad
+ (z_1,\ldots,z_n)\longmapsto[1:z_1:\cdots:z_n].
+\]
+Its complement is the \textbf{hyperplane at infinity}
+\[
+ H_\infty=\{[Z_0:\cdots:Z_n]:Z_0=0\}\cong\mathbb P^{n-1}.
+\]
+Since $\alpha$ has compact support in $\C^n$, it vanishes on a
+neighbourhood of $H_\infty$. Extending it by zero therefore gives
+a smooth closed $(0,1)$-form on all of $\mathbb P^n$.
+
+We want to use
+\[
+ H^{0,1}_{\db}(\mathbb P^n)=0
+ \quad\Longrightarrow\quad
+ \alpha=\db\varphi,\qquad\varphi\in C^\infty(\mathbb P^n).
+\]
+The next slide explains this vanishing.
+\end{frame}
+
+\begin{frame}{Why $H^{0,1}_{\db}(\mathbb P^n)=0$}
+We use two facts:
+\begin{itemize}
+\item $\mathbb P^n$ is compact K\"ahler with its Fubini--Study metric.
+\item $H^1_{\mathrm{dR}}(\mathbb P^n,\C)=0$.
+The standard cell decomposition has one cell in each real dimension
+$0,2,\ldots,2n$, and none in odd dimensions.
+\end{itemize}
+The K\"ahler Hodge theorem gives
+\[
+ H^1_{\mathrm{dR}}(\mathbb P^n,\C)
+ \cong H^{1,0}_{\db}(\mathbb P^n)
+ \oplus H^{0,1}_{\db}(\mathbb P^n).
+\]
+Since the left side is zero, both summands vanish. In particular,
+\[
+ \boxed{H^{0,1}_{\db}(\mathbb P^n)=0.}
+\]
+The passage from de Rham cohomology to Dolbeault cohomology here
+uses \textbf{K\"ahlerness}.
+\src{HP: Hodge theorem and Fubini--Study metric; Verbitsky, Lecture 13, p.\ 11.}
+\end{frame}
+
+\begin{frame}{A bounded solution of the error equation}
+The vanishing just proved yields a smooth function
+\[
+ \varphi\in C^\infty(\mathbb P^n),\qquad \db\varphi=\alpha.
+\]
+Because $\mathbb P^n$ is compact, $\varphi$ is bounded.
+On $\C^n\setminus\overline{B_R}$ we have $\alpha=0$, hence $\varphi$
+is holomorphic there.
+
+Moreover, $\varphi$ is holomorphic near $H_\infty$.
+Its restriction to the compact connected manifold
+$H_\infty\cong\mathbb P^{n-1}$ is therefore a constant $c$.
+
+Here we use the maximum principle: a holomorphic function on a compact
+connected complex manifold is constant.
+
+We will show that
+\[
+ \varphi=c\quad\hbox{outside }\overline{B_R}.
+\]
+Then subtracting $c$ gives the compactly supported correction we need.
+\end{frame}
+
+\begin{frame}{Complex lines outside the ball}
+Fix $z\in\C^n$ with $\lVert z\rVert>R$.
+Since $n\ge2$, choose a unit vector $v$ Hermitian-orthogonal to $z$.
+The affine complex line
+\[
+ L_z=\{z+t v:t\in\C\}
+\]
+misses $\overline{B_R}$, because
+\[
+ \lVert z+t v\rVert^2=\lVert z\rVert^2+|t|^2>R^2.
+\]
+The restriction $t\mapsto\varphi(z+t v)$ is entire and bounded.
+By \textbf{Liouville's theorem}, it is constant.
+
+As $t\to\infty$, the point $[1:z+t v]$ tends to $[0:v]\in H_\infty$,
+where $\varphi=c$. Thus
+\[
+ \boxed{\varphi(z)=c\quad\hbox{for every }\lVert z\rVert>R.}
+\]
+This is the step that uses the extra complex direction.
+\end{frame}
+
+\begin{frame}{Finishing Hartogs extension}
+Set
+\[
+ \psi=\varphi|_{\C^n}-c.
+\]
+Then $\psi$ has compact support and $\db\psi=\alpha$.
+Therefore
+\[
+ F=\widetilde f-\psi,\qquad
+ \db F=\alpha-\alpha=0,
+\]
+so $F$ is holomorphic on all of $\C^n$.
+
+Outside $\overline{B_R}$, both $\widetilde f=f$ and $\psi=0$.
+Thus $F=f$ on a nonempty open subset of $\C^n\setminus K$.
+Since this complement is connected, the \textbf{identity theorem} gives
+\[
+ F|_{\C^n\setminus K}=f.
+\]
+The identity theorem also gives uniqueness.\hfill$\square$
+
+Connectedness is used to recover agreement on the
+\emph{whole} original domain, after the construction outside a larger ball.
+\end{frame}
+
+\begin{frame}{References}
+\begin{itemize}
+\item Misha Verbitsky, \emph{Hodge theory}, IMPA 2025,
+Lecture 13: Poincar\'e--Dolbeault--Grothendieck lemma.
+The homotopy construction and the Hartogs proof follow these slides.
+\[
+ \text{\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}
+ {verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}}
+\]
+\item Heap Project: complex geometry, complex analysis, and Hodge theory.
+Notation for $\partial_{\bar z}$, $\db$, smooth forms and sheaves,
+the identity theorem, and the K\"ahler Hodge theorem.
+
 \item Claire Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},
-Chapter 4: Definition 4.35 and Propositions 4.32, 4.36.
-\item Daniel Huybrechts, \emph{Complex Geometry: An Introduction}:
+Chapter 4: acyclic resolutions and fine sheaves.
+
+\item Daniel Huybrechts, \emph{Complex Geometry: An Introduction},
 Propositions 1.3.7--1.3.8 and Corollary 1.3.9.
-\item Misha Verbitsky, \emph{Hodge theory}, IMPA, 2025:
-\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-11.pdf}{Lecture 11},
-\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-12.pdf}{Lecture 12},
-and \href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}{Lecture 13}.
 \end{itemize}
 \end{frame}
+
 \end{document}
