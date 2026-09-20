@@ -306,19 +306,21 @@ derivatives converge.
 \end{frame}
 
 \begin{frame}{Why smoothness makes Fourier coefficients small}
-Integration by parts in $x$ gives a factor $in$. Periodicity cancels
-the boundary term. Multiply by $e^{-imy}$, integrate in $y$, and normalize:
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+Keep $y$ fixed. Integration by parts gives
 \[
- (g_x)_{n,m}=\frac1{(2\pi)^2}\int_E g_x e^{-i(nx+my)}\,dx\,dy
- =in\,g_{n,m}.
+ \int_0^{2\pi}g_x e^{-inx}\,dx
+ =\underbrace{[g e^{-inx}]_0^{2\pi}}_{0\ \text{by periodicity}}
+   +in\int_0^{2\pi}g e^{-inx}\,dx.
 \]
-Here $(g_x)_{n,m}$ means the Fourier coefficient of $g_x$.
+Multiply by $e^{-imy}$, integrate in $y$, and divide by $(2\pi)^2$.
+This gives $(g_x)_{n,m}=in\,g_{n,m}$, where $(g_x)_{n,m}$ is the
+Fourier coefficient of $g_x$.
 Apply the same identity to $g_x$, then to $g_{xx}$ and $g_{xxx}$:
 \[
- \begin{aligned}
- (g_{xx})_{n,m}&=in\,(g_x)_{n,m}=(in)^2g_{n,m},\\
- (g_{xxxx})_{n,m}&=(in)^4g_{n,m}=n^4g_{n,m}.
- \end{aligned}
+ (g_{xx})_{n,m}=in\,(g_x)_{n,m}=(in)^2g_{n,m},\qquad
+ (g_{xxxx})_{n,m}=(in)^4g_{n,m}=n^4g_{n,m}.
 \]
 The function $g_{xxxx}$ is bounded on the compact torus, say by $C_x$.
 Its Fourier coefficients have absolute value at most $C_x$. Therefore
