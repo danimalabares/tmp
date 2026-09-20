@@ -305,6 +305,32 @@ derivatives converge.
 \src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
+\begin{frame}{When may we differentiate an infinite sum?}
+The given $g$ is already smooth. We must justify differentiating
+the infinite series defining $Pg$.
+
+\textbf{Differentiation criterion.}
+For smooth terms $u_{n,m}$ on the torus, if the three series
+\[
+ \sum_{n,m}u_{n,m},\qquad
+ \sum_{n,m}\partial_xu_{n,m},\qquad
+ \sum_{n,m}\partial_yu_{n,m}
+\]
+converge uniformly, their sum is $C^1$, and we may differentiate term by term.
+To prove smoothness, repeat this for every derivative order.
+
+\textbf{Weierstrass M-test.}
+A series converges uniformly if its terms satisfy
+\[
+ |u_{n,m}(x,y)|\le M_{n,m}\quad\hbox{at every point},\qquad
+ \sum_{n,m}M_{n,m}<\infty.
+\]
+\textbf{Uniformly} means that the same tail bound works at every point.
+We apply this test to the original series and to each derivative series.
+The next slide supplies the Fourier coefficient bounds.
+\src{M-test: HP, \texttt{complex-analysis.tex}, ``Weierstrass M-test''.}
+\end{frame}
+
 \begin{frame}{Why smoothness makes Fourier coefficients small}
 \setlength{\abovedisplayskip}{4pt}
 \setlength{\belowdisplayskip}{4pt}
