@@ -565,4 +565,364 @@ Closedness made $r$ holomorphic in $z_1$, and $T_2$ preserved this.
 Thus the second correction kept the first equation solved.
 \end{frame}
 
+\section{The same corrections in \texorpdfstring{$n$}{n} variables}
+
+\begin{frame}{$n$ variables: one equation for each coefficient}
+Let $\alpha$ be a smooth, $\db$-closed $(0,1)$-form near a point:
+\[
+ \alpha=\sum_{j=1}^n a_j\,d\bar z_j.
+\]
+Finding a function $u$ with $\db u=\alpha$ means solving
+\[
+ \partial_{\bar z_1}u=a_1,\quad
+ \partial_{\bar z_2}u=a_2,\quad\ldots,\quad
+ \partial_{\bar z_n}u=a_n.
+\]
+\textbf{We will construct $u=u_1+\cdots+u_n$.}
+The correction $u_k$ will fix equation $k$ while keeping equations
+$1,\ldots,k-1$ solved.
+
+Choose a polydisk around the point inside the given neighbourhood.
+At each step we may shrink it, keeping the point inside.
+There are only $n$ steps.
+\src{Misha's Lecture 13, slides 5--10: the local lemma.
+Here we write the proof using successive coordinate corrections.}
+\end{frame}
+
+\begin{frame}{What remains after the first $k-1$ corrections?}
+Suppose we have already removed the terms containing
+$d\bar z_1,\ldots,d\bar z_{k-1}$. Write the remainder as
+\[
+ R_{k-1}
+ :=\alpha-\db(u_1+\cdots+u_{k-1})
+ =\sum_{j=k}^n r_j\,d\bar z_j.
+\]
+The functions $r_j$ are the \textbf{current errors}.
+They may differ from the original coefficients $a_j$.
+
+The remainder is still closed:
+\[
+ \db R_{k-1}
+ =\underbrace{\db\alpha}_{0}
+  -\underbrace{\db^2(u_1+\cdots+u_{k-1})}_{0}=0.
+\]
+For $k=1$, no correction has been made yet:
+$R_0=\alpha$ and $r_j=a_j$.
+
+Next we check why solving the $k$th equation will preserve the earlier ones.
+\end{frame}
+
+\begin{frame}{Closedness protects the equations already solved}
+Take an earlier index $i<k$ and a remaining index $j\ge k$.
+In
+\[
+ R_{k-1}=\sum_{j=k}^n r_j\,d\bar z_j,
+\]
+the coefficient of $d\bar z_i$ is zero.
+The coefficient of $d\bar z_i\wedge d\bar z_j$ in $\db R_{k-1}$ is therefore
+\[
+ \partial_{\bar z_i}r_j-\partial_{\bar z_j}(0)
+ =\partial_{\bar z_i}r_j.
+\]
+Since $\db R_{k-1}=0$, every such coefficient vanishes:
+\[
+ \boxed{\partial_{\bar z_i}r_j=0
+ \qquad(i<k,\ j\ge k).}
+\]
+Thus every remaining coefficient is \textbf{holomorphic in each variable
+whose equation we have already solved}.
+It can still depend on those variables.
+\end{frame}
+
+\begin{frame}{The $k$th correction}
+Apply $T$ in the $k$th variable to the current error:
+\[
+ u_k:=T_k r_k.
+\]
+\textbf{It fixes the $k$th equation:}
+\[
+ \partial_{\bar z_k}u_k
+ =\partial_{\bar z_k}(T_k r_k)=r_k.
+\]
+\textbf{It keeps every earlier equation solved.}
+For $i<k$, the commutation property gives
+\[
+ \partial_{\bar z_i}u_k
+ =\partial_{\bar z_i}(T_k r_k)
+ =T_k(\partial_{\bar z_i}r_k)=T_k(0)=0.
+\]
+Consequently,
+\[
+ \db u_k=r_k\,d\bar z_k
+       +\sum_{j=k+1}^n(\partial_{\bar z_j}u_k)\,d\bar z_j.
+\]
+The later coefficients may change. We will correct them in the later steps.
+\end{frame}
+
+\begin{frame}{After $n$ corrections, every equation is solved}
+Subtract the correction just constructed:
+\[
+ R_k:=R_{k-1}-\db u_k
+ =\sum_{j=k+1}^n
+   \bigl(r_j-\partial_{\bar z_j}u_k\bigr)\,d\bar z_j.
+\]
+There is now no term in $d\bar z_1,\ldots,d\bar z_k$.
+Also $\db R_k=0$, because we subtracted an exact form.
+So we can apply the same argument to $R_k$.
+
+After the $n$th step there are no coefficients left:
+\[
+ R_n=0.
+\]
+By the definition of the remainders,
+\[
+ \boxed{\alpha=\db(u_1+\cdots+u_n).}
+\]
+All the corrections restrict to the final, smaller polydisk.
+This proves the local lemma for $(0,1)$-forms in any dimension.
+\end{frame}
+
+\section{Higher-degree forms}
+
+\begin{frame}{A $(0,2)$-form: the correction is now a $1$-form}
+For example, in three variables let
+\[
+ \alpha=
+ a\,d\bar z_1\wedge d\bar z_2
+ +b\,d\bar z_1\wedge d\bar z_3
+ +c\,d\bar z_2\wedge d\bar z_3,
+ \qquad \db\alpha=0.
+\]
+We want to remove \textbf{both terms containing $d\bar z_1$}.
+Choose
+\[
+ \boxed{\beta_1=(T_1a)\,d\bar z_2+(T_1b)\,d\bar z_3.}
+\]
+The operator still acts on functions, one coefficient at a time:
+\[
+ \partial_{\bar z_1}(T_1a)=a,\qquad
+ \partial_{\bar z_1}(T_1b)=b.
+\]
+Thus $\db\beta_1$ will contain the two terms we want.
+Differentiating in the other variables will also produce a new
+$d\bar z_2\wedge d\bar z_3$ coefficient.
+\end{frame}
+
+\begin{frame}{The calculation for that $(0,2)$-form}
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+Differentiating $\beta_1=(T_1a)\,d\bar z_2+(T_1b)\,d\bar z_3$ gives
+\[
+ \begin{aligned}
+ \db\beta_1
+ &=a\,d\bar z_1\wedge d\bar z_2
+   +b\,d\bar z_1\wedge d\bar z_3\\
+ &\quad+\bigl(\partial_{\bar z_2}(T_1b)
+             -\partial_{\bar z_3}(T_1a)\bigr)
+                d\bar z_2\wedge d\bar z_3.
+ \end{aligned}
+\]
+The minus sign comes from
+$d\bar z_3\wedge d\bar z_2=-d\bar z_2\wedge d\bar z_3$.
+Hence
+\[
+ R_1=\alpha-\db\beta_1=r\,d\bar z_2\wedge d\bar z_3,\qquad
+ r=c-\partial_{\bar z_2}(T_1b)+\partial_{\bar z_3}(T_1a).
+\]
+Since $\db R_1=0$,
+\[
+ 0=(\partial_{\bar z_1}r)\,
+ d\bar z_1\wedge d\bar z_2\wedge d\bar z_3
+ \quad\Longrightarrow\quad \partial_{\bar z_1}r=0.
+\]
+Again, removing $d\bar z_1$ leaves coefficients holomorphic in $z_1$.
+We now write this same calculation for any degree.
+\end{frame}
+
+\begin{frame}{A general $(0,q)$-form: choosing the correction}
+Suppose the current $\db$-closed remainder $R$ has no factor
+$d\bar z_1,\ldots,d\bar z_{k-1}$ in any term.
+Separate the terms which contain $d\bar z_k$:
+\[
+ R=d\bar z_k\wedge B+C.
+\]
+Here $B$ has degree $(0,q-1)$ and $C$ has degree $(0,q)$.
+Their wedge factors use only $d\bar z_{k+1},\ldots,d\bar z_n$.
+
+Apply $T_k$ separately to every coefficient of $B$:
+\[
+ B=\sum_J b_J\,d\bar z_J
+ \quad\Longrightarrow\quad
+ \beta_k:=T_kB=\sum_J(T_kb_J)\,d\bar z_J.
+\]
+Here $J=(j_1<\cdots<j_{q-1})$ and
+$d\bar z_J=d\bar z_{j_1}\wedge\cdots\wedge d\bar z_{j_{q-1}}$.
+For $q=1$, the empty wedge is $1$.
+
+\textbf{$T_k$ changes the coefficients and leaves the wedge factors alone.}
+\end{frame}
+
+\begin{frame}{Why this removes exactly the $d\bar z_k$ terms}
+For $\beta_k=T_kB$, differentiate each coefficient:
+\[
+ \begin{aligned}
+ \db\beta_k
+ &=\sum_J\sum_{i=1}^n
+   \partial_{\bar z_i}(T_kb_J)\,
+      d\bar z_i\wedge d\bar z_J\\
+ &=d\bar z_k\wedge B
+   +\sum_J\sum_{i\ne k}
+   \partial_{\bar z_i}(T_kb_J)\,
+      d\bar z_i\wedge d\bar z_J.
+ \end{aligned}
+\]
+In the second line we used
+$\partial_{\bar z_k}(T_kb_J)=b_J$.
+
+The double sum has \textbf{no $d\bar z_k$ factor}:
+$i\ne k$, and none of the indices in $J$ equals $k$.
+Therefore
+\[
+ R':=R-\db\beta_k
+\]
+has no $d\bar z_k$ factor either.
+Next we check that the earlier directions remain absent.
+\end{frame}
+
+\begin{frame}{Why the earlier directions remain absent}
+Assume the coefficients of $R$ are holomorphic in
+$z_1,\ldots,z_{k-1}$. This is what each previous step will give us.
+
+The coefficients $b_J$ of $B$ have the same property.
+For every $i<k$,
+\[
+ \partial_{\bar z_i}(T_kb_J)
+ =T_k(\partial_{\bar z_i}b_J)=T_k(0)=0.
+\]
+These are exactly the coefficients that could produce a
+$d\bar z_i$ factor when we differentiate $\beta_k$.
+So those factors do not reappear.
+
+Consequently, $R'=R-\db\beta_k$ has no factor
+$d\bar z_1,\ldots,d\bar z_k$ in any term.
+It is still closed:
+\[
+ \db R'=\db R-\db^2\beta_k=0.
+\]
+The next calculation shows that its coefficients are holomorphic
+in all these $k$ variables, ready for the next step.
+\end{frame}
+
+\begin{frame}{Why each remaining coefficient is holomorphic}
+Write the closed remainder as
+\[
+ R'=\sum_J r_J\,d\bar z_J,
+ \qquad J=(j_1<\cdots<j_q),\quad j_1>k.
+\]
+Fix $i\le k$. The terms of $\db R'$ that contain $d\bar z_i$ are
+\[
+ \sum_J(\partial_{\bar z_i}r_J)\,
+ d\bar z_i\wedge d\bar z_J.
+\]
+\textbf{No other derivative can produce a $d\bar z_i$ factor.}
+Indeed, every wedge factor already in $R'$ has index greater than $k$.
+
+Different $J$ give different basis forms $d\bar z_i\wedge d\bar z_J$.
+Their coefficients cannot cancel each other.
+Since $\db R'=0$, each one must vanish:
+\[
+ \boxed{\partial_{\bar z_i}r_J=0
+ \qquad\hbox{for every }i\le k\hbox{ and every }J.}
+\]
+This is precisely being holomorphic in $z_1,\ldots,z_k$.
+\end{frame}
+
+\begin{frame}{Why the process ends for every $q>0$}
+Start with $R_0=\alpha$.
+There are no earlier variables to check in the first step.
+For $k=1,\ldots,n$, the preceding calculations give
+\[
+ R_k=R_{k-1}-\db\beta_k,
+\]
+where $R_k$ is closed, has no factor $d\bar z_1,\ldots,d\bar z_k$,
+and has coefficients holomorphic in $z_1,\ldots,z_k$.
+
+Every term of a $(0,q)$-form contains $q$ factors $d\bar z_j$.
+If $q>0$ and all $n$ possible factors are absent, there are no terms:
+\[
+ R_n=0.
+\]
+Adding the equations for the remainders gives
+\[
+ \boxed{\alpha=\db(\beta_1+\cdots+\beta_n).}
+\]
+The primitive has degree $(0,q-1)$.
+All equations hold on the final, smaller polydisk.
+\end{frame}
+
+\begin{frame}{Including the $dz_i$ factors: general $(p,q)$}
+In coordinates, write
+\[
+ \eta=\sum_I dz_I\wedge\alpha_I,
+ \qquad dz_I=dz_{i_1}\wedge\cdots\wedge dz_{i_p}.
+\]
+Here $I=(i_1<\cdots<i_p)$ and each $\alpha_I$ is a $(0,q)$-form.
+Since $\db(dz_I)=0$, the product rule gives
+\[
+ 0=\db\eta=(-1)^p\sum_I dz_I\wedge\db\alpha_I.
+\]
+The sign comes from passing the differential across the $p$ factors
+$dz_{i_1},\ldots,dz_{i_p}$.
+
+Terms with different $I$ have different $dz$ factors, so they cannot
+cancel. Thus $\db\alpha_I=0$ for each $I$.
+
+\textbf{We can solve each of these $(0,q)$-forms using the result
+we just proved.}
+\end{frame}
+
+\begin{frame}{The primitive for a general $(p,q)$-form}
+For each coefficient form in $\eta=\sum_I dz_I\wedge\alpha_I$,
+choose a $(0,q-1)$-form $\gamma_I$ satisfying
+\[
+ \db\gamma_I=\alpha_I.
+\]
+There are finitely many $I$, so we can take a common smaller polydisk
+where all these equations hold.
+
+Put the $dz_I$ factors back, with the sign from the product rule:
+\[
+ \beta:=(-1)^p\sum_I dz_I\wedge\gamma_I.
+\]
+This is a $(p,q-1)$-form. Differentiating, the two signs cancel:
+\[
+ \boxed{\db\beta=(-1)^p(-1)^p
+       \sum_I dz_I\wedge\db\gamma_I=\eta.}
+\]
+\end{frame}
+
+\begin{frame}{The local lemma, now proved}
+\textbf{Local $\db$-Poincar\'e lemma.}
+Let $\eta$ be a smooth $(p,q)$-form, $q>0$, on a neighbourhood
+$U$ of a point $x$ in a complex manifold.
+If $\db\eta=0$, there is a smaller neighbourhood $V$ of $x$ and a
+smooth $(p,q-1)$-form $\beta$ on $V$ such that
+\[
+ \eta|_V=\db\beta.
+\]
+We chose coordinates near $x$, solved one variable at a time,
+and kept a neighbourhood of $x$ throughout the finitely many steps.
+
+This gives exactly the statement needed for stalks:
+\[
+ [\eta]_x=\db[\beta]_x.
+\]
+Hence the Dolbeault sheaf sequence is exact in every positive degree.
+Together with its fine terms, this gives the resolution used at the
+start of the lecture.
+\src{Misha's Lecture 13, slides 5--10, in the local form needed for
+Dolbeault's theorem. Notation: HP, \texttt{complex-geometry.tex}.}
+\end{frame}
+
 \end{document}
