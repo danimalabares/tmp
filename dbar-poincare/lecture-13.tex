@@ -306,6 +306,9 @@ derivatives converge.
 \end{frame}
 
 \begin{frame}{When may we differentiate an infinite sum?}
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
 The given $g$ is already smooth. We must justify differentiating
 the infinite series defining $Pg$.
 
@@ -328,7 +331,9 @@ A series converges uniformly if its terms satisfy
 \textbf{Uniformly} means that the same tail bound works at every point.
 We apply this test to the original series and to each derivative series.
 The next slide supplies the Fourier coefficient bounds.
-\src{M-test: HP, \texttt{complex-analysis.tex}, ``Weierstrass M-test''.}
+\src{Folland, \emph{Real Analysis}, 2nd ed., Thm.~2.27(b), p.~56:
+counting measure and summable bounds.\\
+M-test: HP, \texttt{complex-analysis.tex}, ``Weierstrass M-test''.}
 \end{frame}
 
 \begin{frame}{Why smoothness makes Fourier coefficients small}
@@ -449,7 +454,7 @@ Equivalently, we want to solve both equations
 \[
  \boxed{\partial_{\bar z_1}u=a,\qquad\partial_{\bar z_2}u=b.}
 \]
-The condition $\db\alpha=0$ makes these equations compatible.
+The condition $\db\alpha=0$ makes these equations compatible (next slide).
 We allow a smaller bidisk at each use of the one-variable operator.
 \end{frame}
 
