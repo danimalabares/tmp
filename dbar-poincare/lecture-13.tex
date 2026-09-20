@@ -305,32 +305,31 @@ derivatives converge.
 \src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
-\begin{frame}{Why we may differentiate the Fourier series}
-Keep $y$ fixed. Periodicity makes the boundary term zero:
+\begin{frame}{Why smoothness makes Fourier coefficients small}
+Integration by parts in $x$ gives a factor $in$. Periodicity cancels
+the boundary term. Multiply by $e^{-imy}$, integrate in $y$, and normalize:
 \[
- \int_0^{2\pi}g_x e^{-inx}\,dx
- =\underbrace{[g e^{-inx}]_0^{2\pi}}_{0}
-   +in\int_0^{2\pi}g e^{-inx}\,dx.
+ (g_x)_{n,m}=\frac1{(2\pi)^2}\int_E g_x e^{-i(nx+my)}\,dx\,dy
+ =in\,g_{n,m}.
 \]
-After also taking the Fourier coefficient in $y$, this gives
+Here $(g_x)_{n,m}$ means the Fourier coefficient of $g_x$.
+Apply the same identity to $g_x$, then to $g_{xx}$ and $g_{xxx}$:
 \[
- (g_x)_{n,m}=in\,g_{n,m},\qquad
- (g_{xx})_{n,m}=-n^2g_{n,m},\qquad
- (g_{xxxx})_{n,m}=n^4g_{n,m}.
+ \begin{aligned}
+ (g_{xx})_{n,m}&=in\,(g_x)_{n,m}=(in)^2g_{n,m},\\
+ (g_{xxxx})_{n,m}&=(in)^4g_{n,m}=n^4g_{n,m}.
+ \end{aligned}
 \]
-The derivatives are bounded, so their Fourier coefficients are bounded.
-Using four $x$- or $y$-derivatives gives
-$|g_{n,m}|\le C/k^4$, where $k=\max(|n|,|m|)\ge1$.
-
-There are $8k$ modes with this value of $k$.
-Each $x$- or $y$-derivative of a term of $Pg$ has size at most
-$2|g_{n,m}|$. Thus the sum of their sizes is bounded by
+The function $g_{xxxx}$ is bounded on the compact torus, say by $C_x$.
+Its Fourier coefficients have absolute value at most $C_x$. Therefore
 \[
- \sum_{k\ge1}8k\,\frac{2C}{k^4}
- =16C\sum_{k\ge1}\frac1{k^3}<\infty.
+ n^4|g_{n,m}|\le C_x
+ \quad\Longrightarrow\quad
+ \boxed{|g_{n,m}|\le\frac{C_x}{|n|^4}\quad(n\ne0).}
 \]
-\textbf{The tails are small at every point, with the same bound.}
-This uniform convergence permits differentiation term by term.
+\textbf{Repeat the whole calculation with $y$.}
+The factor is $im$, and $g_{yyyy}$ gives
+$|g_{n,m}|\le C_y/|m|^4$ for $m\ne0$.
 \end{frame}
 
 \begin{frame}{Reminder: the disk solution, now called $T$}
