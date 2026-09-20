@@ -25,11 +25,11 @@
 \newcommand{\pbarz}{\partial_{\bar z}}
 \newcommand{\src}[1]{\par\vfill{\scriptsize #1\par}}
 \title{Lecture 13}
-\subtitle{Local Dolbeault exactness and Hartogs extension}
+\subtitle{Dolbeault's theorem and the local lemma}
 \author{Daniel Gonz\'alez Casanova Azuela}
 \date{}
 \hypersetup{pdfauthor={Daniel Gonzalez Casanova Azuela},
- pdftitle={Lecture 13: Local Dolbeault exactness and Hartogs extension}}
+ pdftitle={Lecture 13: Dolbeault's theorem and the local lemma}}
 
 \begin{document}
 \begin{frame}
@@ -281,104 +281,37 @@ kernel sheaves proves the comparison in higher degrees.
 \includegraphics[width=0.9\textwidth,height=6cm,keepaspectratio]{Pierre_Dolbeault.jpg}
 \end{frame}
 
-\section{The local lemma in several variables}
+\section{Reminder: the one-variable solution}
 
-\begin{frame}{The Poincar\'e--Dolbeault--Grothendieck lemma}
-A \textbf{polydisk} is a product of disks
+\begin{frame}{Reminder: the Fourier solution, now called $P$}
+Last lecture, we solved the nonconstant Fourier modes on
+$E=\C/(2\pi\Z+2\pi i\Z)$. Recall
 \[
- D=D_1\times\cdots\times D_n\subset\C^n.
+ e_{n,m}=e^{inx+imy},\qquad
+ \partial_{\bar z}e_{n,m}=\frac{in-m}{2}e_{n,m}.
 \]
-\textbf{Theorem.}
-Let $\eta$ be a smooth $\db$-closed $(p,q)$-form on a neighbourhood
-of $\overline D$, with $q>0$. Then there is a smooth $(p,q-1)$-form
-$\beta$ on $D$ such that
+For a smooth function $g=\sum_{n,m}g_{n,m}e_{n,m}$, we now give that
+construction the name $P$:
 \[
- \boxed{\eta|_D=\db\beta.}
+ Pg=\sum_{(n,m)\ne(0,0)}\frac{2g_{n,m}}{in-m}e_{n,m}.
 \]
-In particular, every $\db$-closed form of positive antiholomorphic
-degree has a primitive \textbf{near each point}.
-
-We will work inside a larger polydisk where $\eta$ is defined and
-closed, and shrink finitely many times. This is enough for the
-exactness on stalks used in the opening slides.
-\src{Verbitsky, Lecture 13, pp.\ 5--10.}
+Differentiating cancels each denominator, so
+\[
+ \boxed{\partial_{\bar z}Pg=g-g_{0,0}.}
+\]
+The constant $g_{0,0}$ is the average of $g$.
+Smooth Fourier coefficients decay rapidly, so the series and all its
+derivatives converge.
+\src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
-\begin{frame}{Proof outline: removing one direction at a time}
-We want to write a closed form as $\eta=\db\beta$.
-\begin{enumerate}
-\item \textbf{Use the one-variable result.}
-Solve $\partial_{\bar z_i}u=g$, treating the other coordinates as
-parameters. The solution preserves holomorphic dependence on them.
-
-\item \textbf{Subtract an exact correction.}
-Choose $\beta_1$ so that $\eta-\db\beta_1$ has no $d\bar z_1$ term.
-Closedness then forces its coefficients to be holomorphic in $z_1$.
-
-\item \textbf{Repeat in the remaining variables.}
-Each correction preserves the directions already removed.
-After all $n$ directions, a form with $q>0$ must be zero.
-Adding the corrections gives the required primitive.
-\end{enumerate}
-We first do this for $a\,d\bar z_1+b\,d\bar z_2$, then for general forms.
-Misha's $R_i$ and $W_k$ will describe the same mechanism afterwards.
-\end{frame}
-
-\begin{frame}{Coordinates and the two operators}
-Our conventions are
-\[
- z=x+iy,\qquad dz=dx+i\,dy,\qquad d\bar z=dx-i\,dy,
- \qquad \partial_{\bar z}=\frac12(\partial_x+i\partial_y).
-\]
-For a smooth $(p,q)$-form $\alpha$, the operator
-$\partial_{\bar z_i}$ differentiates its coefficients and keeps the
-coordinate forms fixed. For example,
-\[
- \partial_{\bar z_1}(f\,d\bar z_2)
- =(\partial_{\bar z_1}f)\,d\bar z_2.
-\]
-The Dolbeault operator also wedges with $d\bar z_i$:
-\[
- \db_i\alpha=d\bar z_i\wedge\partial_{\bar z_i}\alpha,
- \qquad \db\alpha=\sum_{i=1}^n\db_i\alpha.
-\]
-Thus $\partial_{\bar z_i}$ preserves type, while $\db_i$ increases $q$ by one.
-The wedge signs give
-\[
- \db_i^2=0,\qquad \db_i\db_j+\db_j\db_i=0.
-\]
-\end{frame}
-
-
-\begin{frame}{The one-variable ingredient from Lecture 12}
-On $E=\C/(2\pi\Z+2\pi i\Z)$, write a smooth function as
-\[
- g=\sum_{n,m}g_{n,m}e_{n,m},\qquad e_{n,m}=e^{inx+imy}.
-\]
-Since
-\[
- \partial_{\bar z}e_{n,m}=\frac{in-m}{2}e_{n,m},
-\]
-we can divide every nonconstant mode by its eigenvalue:
-\[
- Pg=\sum_{(n,m)\ne(0,0)}\frac{2g_{n,m}}{in-m}e_{n,m},
- \qquad \partial_{\bar z}Pg=g-g_{0,0}.
-\]
-Smooth Fourier coefficients decay faster than every power, so the
-series and all its derivatives converge.
-
-The remaining constant has the primitive $g_{0,0}\bar z$ on a disk.
-This will give an operator $T$ with $\partial_{\bar z}Tg=g$.
-\src{Lecture 12 recap; Verbitsky, Lecture 13, pp.\ 4, 6--7.}
-\end{frame}
-
-\begin{frame}{A linear solution operator on a disk}
+\begin{frame}{Reminder: the disk solution, now called $T$}
 Choose disks $\overline D\subset D^+$ inside a fundamental square of $E$.
 We can arrange this by rescaling the coordinate.
 Fix a \textbf{bump function} $\chi$ supported in $D^+$ and equal to $1$
 near $\overline D$.
 
-For $g\in C^\infty(D^+)$, extend $\widetilde g=\chi g$ by zero to $E$ and set
+For $g\in C^\infty(D^+)$, extend $\widetilde g=\chi g$ by zero to $E$. Write
 \[
  c=\frac1{(2\pi)^2}\int_E\widetilde g\,dx\,dy,\qquad
  Tg=(P\widetilde g)|_D+c\bar z.
@@ -395,30 +328,54 @@ On the disk it is available and removes the constant term.}
 \src{Verbitsky, Lecture 13, pp.\ 4, 6--7.}
 \end{frame}
 
-\begin{frame}{Why the solution operator works with parameters}
-Suppose $g=g(z,w)$ is smooth, where $w$ denotes the other coordinates.
-Apply $T$ only in $z$, with the same bump function for every $w$.
-
-Multiplication by $\chi$, Fourier coefficients, and the average
-all operate only in $z$. Hence
+\begin{frame}{Using $T$ with the other variables as parameters}
+For today's proof, let $g=g(z_1,\ldots,z_n)$ be smooth.
+Write $T_i$ for applying $T$ only in $z_i$, with the other coordinates
+as parameters. On a smaller polydisk,
 \[
- \partial_{\bar w_j}(Tg)=T(\partial_{\bar w_j}g),
- \qquad
- \partial_{w_j}(Tg)=T(\partial_{w_j}g).
+ \partial_{\bar z_i}(T_i g)=g.
 \]
-These identities hold for all parameter derivatives. Smoothness follows
-from rapid Fourier decay, uniformly on compact sets of parameters.
-
+Use the same bump function in $z_i$ for every value of the parameters.
+Multiplication by this function, the Fourier coefficients, and the average
+all operate only in $z_i$. Therefore, for $j\ne i$,
+\[
+ \partial_{\bar z_j}(T_i g)=T_i(\partial_{\bar z_j}g).
+\]
+Rapid Fourier decay on compact sets of parameters justifies differentiation.
 In particular,
 \[
- \partial_{\bar w_j}g=0
- \quad\Longrightarrow\quad
- \partial_{\bar w_j}(Tg)=0.
+ \partial_{\bar z_j}g=0\quad\Longrightarrow\quad
+ \partial_{\bar z_j}(T_i g)=0.
 \]
 \textbf{Solving in one variable preserves holomorphic dependence
 on the other variables.}
 \end{frame}
 
+\section{Today's proof outline}
+
+\begin{frame}{Today's proof outline}
+\textbf{Goal.} For a closed $(p,q)$-form $\eta$ with $q>0$, find a
+primitive $\eta=\db\beta$ near each point.
+\begin{enumerate}
+\item \textbf{Solve in the first variable.}
+Use $T_1$ to choose a correction $\beta_1$ so that
+$\eta-\db\beta_1$ has no $d\bar z_1$ term.
+
+\item \textbf{Use closedness.}
+The remainder's coefficients are holomorphic in $z_1$.
+Solving in the next variable preserves this property, so the next
+correction keeps the first direction removed.
+
+\item \textbf{Repeat.}
+After all $n$ directions, no $d\bar z_i$ remains.
+A form with $q>0$ must then be zero.
+Adding the corrections gives the primitive.
+\end{enumerate}
+We will work this out for $\alpha=a\,d\bar z_1+b\,d\bar z_2$ on a bidisk.
+A bidisk is a product of two disks. We can shrink it during the proof.
+\end{frame}
+
+\section{The two-variable example}
 
 \begin{frame}{Two variables: what are we trying to solve?}
 Let
@@ -525,477 +482,6 @@ Thus $\db u_2=r\,d\bar z_2$, and
 \]
 We solved the two equations successively. Closedness and the parameter
 property ensured that the second correction preserved the first equation.
-\end{frame}
-
-\begin{frame}{General forms: the same first correction}
-For a closed $(p,q)$-form $\eta$, collect all terms containing $d\bar z_i$:
-\[
- \eta=d\bar z_i\wedge\beta+\delta.
-\]
-Neither $\beta$ nor $\delta$ contains $d\bar z_i$.
-Moving $d\bar z_i$ to the front includes the appropriate wedge signs.
-
-Apply $T_i$ to each coefficient of $\beta$ and set $v=T_i\beta$.
-On a smaller polydisk,
-\[
- \db v=d\bar z_i\wedge\beta
-       +\sum_{j\ne i}d\bar z_j\wedge\partial_{\bar z_j}v.
-\]
-The sum has no $d\bar z_i$. Therefore
-\[
- \boxed{\rho=\eta-\db v\quad\hbox{has no }d\bar z_i.}
-\]
-In the bidisk example, $\beta=a$ and $v=u_1=T_1a$.
-The correction $v$ has type $(p,q-1)$.
-\end{frame}
-
-\begin{frame}{Closedness again controls the remainder}
-The remainder $\rho=\eta-\db v$ is still closed:
-\[
- \db\rho=\db\eta-\db^2v=0.
-\]
-Since $\rho$ contains no $d\bar z_i$, in the expression
-\[
- 0=\db\rho
-  =d\bar z_i\wedge\partial_{\bar z_i}\rho
-   +\sum_{j\ne i}d\bar z_j\wedge\partial_{\bar z_j}\rho
-\]
-only the first term contains $d\bar z_i$. Coordinate wedge monomials
-are linearly independent, so that term vanishes separately.
-
-Since $\partial_{\bar z_i}\rho$ also has no $d\bar z_i$, this gives
-\[
- \boxed{\partial_{\bar z_i}\rho=0.}
-\]
-The coefficients of $\rho$ are holomorphic in $z_i$.
-This is the general version of the calculation $\partial_{\bar z_1}r=0$.
-\end{frame}
-
-\begin{frame}{Why later corrections preserve earlier ones}
-Suppose direction $j$ is already removed: the current form has no
-$d\bar z_j$, and all its coefficients are holomorphic in $z_j$.
-
-To remove a new direction $i\ne j$, write
-$\eta=d\bar z_i\wedge\beta+\delta$ and take $v=T_i\beta$.
-The form $\beta$ still has both properties in direction $j$, so
-\[
- v\hbox{ has no }d\bar z_j,\qquad
- \partial_{\bar z_j}v=T_i(\partial_{\bar z_j}\beta)=0.
-\]
-Consequently $\db v$ also has no $d\bar z_j$. Moreover,
-\[
- \partial_{\bar z_j}(\eta-\db v)
- =\partial_{\bar z_j}\eta-\db(\partial_{\bar z_j}v)=0.
-\]
-\textbf{The new remainder keeps both properties in every direction
-already removed.}
-This is why the one-variable operator had to work with parameters.
-\end{frame}
-
-\begin{frame}{Finishing the proof one coordinate at a time}
-Choose nested polydisks inside the neighbourhood where $\eta$ is closed:
-\[
- \overline{P_i}\subset P_{i-1}\quad(1\le i\le n),\qquad P_n=D.
-\]
-Start with $\eta_0=\eta|_{P_0}$. At step $i$, the preceding construction gives
-\[
- \eta_i=\eta_{i-1}|_{P_i}-\db v_i.
-\]
-The form $\eta_i$ is closed and has no
-$d\bar z_1,\ldots,d\bar z_i$. Its coefficients are holomorphic
-in $z_1,\ldots,z_i$.
-
-After $n$ steps, $\eta_n$ has no antiholomorphic differentials.
-Since its antiholomorphic degree is $q>0$, we have $\eta_n=0$.
-Adding the corrections, restricted to $D$, gives
-\[
- \boxed{\eta|_D=\db(v_1|_D+\cdots+v_n|_D).}
-\]
-This proves the lemma. Next we express these corrections in Misha's notation.
-\end{frame}
-
-\begin{frame}{Misha's notation: a removed direction is $R_i$}
-We have used two conditions together. A form belongs to $R_i(P)$ when
-\begin{itemize}
-\item no coordinate wedge monomial contains $d\bar z_i$;
-\item every coefficient is holomorphic in $z_i$:
-$\partial_{\bar z_i}\alpha=0$.
-\end{itemize}
-In our bidisk example,
-\[
- \alpha-\db u_1=r\,d\bar z_2\in R_1,
- \qquad\partial_{\bar z_1}r=0.
-\]
-In the proof just completed, each successive remainder lies in
-\[
- R_1,\qquad R_1\cap R_2,\qquad\ldots,\qquad R_1\cap\cdots\cap R_n.
-\]
-Misha combines the corrections in all coordinates symmetrically.
-His spaces $W_k$ will keep track of sums of forms with $k$ directions removed.
-\src{Verbitsky, Lecture 13, pp.\ 8--10.}
-\end{frame}
-
-\begin{frame}{Misha's correction operator $\gamma_i$}
-Contraction $\kappa_i=\iota_{\partial_{\bar z_i}}$ removes $d\bar z_i$:
-\[
- \eta=d\bar z_i\wedge\beta+\delta
- \quad\Longrightarrow\quad\kappa_i\eta=\beta,
-\]
-where $\beta,\delta$ have no $d\bar z_i$.
-Thus our correction $v=T_i\beta$ is the operator
-\[
- \gamma_i=T_i\kappa_i:
- \A^{p,q}(P)\longrightarrow\A^{p,q-1}(P'),
- \qquad\gamma_i\eta=T_i\beta.
-\]
-Here $\overline{P'}\subset P$, as in the preceding proof.
-Define the degree-preserving operator
-\[
- K_i=\db_i\gamma_i+\gamma_i\db_i.
-\]
-We next prove $\eta-K_i\eta\in R_i(P')$.
-For closed forms, $K_i\eta$ will equal the exact correction $\db\gamma_i\eta$.
-\end{frame}
-
-\begin{frame}{The operator $K_i$ removes direction $i$}
-Write $\eta=d\bar z_i\wedge\beta+\delta$ as before.
-Since $\partial_{\bar z_i}T_i=\operatorname{Id}$ on the smaller disk,
-\[
- \begin{aligned}
- \gamma_i\eta&=T_i\beta,\\
- \db_i\gamma_i\eta&=d\bar z_i\wedge\beta,\\
- \gamma_i\db_i\eta&=T_i\partial_{\bar z_i}\delta.
- \end{aligned}
-\]
-Therefore
-\[
- \eta-K_i\eta=\delta-T_i\partial_{\bar z_i}\delta.
-\]
-This has no $d\bar z_i$, and its $\partial_{\bar z_i}$ derivative is zero.
-Thus $\eta-K_i\eta\in R_i(P')$.
-
-If $\eta\in R_i(P)$ already, then $\beta=0$ and
-$\partial_{\bar z_i}\delta=0$, so $K_i\eta=0$.
-
-For $j\ne i$, both $\gamma_i$ and $\db_i$ preserve the two $R_j$
-conditions. Hence $K_i$ also preserves every previously removed direction.
-\end{frame}
-
-\begin{frame}{Why $K_i\eta$ is exact when $\eta$ is closed}
-For $i\ne j$, the operator $T_i$ commutes with $\partial_{\bar z_j}$.
-The wedge sign in contraction gives
-\[
- \kappa_i(d\bar z_j\wedge\alpha)
- =-d\bar z_j\wedge\kappa_i\alpha,
- \qquad\db_j\gamma_i+\gamma_i\db_j=0.
-\]
-Hence all the mixed terms cancel:
-\[
- \db\gamma_i+\gamma_i\db
- =\db_i\gamma_i+\gamma_i\db_i=K_i.
-\]
-For a closed form, this becomes $K_i\eta=\db\gamma_i\eta$,
-which is exactly the correction used in the coordinate-by-coordinate proof.
-
-Adding over $i$, set
-\[
- \gamma=\sum_{i=1}^n\gamma_i,\qquad
- K=\sum_{i=1}^n K_i=\db\gamma+\gamma\db.
-\]
-For closed $\eta$, we also have $K\eta=\db\gamma\eta$.
-\end{frame}
-
-\begin{frame}{Misha's $W_k$: sums with $k$ directions removed}
-When $n=2$, Misha groups together the two possible first corrections:
-\[
- W_1=R_1+R_2,\qquad W_2=R_1\cap R_2.
-\]
-Thus $\rho\in W_1$ means $\rho=\rho_1+\rho_2$, with
-$\rho_1\in R_1$ and $\rho_2\in R_2$.
-The removed direction can differ between the summands.
-
-In general, for fixed type $(p,q)$, set
-\[
- W_0=\A^{p,q},\qquad
- W_k=\sum_{i_1<\cdots<i_k}R_{i_1}\cap\cdots\cap R_{i_k}.
-\]
-This is a \textbf{filtration}, meaning a nested sequence of spaces:
-\[
- W_0\supset W_1\supset\cdots\supset W_n.
-\]
-In $W_n=R_1\cap\cdots\cap R_n$, all directions are removed.
-Therefore $W_n=0$ when $q>0$.
-\src{Verbitsky, Lecture 13, pp.\ 9--10.}
-\end{frame}
-
-\begin{frame}{Why Misha divides the correction by $n-k$}
-Suppose $\alpha\in R_{i_1}\cap\cdots\cap R_{i_k}$.
-There are $n-k$ directions still to remove.
-\begin{itemize}
-\item For an already removed direction, $K_i\alpha=0$.
-\item For each remaining direction, $\alpha-K_i\alpha$ has that direction
-removed as well, and keeps the previous $k$ conditions.
-\end{itemize}
-Adding these $n-k$ remainders gives
-\[
- \sum_{i\notin\{i_1,\ldots,i_k\}}(\alpha-K_i\alpha)
- =(n-k)\alpha-K\alpha\in W_{k+1}.
-\]
-By linearity, this holds for every $\alpha\in W_k$.
-If $\alpha$ is closed, then $K\alpha=\db\gamma\alpha$, so
-\[
- \boxed{\alpha-\db\!\left(\frac{\gamma\alpha}{n-k}\right)
- \in W_{k+1}\qquad(k<n).}
-\]
-The division averages the corrections over the $n-k$ remaining directions.
-\end{frame}
-
-\begin{frame}{Misha's proof: successive exact corrections}
-Use nested polydisks $\overline{P_{k+1}}\subset P_k$, with $P_n=D$,
-and start with the closed form $\eta_0=\eta|_{P_0}$.
-
-At stage $k$, suppose $\eta_k\in W_k$. On the next smaller polydisk, set
-\[
- \beta_k=\frac{\gamma^{(k)}\eta_k}{n-k},\qquad
- \eta_{k+1}=\eta_k|_{P_{k+1}}-\db\beta_k.
-\]
-The superscript records the operator for $P_k$ and $P_{k+1}$.
-The previous slide gives $\eta_{k+1}\in W_{k+1}$, and
-$\db\eta_{k+1}=0$ because $\db^2=0$.
-
-After $n$ stages, $\eta_n\in W_n=0$. Hence
-\[
- \boxed{\eta|_D=\db\!\left(\sum_{k=0}^{n-1}\beta_k|_D\right).}
-\]
-This has the same structure as $\alpha=\db(u_1+u_2)$ in our example:
-each exact correction simplifies the remainder until it vanishes.
-\src{Verbitsky, Lecture 13, pp.\ 9--10.}
-\end{frame}
-
-
-\begin{frame}{The local input for Dolbeault's theorem is now proved}
-Given a $\db$-closed form near a point of a complex manifold,
-choose a coordinate chart and a polydisk whose closure lies in that chart.
-The theorem supplies a primitive on this polydisk.
-
-Thus, in positive degrees, the complex of sheaves
-\[
- 0\longrightarrow\Omega^p_M\longrightarrow\A^{p,0}_M
- \xrightarrow{\db}\A^{p,1}_M\xrightarrow{\db}\cdots
-\]
-is exact on every stalk.
-
-The sheaves $\A^{p,q}_M$ are fine, hence acyclic for global sections.
-The homological algebra from the opening now applies:
-\[
- \boxed{H^q(M,\Omega^p_M)\cong H^{p,q}_{\db}(M).}
-\]
-Dolbeault's theorem holds for noncompact complex manifolds as well.
-\end{frame}
-
-\begin{frame}{Why the stronger open-polydisk statement is separate}
-The proof used a larger domain where the form is smooth and closed.
-This is sufficient for \textbf{local exactness}: around each point
-we may choose a smaller polydisk with closure inside the given domain.
-
-The stronger open-polydisk theorem assumes only
-$\eta\in\A^{p,q}(D)$ and $\db\eta=0$, with $q>0$, and gives
-\[
- \eta=\db\beta\quad\hbox{on all of }D,
-\]
-without any extension assumption at the boundary.
-It implies the global vanishing
-\[
- H^{p,q}_{\db}(D)=0\qquad(q>0).
-\]
-That stronger theorem is unnecessary for the fine-resolution proof
-of Dolbeault's theorem. The distinction is \textbf{local primitives}
-versus \textbf{one primitive on the whole original domain}.
-\src{Huybrechts, Propositions 1.3.7--1.3.8 and Corollary 1.3.9.}
-\end{frame}
-
-\section{Hartogs extension}
-
-\begin{frame}{Hartogs extension}
-\textbf{Theorem.}
-Let $n\ge2$, and let $K\subset\C^n$ be compact with
-$\C^n\setminus K$ connected. Every holomorphic function
-\[
- f:\C^n\setminus K\longrightarrow\C
-\]
-has a unique holomorphic extension to $\C^n$.
-
-In particular, an isolated singularity is removable in dimension
-at least two. In one variable, $f(z)=1/z$ on $\C\setminus\{0\}$
-shows that this conclusion fails.
-
-\textbf{Misha's proof strategy.}
-Construct a smooth function $\widetilde f$ that equals $f$ outside
-a compact set. Then find a compactly supported function $\psi$ with
-\[
- \db\psi=\db\widetilde f.
-\]
-The difference $F=\widetilde f-\psi$ will be holomorphic.
-\src{Verbitsky, Lecture 13, p.\ 11; connectedness is needed for agreement everywhere.}
-\end{frame}
-
-\begin{frame}{A smooth extension and its error}
-Choose $R$ with $K\subset B_R$, and a smooth bump function $\chi$
-equal to $1$ near $K$ and supported in $B_R$.
-Define
-\[
- \widetilde f=(1-\chi)f\quad\hbox{on }\C^n\setminus K,
-\]
-and set $\widetilde f=0$ near $K$.
-The definitions agree because $1-\chi=0$ on a neighbourhood of $K$.
-
-Thus $\widetilde f$ is smooth on $\C^n$ and equals $f$ outside $B_R$.
-Its failure to be holomorphic is the form
-\[
- \alpha=\db\widetilde f=-f\,\db\chi.
-\]
-This is a smooth $(0,1)$-form with
-\[
- \db\alpha=0,\qquad \operatorname{supp}\alpha\subset\overline{B_R}.
-\]
-The \textbf{support} is the closure of the set where the form is nonzero.
-\end{frame}
-
-\begin{frame}{Putting the error on projective space}
-The standard affine chart identifies
-\[
- \C^n\longrightarrow\mathbb P^n,\qquad
- (z_1,\ldots,z_n)\longmapsto[1:z_1:\cdots:z_n].
-\]
-Its complement is the \textbf{hyperplane at infinity}
-\[
- H_\infty=\{[Z_0:\cdots:Z_n]:Z_0=0\}\cong\mathbb P^{n-1}.
-\]
-Since $\alpha$ has compact support in $\C^n$, it vanishes on a
-neighbourhood of $H_\infty$. Extending it by zero therefore gives
-a smooth closed $(0,1)$-form on all of $\mathbb P^n$.
-
-We want to use
-\[
- H^{0,1}_{\db}(\mathbb P^n)=0
- \quad\Longrightarrow\quad
- \alpha=\db\varphi,\qquad\varphi\in C^\infty(\mathbb P^n).
-\]
-The next slide explains this vanishing.
-\end{frame}
-
-\begin{frame}{Why $H^{0,1}_{\db}(\mathbb P^n)=0$}
-We use two facts:
-\begin{itemize}
-\item $\mathbb P^n$ is compact K\"ahler with its Fubini--Study metric.
-\item $H^1_{\mathrm{dR}}(\mathbb P^n,\C)=0$.
-The standard cell decomposition has one cell in each real dimension
-$0,2,\ldots,2n$, and none in odd dimensions.
-\end{itemize}
-The K\"ahler Hodge theorem gives
-\[
- H^1_{\mathrm{dR}}(\mathbb P^n,\C)
- \cong H^{1,0}_{\db}(\mathbb P^n)
- \oplus H^{0,1}_{\db}(\mathbb P^n).
-\]
-Since the left side is zero, both summands vanish. In particular,
-\[
- \boxed{H^{0,1}_{\db}(\mathbb P^n)=0.}
-\]
-The passage from de Rham cohomology to Dolbeault cohomology here
-uses \textbf{K\"ahlerness}.
-\src{HP: Hodge theorem and Fubini--Study metric; Verbitsky, Lecture 13, p.\ 11.}
-\end{frame}
-
-\begin{frame}{A bounded solution of the error equation}
-The vanishing just proved yields a smooth function
-\[
- \varphi\in C^\infty(\mathbb P^n),\qquad \db\varphi=\alpha.
-\]
-Because $\mathbb P^n$ is compact, $\varphi$ is bounded.
-On $\C^n\setminus\overline{B_R}$ we have $\alpha=0$, hence $\varphi$
-is holomorphic there.
-
-Moreover, $\varphi$ is holomorphic near $H_\infty$.
-Its restriction to the compact connected manifold
-$H_\infty\cong\mathbb P^{n-1}$ is therefore a constant $c$.
-
-Here we use the maximum principle: a holomorphic function on a compact
-connected complex manifold is constant.
-
-We will show that
-\[
- \varphi=c\quad\hbox{outside }\overline{B_R}.
-\]
-Then subtracting $c$ gives the compactly supported correction we need.
-\end{frame}
-
-\begin{frame}{Complex lines outside the ball}
-Fix $z\in\C^n$ with $\lVert z\rVert>R$.
-Since $n\ge2$, choose a unit vector $v$ Hermitian-orthogonal to $z$.
-The affine complex line
-\[
- L_z=\{z+t v:t\in\C\}
-\]
-misses $\overline{B_R}$, because
-\[
- \lVert z+t v\rVert^2=\lVert z\rVert^2+|t|^2>R^2.
-\]
-The restriction $t\mapsto\varphi(z+t v)$ is entire and bounded.
-By \textbf{Liouville's theorem}, it is constant.
-
-As $t\to\infty$, the point $[1:z+t v]$ tends to $[0:v]\in H_\infty$,
-where $\varphi=c$. Thus
-\[
- \boxed{\varphi(z)=c\quad\hbox{for every }\lVert z\rVert>R.}
-\]
-This is the step that uses the extra complex direction.
-\end{frame}
-
-\begin{frame}{Finishing Hartogs extension}
-Set
-\[
- \psi=\varphi|_{\C^n}-c.
-\]
-Then $\psi$ has compact support and $\db\psi=\alpha$.
-Therefore
-\[
- F=\widetilde f-\psi,\qquad
- \db F=\alpha-\alpha=0,
-\]
-so $F$ is holomorphic on all of $\C^n$.
-
-Outside $\overline{B_R}$, both $\widetilde f=f$ and $\psi=0$.
-Thus $F=f$ on a nonempty open subset of $\C^n\setminus K$.
-Since this complement is connected, the \textbf{identity theorem} gives
-\[
- F|_{\C^n\setminus K}=f.
-\]
-The identity theorem also gives uniqueness.\hfill$\square$
-
-Connectedness is used to recover agreement on the
-\emph{whole} original domain, after the construction outside a larger ball.
-\end{frame}
-
-\begin{frame}{References}
-\begin{itemize}
-\item Misha Verbitsky, \emph{Hodge theory}, IMPA 2025,
-Lecture 13: Poincar\'e--Dolbeault--Grothendieck lemma.
-The homotopy construction and the Hartogs proof follow these slides.
-\[
- \text{\href{http://verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}
- {verbit.ru/IMPA/Kahler-2025/slides-Kahler-2025-13.pdf}}
-\]
-\item Heap Project: complex geometry, complex analysis, and Hodge theory.
-Notation for $\partial_{\bar z}$, $\db$, smooth forms and sheaves,
-the identity theorem, and the K\"ahler Hodge theorem.
-
-\item Claire Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I},
-Chapter 4: acyclic resolutions and fine sheaves.
-
-\item Daniel Huybrechts, \emph{Complex Geometry: An Introduction},
-Propositions 1.3.7--1.3.8 and Corollary 1.3.9.
-\end{itemize}
 \end{frame}
 
 \end{document}
