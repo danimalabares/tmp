@@ -454,33 +454,7 @@ Equivalently, we want to solve both equations
 \[
  \boxed{\partial_{\bar z_1}u=a,\qquad\partial_{\bar z_2}u=b.}
 \]
-The condition $\db\alpha=0$ makes these equations compatible (next slide).
 We allow a smaller bidisk at each use of the one-variable operator.
-\end{frame}
-
-\begin{frame}{Closedness is the compatibility condition}
-For $\alpha=a\,d\bar z_1+b\,d\bar z_2$, expand
-\[
- \begin{aligned}
- \db\alpha
- &=\db a\wedge d\bar z_1+\db b\wedge d\bar z_2\\
- &=(\partial_{\bar z_2}a)\,d\bar z_2\wedge d\bar z_1
-  +(\partial_{\bar z_1}b)\,d\bar z_1\wedge d\bar z_2\\
- &=\bigl(\partial_{\bar z_1}b-\partial_{\bar z_2}a\bigr)
-       d\bar z_1\wedge d\bar z_2.
- \end{aligned}
-\]
-Here we used
-\[
- d\bar z_i\wedge d\bar z_i=0,\qquad
- d\bar z_2\wedge d\bar z_1=-d\bar z_1\wedge d\bar z_2.
-\]
-The basis form $d\bar z_1\wedge d\bar z_2$ is nonzero. Hence
-\[
- \boxed{\db\alpha=0\quad\Longleftrightarrow\quad
- \partial_{\bar z_1}b=\partial_{\bar z_2}a.}
-\]
-This is also necessary for a solution: the mixed derivatives of $u$ commute.
 \end{frame}
 
 \begin{frame}{First correction: removing the $d\bar z_1$ term}
@@ -507,9 +481,12 @@ The remaining task is to find $u_2$ with
 The second condition ensures that adding $u_2$ keeps the first equation solved.
 \end{frame}
 
-\begin{frame}{Why the remainder is holomorphic in $z_1$}
+\begin{frame}{What must the remainder satisfy?}
+To keep the first equation solved when we set $u_2=T_2r$,
+we want $\partial_{\bar z_1}r=0$.
+
 Recall $r=b-\partial_{\bar z_2}u_1$ and $\partial_{\bar z_1}u_1=a$.
-Then
+Compute, using commutativity of mixed derivatives:
 \[
  \begin{aligned}
  \partial_{\bar z_1}r
@@ -517,15 +494,42 @@ Then
    -\partial_{\bar z_1}\partial_{\bar z_2}u_1\\
  &=\partial_{\bar z_1}b
    -\partial_{\bar z_2}\partial_{\bar z_1}u_1\\
- &=\partial_{\bar z_1}b-\partial_{\bar z_2}a\\
- &=0.
+ &=\partial_{\bar z_1}b-\partial_{\bar z_2}a.
  \end{aligned}
 \]
-The last equality is exactly the condition $\db\alpha=0$.
+Thus the condition we need is
+\[
+ \partial_{\bar z_1}b=\partial_{\bar z_2}a.
+\]
+\textbf{Now we use the assumption $\db\alpha=0$.}
+\end{frame}
 
-\textbf{The remainder has no $d\bar z_1$ term, and its coefficient is
-holomorphic in $z_1$.}
-It may still depend on $\bar z_2$.
+\begin{frame}{Closedness gives exactly what we need}
+For $\alpha=a\,d\bar z_1+b\,d\bar z_2$, expand
+\[
+ \begin{aligned}
+ \db\alpha
+ &=\db a\wedge d\bar z_1+\db b\wedge d\bar z_2\\
+ &=(\partial_{\bar z_2}a)\,d\bar z_2\wedge d\bar z_1
+  +(\partial_{\bar z_1}b)\,d\bar z_1\wedge d\bar z_2\\
+ &=\bigl(\partial_{\bar z_1}b-\partial_{\bar z_2}a\bigr)
+       d\bar z_1\wedge d\bar z_2.
+ \end{aligned}
+\]
+Here we used
+\[
+ d\bar z_i\wedge d\bar z_i=0,\qquad
+ d\bar z_2\wedge d\bar z_1=-d\bar z_1\wedge d\bar z_2.
+\]
+The basis form $d\bar z_1\wedge d\bar z_2$ is nonzero. Hence
+\[
+ \boxed{\db\alpha=0\quad\Longleftrightarrow\quad
+ \partial_{\bar z_1}b=\partial_{\bar z_2}a.}
+\]
+\textbf{This is precisely the compatibility condition we need!}
+Since $\db\alpha=0$, the difference we just computed vanishes:
+$\partial_{\bar z_1}r=0$.
+Thus $r$ is holomorphic in $z_1$, though it may depend on $\bar z_2$.
 \end{frame}
 
 \begin{frame}{Second correction: keeping the first equation solved}
