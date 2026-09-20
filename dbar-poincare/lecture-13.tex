@@ -304,23 +304,24 @@ exactness on stalks used in the opening slides.
 \src{Verbitsky, Lecture 13, pp.\ 5--10.}
 \end{frame}
 
-\begin{frame}{Proof outline}
+\begin{frame}{Proof outline: removing one direction at a time}
+We want to write a closed form as $\eta=\db\beta$.
 \begin{enumerate}
-\item \textbf{One variable.}
-Use Fourier modes on an elliptic curve to construct a linear
-operator solving $\partial_{\bar z}u=g$ on a disk.
+\item \textbf{Use the one-variable result.}
+Solve $\partial_{\bar z_i}u=g$, treating the other coordinates as
+parameters. The solution preserves holomorphic dependence on them.
 
-\item \textbf{Several variables.}
-Apply these operators one coordinate at a time.
-Misha's spaces $R_i$ and $W_k$ record which antiholomorphic directions
-have been removed. After $n$ steps, every positive-degree closed
-form becomes exact.
+\item \textbf{Subtract an exact correction.}
+Choose $\beta_1$ so that $\eta-\db\beta_1$ has no $d\bar z_1$ term.
+Closedness then forces its coefficients to be holomorphic in $z_1$.
 
-\item \textbf{Hartogs extension.}
-Turn the failure of a smooth extension to be holomorphic into
-a compactly supported $\db$-closed form. Solve on $\mathbb P^n$
-and use complex lines to make the correction compactly supported.
+\item \textbf{Repeat in the remaining variables.}
+Each correction preserves the directions already removed.
+After all $n$ directions, a form with $q>0$ must be zero.
+Adding the corrections gives the required primitive.
 \end{enumerate}
+We first do this for $a\,d\bar z_1+b\,d\bar z_2$, then for general forms.
+Misha's $R_i$ and $W_k$ will describe the same mechanism afterwards.
 \end{frame}
 
 \begin{frame}{Coordinates and the two operators}
@@ -329,96 +330,46 @@ Our conventions are
  z=x+iy,\qquad dz=dx+i\,dy,\qquad d\bar z=dx-i\,dy,
  \qquad \partial_{\bar z}=\frac12(\partial_x+i\partial_y).
 \]
-For a function,
+For a smooth $(p,q)$-form $\alpha$, the operator
+$\partial_{\bar z_i}$ differentiates its coefficients and keeps the
+coordinate forms fixed. For example,
 \[
- \db f=\partial_{\bar z}f\,d\bar z.
+ \partial_{\bar z_1}(f\,d\bar z_2)
+ =(\partial_{\bar z_1}f)\,d\bar z_2.
 \]
-Thus $\partial_{\bar z}$ differentiates a coefficient, while
-$\db$ also wedges with $d\bar z$.
-
-For $z_1,\ldots,z_n$, write
+The Dolbeault operator also wedges with $d\bar z_i$:
 \[
- \db_i\alpha=d\bar z_i\wedge\partial_{\bar z_i}\alpha,\qquad
- \db=\sum_{i=1}^n\db_i.
+ \db_i\alpha=d\bar z_i\wedge\partial_{\bar z_i}\alpha,
+ \qquad \db\alpha=\sum_{i=1}^n\db_i\alpha.
 \]
-Here $\partial_{\bar z_i}$ differentiates every coefficient in the coordinate-form basis.
-The coordinate derivatives commute, but wedge products give
+Thus $\partial_{\bar z_i}$ preserves type, while $\db_i$ increases $q$ by one.
+The wedge signs give
 \[
  \db_i^2=0,\qquad \db_i\db_j+\db_j\db_i=0.
 \]
 \end{frame}
 
-\begin{frame}{Reminder: translation fields and complex Cartan}
-A real vector field is \textbf{holomorphic} if its local flow preserves
-the complex structure. For
-\[
- X=\partial_x,\qquad IX=\partial_y,
-\]
-the flows are translations $z\mapsto z+t$ and $z\mapsto z+it$.
 
-With the conventions just fixed, complex Cartan gives
+\begin{frame}{The one-variable ingredient from Lecture 12}
+On $E=\C/(2\pi\Z+2\pi i\Z)$, write a smooth function as
 \[
- \db\iota_X+\iota_X\db=\frac12(\Lie_X+i\Lie_{IX}).
+ g=\sum_{n,m}g_{n,m}e_{n,m},\qquad e_{n,m}=e^{inx+imy}.
 \]
-On the torus $E=\C/(2\pi\Z+2\pi i\Z)$, a Fourier mode is
+Since
 \[
- e_{n,m}\alpha=e^{inx+imy}\alpha,
+ \partial_{\bar z}e_{n,m}=\frac{in-m}{2}e_{n,m},
 \]
-where $\alpha$ is a constant form. Translation invariance of $\alpha$ gives
+we can divide every nonconstant mode by its eigenvalue:
 \[
- \Lie_X(e_{n,m}\alpha)=in\,e_{n,m}\alpha,\qquad
- \Lie_{IX}(e_{n,m}\alpha)=im\,e_{n,m}\alpha.
+ Pg=\sum_{(n,m)\ne(0,0)}\frac{2g_{n,m}}{in-m}e_{n,m},
+ \qquad \partial_{\bar z}Pg=g-g_{0,0}.
 \]
-The $\db$ combination therefore has eigenvalue $(in-m)/2$.
-\src{Lecture 12 recap; Verbitsky, Lecture 13, pp.\ 2--3.}
-\end{frame}
+Smooth Fourier coefficients decay faster than every power, so the
+series and all its derivatives converge.
 
-\begin{frame}{A homotopy operator on the elliptic curve}
-Write $\mu=\sum_{n,m}\mu_{n,m}$ and let $\Pi_0\mu=\mu_{0,0}$
-be its constant Fourier part. Define
-\[
- P\mu=\sum_{(n,m)\ne(0,0)}\frac{2}{in-m}\,\mu_{n,m}.
-\]
-To lower only the antiholomorphic degree, use
-\[
- Y=\partial_{\bar z}=\frac12(X+iIX),\qquad h=P\iota_Y.
-\]
-Contraction means inserting $Y$ into a form. In particular,
-\[
- \iota_Y(d\bar z)=1,\qquad \iota_Y(dz)=0.
-\]
-We will prove the \textbf{homotopy identity}
-\[
- \boxed{\db h+h\db=\operatorname{Id}-\Pi_0.}
-\]
-Here a homotopy operator is a degree-lowering map satisfying this identity:
-it removes every nonconstant closed mode by an exact correction.
-\src{Verbitsky, Lecture 13, p.\ 6, in our $\partial_{\bar z}$ convention.}
-\end{frame}
-
-\begin{frame}{Proof of the torus homotopy identity}
-In the constant coordinate-form basis, contraction satisfies
-\[
- \db\iota_Y+\iota_Y\db=\partial_{\bar z}.
-\]
-Indeed, writing a form as $\beta+d\bar z\wedge\gamma$, with neither
-$\beta$ nor $\gamma$ containing $d\bar z$, verifies the identity directly.
-
-On a Fourier mode,
-\[
- \partial_{\bar z}\mu_{n,m}=\frac{in-m}{2}\mu_{n,m}.
-\]
-The operator $P$ commutes with $\db$ and $\iota_Y$, so
-\[
- (\db h+h\db)\mu
- =P\,\partial_{\bar z}\mu
- =\mu-\Pi_0\mu.
-\]
-For a closed form this reads $\mu=\Pi_0\mu+\db(h\mu)$.
-
-Smooth Fourier coefficients decay faster than every power.
-Division by $in-m$ preserves this decay, so these operators and
-the differentiated series are well-defined on smooth forms.
+The remaining constant has the primitive $g_{0,0}\bar z$ on a disk.
+This will give an operator $T$ with $\partial_{\bar z}Tg=g$.
+\src{Lecture 12 recap; Verbitsky, Lecture 13, pp.\ 4, 6--7.}
 \end{frame}
 
 \begin{frame}{A linear solution operator on a disk}
@@ -468,201 +419,359 @@ In particular,
 on the other variables.}
 \end{frame}
 
-\begin{frame}{Domains for the several-variable operators}
-Choose product disks
-\[
- P=D_1^+\times\cdots\times D_n^+,\qquad
- P'=D_1\times\cdots\times D_n,\qquad
- \overline{D_i}\subset D_i^+.
-\]
-For each $i$, construct $T_i$ in the $z_i$ variable, treating all
-other coordinates as parameters, and restrict the output to $P'$.
 
-Define
+\begin{frame}{Two variables: what are we trying to solve?}
+Let
 \[
- \kappa_i=\iota_{\partial_{\bar z_i}},\qquad
- \gamma_i=T_i\kappa_i:
- \A^{p,q}(P)\longrightarrow\A^{p,q-1}(P').
+ \alpha=a\,d\bar z_1+b\,d\bar z_2
 \]
-Contraction removes $d\bar z_i$, with the usual wedge sign:
+be a smooth $(0,1)$-form on a bidisk, with $\db\alpha=0$.
+The coefficients $a,b$ may depend on both coordinates and their conjugates.
+
+We want a function $u$ such that
 \[
- \kappa_i(d\bar z_i\wedge\beta)=\beta
- \quad\hbox{if }\beta\hbox{ contains no }d\bar z_i.
+ \db u=(\partial_{\bar z_1}u)\,d\bar z_1
+       +(\partial_{\bar z_2}u)\,d\bar z_2=\alpha.
 \]
-All identities below hold on the \textbf{smaller polydisk}.
-When an operator is applied again, we use another nested pair.
-The finite shrinking keeps every input inside the domain where
-its required identities hold.
+Equivalently, we want to solve both equations
+\[
+ \boxed{\partial_{\bar z_1}u=a,\qquad\partial_{\bar z_2}u=b.}
+\]
+The condition $\db\alpha=0$ makes these equations compatible.
+We allow a smaller bidisk at each use of the one-variable operator.
 \end{frame}
 
-\begin{frame}{The space $R_i$: one direction already removed}
-Define $R_i(P)$ to consist of forms satisfying both conditions:
+\begin{frame}{Closedness is the compatibility condition}
+For $\alpha=a\,d\bar z_1+b\,d\bar z_2$, expand
+\[
+ \begin{aligned}
+ \db\alpha
+ &=\db a\wedge d\bar z_1+\db b\wedge d\bar z_2\\
+ &=(\partial_{\bar z_2}a)\,d\bar z_2\wedge d\bar z_1
+  +(\partial_{\bar z_1}b)\,d\bar z_1\wedge d\bar z_2\\
+ &=\bigl(\partial_{\bar z_1}b-\partial_{\bar z_2}a\bigr)
+       d\bar z_1\wedge d\bar z_2.
+ \end{aligned}
+\]
+Here we used
+\[
+ d\bar z_i\wedge d\bar z_i=0,\qquad
+ d\bar z_2\wedge d\bar z_1=-d\bar z_1\wedge d\bar z_2.
+\]
+The basis form $d\bar z_1\wedge d\bar z_2$ is nonzero. Hence
+\[
+ \boxed{\db\alpha=0\quad\Longleftrightarrow\quad
+ \partial_{\bar z_1}b=\partial_{\bar z_2}a.}
+\]
+This is also necessary for a solution: the mixed derivatives of $u$ commute.
+\end{frame}
+
+\begin{frame}{First correction: removing the $d\bar z_1$ term}
+Apply the one-variable operator in $z_1$, with $z_2$ as a parameter:
+\[
+ u_1=T_1a,\qquad \partial_{\bar z_1}u_1=a.
+\]
+Its full Dolbeault derivative is
+\[
+ \db u_1=a\,d\bar z_1+(\partial_{\bar z_2}u_1)\,d\bar z_2.
+\]
+Subtracting it gives
+\[
+ \boxed{\alpha-\db u_1=r\,d\bar z_2,\qquad
+ r=b-\partial_{\bar z_2}u_1.}
+\]
+\textbf{The first coefficient is now correct.}
+The remaining task is to find $u_2$ with
+\[
+ \partial_{\bar z_2}u_2=r,\qquad \partial_{\bar z_1}u_2=0.
+\]
+The second condition ensures that adding $u_2$ keeps the first equation solved.
+\end{frame}
+
+\begin{frame}{Why the remainder is holomorphic in $z_1$}
+Recall $r=b-\partial_{\bar z_2}u_1$ and $\partial_{\bar z_1}u_1=a$.
+Then
+\[
+ \begin{aligned}
+ \partial_{\bar z_1}r
+ &=\partial_{\bar z_1}b
+   -\partial_{\bar z_1}\partial_{\bar z_2}u_1\\
+ &=\partial_{\bar z_1}b
+   -\partial_{\bar z_2}\partial_{\bar z_1}u_1\\
+ &=\partial_{\bar z_1}b-\partial_{\bar z_2}a\\
+ &=0.
+ \end{aligned}
+\]
+The last equality is exactly the condition $\db\alpha=0$.
+
+\textbf{The remainder has no $d\bar z_1$ term, and its coefficient is
+holomorphic in $z_1$.}
+It may still depend on $\bar z_2$.
+\end{frame}
+
+\begin{frame}{Second correction: keeping the first equation solved}
+Solve in $z_2$:
+\[
+ u_2=T_2r,\qquad \partial_{\bar z_2}u_2=r.
+\]
+The parameter property of $T_2$ gives
+\[
+ \partial_{\bar z_1}u_2
+ =T_2(\partial_{\bar z_1}r)=T_2(0)=0.
+\]
+Thus $\db u_2=r\,d\bar z_2$, and
+\[
+ \boxed{\alpha=\db u_1+r\,d\bar z_2=\db(u_1+u_2).}
+\]
+We solved the two equations successively. Closedness and the parameter
+property ensured that the second correction preserved the first equation.
+\end{frame}
+
+\begin{frame}{General forms: the same first correction}
+For a closed $(p,q)$-form $\eta$, collect all terms containing $d\bar z_i$:
+\[
+ \eta=d\bar z_i\wedge\beta+\delta.
+\]
+Neither $\beta$ nor $\delta$ contains $d\bar z_i$.
+Moving $d\bar z_i$ to the front includes the appropriate wedge signs.
+
+Apply $T_i$ to each coefficient of $\beta$ and set $v=T_i\beta$.
+On a smaller polydisk,
+\[
+ \db v=d\bar z_i\wedge\beta
+       +\sum_{j\ne i}d\bar z_j\wedge\partial_{\bar z_j}v.
+\]
+The sum has no $d\bar z_i$. Therefore
+\[
+ \boxed{\rho=\eta-\db v\quad\hbox{has no }d\bar z_i.}
+\]
+In the bidisk example, $\beta=a$ and $v=u_1=T_1a$.
+The correction $v$ has type $(p,q-1)$.
+\end{frame}
+
+\begin{frame}{Closedness again controls the remainder}
+The remainder $\rho=\eta-\db v$ is still closed:
+\[
+ \db\rho=\db\eta-\db^2v=0.
+\]
+Since $\rho$ contains no $d\bar z_i$, in the expression
+\[
+ 0=\db\rho
+  =d\bar z_i\wedge\partial_{\bar z_i}\rho
+   +\sum_{j\ne i}d\bar z_j\wedge\partial_{\bar z_j}\rho
+\]
+only the first term contains $d\bar z_i$. Coordinate wedge monomials
+are linearly independent, so that term vanishes separately.
+
+Since $\partial_{\bar z_i}\rho$ also has no $d\bar z_i$, this gives
+\[
+ \boxed{\partial_{\bar z_i}\rho=0.}
+\]
+The coefficients of $\rho$ are holomorphic in $z_i$.
+This is the general version of the calculation $\partial_{\bar z_1}r=0$.
+\end{frame}
+
+\begin{frame}{Why later corrections preserve earlier ones}
+Suppose direction $j$ is already removed: the current form has no
+$d\bar z_j$, and all its coefficients are holomorphic in $z_j$.
+
+To remove a new direction $i\ne j$, write
+$\eta=d\bar z_i\wedge\beta+\delta$ and take $v=T_i\beta$.
+The form $\beta$ still has both properties in direction $j$, so
+\[
+ v\hbox{ has no }d\bar z_j,\qquad
+ \partial_{\bar z_j}v=T_i(\partial_{\bar z_j}\beta)=0.
+\]
+Consequently $\db v$ also has no $d\bar z_j$. Moreover,
+\[
+ \partial_{\bar z_j}(\eta-\db v)
+ =\partial_{\bar z_j}\eta-\db(\partial_{\bar z_j}v)=0.
+\]
+\textbf{The new remainder keeps both properties in every direction
+already removed.}
+This is why the one-variable operator had to work with parameters.
+\end{frame}
+
+\begin{frame}{Finishing the proof one coordinate at a time}
+Choose nested polydisks inside the neighbourhood where $\eta$ is closed:
+\[
+ \overline{P_i}\subset P_{i-1}\quad(1\le i\le n),\qquad P_n=D.
+\]
+Start with $\eta_0=\eta|_{P_0}$. At step $i$, the preceding construction gives
+\[
+ \eta_i=\eta_{i-1}|_{P_i}-\db v_i.
+\]
+The form $\eta_i$ is closed and has no
+$d\bar z_1,\ldots,d\bar z_i$. Its coefficients are holomorphic
+in $z_1,\ldots,z_i$.
+
+After $n$ steps, $\eta_n$ has no antiholomorphic differentials.
+Since its antiholomorphic degree is $q>0$, we have $\eta_n=0$.
+Adding the corrections, restricted to $D$, gives
+\[
+ \boxed{\eta|_D=\db(v_1|_D+\cdots+v_n|_D).}
+\]
+This proves the lemma. Next we express these corrections in Misha's notation.
+\end{frame}
+
+\begin{frame}{Misha's notation: a removed direction is $R_i$}
+We have used two conditions together. A form belongs to $R_i(P)$ when
 \begin{itemize}
-\item no monomial contains $d\bar z_i$;
-\item every coefficient is holomorphic in $z_i$, that is,
+\item no coordinate wedge monomial contains $d\bar z_i$;
+\item every coefficient is holomorphic in $z_i$:
 $\partial_{\bar z_i}\alpha=0$.
 \end{itemize}
-For example, on a bidisk,
+In our bidisk example,
 \[
- \alpha=f(z_1,z_2,\bar z_2)\,d\bar z_2,\qquad
- \partial_{\bar z_1}f=0,
+ \alpha-\db u_1=r\,d\bar z_2\in R_1,
+ \qquad\partial_{\bar z_1}r=0.
 \]
-belongs to $R_1$. The coefficients may still depend on $\bar z_2$.
+In the proof just completed, each successive remainder lies in
+\[
+ R_1,\qquad R_1\cap R_2,\qquad\ldots,\qquad R_1\cap\cdots\cap R_n.
+\]
+Misha combines the corrections in all coordinates symmetrically.
+His spaces $W_k$ will keep track of sums of forms with $k$ directions removed.
+\src{Verbitsky, Lecture 13, pp.\ 8--10.}
+\end{frame}
 
-Set
+\begin{frame}{Misha's correction operator $\gamma_i$}
+Contraction $\kappa_i=\iota_{\partial_{\bar z_i}}$ removes $d\bar z_i$:
+\[
+ \eta=d\bar z_i\wedge\beta+\delta
+ \quad\Longrightarrow\quad\kappa_i\eta=\beta,
+\]
+where $\beta,\delta$ have no $d\bar z_i$.
+Thus our correction $v=T_i\beta$ is the operator
+\[
+ \gamma_i=T_i\kappa_i:
+ \A^{p,q}(P)\longrightarrow\A^{p,q-1}(P'),
+ \qquad\gamma_i\eta=T_i\beta.
+\]
+Here $\overline{P'}\subset P$, as in the preceding proof.
+Define the degree-preserving operator
 \[
  K_i=\db_i\gamma_i+\gamma_i\db_i.
 \]
-We will show
-\[
- \alpha-K_i\alpha\in R_i(P'),\qquad
- K_i\alpha=0\quad\hbox{if }\alpha\in R_i(P).
-\]
-Thus $K_i$ extracts the part that still needs a correction in direction $i$.
-\src{Verbitsky, Lecture 13, pp.\ 8--9.}
+We next prove $\eta-K_i\eta\in R_i(P')$.
+For closed forms, $K_i\eta$ will equal the exact correction $\db\gamma_i\eta$.
 \end{frame}
 
-\begin{frame}{Proof of the identity in one coordinate}
-Write
-\[
- \alpha=d\bar z_i\wedge\beta+\delta,
-\]
-where neither $\beta$ nor $\delta$ contains $d\bar z_i$.
+\begin{frame}{The operator $K_i$ removes direction $i$}
+Write $\eta=d\bar z_i\wedge\beta+\delta$ as before.
 Since $\partial_{\bar z_i}T_i=\operatorname{Id}$ on the smaller disk,
 \[
  \begin{aligned}
- \gamma_i\alpha&=T_i\beta,\\
- \db_i\gamma_i\alpha&=d\bar z_i\wedge\beta,\\
- \gamma_i\db_i\alpha&=T_i\partial_{\bar z_i}\delta.
+ \gamma_i\eta&=T_i\beta,\\
+ \db_i\gamma_i\eta&=d\bar z_i\wedge\beta,\\
+ \gamma_i\db_i\eta&=T_i\partial_{\bar z_i}\delta.
  \end{aligned}
 \]
-It follows that
+Therefore
 \[
- \alpha-K_i\alpha=\delta-T_i\partial_{\bar z_i}\delta.
+ \eta-K_i\eta=\delta-T_i\partial_{\bar z_i}\delta.
 \]
-This contains no $d\bar z_i$, and its $\partial_{\bar z_i}$ derivative is zero.
-Therefore it belongs to $R_i(P')$.
+This has no $d\bar z_i$, and its $\partial_{\bar z_i}$ derivative is zero.
+Thus $\eta-K_i\eta\in R_i(P')$.
 
-If $\alpha\in R_i(P)$, then $\beta=0$ and
-$\partial_{\bar z_i}\delta=0$, so $K_i\alpha=0$.
+If $\eta\in R_i(P)$ already, then $\beta=0$ and
+$\partial_{\bar z_i}\delta=0$, so $K_i\eta=0$.
+
+For $j\ne i$, both $\gamma_i$ and $\db_i$ preserve the two $R_j$
+conditions. Hence $K_i$ also preserves every previously removed direction.
 \end{frame}
 
-\begin{frame}{Operators in different coordinates}
-For $i\ne j$, the scalar operator $T_i$ commutes with $\partial_{\bar z_j}$.
-Contraction and exterior multiplication satisfy
+\begin{frame}{Why $K_i\eta$ is exact when $\eta$ is closed}
+For $i\ne j$, the operator $T_i$ commutes with $\partial_{\bar z_j}$.
+The wedge sign in contraction gives
 \[
  \kappa_i(d\bar z_j\wedge\alpha)
- =-d\bar z_j\wedge\kappa_i\alpha.
+ =-d\bar z_j\wedge\kappa_i\alpha,
+ \qquad\db_j\gamma_i+\gamma_i\db_j=0.
 \]
-Consequently,
+Hence all the mixed terms cancel:
 \[
- \boxed{\db_j\gamma_i+\gamma_i\db_j=0\qquad(i\ne j).}
+ \db\gamma_i+\gamma_i\db
+ =\db_i\gamma_i+\gamma_i\db_i=K_i.
 \]
-The same parameter property shows that $\gamma_i$ and $\db_i$
-preserve the conditions defining $R_j$ when $i\ne j$.
+For a closed form, this becomes $K_i\eta=\db\gamma_i\eta$,
+which is exactly the correction used in the coordinate-by-coordinate proof.
 
-Summing the operators and cancelling the mixed terms gives
+Adding over $i$, set
 \[
  \gamma=\sum_{i=1}^n\gamma_i,\qquad
- K=\db\gamma+\gamma\db=\sum_{i=1}^n K_i.
+ K=\sum_{i=1}^n K_i=\db\gamma+\gamma\db.
 \]
+For closed $\eta$, we also have $K\eta=\db\gamma\eta$.
 \end{frame}
 
-\begin{frame}{Misha's filtration $W_k$}
-A \textbf{filtration} here means a nested sequence of vector spaces.
-For fixed type $(p,q)$, let
-\[
- W_0(P)=\A^{p,q}(P),\qquad
- W_k(P)=
- \sum_{1\le i_1<\cdots<i_k\le n}
- R_{i_1}(P)\cap\cdots\cap R_{i_k}(P).
-\]
-The sum means \textbf{finite sums of forms}, each of which has
-at least $k$ directions removed. It need not be the same $k$
-directions for every summand.
-\[
- W_0(P)\supset W_1(P)\supset\cdots\supset W_n(P).
-\]
-For example, when $n=2$,
+\begin{frame}{Misha's $W_k$: sums with $k$ directions removed}
+When $n=2$, Misha groups together the two possible first corrections:
 \[
  W_1=R_1+R_2,\qquad W_2=R_1\cap R_2.
 \]
-A form in $W_n$ contains no $d\bar z_i$ at all. Thus
+Thus $\rho\in W_1$ means $\rho=\rho_1+\rho_2$, with
+$\rho_1\in R_1$ and $\rho_2\in R_2$.
+The removed direction can differ between the summands.
+
+In general, for fixed type $(p,q)$, set
 \[
- \boxed{W_n(P)=0\quad\hbox{in every type }(p,q)\hbox{ with }q>0.}
+ W_0=\A^{p,q},\qquad
+ W_k=\sum_{i_1<\cdots<i_k}R_{i_1}\cap\cdots\cap R_{i_k}.
 \]
+This is a \textbf{filtration}, meaning a nested sequence of spaces:
+\[
+ W_0\supset W_1\supset\cdots\supset W_n.
+\]
+In $W_n=R_1\cap\cdots\cap R_n$, all directions are removed.
+Therefore $W_n=0$ when $q>0$.
 \src{Verbitsky, Lecture 13, pp.\ 9--10.}
 \end{frame}
 
-\begin{frame}{The homotopy acts by $n-k$ modulo $W_{k+1}$}
-Take $\alpha\in R_{i_1}(P)\cap\cdots\cap R_{i_k}(P)$.
+\begin{frame}{Why Misha divides the correction by $n-k$}
+Suppose $\alpha\in R_{i_1}\cap\cdots\cap R_{i_k}$.
+There are $n-k$ directions still to remove.
 \begin{itemize}
-\item For $i\in\{i_1,\ldots,i_k\}$, we have $K_i\alpha=0$.
-\item For every other $i$, the difference $\alpha-K_i\alpha$
-belongs to $R_i(P')$ and keeps all the previous $R_{i_j}$ conditions.
+\item For an already removed direction, $K_i\alpha=0$.
+\item For each remaining direction, $\alpha-K_i\alpha$ has that direction
+removed as well, and keeps the previous $k$ conditions.
 \end{itemize}
-There are $n-k$ remaining indices. Adding their contributions yields
+Adding these $n-k$ remainders gives
 \[
- (n-k)\alpha-K\alpha\in W_{k+1}(P').
+ \sum_{i\notin\{i_1,\ldots,i_k\}}(\alpha-K_i\alpha)
+ =(n-k)\alpha-K\alpha\in W_{k+1}.
 \]
-By linearity the same holds for every $\alpha\in W_k(P)$.
-
-If $\db\alpha=0$ on $P$, then $K\alpha=\db\gamma\alpha$. Hence
+By linearity, this holds for every $\alpha\in W_k$.
+If $\alpha$ is closed, then $K\alpha=\db\gamma\alpha$, so
 \[
  \boxed{\alpha-\db\!\left(\frac{\gamma\alpha}{n-k}\right)
- \in W_{k+1}(P')\qquad(k<n).}
+ \in W_{k+1}\qquad(k<n).}
 \]
-The corrected form is still closed, since $\db^2=0$.
+The division averages the corrections over the $n-k$ remaining directions.
 \end{frame}
 
-\begin{frame}{Finishing the proof in $n$ steps}
-Choose nested polydisks
-\[
- \overline{P_{k+1}}\subset P_k\quad(0\le k<n),\qquad P_n=D,
-\]
-inside the neighbourhood where $\eta$ is smooth and closed.
-Start with $\eta_0=\eta|_{P_0}\in W_0(P_0)$.
+\begin{frame}{Misha's proof: successive exact corrections}
+Use nested polydisks $\overline{P_{k+1}}\subset P_k$, with $P_n=D$,
+and start with the closed form $\eta_0=\eta|_{P_0}$.
 
-At step $k$, use the operator $\gamma^{(k)}$ for $P_k$ and $P_{k+1}$,
-and put
+At stage $k$, suppose $\eta_k\in W_k$. On the next smaller polydisk, set
 \[
  \beta_k=\frac{\gamma^{(k)}\eta_k}{n-k},\qquad
  \eta_{k+1}=\eta_k|_{P_{k+1}}-\db\beta_k.
 \]
-The previous slide gives a closed form
-$\eta_{k+1}\in W_{k+1}(P_{k+1})$.
-Since $q>0$, we reach $\eta_n=0$.
+The superscript records the operator for $P_k$ and $P_{k+1}$.
+The previous slide gives $\eta_{k+1}\in W_{k+1}$, and
+$\db\eta_{k+1}=0$ because $\db^2=0$.
 
-Restrict all primitives to $D$ and add them:
+After $n$ stages, $\eta_n\in W_n=0$. Hence
 \[
- \boxed{\eta|_D=\db\beta,\qquad
- \beta=\sum_{k=0}^{n-1}\beta_k|_D.}
+ \boxed{\eta|_D=\db\!\left(\sum_{k=0}^{n-1}\beta_k|_D\right).}
 \]
+This has the same structure as $\alpha=\db(u_1+u_2)$ in our example:
+each exact correction simplifies the remainder until it vanishes.
+\src{Verbitsky, Lecture 13, pp.\ 9--10.}
 \end{frame}
 
-\begin{frame}{Two steps when $n=2$}
-For a closed form $\eta$ of positive antiholomorphic degree, the first
-correction removes the part outside $W_1$:
-\[
- r=\eta-\db\!\left(\frac{\gamma^{(0)}\eta}{2}\right)
- \in W_1.
-\]
-The residual $r$ is closed. On $W_1$, the next coefficient is
-$n-k=1$, so
-\[
- r-\db(\gamma^{(1)}r)\in W_2=0.
-\]
-Therefore, on the final smaller bidisk,
-\[
- \boxed{\eta=
- \db\!\left(\frac{\gamma^{(0)}\eta}{2}+\gamma^{(1)}r\right).}
-\]
-The coefficient $2$ counts the two directions before any have been removed.
-In $W_1$, only one direction remains in each summand.
-
-The notation $\gamma^{(0)}$ and $\gamma^{(1)}$ records the two
-successive pairs of polydisks.
-\end{frame}
 
 \begin{frame}{The local input for Dolbeault's theorem is now proved}
 Given a $\db$-closed form near a point of a complex manifold,
