@@ -305,6 +305,34 @@ derivatives converge.
 \src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
+\begin{frame}{Why we may differentiate the Fourier series}
+Keep $y$ fixed. Periodicity makes the boundary term zero:
+\[
+ \int_0^{2\pi}g_x e^{-inx}\,dx
+ =\underbrace{[g e^{-inx}]_0^{2\pi}}_{0}
+   +in\int_0^{2\pi}g e^{-inx}\,dx.
+\]
+After also taking the Fourier coefficient in $y$, this gives
+\[
+ (g_x)_{n,m}=in\,g_{n,m},\qquad
+ (g_{xx})_{n,m}=-n^2g_{n,m},\qquad
+ (g_{xxxx})_{n,m}=n^4g_{n,m}.
+\]
+The derivatives are bounded, so their Fourier coefficients are bounded.
+Using four $x$- or $y$-derivatives gives
+$|g_{n,m}|\le C/k^4$, where $k=\max(|n|,|m|)\ge1$.
+
+There are $8k$ modes with this value of $k$.
+Each $x$- or $y$-derivative of a term of $Pg$ has size at most
+$2|g_{n,m}|$. Thus the sum of their sizes is bounded by
+\[
+ \sum_{k\ge1}8k\,\frac{2C}{k^4}
+ =16C\sum_{k\ge1}\frac1{k^3}<\infty.
+\]
+\textbf{The tails are small at every point, with the same bound.}
+This uniform convergence permits differentiation term by term.
+\end{frame}
+
 \begin{frame}{Reminder: the disk solution, now called $T$}
 Choose disks $\overline D\subset D^+$ inside a fundamental square of $E$.
 We can arrange this by rescaling the coordinate.
