@@ -366,64 +366,116 @@ Then either $|n|=k$ or $|m|=k$. Hence, with
 \[
 C=\max(C_x,C_y),
 \]
-the two previous slides give
+the two previous estimates give
 \[
 \boxed{|g_{n,m}|\le \frac{C}{k^4}.}
 \]
 
-Now group the Fourier modes into the square shells
+Now group the Fourier series into square shells:
 \[
-S_k:=\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\}.
+S_k:=\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\},
 \]
-Thus the Fourier series is grouped as
+so that
 \[
-\sum_{(n,m)\in\mathbb Z^2} g_{n,m}e_{n,m}
+\sum_{(n,m)\in\mathbb Z^2}g_{n,m}e_{n,m}
 =
 g_{0,0}
 +\sum_{k=1}^{\infty}
-\underbrace{\sum_{(n,m)\in S_k}g_{n,m}e_{n,m}}_{\text{$k$-th square shell}}.
+\sum_{(n,m)\in S_k}g_{n,m}e_{n,m}.
 \]
-Each shell is the boundary of a lattice square. The $k$-th square has
-side length $2k$, so its boundary contains exactly
+\end{frame}
+
+\begin{frame}{How many modes are in one shell?}
+Each $S_k$ is the boundary of the lattice square $[-k,k]^2$.
+
+Its side length is $2k$. Along each of the four sides there are
+$2k$ new lattice steps, so
 \[
-\boxed{|S_k|=8k}
+\boxed{|S_k|=8k.}
 \]
-lattice points.
 
+Therefore, using $|g_{n,m}|\le C/k^4$ on $S_k$,
+\[
+\sum_{(n,m)\in S_k}|g_{n,m}|
+\le 8k\,\frac{C}{k^4}
+=\frac{8C}{k^3}.
+\]
+Hence
+\[
+\sum_{(n,m)\ne(0,0)}|g_{n,m}|
+\le 8C\sum_{k=1}^{\infty}\frac1{k^3}<\infty.
+\]
+\end{frame}
 
+\begin{frame}{The Weierstrass M-test}
+\textbf{Weierstrass M-test.}
+Suppose $f_j:X\to\mathbb C$ and there are numbers $M_j\ge0$ such that
+\[
+|f_j(x)|\le M_j\qquad\text{for every }x\in X,
+\]
+and
+\[
+\sum_j M_j<\infty.
+\]
+Then $\sum_j f_j$ converges uniformly on $X$.
+
+\medskip
+For the Fourier series, use the shell majorants
+\[
+\sum_{(n,m)\in S_k}|g_{n,m}e_{n,m}|
+\le \frac{8C}{k^3}.
+\]
+Since $\sum_k 8C/k^3<\infty$, the Fourier series converges uniformly.
+\end{frame}
+
+\begin{frame}{Criterion for differentiating a series}
+\textbf{Termwise differentiation criterion.}
+Let $f_j\in C^1(I)$ on a compact interval $I$. If
+\[
+\sum_j f_j(x_0)
+\]
+converges at one point $x_0\in I$, and
+\[
+\sum_j f_j'
+\]
+converges uniformly on $I$, then
+\[
+f:=\sum_j f_j
+\]
+is $C^1$ and
+\[
+\boxed{f'=\sum_j f_j'.}
+\]
+
+\src{Zorich, \emph{Mathematical Analysis II},
+\S16.3.5, Corollary 5, pp.~389--390.}
 \end{frame}
 
 \begin{frame}{Why four derivatives are enough}
-\setlength{\abovedisplayskip}{4pt}
-\setlength{\belowdisplayskip}{4pt}
-
-Using the shell decomposition,
+Differentiate one Fourier term:
 \[
-\sum_{(n,m)\ne(0,0)}|g_{n,m}|
+\partial_x\bigl(g_{n,m}e_{n,m}\bigr)
+=in\,g_{n,m}e_{n,m},
+\]
+and similarly for $\partial_y$.
+
+On $S_k$, $|n|,|m|\le k$, so one derivative costs at most one factor $k$.
+Thus
+\[
+\sum_{(n,m)\in S_k}
+|\partial_x(g_{n,m}e_{n,m})|
 \le
-\sum_{k=1}^{\infty}8k\,\frac{C}{k^4}
-=
-8C\sum_{k=1}^{\infty}\frac1{k^3}
-<\infty.
-\]
-
-If we differentiate the Fourier series once, each term picks up
-a factor $|n|$ or $|m|$, hence at most $k$. Thus the whole $k$-th
-shell is bounded by
-\[
 8k\cdot k\cdot\frac{C}{k^4}
-=\frac{8C}{k^2}.
+=
+\frac{8C}{k^2}.
 \]
-Therefore
+Since
 \[
-\sum_{k=1}^{\infty}\frac{8C}{k^2}<\infty.
+\sum_{k=1}^{\infty}\frac1{k^2}<\infty,
 \]
-By the Weierstrass M-test, the differentiated Fourier series
-converges uniformly.
+the derivative series converges uniformly by the M-test.
 
-\medskip
-\textbf{This is why we used four derivatives: after one differentiation,
-the shell bound is still summable.}
+Therefore the termwise-differentiation criterion applies.
 \end{frame}
 
 \begin{frame}{Reminder: $T$ produces a local primitive}
