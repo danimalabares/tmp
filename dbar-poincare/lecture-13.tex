@@ -705,7 +705,14 @@ $d\bar z_1,\ldots,d\bar z_{k-1}$. Write the remainder as
  =\sum_{j=k}^n r_j\,d\bar z_j.
 \]
 The functions $r_j$ are the \textbf{current errors}.
-They may differ from the original coefficients $a_j$.
+At the $k$th step we want a correction $u_k$ satisfying
+\[
+ \partial_{\bar z_k}u_k=r_k,
+ \qquad
+ \partial_{\bar z_i}u_k=0\quad(i<k).
+\]
+The latter condition means that adding $u_k$ keeps all the previous
+equations solved.
 
 The remainder is still closed:
 \[
