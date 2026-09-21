@@ -726,26 +726,57 @@ $R_0=\alpha$ and $r_j=a_j$.
 Next we check why solving the $k$th equation will preserve the earlier ones.
 \end{frame}
 
-\begin{frame}{Closedness protects the equations already solved}
+\begin{frame}{Closedness gives the same compatibility equation}
+For any $(0,1)$-form
+\[
+ R=\sum_{\ell=1}^n c_\ell\,d\bar z_\ell,
+\]
+the coefficient of $d\bar z_i\wedge d\bar z_j$ in $\db R$ is
+\[
+ \partial_{\bar z_i}c_j-\partial_{\bar z_j}c_i.
+\]
+Therefore
+\[
+ \db R=0
+ \quad\Longrightarrow\quad
+ \boxed{\partial_{\bar z_i}c_j
+ =\partial_{\bar z_j}c_i.}
+\]
+
+This is exactly the equation from the two-variable case:
+\[
+ \partial_{\bar z_1}b=\partial_{\bar z_2}a.
+\]
+
+Now apply it to the current remainder $R_{k-1}$.
+\end{frame}
+
+\begin{frame}{Apply the compatibility equation to the remainder}
+Recall
+\[
+ R_{k-1}=\sum_{j=k}^n r_j\,d\bar z_j.
+\]
 Take an earlier index $i<k$ and a remaining index $j\ge k$.
-In
+
+The coefficient of $d\bar z_i$ in $R_{k-1}$ is already $0$,
+because the $i$th equation has been solved.
+So in the compatibility equation,
 \[
- R_{k-1}=\sum_{j=k}^n r_j\,d\bar z_j,
+ c_i=0,\qquad c_j=r_j.
 \]
-the coefficient of $d\bar z_i$ is zero.
-The coefficient of $d\bar z_i\wedge d\bar z_j$ in $\db R_{k-1}$ is therefore
+Hence closedness gives
 \[
- \partial_{\bar z_i}r_j-\partial_{\bar z_j}(0)
- =\partial_{\bar z_i}r_j.
+ \partial_{\bar z_i}r_j
+ =\partial_{\bar z_j}(0)=0.
 \]
-Since $\db R_{k-1}=0$, every such coefficient vanishes:
+Therefore
 \[
  \boxed{\partial_{\bar z_i}r_j=0
  \qquad(i<k,\ j\ge k).}
 \]
-Thus every remaining coefficient is \textbf{holomorphic in each variable
-whose equation we have already solved}.
-It can still depend on those variables.
+
+So every remaining error is holomorphic in each variable
+whose equation has already been solved.
 \end{frame}
 
 \begin{frame}{The $k$th correction}
@@ -753,24 +784,28 @@ Apply $T$ in the $k$th variable to the current error:
 \[
  u_k:=T_k r_k.
 \]
-\textbf{It fixes the $k$th equation:}
+Then
 \[
- \partial_{\bar z_k}u_k
- =\partial_{\bar z_k}(T_k r_k)=r_k.
+ \partial_{\bar z_k}u_k=r_k.
 \]
-\textbf{It keeps every earlier equation solved.}
-For $i<k$, the commutation property gives
+And for every earlier index $i<k$,
 \[
  \partial_{\bar z_i}u_k
  =\partial_{\bar z_i}(T_k r_k)
- =T_k(\partial_{\bar z_i}r_k)=T_k(0)=0.
+ =T_k(\partial_{\bar z_i}r_k)
+ =T_k(0)=0.
 \]
-Consequently,
+Thus
 \[
- \db u_k=r_k\,d\bar z_k
-       +\sum_{j=k+1}^n(\partial_{\bar z_j}u_k)\,d\bar z_j.
+ \boxed{
+ \partial_{\bar z_k}u_k=r_k,
+ \qquad
+ \partial_{\bar z_i}u_k=0\quad(i<k).
+ }
 \]
-The later coefficients may change. We will correct them in the later steps.
+
+The first equation fixes the $k$th error.
+The second says that this correction keeps all previous equations solved.
 \end{frame}
 
 \begin{frame}{After $n$ corrections, every equation is solved}
