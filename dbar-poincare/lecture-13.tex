@@ -1075,4 +1075,202 @@ Together with its fine terms, this gives the resolution used at the
 start of the lecture.
 \end{frame}
 
+
+\section{Hartogs extension}
+
+\begin{frame}{Hartogs theorem: the idea first}
+\textbf{Hartogs extension theorem.}
+Let $n\ge2$ and let $K\subset\C^n$ be compact, with
+$\C^n\setminus K$ connected. Every holomorphic
+\[
+f:\C^n\setminus K\longrightarrow\C
+\]
+extends uniquely to a holomorphic function on all of $\C^n$.
+
+\medskip
+\textbf{Misha's idea is to repair a smooth extension.}
+\begin{enumerate}
+\item Make a smooth function $\widetilde f$ on all of $\C^n$ which equals
+$f$ far away from $K$.
+\item Its error is $\alpha:=\db\widetilde f$.
+\item Solve $\db\psi=\alpha$ with $\psi$ compactly supported.
+\item Then
+\[
+F:=\widetilde f-\psi
+\]
+satisfies $\db F=0$, so $F$ is holomorphic.
+\item Since $F=f$ far away from $K$, connectedness and the identity theorem
+force $F=f$ on all of $\C^n\setminus K$.
+\end{enumerate}
+\src{Misha Verbitsky, Hodge theory, Lecture 13.}
+\end{frame}
+
+\begin{frame}{Step 1: make a smooth extension and measure its error}
+Choose $R>0$ with $K\subset B_R$.
+Choose a smooth bump function $\chi$ such that
+\[
+\chi=1\text{ near }K,
+\qquad
+\operatorname{supp}\chi\subset B_R.
+\]
+On $\C^n\setminus K$, define
+\[
+\widetilde f:=(1-\chi)f,
+\]
+and set $\widetilde f=0$ near $K$.
+
+This is smooth on all of $\C^n$: near $K$ the factor $1-\chi$ is already
+zero. Also
+\[
+\widetilde f=f
+\qquad\text{outside }B_R.
+\]
+
+Its failure to be holomorphic is
+\[
+\boxed{\alpha:=\db\widetilde f.}
+\]
+Because $\widetilde f=f$ outside $B_R$ and $f$ is holomorphic there,
+\[
+\operatorname{supp}\alpha\subset\overline{B_R}.
+\]
+Also
+\[
+\db\alpha=\db^2\widetilde f=0.
+\]
+\end{frame}
+
+\begin{frame}{Step 2: move the compactly supported error to $\mathbb P^n$}
+Identify $\C^n$ with the affine chart
+\[
+(z_1,\ldots,z_n)\longmapsto[1:z_1:\cdots:z_n]
+\]
+inside $\mathbb P^n$.
+
+The complement is the hyperplane at infinity
+\[
+H_\infty=\{Z_0=0\}\cong\mathbb P^{n-1}.
+\]
+
+Since $\alpha$ has compact support in $\C^n$, it is zero near
+$H_\infty$. Therefore we may extend $\alpha$ by zero and regard it as a
+smooth $\db$-closed $(0,1)$-form on all of $\mathbb P^n$.
+
+Now use
+\[
+\boxed{H^{0,1}_{\db}(\mathbb P^n)=0.}
+\]
+Hence there exists a smooth function $\varphi$ on $\mathbb P^n$ such that
+\[
+\boxed{\db\varphi=\alpha.}
+\]
+
+The only remaining problem is: why can we arrange that the correction is
+zero far away?
+\end{frame}
+
+\begin{frame}{Why $H^{0,1}_{\db}(\mathbb P^n)=0$}
+We use two facts already available from Hodge theory:
+\begin{enumerate}
+\item $\mathbb P^n$ is compact K\"ahler.
+\item
+\[
+H^1_{\mathrm{dR}}(\mathbb P^n,\C)=0.
+\]
+Indeed, $\mathbb P^n$ has one cell in each even real dimension and no
+odd-dimensional cells.
+\end{enumerate}
+
+For a compact K\"ahler manifold,
+\[
+H^1_{\mathrm{dR}}(\mathbb P^n,\C)
+\cong
+H^{1,0}_{\db}(\mathbb P^n)
+\oplus
+H^{0,1}_{\db}(\mathbb P^n).
+\]
+The left-hand side is zero, so both summands are zero. In particular,
+\[
+\boxed{H^{0,1}_{\db}(\mathbb P^n)=0.}
+\]
+
+Thus the equation $\db\varphi=\alpha$ from the previous slide really has
+a global smooth solution on $\mathbb P^n$.
+\end{frame}
+
+\begin{frame}{Step 3: the solution is constant outside the ball}
+Because $\alpha=0$ outside $\overline{B_R}$,
+\[
+\db\varphi=0
+\qquad\text{there},
+\]
+so $\varphi$ is holomorphic there.
+
+Near $H_\infty$, it is also holomorphic. Since
+$H_\infty\cong\mathbb P^{n-1}$ is compact and connected,
+$\varphi|_{H_\infty}$ is a constant; call it $c$.
+
+Now fix $z\in\C^n$ with $\|z\|>R$.
+Because $n\ge2$, choose a nonzero complex vector $v$ orthogonal to $z$.
+Then the complex line
+\[
+L_z=\{z+tv:t\in\C\}
+\]
+never meets $\overline{B_R}$, because
+\[
+\|z+tv\|^2=\|z\|^2+|t|^2\|v\|^2>R^2.
+\]
+
+Hence $t\mapsto\varphi(z+tv)$ is an entire bounded function.
+By Liouville it is constant, and as $t\to\infty$ it approaches
+$H_\infty$, where the value is $c$. Therefore
+\[
+\boxed{\varphi(z)=c\qquad(\|z\|>R).}
+\]
+\end{frame}
+
+\begin{frame}{Step 4: subtract the error and finish}
+Define
+\[
+\psi:=\varphi|_{\C^n}-c.
+\]
+The previous slide says
+\[
+\psi=0
+\qquad\text{outside }\overline{B_R},
+\]
+so $\psi$ has compact support. Also
+\[
+\db\psi=\db\varphi=\alpha.
+\]
+
+Now set
+\[
+\boxed{F:=\widetilde f-\psi.}
+\]
+Then
+\[
+\db F
+=\db\widetilde f-\db\psi
+=\alpha-\alpha
+=0,
+\]
+so $F$ is holomorphic on all of $\C^n$.
+
+Outside $B_R$,
+\[
+\widetilde f=f,
+\qquad
+\psi=0,
+\]
+hence $F=f$ there. Since $\C^n\setminus K$ is connected, the identity
+theorem gives
+\[
+F=f\qquad\text{on all of }\C^n\setminus K.
+\]
+
+Thus $F$ is the desired extension. Uniqueness follows from the same identity
+theorem.
+\end{frame}
+
 \end{document}
