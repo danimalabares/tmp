@@ -1221,6 +1221,45 @@ Thus the equation $\db\varphi=\alpha$ from the previous slide really has
 a global smooth solution on $\mathbb P^n$.
 \end{frame}
 
+\begin{frame}{Alternative: construct $\varphi$ from $\db$-Poincar\'e}
+Cover $\mathbb P^n$ by small polydisks $U_i$.
+Since $\alpha$ is $\db$-closed, the $\db$-Poincar\'e lemma gives
+local functions
+\[
+\db\varphi_i=\alpha|_{U_i}.
+\]
+
+On overlaps,
+\[
+\db(\varphi_i-\varphi_j)=0,
+\]
+so
+\[
+g_{ij}:=\varphi_i-\varphi_j
+\]
+is holomorphic. Thus $(g_{ij})$ is a \v Cech $1$-cocycle with values in
+$\mathcal O$.
+
+If
+\[
+H^1(\mathbb P^n,\mathcal O)=0,
+\]
+then this cocycle is a coboundary:
+\[
+g_{ij}=h_i-h_j
+\]
+for holomorphic $h_i$.
+
+Therefore the corrected local primitives
+\[
+\widetilde\varphi_i:=\varphi_i-h_i
+\]
+agree on overlaps and glue to a global smooth function $\varphi$ with
+\[
+\boxed{\db\varphi=\alpha.}
+\]
+\end{frame}
+
 
 \begin{frame}{Step 3: the solution is constant outside the ball}
 Because $\alpha=0$ outside $\overline{B_R}$,
