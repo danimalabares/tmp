@@ -912,11 +912,12 @@ variable whose $d\bar z_1$ terms have already been removed.
 \end{frame}
 
 \begin{frame}{A general $(0,q)$-form: choosing the correction}
-Suppose the current $\db$-closed remainder $R$ has no factor
+Just as in the $(0,1)$ case, suppose that after the first $k-1$
+corrections we have a closed remainder $R_{k-1}$ with no factor
 $d\bar z_1,\ldots,d\bar z_{k-1}$ in any term.
 Separate the terms which contain $d\bar z_k$:
 \[
- R=d\bar z_k\wedge B+C.
+ R_{k-1}=d\bar z_k\wedge B+C.
 \]
 Here $B$ has degree $(0,q-1)$ and $C$ has degree $(0,q)$.
 Their wedge factors use only $d\bar z_{k+1},\ldots,d\bar z_n$.
@@ -953,17 +954,17 @@ $\partial_{\bar z_k}(T_kb_J)=b_J$.
 
 The double sum has \textbf{no $d\bar z_k$ factor}:
 $i\ne k$, and none of the indices in $J$ equals $k$.
-Therefore
+Therefore, exactly as before, define the new remainder
 \[
- R':=R-\db\beta_k
+ \boxed{R_k:=R_{k-1}-\db\beta_k.}
 \]
-has no $d\bar z_k$ factor either.
+It has no $d\bar z_k$ factor.
 Next we check that the earlier directions remain absent.
 \end{frame}
 
 \begin{frame}{Why the earlier directions remain absent}
-Assume the coefficients of $R$ are holomorphic in
-$z_1,\ldots,z_{k-1}$. This is what each previous step will give us.
+By the induction hypothesis, the coefficients of $R_{k-1}$ are holomorphic in
+$z_1,\ldots,z_{k-1}$.
 
 The coefficients $b_J$ of $B$ have the same property.
 For every $i<k$,
@@ -975,33 +976,33 @@ These are exactly the coefficients that could produce a
 $d\bar z_i$ factor when we differentiate $\beta_k$.
 So those factors do not reappear.
 
-Consequently, $R'=R-\db\beta_k$ has no factor
+Consequently, $R_k=R_{k-1}-\db\beta_k$ has no factor
 $d\bar z_1,\ldots,d\bar z_k$ in any term.
-It is still closed:
+It is still closed, exactly as before:
 \[
- \db R'=\db R-\db^2\beta_k=0.
+ \db R_k=\db R_{k-1}-\db^2\beta_k=0.
 \]
 The next calculation shows that its coefficients are holomorphic
 in all these $k$ variables, ready for the next step.
 \end{frame}
 
 \begin{frame}{Why each remaining coefficient is holomorphic}
-Write the closed remainder as
+Write the new closed remainder as
 \[
- R'=\sum_J r_J\,d\bar z_J,
+ R_k=\sum_J r_J\,d\bar z_J,
  \qquad J=(j_1<\cdots<j_q),\quad j_1>k.
 \]
-Fix $i\le k$. The terms of $\db R'$ that contain $d\bar z_i$ are
+Fix $i\le k$. The terms of $\db R_k$ that contain $d\bar z_i$ are
 \[
  \sum_J(\partial_{\bar z_i}r_J)\,
  d\bar z_i\wedge d\bar z_J.
 \]
 \textbf{No other derivative can produce a $d\bar z_i$ factor.}
-Indeed, every wedge factor already in $R'$ has index greater than $k$.
+Indeed, every wedge factor already in $R_k$ has index greater than $k$.
 
 Different $J$ give different basis forms $d\bar z_i\wedge d\bar z_J$.
 Their coefficients cannot cancel each other.
-Since $\db R'=0$, each one must vanish:
+Since $\db R_k=0$, each one must vanish:
 \[
  \boxed{\partial_{\bar z_i}r_J=0
  \qquad\hbox{for every }i\le k\hbox{ and every }J.}
