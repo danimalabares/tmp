@@ -838,199 +838,112 @@ This proves the local lemma for $(0,1)$-forms in any dimension.
 
 \section{Higher-degree forms}
 
-\begin{frame}{A $(0,2)$-form: the correction is now a $1$-form}
-For example, in three variables let
+\begin{frame}{General $(0,q)$: the same induction}
+The $(0,1)$ proof already contains the whole pattern.
+
+After the first $k-1$ corrections, assume we have a closed remainder
+$R_{k-1}$ such that
 \[
- \alpha=
- a\,d\bar z_1\wedge d\bar z_2
- +b\,d\bar z_1\wedge d\bar z_3
- +c\,d\bar z_2\wedge d\bar z_3,
- \qquad \db\alpha=0.
+\boxed{
+\begin{array}{l}
+R_{k-1}\text{ has no factor }d\bar z_1,\ldots,d\bar z_{k-1},\\[2pt]
+\text{its coefficients are holomorphic in }z_1,\ldots,z_{k-1}.
+\end{array}}
 \]
-We want to remove \textbf{both terms containing $d\bar z_1$}.
-Choose
+This is the same induction hypothesis as before.
+
+Now separate the terms containing $d\bar z_k$:
 \[
- \boxed{\beta_1=(T_1a)\,d\bar z_2+(T_1b)\,d\bar z_3.}
+R_{k-1}=d\bar z_k\wedge B+C,
+\qquad
+B=\sum_J b_J\,d\bar z_J.
 \]
-The operator still acts on functions, one coefficient at a time:
+Define the $k$th correction by applying $T_k$ coefficientwise:
 \[
- \partial_{\bar z_1}(T_1a)=a,\qquad
- \partial_{\bar z_1}(T_1b)=b.
+\boxed{\beta_k:=T_kB=\sum_J(T_kb_J)\,d\bar z_J.}
 \]
-Thus $\db\beta_1$ will contain the two terms we want.
-Differentiating in the other variables will also produce a new
-$d\bar z_2\wedge d\bar z_3$ coefficient.
 \end{frame}
 
-\begin{frame}{The calculation for that $(0,2)$-form}
-\setlength{\parskip}{3pt}
-\setlength{\abovedisplayskip}{4pt}
-\setlength{\belowdisplayskip}{4pt}
-Differentiating $\beta_1=(T_1a)\,d\bar z_2+(T_1b)\,d\bar z_3$ gives
+\begin{frame}{General $(0,q)$: the $k$th correction}
+Exactly as before, $T_k$ solves the $k$th equation:
 \[
- \begin{aligned}
- \db\beta_1
- &=a\,d\bar z_1\wedge d\bar z_2
-   +b\,d\bar z_1\wedge d\bar z_3\\
- &\quad+\bigl(\partial_{\bar z_2}(T_1b)
-             -\partial_{\bar z_3}(T_1a)\bigr)
-                d\bar z_2\wedge d\bar z_3.
- \end{aligned}
+\begin{aligned}
+\db\beta_k
+&=\sum_J\sum_{i=1}^n
+ \partial_{\bar z_i}(T_kb_J)\,
+ d\bar z_i\wedge d\bar z_J\\
+&=d\bar z_k\wedge B
+ +\sum_J\sum_{i\ne k}
+ \partial_{\bar z_i}(T_kb_J)\,
+ d\bar z_i\wedge d\bar z_J,
+\end{aligned}
 \]
-The minus sign comes from
-$d\bar z_3\wedge d\bar z_2=-d\bar z_2\wedge d\bar z_3$.
-Hence
-\[
- R_1=\alpha-\db\beta_1=r\,d\bar z_2\wedge d\bar z_3,\qquad
- r=c-\partial_{\bar z_2}(T_1b)+\partial_{\bar z_3}(T_1a).
-\]
-Now use exactly the same idea as in the $(0,1)$ case.
+because $\partial_{\bar z_k}(T_kb_J)=b_J$.
 
-We have already removed every term containing $d\bar z_1$, so
+For every earlier $i<k$,
 \[
-R_1=r\,d\bar z_2\wedge d\bar z_3.
+\partial_{\bar z_i}(T_kb_J)
+=T_k(\partial_{\bar z_i}b_J)=0,
 \]
-Differentiate it:
-\[
-\db R_1
-=(\partial_{\bar z_1}r)\,
- d\bar z_1\wedge d\bar z_2\wedge d\bar z_3.
-\]
-There are no other terms: differentiating in $\bar z_2$ or $\bar z_3$
-would repeat a wedge factor and therefore give zero.
+by the induction hypothesis.
 
-But $R_1$ is still closed, because
-\[
-\db R_1=\db\alpha-\db^2\beta_1=0.
-\]
-Hence
-\[
-\boxed{\partial_{\bar z_1}r=0.}
-\]
-So, just as before, the remaining coefficient is holomorphic in the
-variable whose $d\bar z_1$ terms have already been removed.
+So $\db\beta_k$ removes the $d\bar z_k$ terms and does not
+reintroduce any of the earlier factors.
 \end{frame}
 
-\begin{frame}{A general $(0,q)$-form: choosing the correction}
-Just as in the $(0,1)$ case, suppose that after the first $k-1$
-corrections we have a closed remainder $R_{k-1}$ with no factor
-$d\bar z_1,\ldots,d\bar z_{k-1}$ in any term.
-Separate the terms which contain $d\bar z_k$:
+\begin{frame}{General $(0,q)$: the new remainder}
+Now do exactly what we did for $(0,1)$:
 \[
- R_{k-1}=d\bar z_k\wedge B+C.
+\boxed{R_k:=R_{k-1}-\db\beta_k.}
 \]
-Here $B$ has degree $(0,q-1)$ and $C$ has degree $(0,q)$.
-Their wedge factors use only $d\bar z_{k+1},\ldots,d\bar z_n$.
-
-Apply $T_k$ separately to every coefficient of $B$:
+We have just proved that $R_k$ has no factor
 \[
- B=\sum_J b_J\,d\bar z_J
- \quad\Longrightarrow\quad
- \beta_k:=T_kB=\sum_J(T_kb_J)\,d\bar z_J.
+d\bar z_1,\ldots,d\bar z_k.
 \]
-Here $J=(j_1<\cdots<j_{q-1})$ and
-$d\bar z_J=d\bar z_{j_1}\wedge\cdots\wedge d\bar z_{j_{q-1}}$.
+It is still closed:
+\[
+\db R_k
+=\underbrace{\db R_{k-1}}_{0}
+ -\underbrace{\db^2\beta_k}_{0}
+=0.
+\]
 
+Now closedness gives the same compatibility conclusion as before:
+since the $d\bar z_i$ factors for $i\le k$ are absent,
+the remaining coefficients must satisfy
+\[
+\boxed{\partial_{\bar z_i}r_J=0\qquad(i\le k).}
+\]
+Thus they are holomorphic in $z_1,\ldots,z_k$.
+
+\textbf{So $R_k$ satisfies the same induction hypothesis with $k$
+in place of $k-1$.}
 \end{frame}
 
-\begin{frame}{Why this removes exactly the $d\bar z_k$ terms}
-For $\beta_k=T_kB$, differentiate each coefficient:
+\begin{frame}{After the last correction}
+Repeat the same step for $k=1,\ldots,n$:
 \[
- \begin{aligned}
- \db\beta_k
- &=\db(T_kB)\\
- &=\db\left(\sum_J(T_kb_J)\,d\bar z_J\right)\\
- &=\sum_J\sum_{i=1}^n
-   \partial_{\bar z_i}(T_kb_J)\,
-      d\bar z_i\wedge d\bar z_J\\
- &=d\bar z_k\wedge B
-   +\sum_J\sum_{i\ne k}
-   \partial_{\bar z_i}(T_kb_J)\,
-      d\bar z_i\wedge d\bar z_J.
- \end{aligned}
+R_{k-1}\longmapsto
+R_k:=R_{k-1}-\db\beta_k.
 \]
-In the last equality we separated the term $i=k$ from the sum and used
-$\partial_{\bar z_k}(T_kb_J)=b_J$.
+After step $k$, the remainder has no factor
+$d\bar z_1,\ldots,d\bar z_k$.
 
-The double sum has \textbf{no $d\bar z_k$ factor}:
-$i\ne k$, and none of the indices in $J$ equals $k$.
-Therefore, exactly as before, define the new remainder
+After the $n$th step, no $d\bar z_j$ factor is available.
+Since $q>0$, every term of a $(0,q)$-form needs at least one such factor.
+Therefore
 \[
- \boxed{R_k:=R_{k-1}-\db\beta_k.}
+\boxed{R_n=0.}
 \]
-It has no $d\bar z_k$ factor.
-Next we check that the earlier directions remain absent.
-\end{frame}
-
-\begin{frame}{Why the earlier directions remain absent}
-By the induction hypothesis, the coefficients of $R_{k-1}$ are holomorphic in
-$z_1,\ldots,z_{k-1}$.
-
-The coefficients $b_J$ of $B$ have the same property.
-For every $i<k$,
+Since
 \[
- \partial_{\bar z_i}(T_kb_J)
- =T_k(\partial_{\bar z_i}b_J)=T_k(0)=0.
+R_n
+=\alpha-\db(\beta_1+\cdots+\beta_n),
 \]
-These are exactly the coefficients that could produce a
-$d\bar z_i$ factor when we differentiate $\beta_k$.
-So those factors do not reappear.
-
-Consequently, $R_k=R_{k-1}-\db\beta_k$ has no factor
-$d\bar z_1,\ldots,d\bar z_k$ in any term.
-It is still closed, exactly as before:
+we obtain
 \[
- \db R_k=\db R_{k-1}-\db^2\beta_k=0.
+\boxed{\alpha=\db(\beta_1+\cdots+\beta_n).}
 \]
-The next calculation shows that its coefficients are holomorphic
-in all these $k$ variables, ready for the next step.
-\end{frame}
-
-\begin{frame}{Why each remaining coefficient is holomorphic}
-Write the new closed remainder as
-\[
- R_k=\sum_J r_J\,d\bar z_J,
- \qquad J=(j_1<\cdots<j_q),\quad j_1>k.
-\]
-Fix $i\le k$. The terms of $\db R_k$ that contain $d\bar z_i$ are
-\[
- \sum_J(\partial_{\bar z_i}r_J)\,
- d\bar z_i\wedge d\bar z_J.
-\]
-\textbf{No other derivative can produce a $d\bar z_i$ factor.}
-Indeed, every wedge factor already in $R_k$ has index greater than $k$.
-
-Different $J$ give different basis forms $d\bar z_i\wedge d\bar z_J$.
-Their coefficients cannot cancel each other.
-Since $\db R_k=0$, each one must vanish:
-\[
- \boxed{\partial_{\bar z_i}r_J=0
- \qquad\hbox{for every }i\le k\hbox{ and every }J.}
-\]
-This is precisely being holomorphic in $z_1,\ldots,z_k$.
-\end{frame}
-
-\begin{frame}{Why the process ends for every $q>0$}
-Start with $R_0=\alpha$.
-There are no earlier variables to check in the first step.
-For $k=1,\ldots,n$, the preceding calculations give
-\[
- R_k=R_{k-1}-\db\beta_k,
-\]
-where $R_k$ is closed, has no factor $d\bar z_1,\ldots,d\bar z_k$,
-and has coefficients holomorphic in $z_1,\ldots,z_k$.
-
-Every term of a $(0,q)$-form contains $q$ factors $d\bar z_j$.
-If $q>0$ and all $n$ possible factors are absent, there are no terms:
-\[
- R_n=0.
-\]
-Adding the equations for the remainders gives
-\[
- \boxed{\alpha=\db(\beta_1+\cdots+\beta_n).}
-\]
-The primitive has degree $(0,q-1)$.
-All equations hold on the final, smaller polydisk.
 \end{frame}
 
 \begin{frame}{Including the $dz_i$ factors: general $(p,q)$}
