@@ -383,12 +383,15 @@ g_{0,0}
 +\sum_{k=1}^{\infty}
 \underbrace{\sum_{(n,m)\in S_k}g_{n,m}e_{n,m}}_{\text{$k$-th square shell}}.
 \]
-The shell $S_k$ is the boundary of the lattice square $[-k,k]^2$,
-so it contains exactly
+The shell $S_k$ is the boundary of the lattice square $[-k,k]^2$.
+It has
 \[
-\boxed{|S_k|=8k}
+|S_k|=(2k+1)^2-(2k-1)^2=\boxed{8k}
 \]
-points.
+lattice points: all points in the square of radius $k$, minus all points
+in the square of radius $k-1$.
+
+
 \end{frame}
 
 \begin{frame}{Why four derivatives are enough}
