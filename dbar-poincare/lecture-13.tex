@@ -305,66 +305,101 @@ derivatives converge.
 \src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
-\begin{frame}{When may we differentiate an infinite sum?}
-\setlength{\parskip}{3pt}
-\setlength{\abovedisplayskip}{4pt}
-\setlength{\belowdisplayskip}{4pt}
-The given $g$ is already smooth. We must justify differentiating
-the infinite series defining $Pg$.
-
-\textbf{Differentiation criterion.}
-For smooth terms $u_{n,m}$ on the torus, if the three series
-\[
- \sum_{n,m}u_{n,m},\qquad
- \sum_{n,m}\partial_xu_{n,m},\qquad
- \sum_{n,m}\partial_yu_{n,m}
-\]
-converge uniformly, their sum is $C^1$, and we may differentiate term by term.
-To prove smoothness, repeat this for every derivative order.
-
-\textbf{Weierstrass M-test.}
-A series converges uniformly if its terms satisfy
-\[
- |u_{n,m}(x,y)|\le M_{n,m}\quad\hbox{at every point},\qquad
- \sum_{n,m}M_{n,m}<\infty.
-\]
-\textbf{Uniformly} means that the same tail bound works at every point.
-We apply this test to the original series and to each derivative series.
-The next slide supplies the Fourier coefficient bounds.
-\src{Folland, \emph{Real Analysis}, 2nd ed., Thm.~2.27(b), p.~56:
-counting measure and summable bounds.\\
-M-test: HP, \texttt{complex-analysis.tex}, ``Weierstrass M-test''.}
-\end{frame}
-
 \begin{frame}{Why smoothness makes Fourier coefficients small}
 \setlength{\abovedisplayskip}{4pt}
 \setlength{\belowdisplayskip}{4pt}
+
 Keep $y$ fixed. Integration by parts gives
 \[
  \int_0^{2\pi}g_x e^{-inx}\,dx
  =\underbrace{[g e^{-inx}]_0^{2\pi}}_{0\ \text{by periodicity}}
    +in\int_0^{2\pi}g e^{-inx}\,dx.
 \]
-Multiply by $e^{-imy}$, integrate in $y$, and divide by $(2\pi)^2$.
-This gives $(g_x)_{n,m}=in\,g_{n,m}$, where $(g_x)_{n,m}$ is the
-Fourier coefficient of $g_x$.
-Apply the same identity to $g_x$, then to $g_{xx}$ and $g_{xxx}$:
+Multiply by $e^{-imy}$, integrate in $y$,
+and divide by $(2\pi)^2$. Since
 \[
- (g_{xx})_{n,m}=in\,(g_x)_{n,m}=(in)^2g_{n,m},\qquad
- (g_{xxxx})_{n,m}=(in)^4g_{n,m}=n^4g_{n,m}.
+g_{n,m}
+=\frac{1}{(2\pi)^2}\int_E
+g(x,y)e^{-inx-imy}
+=\langle g,e_{n,m}\rangle,
 \]
-The function $g_{xxxx}$ is bounded on the compact torus, say by $C_x$.
-Its Fourier coefficients have absolute value at most $C_x$. Therefore
+we get
 \[
- n^4|g_{n,m}|\le C_x
- \quad\Longrightarrow\quad
- \boxed{|g_{n,m}|\le\frac{C_x}{|n|^4}\quad(n\ne0).}
+(g_x)_{n,m}=in\,g_{n,m}.
 \]
-\textbf{Repeat the whole calculation with $y$.}
-The factor is $im$, and $g_{yyyy}$ gives
-$|g_{n,m}|\le C_y/|m|^4$ for $m\ne0$.
-\end{frame}
 
+Applying the same identity repeatedly,
+\[
+(g_{xxxx})_{n,m}=(in)^4g_{n,m}=n^4g_{n,m}.
+\]
+Since $g_{xxxx}$ is bounded on the compact torus, say by $C_x$,
+\[
+\boxed{
+|g_{n,m}|\le \frac{C_x}{|n|^4}
+\qquad(n\ne0).
+}
+\]
+
+Now repeat the whole calculation in the $y$ variable:
+\[
+(g_y)_{n,m}=im\,g_{n,m},
+\qquad
+(g_{yyyy})_{n,m}=(im)^4g_{n,m}=m^4g_{n,m}.
+\]
+Since $g_{yyyy}$ is bounded on the compact torus, say by $C_y$,
+\[
+\boxed{
+|g_{n,m}|\le \frac{C_y}{|m|^4}
+\qquad(m\ne0).
+}
+\]
+\end{frame}
+\begin{frame}{Why four derivatives are enough}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+
+For $(n,m)\ne(0,0)$, set
+\[
+k=\max(|n|,|m|).
+\]
+Then either $|n|=k$ or $|m|=k$. Hence, with
+$C=\max(C_x,C_y)$,
+\[
+\boxed{
+|g_{n,m}|\le \frac{C}{k^4}.
+}
+\]
+
+Now group the Fourier modes into the ``square shells''
+\[
+\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\}.
+\]
+There are exactly $8k$ points in the $k$-th shell. Therefore
+\[
+\sum_{(n,m)\ne(0,0)} |g_{n,m}|
+\le
+\sum_{k=1}^{\infty}
+8k\,\frac{C}{k^4}
+=
+8C\sum_{k=1}^{\infty}\frac1{k^3}
+<\infty.
+\]
+
+If we differentiate the Fourier series once, each term picks up
+a factor $|n|$ or $|m|$, hence at most $k$. Thus the $k$-th shell
+is bounded by
+\[
+8k\cdot k\cdot \frac{C}{k^4}
+=
+\frac{8C}{k^2}.
+\]
+Since
+\[
+\sum_{k=1}^{\infty}\frac1{k^2}<\infty,
+\]
+the differentiated Fourier series converges uniformly by the
+Weierstrass M-test.
+\end{frame}
 \begin{frame}{Reminder: $T$ produces a local primitive}
 \setlength{\parskip}{3pt}
 \setlength{\abovedisplayskip}{4pt}
