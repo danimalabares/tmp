@@ -305,7 +305,7 @@ derivatives converge.
 \src{Lecture 12 recap. The operator name $P$ is new notation.}
 \end{frame}
 
-\begin{frame}{Why smoothness makes Fourier coefficients small}
+\begin{frame}{Why smoothness makes Fourier coefficients small: $x$}
 \setlength{\abovedisplayskip}{4pt}
 \setlength{\belowdisplayskip}{4pt}
 
@@ -315,91 +315,107 @@ Keep $y$ fixed. Integration by parts gives
  =\underbrace{[g e^{-inx}]_0^{2\pi}}_{0\ \text{by periodicity}}
    +in\int_0^{2\pi}g e^{-inx}\,dx.
 \]
-Multiply by $e^{-imy}$, integrate in $y$,
-and divide by $(2\pi)^2$. Since
+Multiply by $e^{-imy}$, integrate in $y$, and divide by $(2\pi)^2$.
+Since
 \[
-g_{n,m}
-=\frac{1}{(2\pi)^2}\int_E
-g(x,y)e^{-inx-imy}
-=\langle g,e_{n,m}\rangle,
+g_{n,m}=\frac{1}{(2\pi)^2}\int_E g(x,y)e^{-inx-imy}
+       =\langle g,e_{n,m}\rangle,
 \]
 we get
 \[
 (g_x)_{n,m}=in\,g_{n,m}.
 \]
-
 Applying the same identity repeatedly,
 \[
-(g_{xxxx})_{n,m}=(in)^4g_{n,m}=n^4g_{n,m}.
+\boxed{(g_{xxxx})_{n,m}=(in)^4g_{n,m}=n^4g_{n,m}.}
 \]
 Since $g_{xxxx}$ is bounded on the compact torus, say by $C_x$,
 \[
-\boxed{
-|g_{n,m}|\le \frac{C_x}{|n|^4}
-\qquad(n\ne0).
-}
+\boxed{|g_{n,m}|\le \frac{C_x}{|n|^4}\qquad(n\ne0).}
 \]
-
 \end{frame}
 
-\begin{frame}{The $y$ estimate and why four derivatives are enough}
-\small
-\setlength{\abovedisplayskip}{3pt}
-\setlength{\belowdisplayskip}{3pt}
+\begin{frame}{The same estimate in $y$}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
 
-Repeat the whole calculation in the $y$ variable:
+Repeat the whole calculation with $x$ and $y$ interchanged.
+Integration by parts in $y$ gives
 \[
-(g_y)_{n,m}=im\,g_{n,m},
-\qquad
+(g_y)_{n,m}=im\,g_{n,m}.
+\]
+Applying this four times,
+\[
 \boxed{(g_{yyyy})_{n,m}=(im)^4g_{n,m}=m^4g_{n,m}.}
 \]
 Since $g_{yyyy}$ is bounded on the compact torus, say by $C_y$,
+its Fourier coefficients have absolute value at most $C_y$. Therefore
 \[
-\boxed{|g_{n,m}|\le \frac{C_y}{|m|^4}\qquad(m\ne0).}
+m^4|g_{n,m}|\le C_y
+\quad\Longrightarrow\quad
+\boxed{|g_{n,m}|\le\frac{C_y}{|m|^4}\qquad(m\ne0).}
 \]
+\end{frame}
 
+\begin{frame}{Combining the two estimates}
 For $(n,m)\ne(0,0)$, set
 \[
 k=\max(|n|,|m|).
 \]
 Then either $|n|=k$ or $|m|=k$. Hence, with
-$C=\max(C_x,C_y)$,
 \[
-\boxed{
-|g_{n,m}|\le \frac{C}{k^4}.
-}
+C=\max(C_x,C_y),
+\]
+the two previous slides give
+\[
+\boxed{|g_{n,m}|\le \frac{C}{k^4}.}
 \]
 
-Now group the Fourier modes into the ``square shells''
+Now group the Fourier modes into the square shells
 \[
-\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\}.
+S_k:=\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\}.
 \]
-There are exactly $8k$ points in the $k$-th shell. Therefore
+The shell $S_k$ is the boundary of the lattice square $[-k,k]^2$,
+so it contains exactly
 \[
-\sum_{(n,m)\ne(0,0)} |g_{n,m}|
+\boxed{|S_k|=8k}
+\]
+points.
+\end{frame}
+
+\begin{frame}{Why four derivatives are enough}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+
+Using the shell decomposition,
+\[
+\sum_{(n,m)\ne(0,0)}|g_{n,m}|
 \le
-\sum_{k=1}^{\infty}
-8k\,\frac{C}{k^4}
+\sum_{k=1}^{\infty}8k\,\frac{C}{k^4}
 =
 8C\sum_{k=1}^{\infty}\frac1{k^3}
 <\infty.
 \]
 
 If we differentiate the Fourier series once, each term picks up
-a factor $|n|$ or $|m|$, hence at most $k$. Thus the $k$-th shell
-is bounded by
+a factor $|n|$ or $|m|$, hence at most $k$. Thus the whole $k$-th
+shell is bounded by
 \[
-8k\cdot k\cdot \frac{C}{k^4}
-=
-\frac{8C}{k^2}.
+8k\cdot k\cdot\frac{C}{k^4}
+=\frac{8C}{k^2}.
 \]
-Since
+Therefore
 \[
-\sum_{k=1}^{\infty}\frac1{k^2}<\infty,
+\sum_{k=1}^{\infty}\frac{8C}{k^2}<\infty.
 \]
-the differentiated Fourier series converges uniformly by the
-Weierstrass M-test.
+By the Weierstrass M-test, the differentiated Fourier series
+converges uniformly.
+
+\medskip
+\textbf{This is why we used four derivatives: after one differentiation,
+the shell bound is still summable.}
 \end{frame}
+
 \begin{frame}{Reminder: $T$ produces a local primitive}
 \setlength{\parskip}{3pt}
 \setlength{\abovedisplayskip}{4pt}
