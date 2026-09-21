@@ -809,7 +809,12 @@ The second says that this correction keeps all previous equations solved.
 \end{frame}
 
 \begin{frame}{After $n$ corrections, every equation is solved}
-Subtract the correction just constructed:
+Recall we had
+\[
+ R_{k-1}:=\alpha-\db(u_1+\cdots+u_{k-1})
+ =\sum_{j=k}^n r_j\,d\bar z_j.
+\]
+Now subtract the correction just constructed:
 \[
  R_k:=R_{k-1}-\db u_k
  =\sum_{j=k+1}^n
