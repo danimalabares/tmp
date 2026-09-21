@@ -884,14 +884,31 @@ Hence
  R_1=\alpha-\db\beta_1=r\,d\bar z_2\wedge d\bar z_3,\qquad
  r=c-\partial_{\bar z_2}(T_1b)+\partial_{\bar z_3}(T_1a).
 \]
-Since $\db R_1=0$,
+Now use exactly the same idea as in the $(0,1)$ case.
+
+We have already removed every term containing $d\bar z_1$, so
 \[
- 0=(\partial_{\bar z_1}r)\,
- d\bar z_1\wedge d\bar z_2\wedge d\bar z_3
- \quad\Longrightarrow\quad \partial_{\bar z_1}r=0.
+R_1=r\,d\bar z_2\wedge d\bar z_3.
 \]
-Again, removing $d\bar z_1$ leaves coefficients holomorphic in $z_1$.
-We now write this same calculation for any degree.
+Differentiate it:
+\[
+\db R_1
+=(\partial_{\bar z_1}r)\,
+ d\bar z_1\wedge d\bar z_2\wedge d\bar z_3.
+\]
+There are no other terms: differentiating in $\bar z_2$ or $\bar z_3$
+would repeat a wedge factor and therefore give zero.
+
+But $R_1$ is still closed, because
+\[
+\db R_1=\db\alpha-\db^2\beta_1=0.
+\]
+Hence
+\[
+\boxed{\partial_{\bar z_1}r=0.}
+\]
+So, just as before, the remaining coefficient is holomorphic in the
+variable whose $d\bar z_1$ terms have already been removed.
 \end{frame}
 
 \begin{frame}{A general $(0,q)$-form: choosing the correction}
