@@ -281,6 +281,74 @@ kernel sheaves proves the comparison in higher degrees.
 \includegraphics[width=0.9\textwidth,height=6cm,keepaspectratio]{Pierre_Dolbeault.jpg}
 \end{frame}
 
+\begin{frame}{Pending computation: $L^2$ closure}
+For $A=\operatorname{span}\{e^{int}:n\in\Z\}\subset C(S^1,\C)$,
+the hypotheses hold:
+\begin{itemize}
+\item $A$ is an algebra, since $e^{int}e^{imt}=e^{i(n+m)t}$;
+\item $1=e^{i0t}\in A$;
+\item $A$ is closed under conjugation, since
+      $\overline{e^{int}}=e^{-int}$;
+\item $A$ separates points of $S^1$: the function $e^{it}$ already does.
+\end{itemize}
+Therefore Stone--Weierstrass gives
+\[
+ \overline A^{\,\|\cdot\|_\infty}=C(S^1,\C).
+\]
+\end{frame}
+
+\begin{frame}{Uniform convergence implies $L^2$ convergence}
+Take $f\in C(S^1,\C)$. By Stone--Weierstrass there are
+$p_n\in A$ such that
+\[
+\|p_n-f\|_\infty\longrightarrow0.
+\]
+Since $S^1$ has finite volume,
+\[
+\begin{aligned}
+\|p_n-f\|_{L^2}^2
+&=\int_{S^1}|p_n-f|^2\\
+&\le \int_{S^1}\|p_n-f\|_\infty^2\\
+&=\operatorname{vol}(S^1)\,\|p_n-f\|_\infty^2.
+\end{aligned}
+\]
+Therefore
+\[
+\boxed{
+\|p_n-f\|_{L^2}
+\le \sqrt{\operatorname{vol}(S^1)}\,\|p_n-f\|_\infty
+\longrightarrow0.
+}
+\]
+Thus
+\[
+\boxed{C(S^1,\C)\subseteq\overline A^{\,L^2}.}
+\]
+\end{frame}
+
+\begin{frame}{From continuous functions to all of $L^2$}
+We have proved
+\[
+C(S^1,\C)\subseteq\overline A^{\,L^2}.
+\]
+Now use the separate fact that continuous functions are dense in $L^2(S^1)$:
+\[
+\overline{C(S^1,\C)}^{\,L^2}=L^2(S^1).
+\]
+Since $\overline A^{\,L^2}$ is already closed and contains
+$C(S^1,\C)$, it must contain its $L^2$-closure. Hence
+\[
+L^2(S^1)
+\subseteq \overline A^{\,L^2}.
+\]
+The reverse inclusion is automatic because $A\subset L^2(S^1)$.
+Therefore
+\[
+\boxed{\overline A^{\,L^2}=L^2(S^1).}
+\]
+So the Fourier modes are complete in $L^2(S^1)$.
+\end{frame}
+
 \section{Reminder: the one-variable solution}
 
 \begin{frame}{Reminder: the Fourier solution, now called $P$}
