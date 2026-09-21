@@ -1108,7 +1108,8 @@ satisfies $\db F=0$, so $F$ is holomorphic.
 \item Since $F=f$ far away from $K$, connectedness and the identity theorem
 force $F=f$ on all of $\C^n\setminus K$.
 \end{enumerate}
-\src{Misha Verbitsky, Hodge theory, Lecture 13.}
+\medskip
+\textbf{Important: this result is only valid in complex dimension $n\ge2$.}
 \end{frame}
 
 \begin{frame}{Friedrich Hartogs (1874--1943)}
@@ -1233,8 +1234,12 @@ $H_\infty\cong\mathbb P^{n-1}$ is compact and connected,
 $\varphi|_{H_\infty}$ is a constant; call it $c$.
 
 Now fix $z\in\C^n$ with $\|z\|>R$.
-Because $n\ge2$, choose a nonzero complex vector $v$ orthogonal to $z$.
-Then the complex line
+
+Because $n\ge2$, through any point $z$ outside the ball you can choose
+a complex line in an extra direction that stays outside the ball.
+This lets us apply Liouville's theorem to $\varphi$ restricted to that line.
+
+Choose a nonzero complex vector $v$ orthogonal to $z$. Then the complex line
 \[
 L_z=\{z+tv:t\in\C\}
 \]
