@@ -375,6 +375,14 @@ Now group the Fourier modes into the square shells
 \[
 S_k:=\{(n,m)\in\mathbb Z^2:\max(|n|,|m|)=k\}.
 \]
+Thus the Fourier series is grouped as
+\[
+\sum_{(n,m)\in\mathbb Z^2} g_{n,m}e_{n,m}
+=
+g_{0,0}
++\sum_{k=1}^{\infty}
+\underbrace{\sum_{(n,m)\in S_k}g_{n,m}e_{n,m}}_{\text{$k$-th square shell}}.
+\]
 The shell $S_k$ is the boundary of the lattice square $[-k,k]^2$,
 so it contains exactly
 \[
