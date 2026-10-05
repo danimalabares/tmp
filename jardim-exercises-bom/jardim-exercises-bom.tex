@@ -205,12 +205,27 @@ $$
 s_1\wedge s_2\in H^0(\mathcal{O}(d)),
 \qquad d=c+a_1+a_2.
 $$
-This is nonzero: otherwise the two
-saturated images would be the same
-generic line, hence the same subsheaf,
-forcing $a_1=a_2$. Thus $d\geq0$,
-and the integer equation above forces
-$d=1$ and $a_2-a_1=1$.
+\textbf{Jardim's vanishing trick shows
+that this determinant is nonzero.}
+The integer equation gives $a_1\ne a_2$;
+choose $i,j$ with $a_i<a_j$.
+If $s_1\wedge s_2=0$, the composite
+$\mathcal{O}(-a_i)\to E\to
+\mathcal{I}_{C_j}(c+a_j)$, with
+$C_1=L$, $C_2=Q$, vanishes generically,
+hence everywhere because its target
+is torsion-free. Thus $s_i$ factors
+through $\mathcal{O}(-a_j)$. But
+$$
+\operatorname{Hom}(\mathcal{O}(-a_i),
+\mathcal{O}(-a_j))
+=H^0(\mathcal{O}(a_i-a_j))=0:
+$$
+there are no polynomials of negative
+degree. This would force $s_i=0$,
+a contradiction.
+Thus $d\geq0$, and the integer equation
+forces $d=1$ and $a_2-a_1=1$.
 Composing either section with the other
 quotient gives this same determinant
 in $H^0(\mathcal{I}_L(1))$ and
@@ -242,139 +257,6 @@ Here $L,Q\cong\mathbb{P}^1$, but
 $\mathcal{O}_Q(1)$ has degree two.
 Nonzero extension classes need not give
 locally free middle sheaves.
-
-\newpage
-\section{Making the maps work}
-
-\textbf{Why is the induced map injective?}
-A map $\varphi:A\to Q$ from a line
-bundle to a torsion-free sheaf on an
-integral variety is either zero or
-injective. The local argument is short:
-a map $R\to M$ sends $1$ to some $m$.
-A nonzero kernel element $f$ would give
-$fm=0$. Torsion-freeness forces $m=0$,
-so the map is zero.
-
-Apply this to the composite
-$\varphi_1:A_1\xrightarrow{s_1}E\to Q_2$,
-where $A_i=\mathcal{O}(-a_i)$ and
-$Q_i=E/s_i(A_i)$ is torsion-free.
-If $a_1<a_2$ and $\varphi_1=0$, then
-$s_1$ factors through $A_2$, but
-$$
-\operatorname{Hom}(A_1,A_2)
-=H^0(\mathcal{O}(a_1-a_2))=0.
-$$
-There are no polynomials of negative degree.
-This would force $s_1=0$, a contradiction.
-Thus $\varphi_1$ is injective.
-For equal twists, proportional sections
-must be excluded.
-
-\textbf{Can we build the common sheaf?}
-For $a_1=1$, $a_2=2$, $c=-2$, the
-proposed sequences are
-$$
-\begin{aligned}
-0&\to\mathcal{O}(-1)\to E
-\to\mathcal{I}_L(-1)\to0,\\
-0&\to\mathcal{O}(-2)\to E
-\to\mathcal{I}_Q\to0.
-\end{aligned}
-$$
-Both extension spaces have dimension
-three. Multiplication by the plane
-equation gives the cross-maps
-$\mathcal{O}(-1)\to\mathcal{I}_Q$ and
-$\mathcal{O}(-2)\to\mathcal{I}_L(-1)$,
-with common cokernel on $H$:
-$$
-\mathcal{I}_{L/H}(-1)
-\cong\mathcal{O}_H(-2)
-\cong\mathcal{I}_{Q/H}.
-$$
-Recover $E$ as the fibre product
-$Q_1\times_TQ_2$: pairs $(q_1,q_2)$
-with the same image in $T$.
-Its projections have kernels $A_1,A_2$,
-giving the two sequences. Reflexivity
-still requires a check.
-
-\textbf{Where can $E$ fail to be a bundle?}
-The ideal resolutions yield
-$$
-\begin{aligned}
-\mathcal{E}xt^1(\mathcal{I}_L(t),\mathcal{O})
-&\cong\mathcal{O}_L(2-t),\\
-\mathcal{E}xt^1(\mathcal{I}_Q(t),\mathcal{O})
-&\cong\mathcal{O}_Q(3-t).
-\end{aligned}
-$$
-Dualizing the two sequences makes
-$\mathcal{E}xt^1(E,\mathcal{O})$ a
-quotient of sheaves supported on $L$
-and on $Q$. Its support therefore lies
-in $L\cap Q$. For reflexive $E$, that
-support is exactly its non-locally-free
-locus; see Appendix~A.
-
-\textbf{Does equal cohomology suffice?}
-Here is a higher-rank obstruction.
-Take $F=\Omega^1_X$ and
-$$
-Q_1=F\oplus\mathcal{O}^{\oplus2},
-\qquad
-Q_2=F\oplus\mathcal{O}(1)
-\oplus\mathcal{O}(-1).
-$$
-They have the same $H^1_*$, because
-line bundles contribute nothing to it.
-The Euler sequence gives $c(F)=(1-h)^4$.
-Thus $c_1(Q_1)=c_1(Q_2)=-4h$, while
-$c_2(Q_1)=6h^2$ and $c_2(Q_2)=5h^2$.
-If both were quotients of the same $E$
-with kernels $\mathcal{O}(-a_i)$,
-comparison of $c_1(E)$ would force
-$a_1=a_2$, and comparison of $c_2(E)$
-would then be impossible.
-
-\textbf{How might we build a bundle from $M$?}
-For a finite-length graded module $M$,
-choose a free presentation
-$L_1\xrightarrow{\beta}L_0\to M\to0$.
-Since $\widetilde M=0$, the kernel
-$K=\ker\widetilde\beta$ is a bundle
-with $H^1_*(K)\cong M$.
-If one can additionally find a subbundle
-inclusion $\alpha:\widetilde L_0^*\to K$,
-then
-$$
-\widetilde L_0^*
-\xrightarrow{\alpha}\widetilde L_1
-\xrightarrow{\widetilde\beta}
-\widetilde L_0
-$$
-is a monad with bundle cohomology
-$E=K/\operatorname{im}\alpha$ and
-$H^1_*(E)\cong M$.
-Finding $\alpha$ is the missing step:
-dualizing $\beta$ does not produce it.
-Also $c_1(E)=c_1(\widetilde L_1)$,
-so $c_1(E)=0$ is not automatic.
-
-\textbf{Lefschetz question.}
-Which curves have Rao modules with WLP
-or SLP? For a finite-length graded
-module $N$, WLP requires one linear form
-$\ell$ such that $\times\ell:N_t\to N_{t+1}$
-has maximal rank for every $t$.
-SLP requires the same for
-$\times\ell^s:N_t\to N_{t+s}$ for all
-$s\geq1$. Both properties are unchanged
-by grading shifts, hence are invariants
-of the even liaison class. They hold
-vacuously when the Rao module is zero.
 
 \newpage
 \appendix
