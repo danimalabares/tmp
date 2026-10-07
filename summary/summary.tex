@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{Weekly research summary}
+\author{Daniel}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+
+\section*{Gr\"unbaum project}
+
+This week I concentrated on understanding the deformation-theoretic input to the current \(v2\) proof rather than treating the \(T^1\) and \(T^2\) computations as black boxes.
+
+\begin{itemize}
+\item I reconstructed the cotangent complex starting from K\"ahler differentials. For \(R=P/I\), the conormal sequence is
+$$
+I/I^2\longrightarrow\Omega^1_{P/k}\otimes_P R
+\longrightarrow\Omega^1_{R/k}\longrightarrow0.
+$$
+The general construction uses a polynomial resolution \(P_\bullet\to R\) and
+$$
+L_{R/k}=\Omega^1_{P_\bullet/k}\otimes_{P_\bullet}R.
+$$
+
+\item I rebuilt first-order deformations from the dual numbers
+$$
+D=k[\varepsilon]/(\varepsilon^2).
+$$
+A first-order deformation is a flat \(D\)-algebra \(\widetilde R\) with
+$$
+\widetilde R/\varepsilon\widetilde R\cong R.
+$$
+Flatness gives \(\varepsilon\widetilde R\cong R\), and the kernel is square-zero.
+
+\item After choosing a \(k\)-linear section, the failure to preserve multiplication is measured by \(\mu:R\times R\to R\). Associativity gives
+$$
+a\mu(b,c)-\mu(ab,c)+\mu(a,bc)-\mu(a,b)c=0,
+$$
+while changing the section by \(h:R\to R\) changes \(\mu\) by
+$$
+a h(b)-h(ab)+h(a)b.
+$$
+Thus the concrete deformation data is compatible \(\mu\)'s modulo changes from \(h\). This is the Hochschild cocycle/coboundary picture for associative deformations.
+
+\item I reviewed why equivalence classes of module extensions
+$$
+0\longrightarrow A\longrightarrow E\longrightarrow B\longrightarrow0
+$$
+are \(\operatorname{Ext}^1_R(B,A)\), including the projective-resolution lifting argument and the splitting lemma.
+
+\item I defined cotangent cohomology
+$$
+T^i_{R/k}:=\operatorname{Ext}^i_R(L_{R/k},R).
+$$
+I am now proving the bridge from the concrete \(\mu/h\) calculation to the theorem that \(T^1\) classifies first-order commutative algebra deformations. The current step is the algebra analogue of the ordinary \(\operatorname{Ext}^1\) lifting argument: for a square-zero extension
+$$
+0\longrightarrow M\longrightarrow\widetilde R\longrightarrow R\longrightarrow0,
+$$
+the map \(P_0\to R\) in a polynomial resolution \(P_\bullet\to R\) lifts to \(P_0\to\widetilde R\) by lifting the polynomial generators.
+\end{itemize}
+
+\section*{Where this sits in the Gr\"unbaum proof}
+
+This work is immediately upstream of the explicit deformation-theory calculations in the current \(v2\) proof. The computational input includes
+$$
+\dim T^1_0=53,\qquad \dim T^2_0=27.
+$$
+I am currently at the conceptual entrance to this deformation-theoretic block: making precise why \(T^1_0\) is the graded first-order deformation space and why \(T^2_0\) is the relevant obstruction space. After this I return to the paper-specific multigraded description of \(T^2_0\), including the Altmann--Christophersen pieces such as \(a^2/(cg)\), and then to the symmetry and Maurer--Cartan/Bianchi all-orders lifting argument.
+
+\section*{Immediate next step}
+
+Finish the proof that square-zero algebra extensions by an \(R\)-module \(M\) are classified by
+$$
+\operatorname{Ext}^1_R(L_{R/k},M),
+$$
+specialize to \(M=R\), and reconnect the intrinsic picture to the explicit \(T^1_0,T^2_0\) data in the Gr\"unbaum manuscript.
+
+\end{document}
