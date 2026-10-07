@@ -1,78 +1,180 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb}
 \usepackage[margin=1in]{geometry}
-\title{Weekly research summary}
+\usepackage[hidelinks]{hyperref}
+\title{Research summary: 4--7 October 2026}
 \author{Daniel}
 \date{7 October 2026}
 \begin{document}
 \maketitle
 
-\section*{Gr\"unbaum project}
+\section*{Gr\"unbaum: understanding the v2 argument}
 
-This week I concentrated on understanding the deformation-theoretic input to the current \(v2\) proof rather than treating the \(T^1\) and \(T^2\) computations as black boxes.
+The main objective was to understand the
+argument for deforming the Gr\"unbaum
+Stanley--Reisner scheme. The
+manuscripts were organized into v0, v1 and v2.
+The new AI-written v2 draft treats equivariant
+formal lifting over
+$$
+A=\mathbb{Z}_{(101)}.
+$$
+Its stated result is that
+$$
+(T^2_0)^G=0,\qquad G\cong S_3,
+$$
+and that a prescribed equivariant flat graded
+deformation of finite order extends to all
+orders. This is a draft to be understood and
+checked; formal lifting alone does not
+establish smoothness of a general fibre.
 
-\begin{itemize}
-\item I reconstructed the cotangent complex starting from K\"ahler differentials. For \(R=P/I\), the conormal sequence is
+My own notes isolate the mechanism behind the
+invariant-vanishing argument. The ordinary
+degree-zero obstruction module decomposes into
+multigraded pieces, with nine orbits of three
+nonzero pieces in the draft calculation.
+Each piece has the form
 $$
-I/I^2\longrightarrow\Omega^1_{P/k}\otimes_P R
-\longrightarrow\Omega^1_{R/k}\longrightarrow0.
+A^2/A(1,1).
 $$
-The general construction uses a polynomial resolution \(P_\bullet\to R\) and
+Swapping the two components acts by minus one.
+For the piece labelled $a^2/(cg)$, the
+stabilizing involution
 $$
-L_{R/k}=\Omega^1_{P_\bullet/k}\otimes_{P_\bullet}R.
+\sigma=(b\,h)(c\,g)(d\,f)
+$$
+exchanges the two components. An invariant
+class would therefore satisfy $x=-x$, hence
+$x=0$ because $2$ is invertible. The full
+argument requires the corresponding check
+for every orbit of pieces.
+
+The personal notes still need one coefficient
+correction: $A$ in the v2 draft is the
+localization $\mathbb{Z}_{(101)}$, not the
+field with 101 elements. Reduction modulo
+101 gives $\mathbb{F}_{101}$.
+
+A separate linkage notebook was created and
+research correspondence archived. The linkage
+notebook currently contains the problem
+statement and an empty notes section.
+
+\section*{Differentials and the cotangent complex}
+
+In HP, I rebuilt the route from K\"ahler
+differentials to the cotangent complex.
+For a polynomial presentation $R=P/I$, the
+starting point is the conormal sequence
+$$
+I/I^2\longrightarrow
+\Omega^1_{P/k}\otimes_P R
+\longrightarrow\Omega^1_{R/k}
+\longrightarrow0.
+$$
+The discussion explains base change to $R$,
+why the differentials of relations vanish,
+and why taking the cokernel gives the
+differentials of the quotient algebra.
+
+The cotangent-complex introduction was
+reworked around a simplicial polynomial
+resolution of $R$. Applying differentials,
+base-changing to $R$, and passing to the
+associated complex gives $L_{R/k}$. This is
+the background needed for
+$$
+T^i_{R/k}
+=\operatorname{Ext}^i_R(L_{R/k},R).
 $$
 
-\item I rebuilt first-order deformations from the dual numbers
-$$
-D=k[\varepsilon]/(\varepsilon^2).
-$$
-A first-order deformation is a flat \(D\)-algebra \(\widetilde R\) with
-$$
-\widetilde R/\varepsilon\widetilde R\cong R.
-$$
-Flatness gives \(\varepsilon\widetilde R\cong R\), and the kernel is square-zero.
+\section*{First-order algebra deformations}
 
-\item After choosing a \(k\)-linear section, the failure to preserve multiplication is measured by \(\mu:R\times R\to R\). Associativity gives
+I worked through a first-order deformation
+as a flat algebra $\widetilde R$ over
 $$
-a\mu(b,c)-\mu(ab,c)+\mu(a,bc)-\mu(a,b)c=0,
+D=k[\varepsilon]/(\varepsilon^2),
+\qquad
+\widetilde R\otimes_D k\cong R.
 $$
-while changing the section by \(h:R\to R\) changes \(\mu\) by
+Flatness identifies
+$\varepsilon\widetilde R$ with $R$.
+The kernel is square-zero, giving
 $$
-a h(b)-h(ab)+h(a)b.
+0\longrightarrow\varepsilon\widetilde R
+\longrightarrow\widetilde R
+\longrightarrow R\longrightarrow0.
 $$
-Thus the concrete deformation data is compatible \(\mu\)'s modulo changes from \(h\). This is the Hochschild cocycle/coboundary picture for associative deformations.
+This sequence splits as $k$-vector spaces.
+It is not canonically a sequence of
+$R$-modules: an algebra map
+$R\to\widetilde R$ is not given.
 
-\item I reviewed why equivalence classes of module extensions
+After choosing a $k$-linear section, the
+difference between $s(a)s(b)$ and $s(ab)$
+defines a multiplication correction
+$\mu(a,b)\in R$. The exercises derive
+bilinearity, symmetry and the associativity
+condition
 $$
-0\longrightarrow A\longrightarrow E\longrightarrow B\longrightarrow0
+a\mu(b,c)-\mu(ab,c)
++\mu(a,bc)-\mu(a,b)c=0.
 $$
-are \(\operatorname{Ext}^1_R(B,A)\), including the projective-resolution lifting argument and the splitting lemma.
+Changing the section by a linear map $h$
+changes the correction by
+$$
+\mu'(a,b)-\mu(a,b)
+=a h(b)-h(ab)+h(a)b.
+$$
+Thus the calculations give cocycles modulo
+coboundaries. They were connected to
+Hochschild cohomology for associative
+deformations, while retaining the symmetry
+condition for commutative deformations.
 
-\item I defined cotangent cohomology
-$$
-T^i_{R/k}:=\operatorname{Ext}^i_R(L_{R/k},R).
-$$
-I am now proving the bridge from the concrete \(\mu/h\) calculation to the theorem that \(T^1\) classifies first-order commutative algebra deformations. The current step is the algebra analogue of the ordinary \(\operatorname{Ext}^1\) lifting argument: for a square-zero extension
-$$
-0\longrightarrow M\longrightarrow\widetilde R\longrightarrow R\longrightarrow0,
-$$
-the map \(P_0\to R\) in a polynomial resolution \(P_\bullet\to R\) lifts to \(P_0\to\widetilde R\) by lifting the polynomial generators.
-\end{itemize}
+The current notes begin the bridge to
+cotangent cohomology: a polynomial algebra
+$P_0$ mapping onto $R$ lifts to a square-zero
+extension by lifting its generators.
+The full proof that algebra extensions by
+$M$ are classified by
+$\operatorname{Ext}^1_R(L_{R/k},M)$ remains
+the next step.
 
-\section*{Where this sits in the Gr\"unbaum proof}
+\section*{Module extensions and homology}
 
-This work is immediately upstream of the explicit deformation-theory calculations in the current \(v2\) proof. The computational input includes
+I rewrote the module-extension discussion
+around the derived-functor construction of
+$\operatorname{Ext}^1_R(B,A)$ and its
+classification of extensions
 $$
-\dim T^1_0=53,\qquad \dim T^2_0=27.
+0\longrightarrow A\longrightarrow E
+\longrightarrow B\longrightarrow0.
 $$
-I am currently at the conceptual entrance to this deformation-theoretic block: making precise why \(T^1_0\) is the graded first-order deformation space and why \(T^2_0\) is the relevant obstruction space. After this I return to the paper-specific multigraded description of \(T^2_0\), including the Altmann--Christophersen pieces such as \(a^2/(cg)\), and then to the symmetry and Maurer--Cartan/Bianchi all-orders lifting argument.
+The revisions cover lifting from a projective
+resolution, equivalence of extensions,
+the zero class, and Baer addition.
+Splitting exercises explain the equivalent
+section/retraction criteria, why vector-space
+extensions split, and why
+$\operatorname{Ext}^1_R(R,R)=0$.
 
-\section*{Immediate next step}
+I also reconstructed the missed homology
+lectures: simplicial approximation and
+contiguity, acyclic carriers, singular
+homology and homotopy invariance, comparison
+with simplicial homology, coefficients,
+and the universal coefficient theorem.
 
-Finish the proof that square-zero algebra extensions by an \(R\)-module \(M\) are classified by
-$$
-\operatorname{Ext}^1_R(L_{R/k},M),
-$$
-specialize to \(M=R\), and reconnect the intrinsic picture to the explicit \(T^1_0,T^2_0\) data in the Gr\"unbaum manuscript.
+\section*{Next mathematical step}
+
+Complete the passage from square-zero
+algebra extensions to cotangent cohomology,
+then return to the multigraded obstruction
+calculation and the equivariant lifting
+argument in v2. Understanding and checking
+that draft, and establishing smoothness,
+remain separate tasks.
 
 \end{document}
