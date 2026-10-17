@@ -33,6 +33,7 @@
 
 # Generated documents
 *.dvi
+*.pdf
 *.ps
 
 # Build directories
