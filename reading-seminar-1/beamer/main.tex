@@ -1,0 +1,90 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{amsmath,amssymb}
+\title{Kodaira--Spencer and the tangent space of $\mathrm{Def}(X)$}
+\subtitle{Huybrechts, \S1}
+\date{Reading seminar}
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{1. Definition of a deformation}
+Following Huybrechts, a deformation of a compact complex
+manifold $X$ is a proper smooth holomorphic family
+\[
+\pi:\mathcal X\longrightarrow B,\qquad
+0\in B,\quad \pi^{-1}(0)\simeq X,
+\]
+considered near $0$. The fibres $X_t$ vary the complex structure.
+
+A tangent vector $v\in T_0B$ is an infinitesimal direction.
+The Kodaira--Spencer map turns it into a class on $X$.
+\end{frame}
+
+\begin{frame}{2. The relative tangent sequence}
+Because $\pi$ is a submersion, its differential is surjective.
+The kernel consists of vectors tangent to the fibres:
+\[
+0\longrightarrow T_{\mathcal X/B}
+\longrightarrow T_{\mathcal X}
+\xrightarrow{d\pi}\pi^*T_B\longrightarrow0.
+\]
+Restrict to the central fibre. Since
+$T_{\mathcal X/B}|_X=T_X$ and
+$\pi^*T_B|_X=T_0B\otimes\mathcal O_X$, we obtain
+\[
+\boxed{0\longrightarrow T_X\longrightarrow
+T_{\mathcal X}|_X\longrightarrow
+T_0B\otimes\mathcal O_X\longrightarrow0.}
+\]
+\end{frame}
+
+\begin{frame}{3. The connecting homomorphism trick}
+Apply the long exact sequence of sheaf cohomology:
+\[
+H^0(X,T_{\mathcal X}|_X)\longrightarrow
+\underbrace{H^0(X,T_0B\otimes\mathcal O_X)}_{=\,T_0B}
+\xrightarrow{\ \delta\ }H^1(X,T_X)\longrightarrow\cdots
+\]
+Here $H^0(X,\mathcal O_X)=\mathbb C$ for compact connected $X$.
+The connecting map is precisely Kodaira--Spencer:
+\[
+\boxed{\rho=\delta:T_0B\longrightarrow H^1(X,T_X).}
+\]
+A local lift of $v$ to $T_{\mathcal X}|_X$ need not glue
+globally. Differences of local lifts are tangent to $X$
+and define a Cech $1$-cocycle representing $\rho(v)$.
+\end{frame}
+\begin{frame}{4. The transition-function picture (HP)}
+Choose local trivialisations with changes of coordinates
+$(x,t)\mapsto(\psi_{ij}(x,t),t)$.
+For $v\in T_0B$, differentiating at $t=0$ gives
+\[
+\theta_{ij}=\left.\frac d{d\varepsilon}\right|_0
+\psi_{ij}(x,\varepsilon v).
+\]
+These vector fields give a Cech $1$-cocycle;
+changing trivialisations changes it by a coboundary.
+Thus $\rho(v)=[\theta_{ij}]\in H^1(X,T_X)$.
+\smallskip
+
+{\scriptsize From HP \texttt{deformations.tex}, Kodaira--Spencer map;
+\texttt{complex-geometry.tex}, relative tangent sequence.}
+\end{frame}
+\begin{frame}{5. The IHS computation}
+Dolbeault gives $H^1(X,T_X)\simeq
+H_{\bar\partial}^{0,1}(X,T^{1,0}X)$.
+For an IHS manifold, contraction with the nondegenerate
+holomorphic symplectic form $\sigma$ is an isomorphism
+\[
+T_X\xrightarrow{\ \iota_{(-)}\sigma\ }\Omega_X^1.
+\]
+Hence, by Dolbeault and the Kahler Hodge decomposition,
+\[
+\boxed{T_0\operatorname{Def}(X)
+\simeq H^1(X,T_X)\simeq H^1(X,\Omega_X^1)
+\simeq H^{1,1}(X).}
+\]
+The Bogomolov--Tian--Todorov theorem ensures that
+$\operatorname{Def}(X)$ is smooth.
+\end{frame}
+\end{document}
