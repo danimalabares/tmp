@@ -148,57 +148,104 @@ Hence, by Dolbeault and the Kahler Hodge decomposition,
 The Bogomolov--Tian--Todorov theorem ensures that
 $\operatorname{Def}(X)$ is smooth.
 \end{frame}
-\begin{frame}{8. Deforming a line bundle (Huybrechts, 1.14)}
+\begin{frame}{8. Step zero: identify the cohomology lattices}
 \small
-To deform the pair $(X,L)$, seek a line bundle
-$\mathcal L$ on the total space $\mathcal X\to B$ with
-$\mathcal L|_X\simeq L$.
-The topological class $c_1(L)$ transports to nearby
-fibres, but need not remain the Chern class of a
-\emph{holomorphic} bundle.
-
-\medskip
-By the Lefschetz $(1,1)$-theorem, it must remain an
-integral class of type $(1,1)$. Since the
-Beauville--Bogomolov form is compatible with Hodge types,
-this means
+Let $\pi:\mathcal X\to B$ be a smooth deformation of an IHS
+manifold $X=X_0$. The groups $H^2(X_t,\mathbb Z)$ form a
+local system $R^2\pi_*\mathbb Z$.
+Over a simply connected small base, parallel transport identifies
+them compatibly with a fixed Beauville--Bogomolov lattice
+$(\Lambda,q)$:
 \[
-\boxed{q_X(c_1(L),\sigma_t)=0,}
-\qquad H^{2,0}(X_t)=\mathbb C\sigma_t.
+\varphi_t:(H^2(X_t,\mathbb Z),q_{X_t})
+\xrightarrow{\sim}(\Lambda,q).
 \]
-Local Torelli identifies nearby deformations with
-their periods $[\sigma_t]$. For $c_1(L)\neq0$ this
-is one equation cutting out a smooth hypersurface:
-\[
-\dim\operatorname{Def}(X,L)=h^{1,1}(X)-1.
-\]
+A \emph{marking} is such an isometry for one fibre.
+The lattice stays fixed, but the Hodge decomposition varies.
 \end{frame}
 
-\begin{frame}{9. Markings and the period map (Huybrechts, 1.15--1.18)}
+\begin{frame}{9. Periods: moving lines in a fixed vector space}
 \small
-To compare periods of different IHS manifolds, fix a lattice
-$(\Gamma,q_\Gamma)$. A \emph{marking} is an isometry
+Each fibre has a one-dimensional space of holomorphic
+symplectic forms:
 \[
-\varphi:(H^2(X,\mathbb Z),q_X)
-\xrightarrow{\sim}(\Gamma,q_\Gamma).
+H^{2,0}(X_t)=\mathbb C\sigma_t.
 \]
-It places every holomorphic symplectic line
-$H^{2,0}(X)=\mathbb C\sigma_X$ in the same projective space.
-The \emph{period map} is
+Only the line matters: $\sigma_t$ and $a\sigma_t$ ($a\ne0$)
+give the same period. Thus the \emph{period map} is
 \[
-\mathcal P(X,\varphi)=[\varphi(\sigma_X)]
-\in\mathcal Q_\Gamma,\qquad
-\mathcal Q_\Gamma=
-\left\{\begin{array}{l|l}
-[x]\in\mathbb P(\Gamma_{\mathbb C})&
-q_\Gamma(x)=0,\\[-2pt]
-& q_\Gamma(x,\bar x)>0
-\end{array}\right\}.
+\mathcal P:t\longmapsto
+[\varphi_t(\sigma_t)]\in\mathbb P(\Lambda_{\mathbb C}).
 \]
-\emph{Local Torelli} (Beauville): the period map is locally
-an isomorphism. The global moduli space of marked IHS manifolds
-may be non-Hausdorff; Huybrechts' Theorem~8.1 proves
-global \emph{surjectivity} of its period map.
+Its image lies in the \emph{period domain}
+\[
+\Omega_\Lambda=\{[z]:q(z)=0,\ q(z,\bar z)>0\}.
+\]
+This is a smooth, Hausdorff, noncompact complex manifold
+of dimension $b_2(X)-2$.
+\end{frame}
+
+\begin{frame}{10. Period domain versus marked moduli}
+\small
+The marked moduli space remembers pairs $(X,\varphi)$;
+the period domain remembers their Hodge-theoretic periods:
+\[
+\mathcal M_\Lambda\ \xrightarrow{\ \mathcal P\ }\ \Omega_\Lambda,
+\qquad (X,\varphi)\longmapsto[\varphi(H^{2,0}(X))].
+\]
+\emph{Local Torelli:} $\mathcal P$ is a local biholomorphism,
+so nearby periods describe nearby marked deformations.
+
+\medskip
+\emph{Globally:} marked moduli can be non-Hausdorff, even
+though $\Omega_\Lambda$ is Hausdorff. Distinct birational
+models may have the same period; global Torelli relates
+periods and birational geometry, with marking/monodromy
+compatibility essential.
+\end{frame}
+
+\begin{frame}{11. Deforming a line bundle (Huybrechts, 1.14)}
+\small
+Fix $L$ on $X$, with $\ell=c_1(L)\in H^2(X,\mathbb Z)$.
+Transport $\ell$ using the marking. A holomorphic line
+bundle extending $L$ exists locally along precisely those
+deformations for which $\ell$ stays of type $(1,1)$
+(Lefschetz $(1,1)$ theorem).
+
+\medskip
+By Beauville--Bogomolov orthogonality this is
+\[
+\boxed{q(\ell,\sigma_t)=0.}
+\]
+Thus the locus of deformations of $(X,L)$ has period image
+\[
+\boxed{\Omega_{\Lambda,\ell}
+=\Omega_\Lambda\cap\mathbb P(\ell^\perp).}
+\]
+For $\ell\ne0$ it is locally a smooth hypersurface of
+dimension $b_2(X)-3=h^{1,1}(X)-1$.
+\end{frame}
+
+\begin{frame}{12. Polarized deformations: the geometric picture}
+\small
+\begin{center}
+\begin{tabular}{c|l}
+Object & What its points record\\ \hline
+$\mathcal M_\Lambda$ & marked IHS manifolds $(X,\varphi)$\\
+$\Omega_\Lambda$ & possible holomorphic symplectic lines\\
+$\Omega_{\Lambda,\ell}$ & periods orthogonal to a fixed $\ell$
+\end{tabular}
+\end{center}
+\medskip
+The condition $q(\ell,\sigma)=0$ is a \emph{hyperplane}
+condition in $\Lambda_{\mathbb C}$, but a
+\emph{hypersurface} inside the period domain.
+
+\medskip
+If $L$ is ample, it stays ample under sufficiently small
+deformations of the pair. Hence this hypersurface describes
+the \emph{local moduli of polarized deformations} $(X_t,L_t)$.
+For K3 surfaces: dimension $20$ drops to $19$.
 \end{frame}
 
 \end{document}
