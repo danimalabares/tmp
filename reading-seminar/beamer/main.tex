@@ -75,26 +75,29 @@ subschemes of a fixed $Y$. Its local moduli object is
 the Kuranishi germ $\operatorname{Def}(X)$.
 \end{frame}
 
-\begin{frame}{3. Kuranishi space versus Hilbert scheme}
+\begin{frame}{3. Analytic versus formal deformation spaces}
 \small
-\textbf{Kuranishi space.}
-$\operatorname{Def}(X)$ is a complex analytic germ carrying a
-\emph{semiuniversal} family of deformations of $X$.
-Its formal completion $\operatorname{Spf}R$ is a
-\emph{hull} of the deformation functor $\operatorname{Def}_X$.
-For IHS manifolds, it actually \emph{prorepresents} this functor
-(uniquely classifies deformations over Artinian bases via $\operatorname{Spf}R$).
-
-\medskip
-\textbf{Hilbert scheme.}
-$\operatorname{Hilb}(Y)$ is a scheme representing the Hilbert
-functor $\operatorname{Hilb}_Y$ of flat families of closed
-subschemes of a fixed ambient scheme $Y$.
-(Every family is a unique pullback of the universal family.)
-
-\medskip
-\textbf{Distinction:} local/formal versus global;
-semiuniversal versus universal.
+\textbf{Huybrechts' $\operatorname{Def}(X)$} is the analytic
+Kuranishi \emph{germ} at $0$, carrying a semiuniversal
+holomorphic family. For IHS $X$, BTT makes it smooth:
+\[
+(\operatorname{Def}(X),0)\simeq(\mathbb C^N,0),
+\qquad N=h^{1,1}(X).
+\]
+Its \emph{formal completion} is a different object:
+\[
+\widehat{\operatorname{Def}}(X)=\operatorname{Spf}R,\quad
+R=\widehat{\mathcal O}_{\operatorname{Def}(X),0}
+=\varprojlim_n\mathcal O_{\operatorname{Def}(X),0}/\mathfrak m^{n+1}
+\simeq\mathbb C[[t_1,\ldots,t_N]].
+\]
+$\operatorname{Spf}R$ is the formal spectrum: the compatible
+system of infinitesimal neighborhoods
+$\operatorname{Spec}(R/\mathfrak m^{n+1})$.
+For IHS manifolds it prorepresents $\operatorname{Def}_X$
+(deformations over Artinian bases correspond uniquely to maps
+from $R$). By contrast, $\operatorname{Hilb}(Y)$ globally
+represents the embedded Hilbert functor.
 \end{frame}
 
 \begin{frame}{5. The relative tangent sequence}
