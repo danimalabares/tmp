@@ -1,7 +1,7 @@
 \documentclass[aspectratio=169]{beamer}
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amscd}
 \title{Kodaira--Spencer and the tangent space of $\mathrm{Def}(X)$}
 \subtitle{Huybrechts, \S1}
 \date{Reading seminar}
@@ -11,10 +11,14 @@
 Following Huybrechts, a deformation of a compact complex
 manifold $X$ is a proper smooth holomorphic family
 \[
-\pi:\mathcal X\longrightarrow B,\qquad
-0\in B,\quad \pi^{-1}(0)\simeq X,
+\begin{CD}
+X @>>> \mathcal X\\
+@VVV @VV{\pi}V\\
+\{0\} @>>> B
+\end{CD}
 \]
-considered near $0$. The fibres $X_t$ vary the complex structure.
+This is a Cartesian square: $X\simeq\mathcal X\times_B\{0\}$.
+The fibres $X_t$ vary the complex structure.
 
 A tangent vector $v\in T_0B$ is an infinitesimal direction.
 The Kodaira--Spencer map turns it into a class on $X$.
