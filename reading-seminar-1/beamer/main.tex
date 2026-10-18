@@ -47,74 +47,27 @@ For IHS $X$, the base is smooth by BTT; this is a
 \emph{local} deformation space, not a global moduli variety.
 \end{frame}
 
-\begin{frame}{3. Prorepresentability and the formal spectrum}
+\begin{frame}{3. Kuranishi space versus Hilbert scheme}
 \small
-The infinitesimal deformation functor
-$\operatorname{Def}_X:\mathbf{Art}_{\mathbb C}\to\mathbf{Sets}$
-is \emph{prorepresentable} if a complete local Noetherian
-$\mathbb C$-algebra $(R,\mathfrak m)$ gives natural bijections
-\[
-\operatorname{Def}_X(A)\cong
-\operatorname{Hom}_{\mathrm{loc},\mathbb C}(R,A).
-\]
-Its \emph{formal spectrum} is
-$\operatorname{Spf}R$: its underlying space consists of the
-open prime ideals of $R$ (for the $\mathfrak m$-adic topology);
-it carries the completed structure sheaf. Here it has one point,
-but remembers all infinitesimal neighborhoods
-$\operatorname{Spec}(R/\mathfrak m^{n+1})$.
+\textbf{Kuranishi space.}
+$\operatorname{Def}(X)$ is a complex analytic germ carrying a
+\emph{semiuniversal} family of deformations of $X$.
+Its formal completion $\operatorname{Spf}R$ is a
+\emph{hull} of the deformation functor $\operatorname{Def}_X$.
+For IHS manifolds, it actually \emph{prorepresents} this functor.
 
 \medskip
-A formal family over $\operatorname{Spf}R$ then yields every
-infinitesimal deformation by a \emph{unique} base-change map.
-\end{frame}
-
-\begin{frame}{4. A hull versus a representing object}
-\small
-Kuranishi generally constructs a \emph{semiuniversal}
-deformation: a natural transformation
-\[
-h_R=\operatorname{Hom}_{\mathrm{loc}}(R,-)
-\longrightarrow\operatorname{Def}_X
-\]
-that is formally smooth and is an isomorphism on tangent spaces.
-Every small deformation comes from it, but the inducing
-map to the base need not be unique.
+\textbf{Hilbert scheme.}
+$\operatorname{Hilb}(Y)$ is a scheme representing the Hilbert
+functor $\operatorname{Hilb}_Y$ of flat families of closed
+subschemes of a fixed ambient scheme $Y$.
 
 \medskip
-\textbf{Compare the Hilbert scheme:}
-the Hilbert functor of flat embedded families of closed
-subschemes of a fixed projective space is globally
-represented by a Hilbert scheme; every family is a
-\emph{unique} pullback of the universal subscheme.
-Abstract deformations of $X$ do not fix an ambient space,
-and Kuranishi's construction is local.
+\textbf{Distinction:} local/formal versus global;
+semiuniversal versus universal.
 \end{frame}
 
-\begin{frame}{5. Why IHS deformations are especially nice}
-\small
-For an irreducible holomorphic symplectic manifold,
-\[
-H^0(X,T_X)\simeq H^0(X,\Omega_X^1)=0.
-\]
-Thus there are no infinitesimal automorphisms, and the
-local deformation functor is prorepresentable.
-Bogomolov--Tian--Todorov additionally gives unobstructedness,
-so its representing algebra is
-\[
-R\simeq\mathbb C[[t_1,\ldots,t_N]],
-\qquad N=h^1(X,T_X)=h^{1,1}(X).
-\]
-Consequently $\operatorname{Spf}R$ is the formal completion
-of a smooth $N$-dimensional germ, and analytically
-\[
-(\operatorname{Def}(X),0)\simeq(\mathbb C^N,0).
-\]
-This is \emph{local} representability, not a global
-fine moduli variety.
-\end{frame}
-
-\begin{frame}{6. The relative tangent sequence}
+\begin{frame}{4. The relative tangent sequence}
 Because $\pi$ is a submersion, its differential is surjective.
 The kernel consists of vectors tangent to the fibres:
 \[
@@ -132,7 +85,7 @@ T_0B\otimes\mathcal O_X\longrightarrow0.}
 \]
 \end{frame}
 
-\begin{frame}{7. The connecting homomorphism trick}
+\begin{frame}{5. The connecting homomorphism trick}
 Apply the long exact sequence of sheaf cohomology:
 \[
 H^0(X,T_{\mathcal X}|_X)\longrightarrow
@@ -148,7 +101,7 @@ A local lift of $v$ to $T_{\mathcal X}|_X$ need not glue
 globally. Differences of local lifts are tangent to $X$
 and define a Cech $1$-cocycle representing $\rho(v)$.
 \end{frame}
-\begin{frame}{8. The transition-function picture (HP)}
+\begin{frame}{6. The transition-function picture (HP)}
 Choose local trivialisations with changes of coordinates
 $(x,t)\mapsto(\psi_{ij}(x,t),t)$.
 For $v\in T_0B$, differentiating at $t=0$ gives
@@ -164,7 +117,7 @@ Thus $\rho(v)=[\theta_{ij}]\in H^1(X,T_X)$.
 {\scriptsize From HP \texttt{deformations.tex}, Kodaira--Spencer map;
 \texttt{complex-geometry.tex}, relative tangent sequence.}
 \end{frame}
-\begin{frame}{9. The IHS computation}
+\begin{frame}{7. The IHS computation}
 Dolbeault gives $H^1(X,T_X)\simeq
 H_{\bar\partial}^{0,1}(X,T^{1,0}X)$.
 For an IHS manifold, contraction with the nondegenerate
