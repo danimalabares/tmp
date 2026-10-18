@@ -20,7 +20,34 @@ A tangent vector $v\in T_0B$ is an infinitesimal direction.
 The Kodaira--Spencer map turns it into a class on $X$.
 \end{frame}
 
-\begin{frame}{2. The relative tangent sequence}
+\begin{frame}{2. What is $\operatorname{Def}(X)$?}
+\small
+As in the HP deformation notes, first consider the
+\emph{deformation functor}: it assigns to an infinitesimal
+base $A$ the isomorphism classes of deformations of $X$
+over $\operatorname{Spec}A$ (with the central fibre identified
+with $X$):
+\[
+\operatorname{Def}_X:
+\mathbf{Art}_{\mathbb C}\longrightarrow\mathbf{Sets}.
+\]
+The \emph{Kuranishi space} $\operatorname{Def}(X)$ is instead
+the germ of a complex analytic base carrying a
+\emph{semiuniversal family}
+$\mathcal X_{\mathrm{Kur}}\to\operatorname{Def}(X)$.
+
+Every sufficiently small deformation is locally pulled back
+from this family. The base-change map need not be unique,
+but the semiuniversal family has exactly the right
+infinitesimal parameters:
+\[
+T_0\operatorname{Def}(X)\ \simeq\ H^1(X,T_X).
+\]
+For IHS $X$, the base is smooth by BTT; this is a
+\emph{local} deformation space, not a global moduli variety.
+\end{frame}
+
+\begin{frame}{3. The relative tangent sequence}
 Because $\pi$ is a submersion, its differential is surjective.
 The kernel consists of vectors tangent to the fibres:
 \[
@@ -38,7 +65,7 @@ T_0B\otimes\mathcal O_X\longrightarrow0.}
 \]
 \end{frame}
 
-\begin{frame}{3. The connecting homomorphism trick}
+\begin{frame}{4. The connecting homomorphism trick}
 Apply the long exact sequence of sheaf cohomology:
 \[
 H^0(X,T_{\mathcal X}|_X)\longrightarrow
@@ -54,7 +81,7 @@ A local lift of $v$ to $T_{\mathcal X}|_X$ need not glue
 globally. Differences of local lifts are tangent to $X$
 and define a Cech $1$-cocycle representing $\rho(v)$.
 \end{frame}
-\begin{frame}{4. The transition-function picture (HP)}
+\begin{frame}{5. The transition-function picture (HP)}
 Choose local trivialisations with changes of coordinates
 $(x,t)\mapsto(\psi_{ij}(x,t),t)$.
 For $v\in T_0B$, differentiating at $t=0$ gives
@@ -70,7 +97,7 @@ Thus $\rho(v)=[\theta_{ij}]\in H^1(X,T_X)$.
 {\scriptsize From HP \texttt{deformations.tex}, Kodaira--Spencer map;
 \texttt{complex-geometry.tex}, relative tangent sequence.}
 \end{frame}
-\begin{frame}{5. The IHS computation}
+\begin{frame}{6. The IHS computation}
 Dolbeault gives $H^1(X,T_X)\simeq
 H_{\bar\partial}^{0,1}(X,T^{1,0}X)$.
 For an IHS manifold, contraction with the nondegenerate
