@@ -75,29 +75,39 @@ subschemes of a fixed $Y$. Its local moduli object is
 the Kuranishi germ $\operatorname{Def}(X)$.
 \end{frame}
 
-\begin{frame}{3. Analytic versus formal deformation spaces}
+\begin{frame}{3. Local and global deformation spaces}
 \small
-\textbf{Huybrechts' $\operatorname{Def}(X)$} is the analytic
-Kuranishi \emph{germ} at $0$, carrying a semiuniversal
-holomorphic family. For IHS $X$, BTT makes it smooth:
+\textbf{Kuranishi space.}
+Huybrechts' $\operatorname{Def}(X)$ is a smooth analytic
+\emph{germ} with a semiuniversal family (for IHS $X$).
+Its completion $\operatorname{Spf}R$ prorepresents the
+infinitesimal deformation functor, where
 \[
-(\operatorname{Def}(X),0)\simeq(\mathbb C^N,0),
-\qquad N=h^{1,1}(X).
-\]
-Its \emph{formal completion} is a different object:
-\[
-\widehat{\operatorname{Def}}(X)=\operatorname{Spf}R,\quad
 R=\widehat{\mathcal O}_{\operatorname{Def}(X),0}
-=\varprojlim_n\mathcal O_{\operatorname{Def}(X),0}/\mathfrak m^{n+1}
-\simeq\mathbb C[[t_1,\ldots,t_N]].
+=\varprojlim_n\mathcal O_{\operatorname{Def}(X),0}/\mathfrak m^{n+1}.
 \]
-$\operatorname{Spf}R$ is the formal spectrum: the compatible
-system of infinitesimal neighborhoods
-$\operatorname{Spec}(R/\mathfrak m^{n+1})$.
-For IHS manifolds it prorepresents $\operatorname{Def}_X$
-(deformations over Artinian bases correspond uniquely to maps
-from $R$). By contrast, $\operatorname{Hilb}(Y)$ globally
-represents the embedded Hilbert functor.
+Here $\operatorname{Spf}R$ encodes the compatible infinitesimal
+neighborhoods $\operatorname{Spec}(R/\mathfrak m^{n+1})$.
+
+\textbf{Hilbert scheme.}
+$\operatorname{Hilb}(Y)$ globally represents the functor of
+embedded flat families in $Y$.
+
+\textbf{Distinction:} local/formal versus global;
+semiuniversal versus universal.
+
+\medskip
+\textbf{Global marked moduli (Huybrechts, 1.18).}
+For a fixed lattice $(\Gamma,q_\Gamma)$ (and complex dimension),
+\[
+\mathfrak M_\Gamma
+=\{(X,\varphi)\}/\!\sim,\quad
+\varphi:(H^2(X,\mathbb Z),q_X)\xrightarrow{\sim}(\Gamma,q_\Gamma).
+\]
+Here $(X,\varphi)\sim(X',\varphi')$ if some biholomorphism
+$f:X\to X'$ satisfies $f^*=\pm\varphi^{-1}\circ\varphi'$.
+Patching local $\operatorname{Def}(X)$ charts yields a
+possibly non-Hausdorff complex manifold.
 \end{frame}
 
 \begin{frame}{5. The relative tangent sequence}
