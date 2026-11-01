@@ -1,495 +1,137 @@
 \documentclass[aspectratio=169,11pt]{beamer}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,booktabs}
+\usepackage{lmodern,amsmath,amssymb}
 \definecolor{ink}{HTML}{18364D}
 \setbeamercolor{structure}{fg=ink}
 \setbeamercolor{frametitle}{fg=ink}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}{\hfill\insertframenumber\kern1.5em\vskip8pt}
-\setbeamersize{text margin left=12mm,text margin right=12mm}
-\newcommand{\cO}{\mathcal O}
+\setbeamersize{text margin left=11mm,text margin right=11mm}
 \newcommand{\cI}{\mathcal I}
+\newcommand{\cO}{\mathcal O}
 \newcommand{\m}{\mathfrak m}
 \newcommand{\db}{\bar\partial}
 \newcommand{\norm}[1]{\lVert#1\rVert}
-\title{From curvature to sections}
-\subtitle{Kodaira lectures: the discussion so far}
-\author{Daniel}
-\date{Working draft}
 \begin{document}
-\begin{frame}
-\titlepage
-\end{frame}
 
-\begin{frame}{The problem: produce enough holomorphic sections}
-Let \(X\) be a compact Kähler manifold and \(L\) a positive line bundle.
+% Verbitsky, Kahler geometry (2025), lecture 23, slide 12.
+\begin{frame}{Nadel vanishing theorem}
+Let \((X,\omega)\) be a compact Kähler manifold and \(B\) a
+holomorphic line bundle with a singular Hermitian metric \(h\).
+Assume
 \[
-s_0,\ldots,s_M\text{ a basis of }H^0(X,L^N)
-\quad\leadsto\quad
-\Phi(x)=[s_0(x):\cdots:s_M(x)].
+i\Theta_h(B)\ge\varepsilon\omega
+\qquad\text{as currents, for some }\varepsilon>0.
 \]
-We want three things:
-\begin{enumerate}
-\item Some section is nonzero at each point.
-\item Sections distinguish different points.
-\item Sections detect every nonzero tangent direction.
-\end{enumerate}
-These give a well-defined injective immersion. Compactness then makes
-\(\Phi\) an embedding.
-\end{frame}
-
-\begin{frame}{What do sections have to prescribe?}
-Write \(A=L^N\). We will ask for surjectivity onto finite local data.
-\[
-\begin{array}{ccl}
-\text{data}&\text{ideal}&\text{consequence}\\[2pt]
-\text{value at }x&\m_x&\text{no base point at }x\\
-\text{values at }x,y&\m_x\cap\m_y&\text{separate }x,y\\
-\text{first jet at }x&\m_x^2&\text{detect tangent directions}
-\end{array}
-\]
-Here \(\m_x\) denotes the ideal sheaf of the point \(x\).
-\medskip
-
-A first jet records a value and all first derivatives in a local frame.
-Prescribing every first jet is sufficient for the third condition.
-\end{frame}
-
-\begin{frame}{The exact sequence that turns \(H^1\) into sections}
-For a finite subscheme \(Z\subset X\),
-\[
-0\longrightarrow A\otimes\cI_Z
-\longrightarrow A
-\longrightarrow A\otimes\cO_Z
-\longrightarrow0.
-\]
-The long exact sequence contains
-\[
-H^0(X,A)\longrightarrow H^0(X,A\otimes\cO_Z)
-\longrightarrow H^1(X,A\otimes\cI_Z).
-\]
-Thus
-\[
-\boxed{H^1(X,A\otimes\cI_Z)=0
-\ \Longrightarrow\ \text{every prescribed datum on }Z\text{ lifts}.}
-\]
-The vanishing removes the obstruction to extending local data.
-\end{frame}
-
-\begin{frame}{One point first}
-Take \(\cI_Z=\m_x\). Then
-\[
-H^0(X,A\otimes\cO_Z)=A|_x,
-\]
-the one-dimensional fibre of \(A\) at \(x\).
-\[
-H^1(X,A\otimes\m_x)=0
-\quad\Longrightarrow\quad
-H^0(X,A)\twoheadrightarrow A|_x.
-\]
-Choose a nonzero vector in this fibre. A section mapping to it
-does not vanish at \(x\).
-\medskip
-
-This proves generation at \(x\). Separating two points requires
-the corresponding two-point ideal.
-\end{frame}
-
-\begin{frame}{How first derivatives give immersion}
-Choose \(s_0(x)\ne0\). In the corresponding projective chart,
-\[
-\Phi=\left(\frac{s_1}{s_0},\ldots,\frac{s_M}{s_0}\right).
-\]
-If first jets can be prescribed, then for every \(0\ne v\in T_xX\)
-we can choose a section \(s\) with
-\[
-s(x)=0,\qquad d(s/s_0)_x(v)\ne0.
-\]
-Consequently \(d\Phi_x(v)\ne0\). This is precisely the immersion condition.
-\end{frame}
-
-\begin{frame}{Why introduce a singular metric?}
-We want vanishing for a bundle \emph{with an ideal attached}:
-\[
-H^1(X,A\otimes\cI_Z).
-\]
-A singular metric can encode that ideal as an integrability condition.
-\medskip
-
-The plan is to prove vanishing for locally square-integrable
-holomorphic sections, and choose the metric so that
-\[
-\text{local square integrability}
-\quad\Longleftrightarrow\quad
-\text{the required vanishing at }Z.
-\]
-\end{frame}
-
-\begin{frame}{The metric lives on the line bundle}
-Let \(e\) be a local holomorphic frame of a line bundle \(B\).
-Write
-\[
-|e|_h^2=e^{-2\varphi}.
-\]
-A local section is \(s=fe\), and its squared norm is
-\[
-|s|_h^2=|f|^2e^{-2\varphi}.
-\]
-After choosing a volume form, we can integrate this norm.
-\[
-\cI_h{}_x=
-\left\{f\in\cO_{X,x}:
-|f|^2e^{-2\varphi}\text{ is integrable near }x\right\}.
-\]
-This is the \emph{multiplier ideal}. The germs are holomorphic.
-\end{frame}
-
-\begin{frame}{A singularity that forces a zero}
-On a disk in \(\mathbb C\), let \(|e|_h^2=|z|^{-2}\).
-If \(f(0)\ne0\), then \(|f|\ge c>0\) on a smaller disk, so
-\[
-\int |f|^2|z|^{-2}\,dV
-\ \ge\ 2\pi c^2\int_0^\delta \frac{dr}{r}
-=\infty.
-\]
-If \(f(0)=0\), write \(f=zg\) with \(g\) holomorphic. Then
-\[
-|f|^2|z|^{-2}=|g|^2
-\]
-is locally integrable. Therefore \(\boxed{\cI_h=\m_0}\).
-\end{frame}
-
-\begin{frame}{The singularity depends on the dimension}
-In \(\mathbb C^n\), take \(|e|_h^2=|z|^{-2a}\).
-For a holomorphic germ of order \(k\), the radial integrability test is
-\[
-\int_0^\delta r^{\,2k-2a+2n-1}\,dr<\infty
-\quad\Longleftrightarrow\quad k+n>a.
-\]
-(The leading homogeneous term has positive squared spherical integral.)
-Thus, for these radial weights,
-\[
-n\le a<n+1\ \Longrightarrow\ \cI_h=\m_0,
-\qquad
-n+1\le a<n+2\ \Longrightarrow\ \cI_h=\m_0^2.
-\]
-These are local models; a global positive metric still has to be built.
-\end{frame}
-
-\begin{frame}{What does positive curvature mean here?}
-First take a \emph{smooth} Hermitian metric \(h(e,e)=e^{-\psi}\).
-Its Chern curvature is
-\[
-\Theta_h=\partial\db\psi.
-\]
-The real \((1,1)\)-form \(i\Theta_h\) defines a Hermitian form
-on tangent vectors.
-\[
-i\Theta_h\ge\varepsilon\omega
-\]
-means that this form is bounded below by \(\varepsilon\) times
-the Kähler metric.
-\medskip
-
-This is the positivity used below. It is a condition on the
-curvature of \(B\), not sectional curvature of \(X\).
-\end{frame}
-
-\begin{frame}{Why does \(\nabla^2\) wedge with curvature?}
-In a local frame, the connection on \(B\)-valued forms is
-\[
-\nabla=d+\alpha\wedge,\qquad \alpha=-\partial\psi.
-\]
-For any form \(u\),
-\begin{align*}
-\nabla^2u
-&=d(\alpha\wedge u)+\alpha\wedge du
-  +\alpha\wedge\alpha\wedge u\\
-&=d\alpha\wedge u-\alpha\wedge du+\alpha\wedge du\\
-&=d\alpha\wedge u=\Theta_h\wedge u.
-\end{align*}
-Here \(\alpha\wedge\alpha=0\) because \(B\) is a line bundle.
-\end{frame}
-
-\begin{frame}{The smooth vanishing theorem we can now prove}
-Assume \(X\) is compact Kähler, \(\dim_{\mathbb C}X=n\), and
-\(B\) has a smooth metric with \(i\Theta_h\ge\varepsilon\omega\),
-\(\varepsilon>0\).
-\[
-\boxed{H^q(X,K_X\otimes B)=0\qquad(q>0).}
-\]
-Dolbeault theory and elliptic Hodge theory give
-\[
-H^q(X,K_X\otimes B)
-\simeq H^{n,q}_{\db}(X,B)
-\simeq\ker\Delta_{\db}\big|_{\Omega^{n,q}(B)}.
-\]
-So it is enough to show that every harmonic \((n,q)\)-form is zero.
-\end{frame}
-
-\begin{frame}{The identities we start from}
-Put \(P=\partial_B\), \(Q=\db_B\), so \(\nabla=P+Q\).
-Let \(\Lambda\) be the adjoint of \(\omega\wedge\).
-\medskip
-
-The Kähler identities, with our conventions, are
-\[
-[\Lambda,P]=iQ^*,\qquad [\Lambda,Q]=-iP^*.
-\]
-Equivalently,
-\[
-Q^*=-i[\Lambda,P],\qquad P^*=i[\Lambda,Q].
-\]
-We use ordinary commutators here; \(\Lambda\) has even degree.
-The Laplacians are \(\Delta_Q=QQ^*+Q^*Q\) and similarly for \(P\).
-\end{frame}
-
-\begin{frame}{Bochner--Kodaira: substitute the adjoints}
-Substitution gives
-\[
-\Delta_Q-\Delta_P
-=-i\bigl(
-Q[\Lambda,P]+[\Lambda,P]Q
-+P[\Lambda,Q]+[\Lambda,Q]P
-\bigr).
-\]
-Expand the expression in parentheses:
-\[
-\begin{aligned}
-&Q\Lambda P-QP\Lambda\\
-&+\Lambda PQ-P\Lambda Q\\
-&+P\Lambda Q-PQ\Lambda\\
-&+\Lambda QP-Q\Lambda P.
-\end{aligned}
-\]
-The first and last terms cancel, as do the two \(P\Lambda Q\) terms.
-\end{frame}
-
-\begin{frame}{Bochner--Kodaira: recognize the curvature}
-What remains is
-\[
-\Lambda(PQ+QP)-(PQ+QP)\Lambda.
-\]
-Since the Chern curvature has type \((1,1)\),
-\[
-P^2=Q^2=0,\qquad PQ+QP=\nabla^2=\Theta_h\wedge.
-\]
-Therefore
-\[
-\Delta_Q-\Delta_P=i[PQ+QP,\Lambda]
-=[i\Theta_h\wedge,\Lambda].
-\]
-We have proved the identity
-\[
-\boxed{\Delta_{\db}=\Delta_{\partial_B}
-+[i\Theta_h\wedge,\Lambda].}
-\]
-\end{frame}
-
-\begin{frame}{Where the lower bound enters}
-At a point choose a unitary coframe \(\zeta_1,\ldots,\zeta_n\)
-that diagonalizes curvature:
-\[
-\omega=i\sum_j\zeta_j\wedge\bar\zeta_j,\qquad
-i\Theta_h=i\sum_j\lambda_j\zeta_j\wedge\bar\zeta_j,
-\qquad\lambda_j\ge\varepsilon.
-\]
-An \((n,q)\)-form has the expansion
-\[
-u=\sum_{|J|=q}u_J\,
-\zeta_1\wedge\cdots\wedge\zeta_n\wedge\bar\zeta_J\otimes e
-\]
-in a unit frame at that point.
-\medskip
-
-The remaining question is how the commutator acts on each summand.
-\end{frame}
-
-\begin{frame}{The curvature operator, one direction at a time}
-Let \(L_j=i\zeta_j\wedge\bar\zeta_j\wedge\) and
-let \(\Lambda_j=L_j^*\).
-The commutator \([L_j,\Lambda_j]\) acts by
-\[
-\begin{array}{c|c}
-\text{factors present in a basis monomial}&\text{eigenvalue}\\ \hline
-\zeta_j,\bar\zeta_j\text{ both}&1\\
-\text{exactly one}&0\\
-\text{neither}&-1
-\end{array}
-\]
-Indeed, \(L_j\) inserts the pair and \(\Lambda_j\) removes it.
-\medskip
-
-On an \((n,q)\)-form every \(\zeta_j\) is present, so there
-are no negative contributions.
-\end{frame}
-
-\begin{frame}{The estimate we kept referring to}
-For the basis monomial \(e_J\) indexed by \(J\),
-\[
-[i\Theta_h\wedge,\Lambda]e_J
-=\left(\sum_{j\in J}\lambda_j\right)e_J.
-\]
-There are \(q\) indices in \(J\), each with \(\lambda_j\ge\varepsilon\).
-Hence
-\[
-\langle[i\Theta_h\wedge,\Lambda]u,u\rangle
-\ge q\varepsilon |u|^2
-\]
-pointwise. After integration, Bochner--Kodaira gives
-\[
-\boxed{\norm{Qu}^2+\norm{Q^*u}^2
-\ge q\varepsilon\norm{u}^2.}
-\]
-We discarded the nonnegative term
-\(\norm{Pu}^2+\norm{P^*u}^2\).
-\end{frame}
-
-\begin{frame}{Why a harmonic form must vanish}
-If \(u\) is harmonic, then
-\[
-0=\langle\Delta_Q u,u\rangle
-=\norm{Qu}^2+\norm{Q^*u}^2.
-\]
-The estimate now says
-\[
-0\ge q\varepsilon\norm{u}^2.
-\]
-For \(q>0\), this forces \(\norm{u}=0\), hence \(u=0\).
-\medskip
-
-Every cohomology class has a harmonic representative.
-Since the only representative is zero,
-\[
-H^q(X,K_X\otimes B)=0\qquad(q>0).
-\]
-\end{frame}
-
-\begin{frame}{What have we proved about sections?}
-We have proved smooth Kodaira vanishing:
-\[
-H^q(X,K_X\otimes B)=0,\qquad q>0.
-\]
-Our section problem asks instead for
-\[
-H^1(X,A\otimes\cI_Z)=0.
-\]
-The ideal is an essential extra ingredient.
-\medskip
-
-The next theorem combines the curvature estimate with
-the integrability condition that defines \(\cI_h\).
-\end{frame}
-
-\begin{frame}{Nadel vanishing: the theorem to reach}
-Let \(B\) have a singular Hermitian metric \(h\) with
-\[
-i\Theta_h\ge\varepsilon\omega
-\]
-in the sense of currents, for \(\varepsilon>0\), on compact Kähler \(X\).
 Then
 \[
-\boxed{H^q(X,K_X\otimes B\otimes\cI_h)=0\qquad(q>0).}
+\boxed{H^q(X,K_X\otimes B\otimes\cI_h)=0\qquad(q\ge1).}
 \]
-The multiplier ideal consists of the locally \(h\)-square-integrable
-holomorphic coefficients.
-\medskip
-
-\textbf{Status:} this is the singular theorem we want to prove.
-The smooth harmonic-representative argument alone does not prove it.
+In a local holomorphic frame with \(|e|_h^2=e^{-2\varphi}\),
+\[
+(\cI_h)_x=\{f\in\cO_{X,x}: |f|^2e^{-2\varphi}
+\text{ is integrable near }x\}.
+\]
 \end{frame}
 
-\begin{frame}{How Nadel would give the desired section}
-To obtain sections of \(A=L^N\), use
+% Verbitsky, lecture 16, slides 4--5; HP complex-geometry.tex.
+\begin{frame}{Kodaira vanishing theorem}
+Let \(X\) be a compact Kähler manifold and \(B\) a holomorphic
+line bundle admitting a smooth Hermitian metric with positive curvature.
+Then
 \[
-B=A\otimes K_X^{-1}.
+\boxed{H^q(X,K_X\otimes B)=0\qquad(q\ge1).}
 \]
-Suppose we construct a singular metric on \(B\) with
-\[
-i\Theta_h\ge\varepsilon\omega,\qquad \cI_h=\m_x.
-\]
-Nadel gives \(H^1(X,A\otimes\m_x)=0\). The exact sequence gives
-\[
-H^0(X,A)\twoheadrightarrow A|_x.
-\]
-Thus some global section is nonzero at \(x\).
 \medskip
-
-The same mechanism with the two-point and first-jet ideals
-would give point and tangent separation.
+For a fixed Kähler form \(\omega\), compactness gives a uniform bound
+\[
+i\Theta_h(B)\ge\varepsilon\omega,\qquad \varepsilon>0.
+\]
+A smooth metric has \(\cI_h=\cO_X\), so this is also
+the smooth case of Nadel's theorem.
 \end{frame}
 
-\begin{frame}{Why the integrable functions were relevant}
-The weighted Dolbeault complex begins with holomorphic,
-locally square-integrable sections:
-\[
-\ker\bigl(\db:\text{local }L^2\ (n,0)\text{-forms}
-\longrightarrow\text{local }L^2\ (n,1)\text{-forms}\bigr)
-=K_X\otimes B\otimes\cI_h.
-\]
-Here \(\db\) is interpreted weakly, on its appropriate domain.
-\medskip
-
-If this complex resolves the sheaf and global closed forms
-have \(L^2\) primitives, its positive-degree cohomology vanishes.
-\medskip
-
-This explains why the ideal and the analytic estimate occur
-in the same theorem.
-\end{frame}
-
-\begin{frame}{The work still ahead}
+\begin{frame}{Kodaira vanishing: proof steps}
 \begin{enumerate}
-\item Extend the analytic estimate to singular metrics and prove
-the required \(L^2\) existence theorem.
-\item Establish local exactness of the weighted Dolbeault complex.
-\item Construct global metrics with the prescribed multiplier ideals,
-while preserving strict curvature positivity.
-\item Obtain a single sufficiently large power \(L^N\) that works
-for all the point and tangent conditions.
+\setlength{\itemsep}{7pt}
+\item \textbf{Dolbeault.} Identify \(H^q(X,K_X\otimes B)\)
+with \(B\)-valued \((n,q)\)-Dolbeault cohomology.
+\item \textbf{Hodge theory.} Choose a harmonic representative \(u\).
+\item \textbf{Bochner--Kodaira.} Use the Kähler identities and
+\(\nabla^2=\Theta_B\wedge\) to obtain
+\[
+\Delta_{\db}=\Delta_{\partial_B}+[i\Theta_B\wedge,\Lambda].
+\]
+\item \textbf{Curvature estimate.} On \((n,q)\)-forms,
+\(\langle[i\Theta_B\wedge,\Lambda]u,u\rangle
+\ge q\varepsilon\norm{u}^2\).
+\item \textbf{Vanishing.} Harmonicity and the identity give
+\(0\ge q\varepsilon\norm{u}^2\).
+For \(q>0\), \(u=0\), so every class is zero.
 \end{enumerate}
-\medskip
-
-The smooth proof is complete. These are the additional steps
-needed for the Nadel route to Kodaira embedding.
 \end{frame}
 
-\appendix
-\begin{frame}{Appendix: the Kodaira--Nakano version}
-If \(B\) is positive, choose \(\omega=i\Theta_h\).
-Then all the curvature eigenvalues are \(1\).
-\medskip
-
-In a \((p,q)\) basis monomial, let \(a,b,c\) count directions
-with both factors, one factor, or neither. Then
+% Proof outline: local and global L2 solvability are substantive inputs.
+% Verbitsky, lecture 23, slides 5--12.
+\begin{frame}{Nadel vanishing: proof steps}
+\begin{enumerate}
+\setlength{\itemsep}{7pt}
+\item \textbf{Weighted Dolbeault resolution.}
+Local \(L^2\) solvability resolves \(K_X\otimes B\otimes\cI_h\)
+by locally \(L^2_h\) forms with weak \(\db\) in \(L^2_h\).
+\item \textbf{Represent classes.} This fine resolution represents
+each class by a global \(L^2_h\), \(\db\)-closed \((n,q)\)-form \(f\).
+\item \textbf{Singular estimate.} Approximation and complete metrics
+extend the Bochner--Kodaira estimate to the singular setting.
+\item \textbf{Solve \(\db\).} The \(L^2\) existence theorem gives
 \[
-p+q=2a+b,\qquad n=a+b+c.
+\db u=f,\qquad
+\norm{u}_h^2\le(q\varepsilon)^{-1}\norm{f}_h^2\quad(q>0).
 \]
-The curvature commutator acts by
-\[
-a-c=p+q-n.
-\]
-Thus the same harmonic argument gives
-\[
-H^q(X,\Omega_X^p\otimes B)=0
-\qquad\text{when }p+q>n.
-\]
+\item \textbf{Vanishing.} Every representative is exact,
+so \(H^q(X,K_X\otimes B\otimes\cI_h)=0\).
+\end{enumerate}
 \end{frame}
 
-\begin{frame}{Sources and scope}
-Misha Verbitsky, \emph{Kähler geometry}, IMPA course notes (2025):
-\begin{itemize}
-\item Lecture 16, slides 4--5: Hodge theory and Bochner--Kodaira.
-\item Lecture 23, slides 2--4 and 12: singular metrics,
-multiplier ideals, and Nadel vanishing.
-\item Lecture 24, slides 10--12: ideal vanishing and Kodaira embedding.
-\end{itemize}
-\smallskip
-\url{http://verbit.ru/IMPA/Kahler-2025/}
+% Verbitsky, lecture 24, slides 11--12.
+\begin{frame}{Kodaira embedding theorem}
+Let \(X\) be a compact complex manifold and \(L\) a positive
+holomorphic line bundle.
 \medskip
 
-This working deck follows our discussion. It includes the smooth
-proof in detail and states the remaining singular steps explicitly.
-It does not yet cover Kawamata--Viehweg vanishing.
+For some integer \(N>0\), the bundle \(L^N\) is very ample:
+a basis \(s_0,\ldots,s_M\) of \(H^0(X,L^N)\) defines a
+holomorphic embedding
+\[
+\boxed{
+\Phi:X\hookrightarrow\mathbb P^M,\qquad
+x\longmapsto[s_0(x):\cdots:s_M(x)].
+}
+\]
+In particular, \(X\) is projective.
+\medskip
+
+Positivity means that \(L\) admits a smooth Hermitian metric
+with \(i\Theta_L>0\). This curvature form also makes \(X\) Kähler.
+\end{frame}
+
+% Verbitsky, lecture 24, slides 6--12.
+\begin{frame}{Kodaira embedding: proof steps via Nadel}
+\begin{enumerate}
+\setlength{\itemsep}{6pt}
+\item \textbf{Singular metrics.} For large \(N\), put
+\(B=L^N\otimes K_X^{-1}\). Construct positively curved metrics
+with \(\cI_h=\m_x\cap\m_y\) or \(\cI_h=\m_x^2\).
+\item \textbf{Nadel.} Obtain \(H^1(X,L^N\otimes\cI_h)=0\).
+\item \textbf{Exact sequence.} Use
+\(0\to L^N\otimes\cI_h\to L^N\to L^N\otimes(\cO_X/\cI_h)\to0\)
+to prescribe values and first jets.
+\item \textbf{Uniform power.} Use compactness to arrange one \(N\)
+for all points and tangent directions.
+\item \textbf{Projective map.} The sections have no common zero,
+separate points, and detect nonzero tangent vectors.
+\item \textbf{Embedding.} Their map is an injective holomorphic
+immersion. Compactness makes it an embedding.
+\end{enumerate}
 \end{frame}
 \end{document}
