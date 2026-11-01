@@ -134,4 +134,95 @@ separate points, and detect nonzero tangent vectors.
 immersion. Compactness makes it an embedding.
 \end{enumerate}
 \end{frame}
+
+% Verbitsky, lecture 24, slide 13. Projective setting.
+\begin{frame}{Nef and big line bundles}
+Let \(L\) be a line bundle on a smooth projective \(n\)-fold \(X\).
+\medskip
+
+\textbf{Nef:} for every irreducible curve \(C\subset X\),
+\[
+L\cdot C=\int_C c_1(L)=\deg(L|_C)\ge0.
+\]
+Equivalently, \(c_1(L)\) lies in the closure of the Kähler cone.
+For singular \(C\), compute the degree on its normalization.
+\medskip
+
+\textbf{Big:} the number of sections has maximal asymptotic growth:
+\[
+\limsup_{m\to\infty}\frac{h^0(X,L^m)}{m^n}>0.
+\]
+The first condition controls positivity on curves.
+The second guarantees enough sections of high powers.
+\end{frame}
+
+% Verbitsky, lecture 24, slide 14.
+\begin{frame}{Kawamata--Viehweg vanishing theorem}
+Let \(X\) be a smooth complex projective variety and \(L\)
+a nef and big line bundle. Then
+\[
+\boxed{H^q(X,K_X\otimes L)=0\qquad(q>0).}
+\]
+\medskip
+
+\textbf{Key lemma.} There exists a singular metric \(h\) on \(L\) with
+\[
+i\Theta_h(L)\ge\varepsilon\omega,\qquad
+\varepsilon>0,\qquad \cI_h=\cO_X.
+\]
+Nadel then gives the theorem immediately.
+\medskip
+
+Here a trivial multiplier ideal means \(\cO_X\), not the zero ideal.
+\end{frame}
+
+% Verbitsky, lecture 24, slides 15--16.
+\begin{frame}{Kawamata--Viehweg: proof steps (1)}
+Fix a smooth very ample divisor \(A\subset X\), with \(n=\dim X\).
+\begin{enumerate}
+\setlength{\itemsep}{7pt}
+\item \textbf{Bigness produces an effective divisor.}
+Use the restriction exact sequence and
+\[
+h^0(A,L^m|_A)=O(m^{n-1})
+\]
+to find a nonzero section of \(L^d\otimes\cO_X(-A)\).
+Its zero divisor \(D\) gives \(L^d\simeq\cO_X(A+D)\).
+\item \textbf{Nefness supplies the positive part.} For \(N>d\),
+\[
+L^N\simeq
+\bigl(L^{N-d}\otimes\cO_X(A)\bigr)\otimes\cO_X(D),
+\]
+and the parenthesized factor is ample.
+\end{enumerate}
+\medskip
+\footnotesize
+Inputs: restriction sequence; section-growth bound (lecture 24, slide 15);
+nef plus Kähler is Kähler; Kodaira embedding, already proved.
+\end{frame}
+
+% Verbitsky, lecture 24, slides 4 and 16; lecture 22, slides 11--12.
+\begin{frame}{Kawamata--Viehweg: proof steps (2)}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\setlength{\itemsep}{7pt}
+\item \textbf{Construct the metric.} Combine a positive metric on
+\(L^{N-d}\otimes\cO_X(A)\) with the divisor metric on \(\cO_X(D)\).
+Taking its \(N\)-th root gives a metric \(h_N\) on \(L\) with
+\[
+\frac{i}{2\pi}\Theta_{h_N}(L)
+=\frac{1}{N}\bigl(\omega_N+[D]\bigr)>0.
+\]
+Here \(\omega_N\) is the normalized positive curvature of the ample factor.
+\item \textbf{Make the multiplier ideal trivial.}
+Locally its weight is a smooth positive factor times \(|f_D|^{-2/N}\).
+For fixed \(D\) and large \(N\), this is integrable, so \(\cI_{h_N}=\cO_X\).
+\item \textbf{Apply Nadel.}
+\(H^q(X,K_X\otimes L)=0\) for \(q>0\).
+\end{enumerate}
+\medskip
+\footnotesize
+Inputs: Poincaré--Lelong (lecture 22, slides 11--12, with multiplicities);
+small-exponent integrability (lecture 24, slide 4); Nadel (lecture 23).
+\end{frame}
 \end{document}
