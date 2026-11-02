@@ -35,4 +35,4 @@ Lecture 24 gives the logarithmic-cutoff construction for embedding, including on
 
 See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Historical remarks are sourced there. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
 
-Talk preparation checklist: [HOW TO GIVE A TALK](HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.
+Talk preparation checklist: [HOW TO GIVE A TALK](https://github.com/danimalabares/archive/blob/main/archive/HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.
