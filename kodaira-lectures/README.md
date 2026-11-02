@@ -4,8 +4,8 @@ The original nine-slide outline is preserved unchanged in [plan/slides.tex](plan
 
 | Folder | Draft | Slides |
 | --- | --- | ---: |
-| [lecture-23](lecture-23/lecture-23.tex) | Embedding mechanism and Nadel vanishing | 28 |
-| [lecture-24](lecture-24/lecture-24.tex) | Metric construction and Kawamata–Viehweg | 20 |
+| [lecture-23](lecture-23/lecture-23.tex) | Embedding mechanism and Nadel vanishing | 29 |
+| [lecture-24](lecture-24/lecture-24.tex) | Metric construction and Kawamata–Viehweg | 21 |
 
 These two decks form one continuous argument, with a short course recap and Kodaira embedding as the initial goal. The first lecture explains how H1-vanishing gives values and first jets before developing Nadel. The second resumes with the missing metric construction. They follow Daniel's talk checklist: announce the destination, explain the route, carry out the argument, and return to the result. They retain the dbar-poincare Beamer style, use mathematical pictures and short historical pauses, and move longer technical arguments into optional preparation notes. Shared styling is in [preamble.tex](preamble.tex).
 

@@ -44,3 +44,12 @@ The two opening recap slides follow the supplied 2025 PDFs, authored by Misha Ve
 The early embedding statement was checked in the original 2025 source `12-slides-Kahler-2025-06.pdf` (Misha Verbitsky), on its “Kodaira embedding theorem” page, following Fubini–Study and projective manifolds. This motivates returning to the same goal in the final two lectures.
 
 Seminar speaker assignments are a separate matter. archive/TO_DO.md contains the later date/speaker calendar but not a complete numbered topic mapping. Only confirmed attributions appear in numbered seminar references.
+
+## Portraits added 2026-11-01
+
+User supplied the three image files from the linked sources. Reproduced unchanged, scaled to fit. License: CC BY-SA 2.0 Germany, https://creativecommons.org/licenses/by-sa/2.0/de/deed.en .
+
+- Kunihiko Kodaira: Konrad Jacobs / MFO, Tokyo, 1969. https://commons.wikimedia.org/wiki/File:Kodaira_Kunihiko.jpg . Asset: assets/Kunihiko_Kodaira.png.
+- Yujiro Kawamata: Renate Schmid / MFO, Oberwolfach, 2004. https://opc.mfo.de/detail?photo_id=6554 . Asset: assets/Yujiro_Kawamata.png.
+- Eckart Viehweg: Renate Schmid / MFO, Oberwolfach, 2009. https://commons.wikimedia.org/wiki/File:Eckart_Viehweg.jpg . Asset: assets/Eckart_Viehweg.png.
+- No verified portrait of Alan Michael Nadel was found. His new slide uses an original TikZ local multiplier-ideal diagram, not a portrait or facsimile. Historical motivation: https://annals.math.princeton.edu/1990/132-3/p04, Annals of Mathematics 132 (1990), 549–596.

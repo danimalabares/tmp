@@ -1,6 +1,6 @@
 # Lecture 23 — the embedding mechanism and Nadel
 
-28 slides. This is the first half of one argument continued in lecture 24 (Daniel). The theorem to keep in view from the beginning is Kodaira embedding.
+29 slides. This is the first half of one argument continued in lecture 24 (Daniel). The theorem to keep in view from the beginning is Kodaira embedding.
 
 ## Opening: course recap
 
@@ -28,10 +28,10 @@ Then prepare the radial ideal calculation and the weighted Dolbeault argument. S
 - 2–3: course recap from complex structures through singular psh weights.
 - 4–6: Kodaira embedding, projective coordinates, and the geometric conditions.
 - 7–9: long exact sequence, values, and first jets.
-- 10–12: identify the missing vanishing theorem and announce the two-lecture route.
-- 13–19: recall smooth vanishing and introduce the multiplier ideal.
-- 20–26: weighted resolution, analytic input, and Nadel's proof.
-- 27–28: substitute B_N=L^N⊗K_X^(-1) and hand the metric-construction task to lecture 24 (Daniel).
+- 10–13: identify the missing vanishing theorem and announce the two-lecture route.
+- 14–20: recall smooth vanishing and introduce the multiplier ideal.
+- 21–27: weighted resolution, analytic input, and Nadel's proof.
+- 28–29: substitute B_N=L^N⊗K_X^(-1) and hand the metric-construction task to lecture 24 (Daniel).
 
 ## Details of the opening mechanism
 

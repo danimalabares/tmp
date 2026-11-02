@@ -1,6 +1,6 @@
 # Lecture 24 — the metrics and Kawamata–Viehweg
 
-20 slides. Continue the argument from lecture 23 (Daniel), rather than introducing the section-separation mechanism again.
+21 slides. Continue the argument from lecture 23 (Daniel), rather than introducing the section-separation mechanism again.
 
 ## Essential preparation
 
@@ -13,13 +13,13 @@ The auxiliary projective growth bound and the small-exponent integrability lemma
 - 2–3: recall the precise unfinished task and announce the remaining steps.
 - 4–6: construct the singular metrics, including one N valid for all points and pairs.
 - 7–8: conclude embedding and pause for Kodaira's historical context.
-- 9–12: define nef and big, illustrate the distinction from ample, and state Kawamata–Viehweg.
-- 13–18: fixed divisor, positive metric, mild root singularities, and Nadel.
-- 19–20: chronology and comparison of the two applications.
+- 9–13: define nef and big, illustrate the distinction from ample, and state Kawamata–Viehweg.
+- 14–19: fixed divisor, positive metric, mild root singularities, and Nadel.
+- 20–21: chronology and comparison of the two applications.
 
 At slide 6, stress that two cutoffs may overlap: curvature lower bounds add, while the other point's weight is smooth as a germ at each singularity. There is no compactness assertion about X×X minus the diagonal.
 
-At slide 13, explain the kernel of the restriction map:
+At slide 14, explain the kernel of the restriction map:
 h0(X,L^m(-A)) ≥ h0(X,L^m) - h0(A,L^m|_A).
 A nonzero section gives L^d=O(A+D). Keep D fixed while N grows.
 
