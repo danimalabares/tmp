@@ -1,27 +1,27 @@
-# Lecture 24 — preparation notes
+# Lecture 24 — the metrics and Kawamata–Viehweg
 
-25 slides. Announce both conclusions at the beginning. Finish the embedding argument before introducing nef and big, then end by comparing the two uses of Nadel.
+20 slides. Continue the argument from lecture 23 (Daniel), rather than introducing the section-separation mechanism again.
 
 ## Essential preparation
 
-Be comfortable with the evaluation sequence, the logarithmic cutoff and its bounded curvature loss, the ratios s_j/s_0 for immersion, and the fixed-divisor N-th-root construction. These are the core arguments.
+Prepare the cutoff construction and its uniform curvature bound, the sum of two point weights, and the fixed-divisor N-th-root construction. The values-and-jets argument has already been presented in lecture 23 (Daniel).
 
-State these auxiliary results when used: nef plus ample is ample; the restriction-growth bound on a projective divisor; and local integrability of a sufficiently small negative power of a nonzero holomorphic function. The full auxiliary proofs are optional.
+The auxiliary projective growth bound and the small-exponent integrability lemma may be stated. Their supporting arguments remain in the optional notes.
 
-## Route through the slides
+## Route
 
-- 2–4: destinations, route, and Nadel from lecture 23 (Daniel).
-- 5–8: values/jets, exact sequence, and the cutoff metric.
-- 9–12: point and tangent separation, then the embedding conclusion.
-- 13–16: historical pause, definitions, blowup example, and Kawamata–Viehweg.
-- 17–23: construct the metric and apply Nadel.
-- 24–25: historical order and recap.
+- 2–3: recall the precise unfinished task and announce the remaining steps.
+- 4–6: construct the singular metrics, including one N valid for all points and pairs.
+- 7–8: conclude embedding and pause for Kodaira's historical context.
+- 9–12: define nef and big, illustrate the distinction from ample, and state Kawamata–Viehweg.
+- 13–18: fixed divisor, positive metric, mild root singularities, and Nadel.
+- 19–20: chronology and comparison of the two applications.
 
-At slide 18, the board calculation is
+At slide 6, stress that two cutoffs may overlap: curvature lower bounds add, while the other point's weight is smooth as a germ at each singularity. There is no compactness assertion about X×X minus the diagonal.
+
+At slide 13, explain the kernel of the restriction map:
 h0(X,L^m(-A)) ≥ h0(X,L^m) - h0(A,L^m|_A).
-Explain that the kernel of restriction is nonzero for some large m. Call that exponent d and the residual zero divisor D. Keep D fixed thereafter.
-
-At slide 12, mention that two point cutoffs may overlap and their lower curvature bounds simply add. This is why one N works even when two points approach each other.
+A nonzero section gives L^d=O(A+D). Keep D fixed while N grows.
 
 ## Optional details
 
@@ -35,11 +35,7 @@ Choose a finite atlas V_i compactly contained in U_i, with the V_i covering X. T
 
 For pairs x≠y, sum two weights with coefficient n. Their supports **need not be disjoint**. The weight centred at y is smooth in some neighbourhood of x, however close the points are; hence it does not change the germ ideal at x. The curvature lower bound is at worst the sum of two uniform bounds. For jets use coefficient n+1. One N therefore works simultaneously for every x, every pair, and every first jet. Compactness of X×X minus the diagonal is neither true nor needed.
 
-The sheaf m_x in these formulas means the ideal sheaf of the point, whose stalk at x is the maximal ideal and whose stalks away from x are O. For distinct points, m_x∩m_y=m_xm_y as sheaves. The quotient is the direct sum of two skyscraper sheaves.
-
-Surjectivity onto O/m_x^2 gives sections with prescribed constant and linear terms in a local frame. The local ratios s_j/s_0 have differentials dz_j. This is exactly injectivity of the differential. The cusp is an example of failure of immersion, not a classification of all such failures.
-
-A continuous injection from compact X into Hausdorff projective space is a homeomorphism onto its image. Holomorphic immersion then gives a holomorphic embedded submanifold. Projectivity in the algebraic sense follows from Chow's theorem, if that identification is not taken as the definition.
+The value/jet separation proof is in lecture 23's notes. Recall only its conclusion here: once the uniform metrics give H1-vanishing, the complete linear system is an injective immersion, and compactness makes it a holomorphic embedding. Projectivity in the algebraic sense follows from Chow's theorem, if that identification is not taken as the definition.
 
 The positivity/ample equivalence is used only after proving embedding, so using an ample M_N to choose a positive metric later is not circular.
 

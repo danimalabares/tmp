@@ -12,7 +12,7 @@ Jean-Pierre Demailly, [L2 vanishing theorems for positive line bundles and adjun
 
 ## Historical facts
 
-- Alan Michael Nadel, [Multiplier ideal sheaves and Kähler–Einstein metrics of positive scalar curvature](https://annals.math.princeton.edu/1990/132-3/p04), Annals of Mathematics 132 (1990), 549–596, DOI 10.2307/1971429. The abstract explains the Kähler–Einstein origin and how multiplier ideals record failure of an estimate. This supports lecture 23's historical pause.
+- Alan Michael Nadel, [Multiplier ideal sheaves and Kähler–Einstein metrics of positive scalar curvature](https://annals.math.princeton.edu/1990/132-3/p04), Annals of Mathematics 132 (1990), 549–596, DOI 10.2307/1971429. The abstract explains the Kähler–Einstein origin and how multiplier ideals record failure of an estimate. This supports the optional historical context in lecture 23's notes.
 - [IAS scholar profile: Kunihiko Kodaira](https://www.ias.edu/scholars/kunihiko-kodaira). Supports the 1954 Fields Medal, first Japanese recipient, and connection with harmonic analysis/vanishing. The slide paraphrases rather than quotes the profile.
 - Yujiro Kawamata, [A Generalization of Kodaira–Ramanujam's Vanishing Theorem](https://geodesic.mathdoc.fr/item/MAN_1982__261_182862/), Math. Ann. 261 (1982), 43–46.
 - Eckart Viehweg, “Vanishing theorems,” J. reine angew. Math. 335 (1982), 1–8: [author's publication list](https://esaga.uni-due.de/eckart.viehweg/ecpubl/), item 7. Together these support the chronology frame. We do not imply Nadel's theorem was the original proof of Kawamata–Viehweg.
@@ -25,10 +25,22 @@ Jean-Pierre Demailly, [L2 vanishing theorems for positive line bundles and adjun
 - Cutoff annulus: original editable TikZ diagram indicating where bounded curvature loss occurs.
 - Cusp: original editable TikZ plot of the real slice (t²,t³); it illustrates, but does not characterize, failure of immersion.
 - Blowup: original editable schematic of contraction of E; not a literal drawing of a complex surface.
-- Prescribed section value: editable schematic of a local real slice of a line bundle and a section, with a selected nonzero fibre value.
 - Weighted complex: editable diagram of a primitive, closed form, and zero, illustrating exactness.
 - Local smoothing: editable plots of log|r| and (1/2)log(r²+δ), a local model only; the global analytic theorem is stated separately.
-- Point separation: editable schematic showing prescribed values (1,0) and (0,1) at two points.
 - Mild-pole threshold: editable diagram of the one-complex-variable integrability interval c<1.
 - Historical timeline: editable diagram locating the verified 1982 and 1990 publications.
 
+
+## Course recap provenance
+
+The two opening recap slides follow the supplied 2025 PDFs, authored by Misha Verbitsky. They summarize the full sequence without guessing assignments in Daniel's later seminar:
+
+- Foundations: complex manifolds, Cauchy formula, Frobenius, real analytic methods, Newlander–Nirenberg.
+- Kähler geometry: homogeneous spaces and Fubini–Study, Levi-Civita, intrinsic torsion, Bismut.
+- Cohomology: harmonic forms (supplement), Kähler identities/supersymmetry, sheaves, the one-variable Dolbeault lemma, and the Poincaré–Dolbeault–Grothendieck lemma.
+- Curvature: Chern connections, Hodge theory with bundle coefficients, Kodaira–Nakano, and the currents supplement.
+- Analysis: unbounded Hilbert-space operators, L2-cohomology, holomorphic convexity, Stein manifolds, pseudoconvex vanishing, singular psh functions, and Poincaré–Lelong.
+
+The early embedding statement was checked in the original 2025 source `12-slides-Kahler-2025-06.pdf` (Misha Verbitsky), on its “Kodaira embedding theorem” page, following Fubini–Study and projective manifolds. This motivates returning to the same goal in the final two lectures.
+
+Seminar speaker assignments are a separate matter. archive/TO_DO.md contains the later date/speaker calendar but not a complete numbered topic mapping. Only confirmed attributions appear in numbered seminar references.

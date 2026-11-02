@@ -1,24 +1,51 @@
-# Lecture 23 — preparation notes
+# Lecture 23 — the embedding mechanism and Nadel
 
-22 slides. The main talk begins with a prescribed section value, states Nadel near the start, and returns to that section after the proof.
+28 slides. This is the first half of one argument continued in lecture 24 (Daniel). The theorem to keep in view from the beginning is Kodaira embedding.
+
+## Opening: course recap
+
+Spend about three minutes on slides 2–3. The recap follows the supplied 2025 source PDFs from the first class onward. Group the topics by what they gave us, rather than reciting a lecture-by-lecture catalogue.
+
+Suggested spoken transition: “We started by asking what a complex manifold is. We learned how metrics and connections control differential forms, how forms compute cohomology, and how positivity makes cohomology vanish. The analytic chapters let us use singular weights. Now we use all of this to construct a projective embedding.”
+
+The Fubini–Study example already showed projective manifolds are Kähler. Verbitsky's 2025 source PDF on homogeneous Kähler metrics explicitly states Kodaira embedding. The final lectures return to that promised converse. Do not claim every intermediate topic is a direct ingredient: torsion/Bismut supplies geometric background, while the later L2, pseudoconvexity, and psh material supports the analytic extension.
+
+The recap uses topic names without assigning unverified seminar speakers. Confirmed numbered references retain the known names.
 
 ## Essential preparation
 
-Practise the radial integral, the meaning of the weighted Dolbeault resolution, and the evaluation exact sequence. These are the calculations to explain slowly. For the singular-weight L2 existence theorem, know the statement and the approximation idea; its full proof is not part of the main talk.
+The main opening argument is now on the slides, not deferred to the next lecture:
+1. Sections define a projective map if they have no common zero.
+2. Independent prescribed values separate points.
+3. Prescribed first jets make the differential injective.
+4. Compactness turns an injective immersion into an embedding.
+5. The long exact sequence turns all three prescriptions into H1-vanishing.
 
-## Route through the slides
+Then prepare the radial ideal calculation and the weighted Dolbeault argument. State the full singular-weight L2 existence theorem as an analytic input, as before.
 
-- 2–4: announce the destination, theorem, and route.
-- 5–6: connect to Bochner–Kodaira and Kodaira vanishing, lecture 16 (Vanya).
-- 7–11: explain the ideal through one explicit weight.
-- 12–18: reuse the Dolbeault architecture and prove Nadel from stated analytic inputs.
-- 19–22: obtain section values, show the upcoming applications, and recap.
+## Route
 
-At slide 19, write the evaluation sequence on the board:
-0 → A⊗m_x → A → A|_x → 0.
-Its long exact sequence explains exactly why H1=0 gives surjectivity. A|_x is the fibre, used as a skyscraper sheaf.
+- 2–3: course recap from complex structures through singular psh weights.
+- 4–6: Kodaira embedding, projective coordinates, and the geometric conditions.
+- 7–9: long exact sequence, values, and first jets.
+- 10–12: identify the missing vanishing theorem and announce the two-lecture route.
+- 13–19: recall smooth vanishing and introduce the multiplier ideal.
+- 20–26: weighted resolution, analytic input, and Nadel's proof.
+- 27–28: substitute B_N=L^N⊗K_X^(-1) and hand the metric-construction task to lecture 24 (Daniel).
 
-The picture on slide 2 is a schematic local real slice. A global section need not be a function in one global trivialization. The smoothing picture on slide 17 is likewise only a local model, not a claim of global positive smooth approximation.
+## Details of the opening mechanism
+
+Write I=m_x for the ideal sheaf of the point, whose stalk is O away from x. The quotient A⊗O/I is the fibre A|_x as a skyscraper sheaf. Its global sections are precisely that fibre. H1(A⊗m_x)=0 therefore gives a global section taking any chosen nonzero value at x.
+
+For x≠y, I=m_x∩m_y has quotient supported at those two points. After choosing fibre coordinates, surjectivity gives sections with values (1,0) and (0,1). The two evaluation functionals cannot be proportional, so the complete linear system separates the points.
+
+For first jets, choose a local frame of A and coordinates centred at x. Surjectivity modulo m_x² yields s_0=1+O(|z|²) and s_j=z_j+O(|z|²). Their projective ratios have differentials dz_j. These sections can be included in a basis of H0(A), or viewed as linear combinations of its projective coordinates. Either way, the differential has rank n.
+
+These are sufficient conditions for Kodaira **embedding**. Kodaira **vanishing** is a cohomological theorem used in the route toward embedding. The cusp is a useful example showing that injectivity alone is insufficient; it is not a classification of failures of immersion.
+
+At this point all implications are conditional on one uniform N. No existence of the needed metrics or vanishing groups has yet been proved. Slide 27 explains exactly how Nadel reduces the missing assertion to constructing metrics on B_N, not on A itself.
+
+Historical context, if useful orally: Nadel's 1990 paper developed multiplier ideals in the Kähler–Einstein problem. The published source is linked in sources.md.
 
 ## Optional details
 

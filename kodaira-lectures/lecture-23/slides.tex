@@ -1,23 +1,145 @@
 \input{../preamble.tex}
-\title{Nadel vanishing}
-\subtitle{Lecture 23}
+\title{Kodaira embedding through vanishing}
+\subtitle{Lecture 23: the mechanism and Nadel's theorem}
 \date{Hodge theory}
 \begin{document}
 \begin{frame}\titlepage\end{frame}
-\begin{frame}{The destination: a section with a chosen value}
+\begin{frame}{The course so far: complex and Kähler geometry}
+\begin{enumerate}
+\setlength{\itemsep}{12pt}
+\item \textbf{Complex structures and holomorphic functions.}\\
+\(I^2=-1\), Cauchy's formula, and complex manifolds.
+\item \textbf{Integrability.}\\
+Frobenius, real analytic methods, and Newlander--Nirenberg.
+\item \textbf{Kähler geometry.}\\
+Homogeneous examples and Fubini--Study; Levi-Civita, intrinsic torsion, and Bismut.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The course so far: cohomology and analysis}
+\begin{enumerate}
+\setlength{\itemsep}{9pt}
+\item \textbf{Hodge theory and Kähler identities:} harmonic representatives.
+\item \textbf{Sheaves and Dolbeault:} cohomology through the \(\db\)-complex.
+\item \textbf{Chern curvature and bundle-valued Hodge theory:}\\
+Bochner--Kodaira and Kodaira--Nakano vanishing.
+\item \textbf{The analytic extension:} Hilbert-space operators and \(L^2\);
+holomorphic convexity, Stein spaces, and pseudoconvex vanishing;
+currents, singular psh weights, and Poincaré--Lelong.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The goal of both lectures: Kodaira embedding}
+Let \(X\) be compact complex and \(L\) a holomorphic line bundle with a smooth positive metric.
+For all sufficiently large \(N\),
+\[
+\boxed{\Phi_{L^N}:X\hookrightarrow
+\Pj\bigl(H^0(X,L^N)^*\bigr)}
+\]
+is a holomorphic embedding.
+\par\bigskip
+Fubini--Study gave positive bundles on projective manifolds.
+We now prove the converse: positivity produces projective coordinates.
+\end{frame}
+
+\begin{frame}{An embedding needs values and derivatives}
+\[
+\Phi_N(x)=[s_0(x):\cdots:s_M(x)],\qquad s_j\in H^0(X,L^N).
+\]
+\par\bigskip
 \begin{center}
-\begin{tikzpicture}[x=1.2cm,y=.85cm,>=Stealth]
-\draw[->] (-3,0)--(3,0) node[right] {local base};
-\draw[->] (0,-.3)--(0,3) node[above] {fibre at \(x\)};
-\draw[thick,domain=-2.5:2.5,samples=60] plot (\x,{1.5+.15*\x+.12*\x*\x});
-\fill (0,1.5) circle (2pt) node[below left=6pt] {chosen value};
-\node[below] at (0,0) {\(x\)};
-\node[right] at (2.5,2.625) {section \(s\)};
-\end{tikzpicture}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ll}
+What we need & What we prescribe\\
+\hline
+Defined at every \(x\) & a nonzero value at \(x\)\\
+Injective & independent values at \(x,y\)\\
+Immersion & all first derivatives at \(x\)
+\end{tabular}
 \end{center}
-We want a global holomorphic section with \(s(x)\ne0\).
-\par Vanishing of \(H^1\) will let us prescribe this value.
-% Schematic local real slice of a bundle and section, not a global trivialization.
+\end{frame}
+
+\begin{frame}{Why these conditions give an embedding}
+\begin{columns}[c]
+\column{.44\textwidth}
+\centering
+\begin{tikzpicture}[scale=.95,>=Stealth]
+\draw[->] (-.2,0)--(1.9,0);
+\draw[->] (0,-1.5)--(0,1.5);
+\draw[thick,domain=-1.1:1.1,samples=70,variable=\t] plot ({\t*\t},{\t*\t*\t});
+\fill (0,0) circle (2pt);
+\node at (.8,-2) {\(t\mapsto(t^2,t^3)\)};
+\end{tikzpicture}
+\column{.53\textwidth}
+Point separation gives injectivity.
+\par\bigskip
+Tangent separation gives immersion.
+\par\bigskip
+Compactness makes an injective immersion an embedding.
+\end{columns}
+\src{The cusp is injectively parametrized, but its derivative vanishes at the origin.}
+\end{frame}
+
+\begin{frame}{Vanishing lifts prescribed data}
+Put \(A=L^N\). For an ideal sheaf \(I\),
+\[
+0\longrightarrow A\otimes I\longrightarrow A
+\longrightarrow A\otimes(\cO_X/I)\longrightarrow0.
+\]
+The long exact sequence contains
+\[
+H^0(X,A)\longrightarrow H^0(X,A\otimes\cO_X/I)
+\longrightarrow H^1(X,A\otimes I).
+\]
+\[
+\boxed{H^1(X,A\otimes I)=0
+\quad\Longrightarrow\quad\text{every prescribed quotient section lifts}.}
+\]
+\end{frame}
+
+\begin{frame}{Values: no base points and point separation}
+For \(I=\mathfrak m_x\), vanishing lets us prescribe a nonzero value at \(x\).
+For \(I=\mathfrak m_x\cap\mathfrak m_y\), the same argument gives
+\[
+H^1(X,A\otimes I)=0
+\quad\Longrightarrow\quad
+H^0(X,A)\twoheadrightarrow A|_x\oplus A|_y.
+\]
+For distinct \(x,y\), we may therefore choose
+\[
+(s(x),s(y))=(1,0),\qquad
+(t(x),t(y))=(0,1)
+\]
+in chosen fibre coordinates. Their projective images are distinct.
+% The displayed two-fibre map uses the second ideal.
+\end{frame}
+
+\begin{frame}{First jets: tangent separation}
+The quotient by \(\mathfrak m_x^2\) remembers the constant and linear terms.
+If \(H^1(X,A\otimes\mathfrak m_x^2)=0\), choose sections locally with
+\[
+s_0=1+O(|z|^2),\qquad s_j=z_j+O(|z|^2).
+\]
+Projective coordinates near \(x\) include \(s_j/s_0\), and
+\[
+\boxed{d(s_j/s_0)_x=dz_j.}
+\]
+These span \(T_x^*X\). Hence \(d\Phi_A\) is injective.
+\end{frame}
+
+\begin{frame}{The remaining task is a vanishing theorem}
+We want, for one sufficiently large \(N\),
+\[
+H^1(X,L^N\otimes I)=0
+\]
+for
+\[
+I=\mathfrak m_x,\qquad
+\mathfrak m_x\cap\mathfrak m_y,\qquad
+\mathfrak m_x^2.
+\]
+Kodaira vanishing handles a positive bundle with a canonical twist.
+We need a theorem that also allows these ideals.
 \end{frame}
 
 \begin{frame}{Nadel vanishing}
@@ -33,12 +155,12 @@ gives
 The new object is the multiplier ideal \(\cI_h\).
 \end{frame}
 
-\begin{frame}{The route}
+\begin{frame}{One argument across the two lectures}
 \begin{enumerate}
-\setlength{\itemsep}{16pt}
-\item See how a singular norm forces a holomorphic function to vanish.
-\item Use the weighted Dolbeault complex to represent cohomology.
-\item Solve \(\db u=f\), then return to sections.
+\setlength{\itemsep}{15pt}
+\item \textbf{The geometric mechanism:} vanishing gives sections, then an embedding.
+\item \textbf{Today:} prove Nadel, the vanishing theorem that allows multiplier ideals.
+\item \textbf{Next time:} construct positive metrics with those ideals, then apply the same method to Kawamata--Viehweg.
 \end{enumerate}
 \end{frame}
 
@@ -150,9 +272,9 @@ means strict positivity in that sense.
 \centering\includegraphics[height=4.6cm]{../assets/Pierre_Dolbeault.jpg}
 \column{.65\textwidth}
 Local primitives make the complex exact.
-\bigskip
+\par\bigskip
 \par Partitions of unity make its sheaves fine.
-\bigskip
+\par\bigskip
 \par Its global complex computes sheaf cohomology.
 \end{columns}
 \src{Pierre Dolbeault. The same resolution argument as in our earlier lectures (Daniel).}
@@ -175,12 +297,12 @@ The derivative is distributional.
 \begin{frame}{Why this computes cohomology}
 \textbf{Local exactness:} the weighted local \(\db\)-lemma gives primitives.
 This is an analytic input.
-\bigskip
+\par\bigskip
 \par \textbf{Fineness:} smooth cutoffs preserve the domain, since
 \[
 \db(\chi u)=\db\chi\wedge u+\chi\,\db u.
 \]
-\bigskip
+\par\bigskip
 \par Thus a class is represented by a global closed \(L^2_h\) form \(f\).
 \end{frame}
 
@@ -227,9 +349,9 @@ Its full analytic proof is an input to this lecture.
 \end{tikzpicture}
 \column{.48\textwidth}
 Smooth the local weights.
-\bigskip
+\par\bigskip
 \par Keep a uniform \(L^2\) estimate.
-\bigskip
+\par\bigskip
 \par Take a weak limit of the solutions.
 \end{columns}
 \src{Local model only. The global theorem also requires control of domains and curvature errors.}
@@ -247,49 +369,26 @@ Smooth the local weights.
 \]
 \end{frame}
 
-\begin{frame}{Return to the prescribed value}
-To study a line bundle \(A\), use \(B=A\otimes K_X^{-1}\).
-If a positive singular metric on \(B\) has \(\cI_h=\mathfrak m_x\), Nadel gives
+\begin{frame}{Nadel now fits the embedding mechanism}
+Set \(B_N=L^N\otimes K_X^{-1}\). Then
 \[
-H^1(X,A\otimes\mathfrak m_x)=0.
+K_X\otimes B_N=L^N.
 \]
-The evaluation sequence now gives
+If \(B_N\) has a strictly positive singular metric with \(\cI_h=I\), Nadel gives
 \[
-\boxed{H^0(X,A)\twoheadrightarrow A|_x.}
+\boxed{H^1(X,L^N\otimes I)=0.}
 \]
-Every fibre value at \(x\) comes from a global section.
+For the three ideals from the opening, this gives exactly the sections needed for embedding.
 \end{frame}
 
-\begin{frame}{Two uses of the same theorem}
-\begin{center}
-\begin{tikzpicture}[every node/.style={align=center},>=Stealth]
-\node (n) at (0,2) {Nadel vanishing};
-\node (a) at (-3.4,0) {\(\cI_h=\mathfrak m_x,\ \mathfrak m_x^2,\ldots\)\\prescribe values and derivatives};
-\node (b) at (3.4,0) {\(\cI_h=\cO_X\)\\ordinary cohomology vanishes};
-\draw[->] (n)--(a); \draw[->] (n)--(b);
-\node at (-3.4,-1.2) {Kodaira embedding};
-\node at (3.4,-1.2) {Kawamata--Viehweg};
-\end{tikzpicture}
-\end{center}
-\end{frame}
-
-\begin{frame}{Nadel's original motivation}
-Nadel introduced multiplier ideals in his work on Kähler--Einstein metrics.
-\bigskip
-\par An analytic estimate fails, and the ideal records where the weights concentrate.
-\bigskip
-\par For our applications, we choose the singularities deliberately.
-\src{A. M. Nadel, \emph{Annals of Mathematics} 132 (1990), 549--596.}
-\end{frame}
-
-\begin{frame}{What we proved}
+\begin{frame}{Where we stand}
 \begin{enumerate}
 \setlength{\itemsep}{13pt}
-\item A singular weight can impose vanishing on holomorphic germs.
-\item Positive curvature gives Nadel vanishing through weighted \(\db\) solvability.
-\item Vanishing of \(H^1\) lets us prescribe section values.
+\item We reduced embedding to prescribing values and first derivatives.
+\item We reduced those prescriptions to \(H^1\)-vanishing.
+\item Nadel supplies that vanishing for multiplier ideals.
 \end{enumerate}
-\bigskip
-Next: construct the metrics that make those sections exist.
+\par\bigskip
+\textbf{Next step:} put logarithmic poles into a positive metric on \(B_N\), with one exponent \(N\) valid everywhere.
 \end{frame}
 \end{document}

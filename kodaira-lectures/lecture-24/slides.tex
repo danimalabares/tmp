@@ -1,77 +1,33 @@
 \input{../preamble.tex}
-\title{Kodaira embedding and Kawamata--Viehweg}
-\subtitle{Lecture 24}
+\title{Kodaira embedding through vanishing}
+\subtitle{Lecture 24: the metrics and Kawamata--Viehweg}
 \date{Hodge theory}
 \begin{document}
 \begin{frame}\titlepage\end{frame}
-\begin{frame}{The destination}
-\textbf{Kodaira embedding.} On a compact complex manifold, a positive line bundle has a power whose sections embed \(X\):
+\begin{frame}{Where we left off}
+For \(A=L^N\), vanishing of \(H^1(X,A\otimes I)\) lets us prescribe:
 \[
-X\hookrightarrow\Pj^M.
+\begin{array}{c|c}
+I&\text{data}\\ \hline
+\mathfrak m_x&\text{one value}\\
+\mathfrak m_x\cap\mathfrak m_y&\text{two values}\\
+\mathfrak m_x^2&\text{first jets}
+\end{array}
 \]
-\bigskip
-\textbf{Kawamata--Viehweg.} On smooth projective \(X\), a nef and big line bundle satisfies
+Lecture 23 (Daniel) reduced embedding to constructing positive metrics on
 \[
-H^q(X,K_X\otimes L)=0,\qquad q>0.
+B_N=L^N\otimes K_X^{-1}
 \]
+with these multiplier ideals.
 \end{frame}
 
-\begin{frame}{The route}
+\begin{frame}{Today's remaining steps}
 \begin{enumerate}
-\setlength{\itemsep}{17pt}
-\item Use singularities to prescribe values and derivatives.
-\item Use those sections to embed \(X\).
-\item Make singularities milder to prove Kawamata--Viehweg.
+\setlength{\itemsep}{16pt}
+\item Construct the logarithmic metrics and finish Kodaira embedding.
+\item Weaken positivity to nef and big.
+\item Use a mild divisor metric and Nadel to prove Kawamata--Viehweg.
 \end{enumerate}
-\end{frame}
-
-\begin{frame}{Nadel is our common tool}
-From lecture 23 (Daniel):
-\[
-i\Theta_h\ge\varepsilon\omega
-\quad\Longrightarrow\quad
-H^q(X,K_X\otimes B\otimes\cI_h)=0,\quad q>0.
-\]
-\begin{center}
-\begin{tikzpicture}[>=Stealth,every node/.style={align=center}]
-\node (s) at (0,1) {choose the singularities};
-\node (a) at (-3,-.7) {\(\cI_h=\mathfrak m_x,\ \mathfrak m_x^2\)\\control sections};
-\node (b) at (3,-.7) {\(\cI_h=\cO_X\)\\ordinary vanishing};
-\draw[->] (s)--(a); \draw[->] (s)--(b);
-\end{tikzpicture}
-\end{center}
-\end{frame}
-
-\begin{frame}{An embedding needs values and derivatives}
-\[
-\Phi_N(x)=[s_0(x):\cdots:s_M(x)],\qquad s_j\in H^0(X,L^N).
-\]
-\bigskip
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{ll}
-What we need & What we prescribe\\
-\hline
-Defined at every \(x\) & a nonzero value at \(x\)\\
-Injective & independent values at \(x,y\)\\
-Immersion & all first derivatives at \(x\)
-\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}{The cohomology step}
-Put \(A=L^N\). For an ideal sheaf \(I\),
-\[
-0\longrightarrow A\otimes I\longrightarrow A
-\longrightarrow A\otimes(\cO_X/I)\longrightarrow0.
-\]
-Thus
-\[
-H^1(X,A\otimes I)=0
-\quad\Longrightarrow\quad
-H^0(X,A)\twoheadrightarrow H^0(X,A\otimes\cO_X/I).
-\]
-Apply Nadel to \(B_N=L^N\otimes K_X^{-1}\).
 \end{frame}
 
 \begin{frame}{The singularity is local}
@@ -117,61 +73,22 @@ Since \(i\Theta_L\ge c\omega\), with \(c>0\),
 The cutoff contributes only a bounded negative error.
 \end{frame}
 
-\begin{frame}{Sections separate points}
-Use \(I=\mathfrak m_x\cap\mathfrak m_y\), obtained from two logarithmic singularities.
-Nadel makes evaluation onto both fibres surjective.
-\begin{center}
-\begin{tikzpicture}[>=Stealth]
-\draw (-3.2,0) ellipse (1.1 and .7);
-\fill (-3.6,.15) circle (2pt) node[above] {\(x\)};
-\fill (-2.8,-.15) circle (2pt) node[below] {\(y\)};
-\draw[->] (-1.8,0)--(.7,0) node[midway,above] {sections \(s,t\)};
-\node[anchor=west] at (1,.5) {\(x:\ (s,t)=(1,0)\)};
-\node[anchor=west] at (1,-.5) {\(y:\ (s,t)=(0,1)\)};
-\end{tikzpicture}
-\end{center}
-The projective images are distinct.
-\end{frame}
-
-\begin{frame}{First derivatives matter}
-\begin{columns}[c]
-\column{.47\textwidth}
-\centering
-\begin{tikzpicture}[scale=1.2]
-\draw[->] (-.2,0)--(2,0) node[right] {\(x\)};
-\draw[->] (0,-1.7)--(0,1.7) node[above] {\(y\)};
-\draw[thick,domain=-1.1:1.1,samples=80,smooth,variable=\t] plot ({\t*\t},{\t*\t*\t});
-\fill (0,0) circle (1.5pt);
-\end{tikzpicture}
-\column{.51\textwidth}
-The cusp parametrization
+\begin{frame}{One exponent for all the prescriptions}
+At \(x\), use coefficient \(n\) for \(\mathfrak m_x\), and \(n+1\) for \(\mathfrak m_x^2\).
+For distinct \(x,y\), add their coefficient-\(n\) weights:
 \[
-t\longmapsto(t^2,t^3)
+\psi=\psi_x+\psi_y,\qquad
+\cI_h=\mathfrak m_x\cap\mathfrak m_y.
 \]
-is injective, but its derivative vanishes at \(0\).
-\medskip
-\par First-jet separation rules out this failure.
-\end{columns}
-\src{Real slice of the complex cusp. Failure of immersion need not always produce a cusp.}
-\end{frame}
-
-\begin{frame}{Sections separate tangent directions}
-Use \(I=\mathfrak m_x^2\). Nadel lets us prescribe first jets:
-\[
-s_0=1+O(|z|^2),\qquad
-s_j=z_j+O(|z|^2).
-\]
-In projective coordinates,
-\[
-\boxed{d(s_j/s_0)_x=dz_j.}
-\]
-Hence \(d\Phi_N\) is injective.
+A finite coordinate cover gives uniform curvature-error bounds.
+\par\bigskip
+The supports may overlap. Their lower curvature bounds simply add, so one large \(N\) works for every point and pair.
 \end{frame}
 
 \begin{frame}{Kodaira embedding: conclusion}
 A finite coordinate cover gives a uniform bound on all cutoff errors.
 One sufficiently large \(N\) works for every point and pair.
-\bigskip
+\par\bigskip
 \par The resulting \(\Phi_N\) is everywhere defined, injective, and an immersion.
 \[
 \boxed{X\ \text{compact}\quad\Longrightarrow\quad
@@ -182,7 +99,7 @@ Conversely, the restricted Fubini--Study metric is positive.
 
 \begin{frame}{A historical pause}
 Kodaira received the Fields Medal in 1954, the first Japanese recipient.
-\bigskip
+\par\bigskip
 \par His vanishing theorem is a striking link between harmonic analysis and algebraic geometry.
 \[
 \text{positive curvature}\quad\Longrightarrow\quad
@@ -193,9 +110,9 @@ Kodaira received the Fields Medal in 1954, the first Japanese recipient.
 
 \begin{frame}{Nef and big}
 Now let \(X\) be smooth projective, of dimension \(n\).
-\bigskip
+\par\bigskip
 \par \textbf{Nef:} \(L\cdot C=\deg(L|_C)\ge0\) for every irreducible curve \(C\).
-\bigskip
+\par\bigskip
 \par \textbf{Big:}
 \[
 \limsup_{m\to\infty}\frac{h^0(X,L^m)}{m^n}>0.
@@ -229,9 +146,9 @@ For a nef and big line bundle \(L\) on smooth projective \(X\),
 \[
 \boxed{H^q(X,K_X\otimes L)=0,\qquad q>0.}
 \]
-\bigskip
+\par\bigskip
 \textbf{Kawamata--Viehweg:} obtain vanishing under the weaker positivity assumptions \textquotedblleft nef and big.\textquotedblright
-\bigskip
+\par\bigskip
 \par We will construct a positive singular metric with \(\cI_h=\cO_X\).
 \end{frame}
 
@@ -242,7 +159,7 @@ For a nef and big line bundle \(L\) on smooth projective \(X\),
 \item Nefness lets us take larger powers without changing that divisor.
 \item A large root makes the divisor's singularity integrable.
 \end{enumerate}
-\bigskip
+\par\bigskip
 Then apply Nadel.
 \end{frame}
 
@@ -268,7 +185,7 @@ L^N=
 \otimes\cO_X(D).
 \]
 We use the projective fact: nef plus ample is ample.
-\bigskip
+\par\bigskip
 \par Give \(M_N\) a smooth positive metric \(h_N\).
 \end{frame}
 
@@ -343,7 +260,7 @@ We have reached the second destination.
 \node[below=8pt,align=center] at (2,0) {1990\\Nadel};
 \end{tikzpicture}
 \end{center}
-\bigskip
+\par\bigskip
 Our proof uses the later analytic theorem to recover the earlier vanishing result.
 \src{Kawamata, \emph{Math. Ann.} 261 (1982); Viehweg, \emph{J. reine angew. Math.} 335 (1982); Nadel, \emph{Annals} 132 (1990).}
 \end{frame}
@@ -358,7 +275,7 @@ Chosen logarithmic poles & \(\mathfrak m_x,\ \mathfrak m_x^2,\ldots\) & sections
 Mild divisor poles & \(\cO_X\) & ordinary vanishing
 \end{tabular}
 \end{center}
-\bigskip
+\par\bigskip
 Positive curvature gives vanishing.
 The singularities decide which ideal appears.
 \end{frame}
