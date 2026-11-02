@@ -36,3 +36,5 @@ Lecture 24 constructs the metrics required by the first lecture, concludes embed
 See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Each notes file starts with the essential preparation, followed by optional details. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
 
 Talk preparation checklist: [HOW TO GIVE A TALK](https://github.com/danimalabares/archive/blob/main/archive/HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.
+
+Presentation convention (Daniel): state each named theorem first; put the corresponding portrait or illustration on the immediately following slide. Current pairs: lecture 23, Kodaira 4–5 and Nadel 12–13; lecture 24, Kawamata–Viehweg 10–11.

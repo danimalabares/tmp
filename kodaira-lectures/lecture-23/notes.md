@@ -26,8 +26,9 @@ Then prepare the radial ideal calculation and the weighted Dolbeault argument. S
 ## Route
 
 - 2–3: course recap from complex structures through singular psh weights.
-- 4: Kodaira portrait and historical introduction.
-- 5–7: Kodaira embedding, projective coordinates, and the geometric conditions.
+- 4: Kodaira embedding theorem.
+- 5: Kodaira portrait and historical introduction.
+- 6–7: projective coordinates and the geometric conditions.
 - 8–10: long exact sequence, values, and first jets.
 - 11–14: identify the missing vanishing theorem and announce the two-lecture route.
 - 15–21: recall smooth vanishing and introduce the multiplier ideal.
