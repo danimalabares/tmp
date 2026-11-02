@@ -4,8 +4,8 @@ The original nine-slide outline is preserved unchanged in [plan/slides.tex](plan
 
 | Folder | Draft | Slides |
 | --- | --- | ---: |
-| [lecture-23](lecture-23/slides.tex) | Embedding mechanism and Nadel vanishing | 28 |
-| [lecture-24](lecture-24/slides.tex) | Metric construction and Kawamata–Viehweg | 20 |
+| [lecture-23](lecture-23/lecture-23.tex) | Embedding mechanism and Nadel vanishing | 28 |
+| [lecture-24](lecture-24/lecture-24.tex) | Metric construction and Kawamata–Viehweg | 20 |
 
 These two decks form one continuous argument, with a short course recap and Kodaira embedding as the initial goal. The first lecture explains how H1-vanishing gives values and first jets before developing Nadel. The second resumes with the missing metric construction. They follow Daniel's talk checklist: announce the destination, explain the route, carry out the argument, and return to the result. They retain the dbar-poincare Beamer style, use mathematical pictures and short historical pauses, and move longer technical arguments into optional preparation notes. Shared styling is in [preamble.tex](preamble.tex).
 
@@ -21,11 +21,11 @@ Or compile an individual deck from its own folder:
 
 ```sh
 cd lecture-23
-pdflatex -interaction=nonstopmode -halt-on-error slides.tex
-pdflatex -interaction=nonstopmode -halt-on-error slides.tex
+pdflatex -interaction=nonstopmode -halt-on-error lecture-23.tex
+pdflatex -interaction=nonstopmode -halt-on-error lecture-23.tex
 ```
 
-Use `lecture-24` or `plan` in place of `lecture-23` for the other decks. Compiled PDFs remain local, following the repository's existing PDF ignore rule.
+For lecture 24, use folder `lecture-24` and source `lecture-24.tex`; for the outline, use folder `plan` and source `slides.tex`. The lecture outputs are `lecture-23/lecture-23.pdf` and `lecture-24/lecture-24.pdf`. Compiled PDFs remain local, following the repository's existing PDF ignore rule.
 
 ## Mathematical scope
 
