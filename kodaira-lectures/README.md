@@ -1,12 +1,16 @@
 # Kodaira lectures
 
-Five Beamer slides, restructured at Daniel's request:
+Nine Beamer slides, following Daniel's clarified structure:
 
 1. Title.
-2. Bochner–Kodaira identity and proof.
-3. Kodaira vanishing and proof.
-4. Nadel vanishing and proof using weighted L2 solvability.
-5. Kawamata–Viehweg vanishing and proof.
+2. Bochner–Kodaira identity.
+3. Bochner–Kodaira proof (numbered list).
+4. Kodaira vanishing theorem.
+5. Kodaira vanishing proof (numbered list).
+6. Nadel vanishing theorem.
+7. Nadel proof (numbered list).
+8. Kawamata–Viehweg vanishing theorem.
+9. Kawamata–Viehweg proof (numbered list).
 
 Earlier versions remain in Git history. Kodaira embedding is omitted from the current requested structure.
 
