@@ -34,3 +34,5 @@ Lecture 23 builds the multiplier ideal, recalls Bochner–Kodaira and Kodaira va
 Lecture 24 gives the logarithmic-cutoff construction for embedding, including one exponent valid for all points and pairs, then constructs the mild divisor metric for Kawamata–Viehweg. It includes nef/big definitions, a blowup example, the dimension count, Poincaré–Lelong, and the small-exponent integrability argument.
 
 See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Historical remarks are sourced there. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
+
+Talk preparation checklist: [HOW TO GIVE A TALK](HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.
