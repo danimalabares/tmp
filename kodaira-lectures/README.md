@@ -1,32 +1,36 @@
 # Kodaira lectures
 
-Nine Beamer slides, following Daniel's clarified structure:
+The original nine-slide outline is preserved unchanged in [plan/slides.tex](plan/slides.tex).
 
-1. Title.
-2. Bochner–Kodaira identity.
-3. Bochner–Kodaira proof (numbered list).
-4. Kodaira vanishing theorem.
-5. Kodaira vanishing proof (numbered list).
-6. Nadel vanishing theorem.
-7. Nadel proof (numbered list).
-8. Kawamata–Viehweg vanishing theorem.
-9. Kawamata–Viehweg proof (numbered list).
+| Folder | Draft | Slides |
+| --- | --- | ---: |
+| [lecture-23](lecture-23/slides.tex) | From curvature to Nadel vanishing | 41 |
+| [lecture-24](lecture-24/slides.tex) | Kodaira embedding and Kawamata–Viehweg | 43 |
 
-Earlier versions remain in Git history. Kodaira embedding is omitted from the current requested structure.
+These are full first drafts, modelled on the 36- and 51-frame `dbar-poincare` lectures: the same 16:9 Beamer format, serif typography, white background, generous space, and short steps in calculations. Shared styling is in [preamble.tex](preamble.tex). Mathematical pictures are editable TikZ; the Dolbeault portrait is reused from the existing repository.
 
 ## Build
 
+Run from this folder:
+
 ```sh
+make
+```
+
+Or compile an individual deck from its own folder:
+
+```sh
+cd lecture-23
 pdflatex -interaction=nonstopmode -halt-on-error slides.tex
 pdflatex -interaction=nonstopmode -halt-on-error slides.tex
 ```
 
-Generated PDFs and auxiliary files are ignored.
+Use `lecture-24` or `plan` in place of `lecture-23` for the other decks. Compiled PDFs remain local, following the repository's existing PDF ignore rule.
 
-## Sources and proof scope
+## Mathematical scope
 
-Based on the uploaded Misha Verbitsky 2025 course slides and HP complex-geometry.tex. Source references are in TeX comments and prerequisite labels on the slides: lecture 16 for Bochner–Kodaira and smooth vanishing; lecture 23 for Nadel; lecture 24, slides 4 and 13–16, for Kawamata–Viehweg; lecture 22 for Poincaré–Lelong.
+Lecture 23 builds the multiplier ideal, recalls Bochner–Kodaira and Kodaira vanishing, constructs the weighted Dolbeault resolution, explains the functional analysis behind solvability, and derives Nadel from the singular-weight L2 existence theorem. The last theorem and the weighted local lemma are **explicit analytic inputs**, with a proof mechanism explained; their full regularization/domain proofs are not claimed here.
 
-These are compact proofs with explicit inputs. The Nadel slide invokes the local weighted Dolbeault lemma and global singular L2 existence theorem; those analytic inputs still require explanation in the lectures. The KV slide invokes the section-growth estimate, small-exponent integrability and nef-plus-ample positivity. It retains the requested weaker-positivity sentence and includes the nef and big definitions.
+Lecture 24 gives the logarithmic-cutoff construction for embedding, including one exponent valid for all points and pairs, then constructs the mild divisor metric for Kawamata–Viehweg. It includes nef/big definitions, a blowup example, the dimension count, Poincaré–Lelong, and the small-exponent integrability argument.
 
-Created and revised with ChatGPT.
+See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Historical remarks are sourced there. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
