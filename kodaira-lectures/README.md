@@ -4,10 +4,10 @@ The original nine-slide outline is preserved unchanged in [plan/slides.tex](plan
 
 | Folder | Draft | Slides |
 | --- | --- | ---: |
-| [lecture-23](lecture-23/slides.tex) | From curvature to Nadel vanishing | 41 |
-| [lecture-24](lecture-24/slides.tex) | Kodaira embedding and Kawamata–Viehweg | 43 |
+| [lecture-23](lecture-23/slides.tex) | Nadel vanishing | 22 |
+| [lecture-24](lecture-24/slides.tex) | Kodaira embedding and Kawamata–Viehweg | 25 |
 
-These are full first drafts, modelled on the 36- and 51-frame `dbar-poincare` lectures: the same 16:9 Beamer format, serif typography, white background, generous space, and short steps in calculations. Shared styling is in [preamble.tex](preamble.tex). Mathematical pictures are editable TikZ; the Dolbeault portrait is reused from the existing repository.
+These shorter drafts follow Daniel's talk checklist: announce the destination, explain the route, carry out the argument, and return to the result. They retain the dbar-poincare Beamer style, use mathematical pictures and short historical pauses, and move longer technical arguments into optional preparation notes. Shared styling is in [preamble.tex](preamble.tex).
 
 ## Build
 
@@ -29,10 +29,10 @@ Use `lecture-24` or `plan` in place of `lecture-23` for the other decks. Compile
 
 ## Mathematical scope
 
-Lecture 23 builds the multiplier ideal, recalls Bochner–Kodaira and Kodaira vanishing, constructs the weighted Dolbeault resolution, explains the functional analysis behind solvability, and derives Nadel from the singular-weight L2 existence theorem. The last theorem and the weighted local lemma are **explicit analytic inputs**, with a proof mechanism explained; their full regularization/domain proofs are not claimed here.
+Lecture 23 focuses on the multiplier ideal, the weighted Dolbeault resolution, and the Nadel deduction. Bochner–Kodaira and Kodaira vanishing are brief reminders. The weighted local lemma and singular-weight L2 existence theorem remain explicit analytic inputs. Hahn–Banach, operator domains, and approximation details are optional notes.
 
-Lecture 24 gives the logarithmic-cutoff construction for embedding, including one exponent valid for all points and pairs, then constructs the mild divisor metric for Kawamata–Viehweg. It includes nef/big definitions, a blowup example, the dimension count, Poincaré–Lelong, and the small-exponent integrability argument.
+Lecture 24 proves embedding using values and first jets, then proves the line-bundle version of Kawamata–Viehweg using a fixed effective divisor and an N-th-root metric. The auxiliary growth and local-integrability proofs are in the notes.
 
-See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Historical remarks are sourced there. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
+See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Each notes file starts with the essential preparation, followed by optional details. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
 
 Talk preparation checklist: [HOW TO GIVE A TALK](https://github.com/danimalabares/archive/blob/main/archive/HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.

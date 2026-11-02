@@ -1,16 +1,31 @@
-# Lecture 24 — teaching notes
+# Lecture 24 — preparation notes
 
-43 frames, including title and reading slide. First half: Kodaira embedding. Second half: Kawamata–Viehweg. The brief historical frames can be used as pauses.
+25 slides. Announce both conclusions at the beginning. Finish the embedding argument before introducing nef and big, then end by comparing the two uses of Nadel.
 
-## Route
+## Essential preparation
 
-- 2–6: recall Nadel and translate values/jets into quotient sheaves.
-- 7–10: construct the metric; draw the cutoff annulus while explaining where curvature can be negative.
-- 11–19: point and jet separation, uniform exponent, compact injective immersion, converse.
-- 20–26: historical pause, positivity definitions, blowup example, theorem.
-- 27–32: big gives an ample part; nef lets us increase N while keeping that part positive.
-- 33–40: divisor metric, Poincaré–Lelong, root, integrability, Nadel.
-- 41–43: hypothesis audit, chronology, references.
+Be comfortable with the evaluation sequence, the logarithmic cutoff and its bounded curvature loss, the ratios s_j/s_0 for immersion, and the fixed-divisor N-th-root construction. These are the core arguments.
+
+State these auxiliary results when used: nef plus ample is ample; the restriction-growth bound on a projective divisor; and local integrability of a sufficiently small negative power of a nonzero holomorphic function. The full auxiliary proofs are optional.
+
+## Route through the slides
+
+- 2–4: destinations, route, and Nadel from lecture 23 (Daniel).
+- 5–8: values/jets, exact sequence, and the cutoff metric.
+- 9–12: point and tangent separation, then the embedding conclusion.
+- 13–16: historical pause, definitions, blowup example, and Kawamata–Viehweg.
+- 17–23: construct the metric and apply Nadel.
+- 24–25: historical order and recap.
+
+At slide 18, the board calculation is
+h0(X,L^m(-A)) ≥ h0(X,L^m) - h0(A,L^m|_A).
+Explain that the kernel of restriction is nonzero for some large m. Call that exponent d and the residual zero divisor D. Keep D fixed thereafter.
+
+At slide 12, mention that two point cutoffs may overlap and their lower curvature bounds simply add. This is why one N works even when two points approach each other.
+
+## Optional details
+
+The following expands the short arguments and records the precise hypotheses. It is not an additional slideshow.
 
 ## Embedding details
 

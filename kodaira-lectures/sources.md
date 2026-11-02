@@ -25,8 +25,10 @@ Jean-Pierre Demailly, [L2 vanishing theorems for positive line bundles and adjun
 - Cutoff annulus: original editable TikZ diagram indicating where bounded curvature loss occurs.
 - Cusp: original editable TikZ plot of the real slice (t²,t³); it illustrates, but does not characterize, failure of immersion.
 - Blowup: original editable schematic of contraction of E; not a literal drawing of a complex surface.
-- Section growth: original editable schematic comparing polynomial orders; its caption makes clear that the big lower bound need hold only along a subsequence.
+- Prescribed section value: editable schematic of a local real slice of a line bundle and a section, with a selected nonzero fibre value.
+- Weighted complex: editable diagram of a primitive, closed form, and zero, illustrating exactness.
+- Local smoothing: editable plots of log|r| and (1/2)log(r²+δ), a local model only; the global analytic theorem is stated separately.
+- Point separation: editable schematic showing prescribed values (1,0) and (0,1) at two points.
+- Mild-pole threshold: editable diagram of the one-complex-variable integrability interval c<1.
+- Historical timeline: editable diagram locating the verified 1982 and 1990 publications.
 
-## Verification
-
-Both new decks compiled successfully with pdfLaTeX, with no overfull boxes. All pages were rendered and reviewed in contact sheets; individual picture/formula pages were checked at higher resolution. The original plan was moved without mathematical edits.

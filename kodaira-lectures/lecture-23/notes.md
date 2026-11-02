@@ -1,16 +1,28 @@
-# Lecture 23 — teaching notes
+# Lecture 23 — preparation notes
 
-41 frames, including title and reading slide. The working aim is roughly one substantial idea per frame, as in the dbar-Poincaré decks; the frame count is not a claim about a fixed lecture duration.
+22 slides. The main talk begins with a prescribed section value, states Nadel near the start, and returns to that section after the proof.
 
-## Route
+## Essential preparation
 
-- 2–3: motivate the theorem with the evaluation exact sequence.
-- 4–10: go slowly from the fibre norm to the multiplier ideal. Compute the radial exponent on the board. At equality the logarithmic divergence is essential.
-- 11–16: curvature and the smooth estimate. Bochner–Kodaira/Kodaira vanishing are recalled from lecture 16 (Vanya), not treated as new course material.
-- 17–25: replace the smooth Dolbeault resolution with the weighted complex. This is the conceptual centre of the lecture.
-- 26–32: explain how an estimate solves an equation, and state exactly which singular-weight extension is used.
-- 33–36: finish Nadel and return to the original evaluation map.
-- 37–41: historical context, next lecture, and checkpoints.
+Practise the radial integral, the meaning of the weighted Dolbeault resolution, and the evaluation exact sequence. These are the calculations to explain slowly. For the singular-weight L2 existence theorem, know the statement and the approximation idea; its full proof is not part of the main talk.
+
+## Route through the slides
+
+- 2–4: announce the destination, theorem, and route.
+- 5–6: connect to Bochner–Kodaira and Kodaira vanishing, lecture 16 (Vanya).
+- 7–11: explain the ideal through one explicit weight.
+- 12–18: reuse the Dolbeault architecture and prove Nadel from stated analytic inputs.
+- 19–22: obtain section values, show the upcoming applications, and recap.
+
+At slide 19, write the evaluation sequence on the board:
+0 → A⊗m_x → A → A|_x → 0.
+Its long exact sequence explains exactly why H1=0 gives surjectivity. A|_x is the fibre, used as a skyscraper sheaf.
+
+The picture on slide 2 is a schematic local real slice. A global section need not be a function in one global trivialization. The smoothing picture on slide 17 is likewise only a local model, not a claim of global positive smooth approximation.
+
+## Optional details
+
+The rest is reference material. It need not all be prepared as spoken content.
 
 ## Conventions and details to say aloud
 
@@ -26,7 +38,7 @@ The sheaf domain is u and ∂bar u locally L2. Do not impose an adjoint conditio
 
 ## What is proved and what is imported
 
-The slides prove the radial ideal calculation, frame independence, fineness, the sheaf-cohomology deduction, and the Hilbert-space estimate-to-solution argument. Smooth Bochner–Kodaira and smooth Hodge theory are previous inputs.
+The slides explain the radial ideal calculation, fineness, and the sheaf-cohomology deduction. Frame independence and the Hilbert-space estimate-to-solution argument are optional preparation details below. Smooth Bochner–Kodaira and smooth Hodge theory are previous inputs.
 
 Two analytic results are explicitly imported:
 1. weighted local ∂bar solvability for psh/quasi-psh weights;
@@ -34,7 +46,7 @@ Two analytic results are explicitly imported:
 
 The approximation slide is an explanation of the mechanism, **not** a full proof of the second theorem. A general positive singular metric need not be globally smoothable while preserving strict positivity; pretending otherwise would already force false ampleness conclusions. Use the complete-metric/exhaustion and regularization theorem in the analytic reference.
 
-For a fully self-contained analytic lecture, the next preparation task is to expand slides 21–23 and 31–32 with the precise exhaustion, density, operator-domain, and weak-limit argument. That expansion would require time beyond the present draft.
+The main talk states these analytic inputs. It does not require presenting the full regularization or functional-analysis proof. The details below are for answering questions or for a later, longer treatment.
 
 ## Functional analysis details
 
