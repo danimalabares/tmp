@@ -4,7 +4,7 @@
 \date{Hodge theory}
 \begin{document}
 \begin{frame}\titlepage\end{frame}
-\begin{frame}{The course so far: complex and Kähler geometry}
+\begin{frame}{The course so far}
 \begin{enumerate}
 \setlength{\itemsep}{12pt}
 \item \textbf{Complex structures and holomorphic functions.}\\
@@ -16,8 +16,9 @@ Homogeneous examples and Fubini--Study; Levi-Civita, intrinsic torsion, and Bism
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{The course so far: cohomology and analysis}
+\begin{frame}{The course so far (continued)}
 \begin{enumerate}
+\setcounter{enumi}{3}
 \setlength{\itemsep}{9pt}
 \item \textbf{Hodge theory and Kähler identities:} harmonic representatives.
 \item \textbf{Sheaves and Dolbeault:} cohomology through the \(\db\)-complex.
@@ -174,31 +175,29 @@ gives
 The new object is the multiplier ideal \(\cI_h\).
 \end{frame}
 
-\begin{frame}{Alan Michael Nadel: singularities become an ideal}
+\begin{frame}{Alan Michael Nadel}
 \begin{columns}[c]
-\column{.48\textwidth}
-\textbf{A local picture on the complex line}
-\begin{center}
-\begin{tikzpicture}[scale=.85]
-\fill[blue!6] (0,0) circle (1.5);
-\draw[blue!60] (0,0) circle (1.5);
-\fill[red!70!black] (0,0) circle (2pt);
-\node[below right] at (0,0) {$0$};
-\node[above] at (0,1.6) {singular weight $|z|^{-2}$};
-\node at (0,-2) {$1\notin L^2(h),\qquad z\in L^2(h)$};
+\column{.44\textwidth}
+\centering
+\begin{tikzpicture}
+\fill[black!12] (.12,-.12) rectangle (4.32,5.08);
+\filldraw[fill=blue!4,draw=blue!50!black] (0,0) rectangle (4.2,5.2);
+\draw[blue!50!black,line width=2pt] (.2,0)--(.2,5.2);
+\node[align=center,text width=3.6cm] at (2.2,4.65) {\small\textsc{Annals of Mathematics}};
+\draw[blue!40] (.6,4.15)--(3.8,4.15);
+\node[align=center,text width=3.3cm] at (2.2,3.15) {\small\emph{Multiplier ideal sheaves and Kähler--Einstein metrics of positive scalar curvature}};
+\node[align=center] at (2.2,1.85) {\small Alan Michael Nadel};
+\node at (2.2,.8) {\Large\textbf{1990}};
 \end{tikzpicture}
-\end{center}
-\column{.48\textwidth}
-\textbf{The singularity forces vanishing:}
-\[
-\mathcal I_h=(z)=\mathfrak m_0.
-\]
-\par\bigskip
-Nadel introduced multiplier ideal sheaves to study the existence of Kähler--Einstein metrics.
-\par\bigskip
-Here we use them to prescribe values and derivatives of sections.
+\column{.52\textwidth}
+\begin{itemize}
+\setlength{\itemsep}{16pt}
+\item His 1990 paper introduced multiplier ideal sheaves while studying \textbf{Kähler--Einstein metrics}.
+\item The idea drew inspiration from \textbf{J. J. Kohn's multipliers} in the $\bar\partial$-Neumann problem.
+\item A tool born in geometric analysis became a powerful method for \textbf{vanishing theorems}.
+\end{itemize}
 \end{columns}
-\src{A. M. Nadel, \emph{Multiplier ideal sheaves and Kähler--Einstein metrics of positive scalar curvature}, Ann. of Math. 132 (1990), 549--596. Diagram: local model, not a portrait.}
+\src{Nadel, Ann. of Math. 132 (1990), 549--596, abstract. Publication illustration based on the bibliographic record.}
 \end{frame}
 
 \begin{frame}{One argument across the two lectures}
