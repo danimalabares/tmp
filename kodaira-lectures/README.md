@@ -4,7 +4,7 @@ The original nine-slide outline is preserved unchanged in [plan/slides.tex](plan
 
 | Folder | Draft | Slides |
 | --- | --- | ---: |
-| [lecture-23](lecture-23/lecture-23.tex) | Embedding mechanism and Nadel vanishing | 30 |
+| [lecture-23](lecture-23/lecture-23.tex) | Embedding mechanism and Nadel vanishing | 35 |
 | [lecture-24](lecture-24/lecture-24.tex) | Metric construction and Kawamata–Viehweg | 20 |
 
 These two decks form one continuous argument, with a short course recap and Kodaira embedding as the initial goal. The first lecture explains how H1-vanishing gives values and first jets before developing Nadel. The second resumes with the missing metric construction. They follow Daniel's talk checklist: announce the destination, explain the route, carry out the argument, and return to the result. They retain the dbar-poincare Beamer style, use mathematical pictures and short historical pauses, and move longer technical arguments into optional preparation notes. Shared styling is in [preamble.tex](preamble.tex).
@@ -36,5 +36,3 @@ Lecture 24 constructs the metrics required by the first lecture, concludes embed
 See [lecture-23/notes.md](lecture-23/notes.md), [lecture-24/notes.md](lecture-24/notes.md), and [sources.md](sources.md). Each notes file starts with the essential preparation, followed by optional details. No “Earlier inputs” footers have been restored. Numbered references to our seminar retain the known speaker's name.
 
 Talk preparation checklist: [HOW TO GIVE A TALK](https://github.com/danimalabares/archive/blob/main/archive/HOW_TO_GIVE_A_TALK.txt), saved verbatim from Daniel.
-
-Presentation convention (Daniel): state each named theorem first; put the corresponding portrait or illustration on the immediately following slide. Current pairs: lecture 23, Kodaira 4–5 and Nadel 12–13; lecture 24, Kawamata–Viehweg 10–11.

@@ -1,6 +1,6 @@
 # Lecture 23 — the embedding mechanism and Nadel
 
-30 slides. This is the first half of one argument continued in lecture 24 (Daniel). The theorem to keep in view from the beginning is Kodaira embedding.
+35 slides. This is the first half of one argument continued in lecture 24 (Daniel). The theorem to keep in view from the beginning is Kodaira embedding.
 
 ## Opening: course recap
 
@@ -25,15 +25,25 @@ Then prepare the radial ideal calculation and the weighted Dolbeault argument. S
 
 ## Route
 
-- 2–3: course recap from complex structures through singular psh weights.
-- 4: Kodaira embedding theorem.
-- 5: Kodaira portrait and historical introduction.
-- 6–7: projective coordinates and the geometric conditions.
-- 8–10: long exact sequence, values, and first jets.
-- 11–14: identify the missing vanishing theorem and announce the two-lecture route.
-- 15–21: recall smooth vanishing and introduce the multiplier ideal.
-- 22–28: weighted resolution, analytic input, and Nadel's proof.
-- 29–30: substitute B_N=L^N⊗K_X^(-1) and hand the metric-construction task to lecture 24 (Daniel).
+- 2–3: course recap.
+- 4–7: Kodaira embedding, portrait, and section-separation terminology.
+- 8–11: exact sequence, values, first jets, and the missing vanishing theorem.
+- 12–15: Chern connection, curvature/class, positivity, and Fubini–Study.
+- 16–18: Nadel, historical illustration, and the two-lecture route.
+- 19–21: curvature eigenvalues, integrated BK estimate, and smooth vanishing.
+- 22–26: singular weights and multiplier ideals.
+- 27–33: weighted resolution, analytic input, and Nadel's proof.
+- 34–35: substitute B_N and hand the metric construction to lecture 24 (Daniel).
+
+## Curvature conventions (2026-11-04 review)
+
+The reminders follow HP complex-geometry.tex (labels definition-connection-vector-bundle and definition-curvature-connection) and geometric-prequantization.tex. The graded extension in Definition 8.12 gives locally d+a wedge. For a line bundle, End(L) is canonically trivial, so curvature is a scalar two-form on X, although the connection takes values in L-valued one-forms. Unitarity makes curvature imaginary; the Chern condition makes it type (1,1). For higher rank, the Bianchi identity is covariant closedness; it is the trace that is an ordinary closed form representing c1.
+
+Use Theta=nabla², h(e,e)=exp(-2φ), and c1(L)_R=[iTheta/(2π)] consistently. HP geometric-prequantization.tex currently writes [Omega/(2πi)] with Omega=nabla², an opposite sign; do not import that mismatch. HP complex-geometry.tex, definition-positive-11form, also swaps the strict/non-strict positivity terminology. Here positive means >0 on nonzero tangent vectors, semipositive means >=0. These discrepancies are flagged for a separate HP correction, not silently changed by the requested cross-reference edit.
+
+The two-fibre target is a vector space of dimension two; as a quotient sheaf it is a sum of skyscraper sheaves, not a rank-two locally free sheaf on X. Injective and immersion are also standard in complex geometry. Base-point freeness and separation express these conditions in the language of sections. Surjectivity onto all first jets is the sufficient condition used here.
+
+The BK reminder first diagonalizes iTheta relative to omega. On (n,q)-forms the eigenvalue of the commutator is the sum of the q antiholomorphic curvature eigenvalues. Integration by parts then identifies the Laplacian pairings with squared norms; discard the nonnegative partial-Laplacian term. This is the smooth compact argument, not a substitute for the singular-weight existence theorem.
 
 ## Details of the opening mechanism
 
@@ -45,7 +55,7 @@ For first jets, choose a local frame of A and coordinates centred at x. Surjecti
 
 These are sufficient conditions for Kodaira **embedding**. Kodaira **vanishing** is a cohomological theorem used in the route toward embedding. The cusp is a useful example showing that injectivity alone is insufficient; it is not a classification of failures of immersion.
 
-At this point all implications are conditional on one uniform N. No existence of the needed metrics or vanishing groups has yet been proved. Slide 27 explains exactly how Nadel reduces the missing assertion to constructing metrics on B_N, not on A itself.
+At this point all implications are conditional on one uniform N. No existence of the needed metrics or vanishing groups has yet been proved. The slide “Nadel now fits the embedding mechanism” explains exactly how Nadel reduces the missing assertion to constructing metrics on B_N, not on A itself.
 
 Historical context, if useful orally: Nadel's 1990 paper developed multiplier ideals in the Kähler–Einstein problem. The published source is linked in sources.md.
 

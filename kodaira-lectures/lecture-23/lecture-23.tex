@@ -64,17 +64,17 @@ Positive curvature gives the sections needed for a projective embedding.
 \[
 \Phi_N(x)=[s_0(x):\cdots:s_M(x)],\qquad s_j\in H^0(X,L^N).
 \]
-\par\bigskip
 \begin{center}
-\renewcommand{\arraystretch}{1.6}
+\renewcommand{\arraystretch}{1.8}
 \begin{tabular}{ll}
-What we need & What we prescribe\\
+Language of sections & Meaning for \(\Phi_N\)\\
 \hline
-Defined at every \(x\) & a nonzero value at \(x\)\\
-Injective & independent values at \(x,y\)\\
-Immersion & all first derivatives at \(x\)
+\textbf{Base-point free}: no common zero & Defined everywhere\\
+\textbf{Separates points}: independent values & Injective\\
+\textbf{Separates tangent directions} & Immersion
 \end{tabular}
 \end{center}
+Prescribing all first jets is a sufficient way to obtain the last condition.
 \end{frame}
 
 \begin{frame}{Why these conditions give an embedding}
@@ -116,33 +116,34 @@ H^0(X,A)\longrightarrow H^0(X,A\otimes\cO_X/I)
 \end{frame}
 
 \begin{frame}{Values: no base points and point separation}
-For \(I=\mathfrak m_x\), vanishing lets us prescribe a nonzero value at \(x\).
-For \(I=\mathfrak m_x\cap\mathfrak m_y\), the same argument gives
+For \(I=\mathfrak m_x\), vanishing lets us prescribe any value in the fibre \(A|_x\).
+For \(I=\mathfrak m_x\cap\mathfrak m_y\), with \(x\ne y\),
 \[
-H^1(X,A\otimes I)=0
-\quad\Longrightarrow\quad
+H^0(X,A\otimes\cO_X/I)=A|_x\oplus A|_y.
+\]
+\textbf{Two one-dimensional fibres: a two-dimensional vector space.}\\
+The quotient sheaf is supported only at \(x\) and \(y\).
+\[
+H^1(X,A\otimes I)=0\quad\Longrightarrow\quad
 H^0(X,A)\twoheadrightarrow A|_x\oplus A|_y.
 \]
-For distinct \(x,y\), we may therefore choose
-\[
-(s(x),s(y))=(1,0),\qquad
-(t(x),t(y))=(0,1)
-\]
-in chosen fibre coordinates. Their projective images are distinct.
-% The displayed two-fibre map uses the second ideal.
+In chosen fibre coordinates, lift \((1,0)\) and \((0,1)\).\\
+The resulting sections separate the two points.
 \end{frame}
 
 \begin{frame}{First jets: tangent separation}
-The quotient by \(\mathfrak m_x^2\) remembers the constant and linear terms.
-If \(H^1(X,A\otimes\mathfrak m_x^2)=0\), choose sections locally with
+Choose coordinates \(z_1,\ldots,z_n\) centred at \(x\) and a local frame of \(A\).
+Modulo \(\mathfrak m_x^2\), a section remembers its value and first derivatives.
+\par\medskip
+If \(H^1(X,A\otimes\mathfrak m_x^2)=0\), lift the jets \(1,z_1,\ldots,z_n\):
 \[
 s_0=1+O(|z|^2),\qquad s_j=z_j+O(|z|^2).
 \]
-Projective coordinates near \(x\) include \(s_j/s_0\), and
+Since \(s_0(x)\ne0\), use the projective coordinates \(s_j/s_0\):
 \[
 \boxed{d(s_j/s_0)_x=dz_j.}
 \]
-These span \(T_x^*X\). Hence \(d\Phi_A\) is injective.
+They detect every tangent direction: \(d\Phi_A\) is injective, hence an immersion at \(x\).
 \end{frame}
 
 \begin{frame}{The remaining task is a vanishing theorem}
@@ -161,6 +162,70 @@ We need a theorem that also allows these ideals.
 \end{frame}
 
 
+
+
+\begin{frame}{Reminder: the Chern connection}
+For a Hermitian holomorphic line bundle \((L,h)\),
+\[
+\nabla:C^\infty(X,L)\longrightarrow\Omega^1(X,L),\qquad
+\nabla(fs)=df\otimes s+f\nabla s.
+\]
+It preserves \(h\), and its \((0,1)\)-part is \(\db_L\).
+\par\medskip
+In a holomorphic frame \(e\), write \(|e|_h^2=e^{-2\varphi}\). Then
+\[
+\nabla(fe)=(df+af)e,\qquad a=-2\partial\varphi.
+\]
+On bundle-valued forms, \(\nabla=d+a\wedge\), by the graded Leibniz rule.
+\end{frame}
+
+\begin{frame}{Reminder: curvature and its class}
+Squaring the connection gives multiplication by a two-form:
+\[
+\nabla^2=\Theta_h\wedge,\qquad
+\Theta_h=da=2\partial\db\varphi.
+\]
+\begin{itemize}
+\setlength{\itemsep}{8pt}
+\item \(d\Theta_h=0\): locally it is \(da\).
+\item \(\Theta_h\) is imaginary-valued and of type \((1,1)\); \(i\Theta_h\) is real.
+\item \(\displaystyle c_1(L)_{\mathbb R}=\left[\frac{i}{2\pi}\Theta_h\right]\):
+its periods on integral two-cycles are integers.
+\end{itemize}
+\medskip
+For a vector bundle \(E\), curvature is endomorphism-valued; take the trace:
+\(\displaystyle c_1(E)_{\mathbb R}=\left[\frac{i}{2\pi}\operatorname{tr}\Theta_E\right]\).
+\end{frame}
+
+\begin{frame}{Reminder: what positivity means}
+A real \((1,1)\)-form \(\alpha\) gives a symmetric form
+\[
+g_\alpha(v,w)=\alpha(v,Iw),\qquad v,w\in T_xX.
+\]
+It is \textbf{positive} if \(\alpha(v,Iv)>0\) for every \(v\ne0\).\\
+Replacing \(>0\) by \(\ge0\) gives \textbf{semipositivity}.
+\par\bigskip
+A holomorphic line bundle is \textbf{positive} if it admits a smooth metric with
+\[
+\boxed{i\Theta_h>0.}
+\]
+We test tangent vectors to \(X\), not vectors in the fibre of \(L\).
+\end{frame}
+
+\begin{frame}{Why Fubini--Study is positive}
+On an affine chart, the standard metric on \(\cO_{\Pj^n}(1)\) is
+\[
+|e|_h^2=\frac1{1+|z|^2},\qquad
+\omega_{\rm FS}=\frac{i}{2\pi}\partial\db\log(1+|z|^2)
+=\frac{i}{2\pi}\Theta_h.
+\]
+Apart from the positive factor \(1/(2\pi)\), its Hermitian form on \(v\in\C^n\) is
+\[
+\frac{(1+|z|^2)|v|^2-|\langle z,v\rangle|^2}{(1+|z|^2)^2}
+\ \ge\ \frac{|v|^2}{(1+|z|^2)^2}>0\qquad(v\ne0).
+\]
+The inequality is Cauchy--Schwarz. Thus \(\cO(1)\) is positive.
+\end{frame}
 
 \begin{frame}{Nadel vanishing}
 Let \((X,\omega)\) be compact Kähler of dimension \(n\), and \(B\) a holomorphic line bundle.
@@ -209,18 +274,39 @@ The new object is the multiplier ideal \(\cI_h\).
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{The familiar estimate}
+\begin{frame}{From Bochner--Kodaira to a curvature bound}
 Bochner--Kodaira, from lecture 16 (Vanya):
 \[
 \Delta_{\db}=\Delta_{\partial_B}+[i\Theta_B\wedge,\Lambda].
 \]
-If \(i\Theta_B\ge\varepsilon\omega\), then on \(B\)-valued \((n,q)\)-forms,
+At a point, diagonalize in an \(\omega\)-unitary coframe \(\zeta_1,\ldots,\zeta_n\):
 \[
-\boxed{\norm{\db u}^2+\norm{\db^*u}^2
-\ge q\varepsilon\norm{u}^2.}
+i\Theta_B=\sum_j\lambda_j\,i\zeta_j\wedge\bar\zeta_j,
+\qquad \lambda_j\ge\varepsilon.
 \]
-Each curvature eigenvalue is at least \(\varepsilon\).
-The commutator adds \(q\) of them.
+On the \((n,q)\)-component \(\zeta_1\wedge\cdots\wedge\zeta_n\wedge\bar\zeta_J\),
+\[
+[i\Theta_B\wedge,\Lambda]\ \text{acts by}\ 
+\sum_{j\in J}\lambda_j\ge q\varepsilon.
+\]
+There are exactly \(q\) antiholomorphic indices in \(J\).
+\end{frame}
+
+\begin{frame}{The familiar estimate: take the inner product}
+Pair Bochner--Kodaira with \(u\) and integrate over compact \(X\):
+\[
+\begin{aligned}
+\norm{\db u}^2+\norm{\db^*u}^2
+&=\norm{\partial_Bu}^2+\norm{\partial_B^*u}^2\\
+&\quad+\big\langle[i\Theta_B\wedge,\Lambda]u,u\big\rangle_{L^2}.
+\end{aligned}
+\]
+The first two terms are nonnegative; the curvature term is at least
+\(q\varepsilon\norm{u}^2\). Hence
+\[
+\boxed{\norm{\db u}^2+\norm{\db^*u}^2\ge q\varepsilon\norm{u}^2.}
+\]
+For a harmonic form and \(q>0\), the left side is zero, so \(u=0\).
 \end{frame}
 
 \begin{frame}{Kodaira vanishing revisited}
