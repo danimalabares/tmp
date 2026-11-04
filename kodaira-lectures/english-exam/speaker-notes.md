@@ -1,87 +1,83 @@
 # Speaking notes
 
-Target: **9 minutes**, with one minute of buffer. These are suggested words, not a script to memorize. Practise once with a timer, including pauses and pointing at the formulas. The examiner may ask questions about the chosen topic.
+Target: **9 minutes** for slides 1–13, with one minute of buffer. The appendix (slides 14–25) is for questions or for reading; it is not part of the timed talk.
+
+Speak slowly. Pause after each boxed formula. Short sentences are easier to say clearly than long ones.
 
 | Slide | Time | Cumulative |
 | --- | ---: | ---: |
-| 1. Title | 0:25 | 0:25 |
-| 2. Projective coordinates | 1:05 | 1:30 |
-| 3. Sections | 1:15 | 2:45 |
-| 4. Kodaira theorem | 0:55 | 3:40 |
-| 5. Kodaira picture | 0:25 | 4:05 |
-| 6. Three conditions | 1:00 | 5:05 |
-| 7. Point separation | 0:55 | 6:00 |
-| 8. Tangent directions | 1:05 | 7:05 |
-| 9. Vanishing | 1:20 | 8:25 |
-| 10. Conclusion | 0:35 | 9:00 |
+| 1. Title | 0:20 | 0:20 |
+| 2. The plan | 0:25 | 0:45 |
+| 3. Fubini–Study is positive | 1:00 | 1:45 |
+| 4. Positivity passes to submanifolds | 0:40 | 2:25 |
+| 5. Kodaira embedding theorem | 0:40 | 3:05 |
+| 6. Kodaira | 0:25 | 3:30 |
+| 7. History | 0:45 | 4:15 |
+| 8. Sections give a map | 0:45 | 5:00 |
+| 9. Three conditions | 0:40 | 5:40 |
+| 10. Lifting problem | 0:55 | 6:35 |
+| 11. Hodge theory | 0:40 | 7:15 |
+| 12. Bochner–Kodaira | 1:05 | 8:20 |
+| 13. Summary | 0:40 | 9:00 |
 
 ## 1. Title
 
-“Today I would like to explain one geometric idea behind Kodaira's embedding theorem. The question is: how can we describe a complex manifold using global coordinates? I will explain how sections provide these coordinates, and what conditions make the resulting map an embedding.”
+"Good morning. Today I will talk about Kodaira's embedding theorem. It says that positive curvature gives coordinates."
 
-## 2. Coordinates up to a common scale
+## 2. The plan
 
-“First, let me recall projective coordinates. We take a tuple of complex numbers, not all zero, and identify two tuples if one is a nonzero multiple of the other. For example, one colon two represents the same point as two colon four. Wherever the first coordinate is nonzero, we divide by it and recover ordinary coordinates. The advantage is that no single coordinate has to stay nonzero everywhere. Different charts can use different denominators. We want to construct a map from our manifold into this space.”
+"The plan has three steps. First, projective space carries a positive form, the Fubini–Study form. Second, Kodaira's theorem is the converse of this fact. Third, I will sketch the proof. The key idea is that harmonic forms must vanish."
 
-## 3. Sections supply the coordinates
+## 3. Projective space has a positive form
 
-“A line bundle attaches a one-dimensional complex vector space to every point of the manifold. Locally, it looks like a product with the complex numbers. A holomorphic section is a holomorphic choice of one vector in each fibre. After choosing a local frame, we can express sections as ordinary functions. These functions give the entries in our projective coordinates. If we change the frame, all the entries change by the same nonzero factor. Projective space ignores that common factor. So the construction does not depend on the frame. We still need to make sure that the entries are not all zero.”
+"A point of projective space is a line through the origin. So we identify two tuples when one is a multiple of the other. In a chart, the Fubini–Study form is i over two pi, times d d-bar of the logarithm of one plus the norm of z squared. If we evaluate it on a nonzero tangent vector, we get this quotient. By the Cauchy–Schwarz inequality, it is strictly positive. So the Fubini–Study form is positive. It is the curvature of a line bundle called O of one."
 
-## 4. Kodaira embedding theorem
+## 4. Positivity passes to submanifolds
 
-“Kodaira's theorem says that a positive holomorphic line bundle on a compact complex manifold gives an embedding into projective space, after taking a sufficiently large tensor power. Positive refers to the curvature of a metric on the line bundle. I will not explain that analytic condition in detail today. The important conclusion is that sections of a high tensor power provide enough coordinates to realize our manifold as a complex submanifold of projective space. Let us see what ‘enough’ means.”
+"Now take a compact complex submanifold of projective space. We restrict the line bundle O of one to it. Its curvature is the restriction of the Fubini–Study form, and a positive form stays positive on a subspace. So every projective manifold has a positive line bundle. The natural question is: is the converse true?"
 
-## 5. Kodaira
+## 5. Kodaira embedding theorem
 
-“This is Kunihiko Kodaira, who received the Fields Medal in nineteen fifty-four. His work connects complex geometry with analysis. In this theorem, an analytic positivity condition ultimately produces a geometric map.”
+"Kodaira answered yes, in nineteen fifty-four. If a compact complex manifold has a line bundle with positive curvature, then the sections of a high power of that bundle embed the manifold into projective space. In short: positive implies projective."
 
-## 6. Three conditions
+## 6. Kodaira
 
-“There are three things to check. First, the sections must have no common zero. This is called base-point freeness, and it makes the map defined everywhere. Second, the sections must distinguish different points, so the map is injective. Third, they must detect tangent directions, so the derivative is injective as well. That is the immersion condition. Since our manifold is compact and projective space is Hausdorff, an injective immersion is an embedding. Let us look at the last two conditions more closely.”
+"This is Kunihiko Kodaira. He received the Fields Medal in nineteen fifty-four. His idea was that an analytic condition, curvature, produces an algebraic object."
 
-## 7. Separating two points
+## 7. Where this sits in history
 
-“Take two different points, x and y. Suppose we can find a section which has value one at x and zero at y, and another section with the opposite values. Here one means a chosen nonzero vector in the corresponding fibre. The two tuples cannot be scalar multiples of each other: their first two entries already distinguish them. Therefore the projective images are different. This is why the ability to prescribe section values gives injectivity.”
+"Where does this theorem sit in history? In eighteen fifty-one, Riemann introduced Riemann surfaces. He used analysis to construct functions, and so he showed that compact Riemann surfaces are algebraic curves. Then came the Fubini–Study metric, Kähler's metrics in nineteen thirty-three, and Hodge's harmonic forms in nineteen forty-one. Kodaira combined all of these. Later, Hörmander made the method much more flexible. The common theme is: analysis produces functions."
 
-## 8. Tangent directions
+## 8. Sections give a map
 
-“Injectivity alone is not enough. Consider the map taking t to t squared, t cubed. It is injective, but both derivatives vanish at zero. Its image has a cusp, shown here in the real picture. For an immersion, no nonzero tangent vector may disappear under the derivative. In our projective map, we use local ratios of sections as coordinates. We want their derivatives to detect every tangent vector. One sufficient way to do that is to prescribe all first derivatives of suitable sections.”
+"Now the proof. We choose a basis of holomorphic sections. In a local frame, each section is a function times the frame. These functions are the coordinates of a point in projective space. If we change the frame, all the coordinates are multiplied by the same number, so the point does not change. This is the canonical map."
 
-## 9. Where vanishing enters
+## 9. Three conditions
 
-“So the problem has become a question about interpolation: can we find global sections with chosen values and first derivatives? Cohomology provides a way to answer this. H zero is the vector space of global sections. The first arrow records their local data. The next arrow sends those data to a possible obstruction to extending them globally. Exactness says that data can be lifted precisely when this obstruction is zero. If the whole H one group vanishes, every choice of data lifts. The ideal I specifies which data we are prescribing. The difficult analytic part of Kodaira's theorem supplies the required vanishing for high tensor powers. Today I am explaining how that vanishing produces the embedding.”
+"We need three conditions. First, the sections have no common zero. Then the map is defined everywhere. Second, the sections separate points. Then the map is injective. Third, the sections separate tangent directions. Then the map is an immersion. On a compact manifold, an injective immersion is an embedding."
 
-## 10. Conclusion
+## 10. Each condition is a lifting problem
 
-“To conclude, the mechanism is this. Vanishing allows us to prescribe local data using global sections. These sections distinguish points and tangent directions. They therefore define an injective immersion, and compactness makes it an embedding. This is the geometric reason that producing enough sections produces global coordinates. Thank you.”
+"Each condition asks for global sections with prescribed values, or prescribed first derivatives. An exact sequence tells us when this is possible. The obstruction lies in a first cohomology group. If this group is zero, every choice of data lifts to a global section. After a blow-up, which I will not explain, this group has the form H one of K tensor B, where B is positive."
+
+## 11. Hodge theory
+
+"Now we use Hodge theory. On a compact Kähler manifold, every cohomology class has exactly one harmonic representative. So, to show that the cohomology group is zero, it is enough to show that every harmonic form is zero."
+
+## 12. Bochner–Kodaira
+
+"The Bochner–Kodaira formula compares two Laplacians. The difference is a curvature term. If the curvature is positive, this term is at least q times epsilon. Now we take a harmonic form u and integrate. The left side is zero. On the right side, the first two terms are not negative, and the curvature term is at least q epsilon times the norm of u squared. So, when q is positive, u must be zero. This is Kodaira's vanishing theorem."
+
+## 13. Summary
+
+"To summarize. Positive curvature, by Bochner–Kodaira, leaves no harmonic forms. So the first cohomology vanishes. By the exact sequence, we have enough sections. These sections satisfy the three conditions. So they give an embedding into projective space. Thank you."
 
 ## Short answers for questions
 
-**Why projective space rather than affine space?** On a connected compact complex manifold, every global holomorphic function is constant. Sections can be nonconstant because they take values in a line bundle. Their ratios give projective coordinates.
+**Why projective space rather than affine space?** On a compact connected complex manifold, every global holomorphic function is constant. Sections of a line bundle can vary, and their ratios give projective coordinates.
 
-**Why is the cusp map injective?** If two parameters have equal squares, they differ by a sign. Equal cubes then force them to be equal, including at zero. Its derivative is (2t,3t²), which vanishes at zero.
+**Why a high power of L?** The curvature of the k-th power is k times the curvature of L. A large k makes it dominate the curvature of the canonical bundle and the blow-up terms.
 
-**Why does compactness help?** A continuous injection from a compact space into a Hausdorff space is a homeomorphism onto its image. The immersion condition supplies the local smooth, here holomorphic, submanifold structure.
+**Is every compact Kähler manifold projective?** No. A generic complex torus of dimension at least two is Kähler but not projective. Voisin (2004) found Kähler manifolds that are not even homotopy equivalent to projective ones.
 
-**What is a tensor power?** The fibre of L to the N is the N-fold tensor product of the fibre of L. Locally its transition functions are the Nth powers of those of L.
-
-**What precisely is the middle space on slide 9?** It is H0(X,A tensor (O_X/I)). For two points, I=m_x intersect m_y and this space is the direct sum of the two one-dimensional fibres. For first jets, use I=m_x².
-
-**Why do prescribed derivatives suffice?** In coordinates centred at x and a local frame, choose s0=1+terms of order at least two, and sj=zj+terms of order at least two. Then d(sj/s0) at x equals dzj. These differentials detect all tangent directions.
-
-**Is this a full proof of Kodaira embedding?** No. It explains the geometric deduction once the necessary vanishing is available. The existence of suitable metrics and uniform vanishing for sufficiently large powers is the main remaining work.
-
-**What does positive mean?** A smooth Hermitian metric has a Chern curvature form Theta. The real (1,1)-form iTheta is positive if iTheta(v,Iv)>0 for every nonzero real tangent vector v. It is positivity of a bundle metric, not positive sectional curvature of the manifold.
-
-**Can you give a concrete embedding?** The map [u:v] to [u²:uv:v²] embeds the projective line as a conic in the projective plane. The three degree-two monomials are sections of O(2).
-
-## Useful spoken forms
-
-- H0: “H zero”; H1: “H one”.
-- L tensor N: “the Nth tensor power of L”.
-- Phi: “phi”, pronounced like “fie”.
-- “The sections have no common zero.”
-- “The map is injective, and its differential is injective.”
-- “Every choice of local data extends to a global section.”
-- “Let me explain that in a simpler example.”
-- “I am using this theorem as an input here.”
+**Who was Kähler?** Erich Kähler, a German mathematician. In 1933 he studied Hermitian metrics whose form is closed. Today they carry his name.
