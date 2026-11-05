@@ -42,7 +42,7 @@ Speak slowly. Pause after each boxed formula. Short sentences are easier to say 
 
 ## 6. Kodaira
 
-"This is Kunihiko Kodaira. He received the Fields Medal in nineteen fifty-four. His idea was that an analytic condition, curvature, produces an algebraic object."
+"This is Kunihiko Kodaira. He received the Fields Medal in nineteen fifty-four for his work on harmonic integrals and their applications to Kähler and algebraic varieties. His idea was that an analytic condition, curvature, produces an algebraic object."
 
 ## 7. Where this sits in history
 

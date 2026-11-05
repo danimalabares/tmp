@@ -30,7 +30,47 @@ currents, singular psh weights, and Poincaré--Lelong.
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{Projective space has a positive form}
+\(\Pj^n\) is the set of lines through the origin in \(\C^{n+1}\); \(\pi\) sends a nonzero vector to its line.
+\par\medskip
+On nonzero vectors \(Z\in\C^{n+1}\), define
+\[
+\tilde\omega=\frac{i}{2\pi}\,\partial\db\log|Z|^2,\qquad |Z|^2=|Z_0|^2+\cdots+|Z_n|^2.
+\]
+It is \textbf{basic}: for every vector field \(V\) along the fibres of \(\pi\),
+\[
+\iota_V\tilde\omega=0,\qquad \mathcal L_V\tilde\omega=0.
+\]
+So it comes from a form downstairs, the \textbf{Fubini--Study form}: \(\tilde\omega=\pi^*\omega_{\rm FS}\).
+\src{Fubini (1904), Study (1905). Scaling \(Z\mapsto\lambda Z\) adds \(\log|\lambda|^2\), which \(\partial\db\) kills.}
+\end{frame}
 
+\begin{frame}{The Fubini--Study form is positive}
+Upstairs, on \(v\in\C^{n+1}\) and up to a positive factor, \(\tilde\omega\) gives
+\[
+\frac{|Z|^2|v|^2-|\langle v,Z\rangle|^2}{|Z|^4}\ \ge\ 0 .
+\]
+By Cauchy--Schwarz, equality holds exactly when \(v\in\C Z\): the direction of the fibre.
+\par\medskip
+Since \(d\pi_Z\) is onto \(T_{[Z]}\Pj^n\) with kernel \(\C Z\),
+\[
+\boxed{\omega_{\rm FS}\ \text{is positive on every nonzero tangent vector of}\ \Pj^n.}
+\]
+\end{frame}
+
+\begin{frame}{Positivity passes to submanifolds}
+Let \(X\subset\Pj^N\) be a compact complex submanifold.
+\par\bigskip
+Restrict the line bundle: \(L=\cO(1)|_X\).
+\par\medskip
+Its curvature is \(\omega_{\rm FS}|_X\), and it is still positive.
+\par\bigskip
+\begin{center}
+\Large\(X\) projective \(\ \Longrightarrow\ \) \(X\) has a positive line bundle.
+\end{center}
+\par\bigskip
+Question: is the converse true?
+\end{frame}
 
 \begin{frame}{The goal of both lectures: Kodaira embedding}
 Let \(X\) be compact complex and \(L\) a holomorphic line bundle with a smooth positive metric.
@@ -40,62 +80,62 @@ For all sufficiently large \(N\),
 \Pj\bigl(H^0(X,L^N)^*\bigr)}
 \]
 is a holomorphic embedding.
-\par\bigskip
-Fubini--Study gave positive bundles on projective manifolds.
-We now prove the converse: positivity produces projective coordinates.
 \end{frame}
 
-\begin{frame}{Kunihiko Kodaira}
+\begin{frame}{Kunihiko Kodaira (1915--1997)}
 \begin{columns}[c]
 \column{.36\textwidth}
 \centering\includegraphics[height=4.8cm]{../assets/Kunihiko_Kodaira.png}
-\par\smallskip{\small Tokyo, 1969}
 \column{.59\textwidth}
-Kodaira received the Fields Medal in 1954, the first Japanese recipient.
+Fields Medal, 1954.
 \par\bigskip
-His vanishing theorem links harmonic analysis and algebraic geometry.
-\par\bigskip
-Positive curvature gives the sections needed for a projective embedding.
+His idea: an \textbf{analytic} condition (curvature)
+produces an \textbf{algebraic} object (polynomial equations).
 \end{columns}
-\src{Photo: Konrad Jacobs / MFO, CC BY-SA 2.0 DE (Wikimedia Commons). Historical source: IAS scholar profile.}
+\src{Photo: Konrad Jacobs / MFO, Tokyo 1969, CC BY-SA 2.0 DE. Historical source: IAS scholar profile.}
+\end{frame}
+
+\begin{frame}{Where this sits in history}
+\begin{center}
+\begin{tikzpicture}[x=1.15cm]
+\draw[thick,->] (0,0)--(11.6,0);
+\foreach \x/\y/\t/\s in {
+ 0/1851/Riemann/surfaces,
+ 2.2/1904/Fubini--Study/metric,
+ 4.2/1933/Kähler/metrics,
+ 6.2/1941/Hodge/harmonic forms,
+ 8.4/1954/Kodaira/embedding,
+ 10.6/1990/Nadel/vanishing}
+{\fill (\x,0) circle (2.2pt);
+ \node[above] at (\x,.15) {\small\textbf{\y}};
+ \node[below,align=center] at (\x,-.15) {\small \t\\[-1pt]\scriptsize\s};}
+\end{tikzpicture}
+\end{center}
+\par\bigskip
+One theme: \textbf{analysis proves that enough holomorphic functions exist}.
+\par\medskip
+Riemann used analysis to prove that compact Riemann surfaces are algebraic curves.
+Kodaira did the same in every dimension.
 \end{frame}
 
 \begin{frame}{An embedding needs values and derivatives}
 \[
-\Phi_N(x)=[s_0(x):\cdots:s_M(x)],\qquad s_j\in H^0(X,L^N).
+\begin{array}{r@{\;}c@{\;}c@{\;}l}
+\Phi_{L^N}\colon & X & \longrightarrow & \Pj\bigl(H^0(X,L^N)^*\bigr)\\
+& x & \longmapsto & [s_0(x):\cdots:s_M(x)]
+\end{array}
+\qquad s_0,\ldots,s_M \text{ a basis of } H^0(X,L^N).
 \]
 \begin{center}
 \renewcommand{\arraystretch}{1.8}
 \begin{tabular}{ll}
-Language of sections & Meaning for \(\Phi_N\)\\
+\(\Phi_{L^N}\) is & Language of sections\\
 \hline
-\textbf{Base-point free}: no common zero & Defined everywhere\\
-\textbf{Separates points}: independent values & Injective\\
-\textbf{Separates tangent directions} & Immersion
+Defined everywhere & \textbf{Base-point free}: no common zero\\
+Injective & \textbf{Separates points}: independent values\\
+An immersion & \textbf{Separates tangent directions}
 \end{tabular}
 \end{center}
-Prescribing all first jets is a sufficient way to obtain the last condition.
-\end{frame}
-
-\begin{frame}{Why these conditions give an embedding}
-\begin{columns}[c]
-\column{.44\textwidth}
-\centering
-\begin{tikzpicture}[scale=.95,>=Stealth]
-\draw[->] (-.2,0)--(1.9,0);
-\draw[->] (0,-1.5)--(0,1.5);
-\draw[thick,domain=-1.1:1.1,samples=70,variable=\t] plot ({\t*\t},{\t*\t*\t});
-\fill (0,0) circle (2pt);
-\node at (.8,-2) {\(t\mapsto(t^2,t^3)\)};
-\end{tikzpicture}
-\column{.53\textwidth}
-Point separation gives injectivity.
-\par\bigskip
-Tangent separation gives immersion.
-\par\bigskip
-Compactness makes an injective immersion an embedding.
-\end{columns}
-\src{The cusp is injectively parametrized, but its derivative vanishes at the origin.}
 \end{frame}
 
 \begin{frame}{Vanishing lifts prescribed data}
@@ -115,54 +155,20 @@ H^0(X,A)\longrightarrow H^0(X,A\otimes\cO_X/I)
 \]
 \end{frame}
 
-\begin{frame}{Values: no base points and point separation}
-For \(I=\mathfrak m_x\), vanishing lets us prescribe any value in the fibre \(A|_x\).
-For \(I=\mathfrak m_x\cap\mathfrak m_y\), with \(x\ne y\),
-\[
-H^0(X,A\otimes\cO_X/I)=A|_x\oplus A|_y.
-\]
-\textbf{Two one-dimensional fibres: a two-dimensional vector space.}\\
-The quotient sheaf is supported only at \(x\) and \(y\).
-\[
-H^1(X,A\otimes I)=0\quad\Longrightarrow\quad
-H^0(X,A)\twoheadrightarrow A|_x\oplus A|_y.
-\]
-In chosen fibre coordinates, lift \((1,0)\) and \((0,1)\).\\
-The resulting sections separate the two points.
-\end{frame}
-
-\begin{frame}{First jets: tangent separation}
-Choose coordinates \(z_1,\ldots,z_n\) centred at \(x\) and a local frame of \(A\).
-Modulo \(\mathfrak m_x^2\), a section remembers its value and first derivatives.
-\par\medskip
-If \(H^1(X,A\otimes\mathfrak m_x^2)=0\), lift the jets \(1,z_1,\ldots,z_n\):
-\[
-s_0=1+O(|z|^2),\qquad s_j=z_j+O(|z|^2).
-\]
-Since \(s_0(x)\ne0\), use the projective coordinates \(s_j/s_0\):
-\[
-\boxed{d(s_j/s_0)_x=dz_j.}
-\]
-They detect every tangent direction: \(d\Phi_A\) is injective, hence an immersion at \(x\).
-\end{frame}
-
-\begin{frame}{The remaining task is a vanishing theorem}
+\begin{frame}{The task is a vanishing theorem}
 We want, for one sufficiently large \(N\),
-\[
-H^1(X,L^N\otimes I)=0
-\]
-for
-\[
-I=\mathfrak m_x,\qquad
-\mathfrak m_x\cap\mathfrak m_y,\qquad
-\mathfrak m_x^2.
-\]
+\(H^1(X,L^N\otimes I)=0\) for three ideals:
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{lll}
+\(I=\mathfrak m_x\) & gives & base-point freeness\\
+\(I=\mathfrak m_x\cap\mathfrak m_y\) & gives & point separation\\
+\(I=\mathfrak m_x^2\) & gives & tangent separation
+\end{tabular}
+\end{center}
 Kodaira vanishing handles a positive bundle with a canonical twist.
 We need a theorem that also allows these ideals.
 \end{frame}
-
-
-
 
 \begin{frame}{Reminder: the Chern connection}
 For a Hermitian holomorphic line bundle \((L,h)\),
@@ -172,22 +178,22 @@ For a Hermitian holomorphic line bundle \((L,h)\),
 \]
 It preserves \(h\), and its \((0,1)\)-part is \(\db_L\).
 \par\medskip
-In a holomorphic frame \(e\), write \(|e|_h^2=e^{-2\varphi}\). Then
+In a holomorphic frame \(e\), with \(|e|_h^2=h(e,e)\),
 \[
-\nabla(fe)=(df+af)e,\qquad a=-2\partial\varphi.
+\nabla(fe)=\bigl(df+f\,\partial\log|e|_h^2\bigr)\,e.
 \]
-On bundle-valued forms, \(\nabla=d+a\wedge\), by the graded Leibniz rule.
+On bundle-valued forms, \(\nabla=d+\partial\log|e|_h^2\wedge\), by the graded Leibniz rule.
 \end{frame}
 
 \begin{frame}{Reminder: curvature and its class}
 Squaring the connection gives multiplication by a two-form:
 \[
 \nabla^2=\Theta_h\wedge,\qquad
-\Theta_h=da=2\partial\db\varphi.
+\Theta_h=d\bigl(\partial\log|e|_h^2\bigr)=-\partial\db\log|e|_h^2.
 \]
 \begin{itemize}
 \setlength{\itemsep}{8pt}
-\item \(d\Theta_h=0\): locally it is \(da\).
+\item \(d\Theta_h=0\): locally it is exact, \(d\bigl(\partial\log|e|_h^2\bigr)\).
 \item \(\Theta_h\) is imaginary-valued and of type \((1,1)\); \(i\Theta_h\) is real.
 \item \(\displaystyle c_1(L)_{\mathbb R}=\left[\frac{i}{2\pi}\Theta_h\right]\):
 its periods on integral two-cycles are integers.
@@ -212,19 +218,21 @@ A holomorphic line bundle is \textbf{positive} if it admits a smooth metric with
 We test tangent vectors to \(X\), not vectors in the fibre of \(L\).
 \end{frame}
 
-\begin{frame}{Why Fubini--Study is positive}
-On an affine chart, the standard metric on \(\cO_{\Pj^n}(1)\) is
+\begin{frame}{Fubini--Study is the curvature of \(\cO(1)\)}
+The fibre of \(\cO(1)\) at \([Z]\) is the dual of the line \(\C Z\).
+Measure the line with the norm of \(\C^{n+1}\).
+\par\medskip
+The coordinate \(Z_0\) is a holomorphic frame where \(Z_0\ne0\), with
 \[
-|e|_h^2=\frac1{1+|z|^2},\qquad
-\omega_{\rm FS}=\frac{i}{2\pi}\partial\db\log(1+|z|^2)
-=\frac{i}{2\pi}\Theta_h.
+|Z_0|_h^2=\frac{|Z_0|^2}{|Z|^2}.
 \]
-Apart from the positive factor \(1/(2\pi)\), its Hermitian form on \(v\in\C^n\) is
+Pulled back to \(\C^{n+1}\setminus\{0\}\), since \(\partial\db\log|Z_0|^2=0\),
 \[
-\frac{(1+|z|^2)|v|^2-|\langle z,v\rangle|^2}{(1+|z|^2)^2}
-\ \ge\ \frac{|v|^2}{(1+|z|^2)^2}>0\qquad(v\ne0).
+\Theta_h=-\partial\db\log|Z_0|_h^2=\partial\db\log|Z|^2,
+\qquad\text{so}\qquad
+\boxed{\tfrac{i}{2\pi}\Theta_h=\omega_{\rm FS}.}
 \]
-The inequality is Cauchy--Schwarz. Thus \(\cO(1)\) is positive.
+Thus \(\cO(1)\) is positive.
 \end{frame}
 
 \begin{frame}{Nadel vanishing}
@@ -274,6 +282,21 @@ The new object is the multiplier ideal \(\cI_h\).
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{Hodge theory: one harmonic form per class}
+On a compact Kähler manifold, every class in
+\[
+H^q(X,K_X\otimes B)
+\]
+has exactly one \textbf{harmonic} representative \(u\):
+\[
+\Delta u=0,\qquad\text{equivalently}\quad \db u=0\ \text{and}\ \db^*u=0.
+\]
+\par\bigskip
+\begin{center}
+\large To prove \(H^q=0\), show that every harmonic form is zero.
+\end{center}
+\end{frame}
+
 \begin{frame}{From Bochner--Kodaira to a curvature bound}
 Bochner--Kodaira, from lecture 16 (Vanya):
 \[
@@ -292,36 +315,60 @@ On the \((n,q)\)-component \(\zeta_1\wedge\cdots\wedge\zeta_n\wedge\bar\zeta_J\)
 There are exactly \(q\) antiholomorphic indices in \(J\).
 \end{frame}
 
-\begin{frame}{The familiar estimate: take the inner product}
-Pair Bochner--Kodaira with \(u\) and integrate over compact \(X\):
+\begin{frame}{The integration by parts}
+Here \(\Delta_{\partial_B}=\partial_B\partial_B^*+\partial_B^*\partial_B\), where \(\partial_B\) is the \((1,0)\)-part of the Chern connection of \(B\).
+\par\medskip
+\(X\) is compact without boundary, so Stokes makes \(\partial_B^*\) the \(L^2\)-adjoint of \(\partial_B\):
+\[
+\int_X\langle\partial_Bv,w\rangle\,dV=\int_X\langle v,\partial_B^*w\rangle\,dV .
+\]
+Move one operator across in each term:
 \[
 \begin{aligned}
-\norm{\db u}^2+\norm{\db^*u}^2
-&=\norm{\partial_Bu}^2+\norm{\partial_B^*u}^2\\
-&\quad+\big\langle[i\Theta_B\wedge,\Lambda]u,u\big\rangle_{L^2}.
+\int_X\langle\Delta_{\partial_B}u,u\rangle\,dV
+&=\int_X\langle\partial_B\partial_B^*u,u\rangle\,dV+\int_X\langle\partial_B^*\partial_Bu,u\rangle\,dV\\
+&=\int_X\langle\partial_B^*u,\partial_B^*u\rangle\,dV+\int_X\langle\partial_Bu,\partial_Bu\rangle\,dV\\
+&=\int_X\bigl(|\partial_B^*u|^2+|\partial_Bu|^2\bigr)\,dV\ \ge\ 0 .
 \end{aligned}
 \]
-The first two terms are nonnegative; the curvature term is at least
-\(q\varepsilon\norm{u}^2\). Hence
-\[
-\boxed{\norm{\db u}^2+\norm{\db^*u}^2\ge q\varepsilon\norm{u}^2.}
-\]
-For a harmonic form and \(q>0\), the left side is zero, so \(u=0\).
 \end{frame}
 
-\begin{frame}{Kodaira vanishing revisited}
-For a smooth positive metric,
+\begin{frame}{Why the curvature term is at least \(q\varepsilon\)}
+At \(x\in X\), take an \(\omega\)-unitary coframe \(\zeta_1,\ldots,\zeta_n\) with
 \[
-H^q(X,K_X\otimes B)=0,\qquad q>0.
+\omega=i\sum_j\zeta_j\wedge\bar\zeta_j,\qquad
+i\Theta_B=i\sum_j\lambda_j\,\zeta_j\wedge\bar\zeta_j,\qquad
+\lambda_j\ge\varepsilon .
 \]
-\begin{enumerate}
-\setlength{\itemsep}{12pt}
-\item Dolbeault and Hodge give a harmonic representative \(u\).
-\item The estimate gives \(0\ge q\varepsilon\norm{u}^2\).
-\item Thus \(u=0\).
-\end{enumerate}
-\medskip
-This is the argument from lecture 16 (Vanya) that we will extend.
+For \(u=\sum_{J,K}u_{J,K}\,\zeta_J\wedge\bar\zeta_K\) with \(|J|=p\), \(|K|=q\):
+\[
+\big\langle[\,i\Theta_B\wedge,\Lambda\,]u,u\big\rangle
+=\sum_{J,K}\Bigl(\sum_{j\in J}\lambda_j+\sum_{k\in K}\lambda_k-\sum_{j=1}^n\lambda_j\Bigr)|u_{J,K}|^2 .
+\]
+If \(p=n\), then \(J=\{1,\ldots,n\}\): the first and last sums cancel, and \(K\) has \(q\) indices, each with \(\lambda_k\ge\varepsilon\):
+\[
+\big\langle[\,i\Theta_B\wedge,\Lambda\,]u,u\big\rangle
+=\sum_K\Bigl(\sum_{k\in K}\lambda_k\Bigr)|u_{J,K}|^2\ \ge\ q\varepsilon\,|u|^2
+\quad\text{at every point.}
+\]
+Integrate over \(X\):
+\(\displaystyle\int_X\big\langle[\,i\Theta_B\wedge,\Lambda\,]u,u\big\rangle\,dV\ \ge\ q\varepsilon\int_X|u|^2\,dV.\)
+\src{Demailly, \emph{Complex Analytic and Differential Geometry}, Prop.~VI-8.3 and Ch.~VII, (3.2).}
+\end{frame}
+
+\begin{frame}{Bochner--Kodaira: harmonic forms must vanish}
+If \(i\Theta_B\ge\varepsilon\omega\), the curvature term is at least \(q\varepsilon\) on \((n,q)\)-forms.
+\par\medskip
+Pair Bochner--Kodaira with a harmonic \(u\), integrate over \(X\), and integrate by parts (slide 22):
+\[
+\begin{aligned}
+0=\int_X\langle\Delta_{\db}u,u\rangle\,dV
+&=\underbrace{\int_X\bigl(|\partial_Bu|^2+|\partial_B^*u|^2\bigr)\,dV}_{\ge0}\\
+&\quad+\underbrace{\int_X\big\langle[\,i\Theta_B\wedge,\Lambda\,]u,u\big\rangle\,dV}_{\ge q\varepsilon\int_X|u|^2dV}.
+\end{aligned}
+\]
+For \(q>0\), this forces \(u=0\). So \(\boxed{H^q(X,K_X\otimes B)=0.}\)
+\src{Kodaira vanishing: Kodaira, Proc.\ Nat.\ Acad.\ Sci.\ 39 (1953), after Bochner (1946). This is the argument we will extend.}
 \end{frame}
 
 \begin{frame}{A singular metric is a weight}
