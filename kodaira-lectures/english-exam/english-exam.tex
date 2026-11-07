@@ -182,4 +182,56 @@ Different choices of singular metric, which we construct in the proof, make the 
 \end{frame}
 
 
+
+% Appendix: local-to-global correction of a section (discussion, 7 Nov 2026).
+\appendix
+\begin{frame}{From a local section to a global smooth section}
+Choose a point \(p\in X\) and an open neighbourhood \(U\) of \(p\).
+\par\medskip
+Choose a local \textbf{holomorphic} section \(s\in H^0(U,L^k)\).
+\par\medskip
+Choose a smooth bump function \(\chi\) supported in \(U\), with
+\(\chi=1\) on a smaller neighbourhood of \(p\).
+\par\medskip
+Extend \(\chi s\) by zero outside \(U\):
+\[
+s_0=\begin{cases}\chi s&\text{on }U,\\0&\text{outside }U.\end{cases}
+\]
+Then \(s_0\) is a \textbf{global smooth section}, but it need not be holomorphic.
+\end{frame}
+
+\begin{frame}{Where does holomorphicity fail?}
+Because \(s\) is holomorphic,
+\[
+\bar\partial s_0=(\bar\partial\chi)s=:f.
+\]
+\(\bar\partial\chi\) vanishes near \(p\) and outside the support
+of \(\chi\): the error \(f\) is confined to the region where
+the bump function changes.
+\par\bigskip
+\textbf{Goal:} correct \(s_0\) without losing the prescribed value at \(p\).
+\end{frame}
+
+\begin{frame}{Correcting the error}
+Try to solve the \(\bar\partial\)-equation
+\[
+\bar\partial u=f=\bar\partial s_0.
+\]
+Then
+\[
+S=s_0-u,\qquad \bar\partial S=0,
+\]
+so \(S\) is a \textbf{global holomorphic section}.
+\par\medskip
+Positive curvature supplies \(L^2\) estimates for solving
+\(\bar\partial u=f\) in the appropriate bundle and degree.
+\par\medskip
+To retain \(S(p)=s(p)\), we additionally need \(u(p)=0\);
+this requires extra control (e.g.\ singular weights).
+\par\medskip
+\textbf{Important:} the basic Kodaira--Nakano estimate applies directly
+to \(K_X\otimes B\); producing prescribed jets of \(L^k\)
+requires the corresponding twist and weighted estimates.
+\end{frame}
+
 \end{document}
