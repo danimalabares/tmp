@@ -212,17 +212,24 @@ the bump function changes.
 \textbf{Goal:} correct \(s_0\) without losing the prescribed value at \(p\).
 \end{frame}
 
-\begin{frame}{Correcting the error}
-Try to solve the \(\bar\partial\)-equation
+\begin{frame}{What exactly is the correction?}
+The correction \(u:X\to L^k\) is \textbf{another smooth section of the same bundle}.
+For every \(x\in X\), both \(s_0(x)\) and \(u(x)\) lie in \(L_x^k\),
+so we can subtract them \textbf{fiberwise}:
 \[
-\bar\partial u=f=\bar\partial s_0.
+S(x)=s_0(x)-u(x).
 \]
-Then
+Choose \(u\) by solving
 \[
-S=s_0-u,\qquad \bar\partial S=0,
+\bar\partial u=\bar\partial s_0=f.
 \]
-so \(S\) is a \textbf{global holomorphic section}.
+Then \(\bar\partial S=f-f=0\), hence \(S\) is holomorphic.
 \par\medskip
+\textbf{Caution:} \(u=s_0\) also solves the equation, but gives \(S=0\)!
+We need a solution with \(u(p)=0\), so \(S(p)=s(p)\).
+\end{frame}
+
+\begin{frame}{Why positivity matters for the correction}
 Positive curvature supplies \(L^2\) estimates for solving
 \(\bar\partial u=f\) in the appropriate bundle and degree.
 \par\medskip
